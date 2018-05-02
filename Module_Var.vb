@@ -3,7 +3,7 @@ Imports System.Threading
 Imports System.Runtime.InteropServices
 Imports System.Globalization.CultureInfo
 Module Module_Var
-    Public Build As String = " Build 20180502"
+    Public Build As String = " Build 20180503"
     Public Version As String = "4.0 beta " + Build
     Public enableMin As Boolean = True
     Public isDebug As Boolean = False

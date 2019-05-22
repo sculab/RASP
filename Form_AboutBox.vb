@@ -15,7 +15,7 @@
         ' TODO: 在项目的“应用程序”窗格中自定义此应用程序的程序集信息 
         '    属性对话框(在“项目”菜单下)。
         Me.LabelProductName.Text = MainWindow.Text
-        Me.LabelVersion.Text = "Version " + Version
+        Me.LabelVersion.Text = "Version " + Version + " " + TargetOS
     End Sub
 
     Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OKButton.Click

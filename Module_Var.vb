@@ -3,8 +3,8 @@ Imports System.Threading
 Imports System.Runtime.InteropServices
 Imports System.Globalization.CultureInfo
 Module Module_Var
-    Public Build As String = " Build 20180503"
-    Public Version As String = "4.0 beta " + Build
+    Public Version As String = "4.1.3"
+    Public build As String = "20190512"
     Public enableMin As Boolean = True
     Public isDebug As Boolean = False
     Public ci As System.Globalization.CultureInfo = New System.Globalization.CultureInfo("en-us")
@@ -22,7 +22,7 @@ Module Module_Var
     Public error_msg As String
     Public path_char As String
     Public root_path As String
-    Public BGB_path As String
+    Public lib_path As String
     Public sdec_lg As String
     Public current_dir As String
     Public final_tree As String = ""
@@ -39,17 +39,21 @@ Module Module_Var
     Public BayesForm As New Config_BBM
     Public TracerForm As New View_Tracer
     Public CombineForm As New Tool_Combine
+    Public SvTForm As New Tool_SvT
     Public BayAreaForm As New Config_BayArea
     Public TraitsForm As New Config_Traits
     Public ChromForm As New Config_Chrom
     Public OptionForm As New View_OptionForm
     Public TraitsView As New View_Dis
+    Public ClusterForm As Boolean = False
+    Public state_mode As Integer = 0
     Public Config_BayArea_Burnin As Integer = 0
     Public taxon_num As Integer
     Public terminal_num As Integer
     Public tree_show As String
     Public tree_show_with_value As String
     Public dtView As New DataView
+    Public orgView As New DataView
     Public nodeView As New DataView
     Public particular_node_num As String = ""
     Public omittedtree As String
@@ -93,22 +97,19 @@ Module Module_Var
     Public CharMatrix() As String, TaxonList() As String
     Public excludeline As String
     Public fossilline As String
+
+    Public state_index As Integer = 2
+    Public state_header As String = ""
+
     Public Function ToVal(ByVal str As String) As Single
         Return Val(str.Replace(Dec_Sym, "."))
     End Function
-    Public Function min(ByVal num1 As Single, ByVal num2 As Single) As Single
-        If num1 > num2 Then
-            Return num2
-        Else
-            Return num1
-        End If
-    End Function
-    Public Function max(ByVal num1 As Single, ByVal num2 As Single) As Single
-        If num1 < num2 Then
-            Return num2
-        Else
-            Return num1
-        End If
+    Public Function sum(ByVal input() As Integer) As Integer
+        Dim r As Integer = 0
+        For Each i As Integer In input
+            r += i
+        Next
+        Return r
     End Function
     Public Sub format_path()
         Select Case TargetOS
@@ -123,7 +124,7 @@ Module Module_Var
             first_open(i) = True
         Next
         root_path = (Application.StartupPath + path_char).Replace(path_char + path_char, path_char)
-        BGB_path = root_path.Replace("\", "/")
+        lib_path = root_path.Replace("\", "/")
         Dec_Sym = CInt("0").ToString("F1").Replace("0", "")
         If Dec_Sym <> "." Then
             'MsgBox("Please change your system's number format to English! (ex. 3.14 not 3,14)")

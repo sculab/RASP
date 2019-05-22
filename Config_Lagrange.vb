@@ -236,9 +236,9 @@ Public Class Config_Lagrange
                     Next
                     If point_1 > 1 Then
                         Temp_node(point_1 - 2, 2) = point_2.ToString + "," + Temp_node(point_1 - 2, 2)
-                        Temp_node(point_1 - 2, 4) = min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
-                        Temp_node(point_1 - 2, 5) = max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
-                    End If
+						Temp_node(point_1 - 2, 4) = Math.Min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+						Temp_node(point_1 - 2, 5) = Math.Max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+					End If
                     point_2 += 1
                     point_1 -= 1
                     Temp_node(point_1, 0) = ""
@@ -270,9 +270,9 @@ Public Class Config_Lagrange
                         taxon_array(tx) = tree_char(i)
                         tx += 1
                         Temp_node(point_1 - 1, 1) += tree_char(i) + ","
-                        Temp_node(point_1 - 1, 4) = min(Val(Temp_node(point_1 - 1, 4)), tx)
-                        Temp_node(point_1 - 1, 5) = max(Val(Temp_node(point_1 - 1, 4)), tx)
-                    End If
+						Temp_node(point_1 - 1, 4) = Math.Min(Val(Temp_node(point_1 - 1, 4)), tx)
+						Temp_node(point_1 - 1, 5) = Math.Max(Val(Temp_node(point_1 - 1, 4)), tx)
+					End If
             End Select
         Next
         make_chain(taxon_num - 1 - 1)
@@ -458,8 +458,8 @@ Public Class Config_Lagrange
                 ReDim TaxonName(taxon_num - 1)
                 ReDim Distribution(taxon_num - 1)
                 For i As Integer = 0 To taxon_num - 1
-                    TaxonName(i) = MainWindow.DataGridView1.Rows(i).Cells(1).Value
-                    Distribution(i) = MainWindow.DataGridView1.Rows(i).Cells(2).Value
+                    TaxonName(i) = dtView.Item(i).Item(1).ToString
+                    Distribution(i) = dtView.Item(i).Item(state_index).ToString
                     ListBox3.Items.Add(TaxonName(i))
                     ListBox4.Items.Add(TaxonName(i))
                 Next
@@ -721,9 +721,9 @@ Public Class Config_Lagrange
                     Next
                     If point_1 > 1 Then
                         Temp_node(point_1 - 2, 2) = point_2.ToString + "," + Temp_node(point_1 - 2, 2)
-                        Temp_node(point_1 - 2, 4) = min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
-                        Temp_node(point_1 - 2, 5) = max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
-                    End If
+						Temp_node(point_1 - 2, 4) = Math.Min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+						Temp_node(point_1 - 2, 5) = Math.Max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+					End If
                     point_2 += 1
                     point_1 -= 1
                     Temp_node(point_1, 0) = ""
@@ -755,9 +755,9 @@ Public Class Config_Lagrange
                         taxon_array(tx) = tree_char(i)
                         tx += 1
                         Temp_node(point_1 - 1, 1) += tree_char(i) + ","
-                        Temp_node(point_1 - 1, 4) = min(Val(Temp_node(point_1 - 1, 4)), tx)
-                        Temp_node(point_1 - 1, 5) = max(Val(Temp_node(point_1 - 1, 4)), tx)
-                    End If
+						Temp_node(point_1 - 1, 4) = Math.Min(Val(Temp_node(point_1 - 1, 4)), tx)
+						Temp_node(point_1 - 1, 5) = Math.Max(Val(Temp_node(point_1 - 1, 4)), tx)
+					End If
             End Select
         Next
         If has_length Then
@@ -1165,8 +1165,8 @@ Public Class Config_Lagrange
         ReDim TaxonName(taxon_num - 1)
         ReDim Distribution(taxon_num - 1)
         For i As Integer = 0 To taxon_num - 1
-            TaxonName(i) = MainWindow.DataGridView1.Rows(i).Cells(1).Value
-            Distribution(i) = MainWindow.DataGridView1.Rows(i).Cells(2).Value
+            TaxonName(i) = dtView.Item(i).Item(1).ToString
+            Distribution(i) = dtView.Item(i).Item(state_index).ToString
             ListBox3.Items.Add(TaxonName(i))
             ListBox4.Items.Add(TaxonName(i))
         Next

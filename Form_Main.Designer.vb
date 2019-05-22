@@ -1,9 +1,9 @@
-<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form_Main
     Inherits System.Windows.Forms.Form
 
     'Form 重写 Dispose，以清理组件列表。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form_Main
     '注意: 以下过程是 Windows 窗体设计器所必需的
     '可以使用 Windows 窗体设计器修改它。
     '不要使用代码编辑器修改它。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Main))
@@ -69,9 +69,11 @@ Partial Class Form_Main
         Me.BayesianBinaryMCMCBBMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CommandBuilderForBayesTraitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChromosomeEvolutionChromEvolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ComparisonToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TreeClusterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StatesVsTreesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OtherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InstallReinstallToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RForWindowsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BioGeoBEARSToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.FindRscriptexeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -79,6 +81,8 @@ Partial Class Form_Main
         Me.RemoveOutgroupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CombineResultsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OmittedTaxaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AddTreeLengthToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TreeTimeMultiplierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.DatingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -104,15 +108,16 @@ Partial Class Form_Main
         Me.RandomTextBox = New System.Windows.Forms.TextBox()
         Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
-        Me.Range_Timer = New System.Windows.Forms.Timer(Me.components)
+        Me.DIVA_Timer = New System.Windows.Forms.Timer(Me.components)
         Me.Bayes_Timer = New System.Windows.Forms.Timer(Me.components)
         Me.statebox = New System.Windows.Forms.RichTextBox()
-        Me.FDTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.Main_Timer = New System.Windows.Forms.Timer(Me.components)
         Me.Lag_Timer = New System.Windows.Forms.Timer(Me.components)
         Me.DPP_Timer = New System.Windows.Forms.Timer(Me.components)
         Me.BGB_Timer = New System.Windows.Forms.Timer(Me.components)
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.Check_Package_Timer = New System.Windows.Forms.Timer(Me.components)
+        Me.ConvertStatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -121,7 +126,7 @@ Partial Class Form_Main
         'MenuStrip1
         '
         Me.MenuStrip1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.GraphicToolStripMenuItem, Me.ProcessToolStripMenuItem, Me.OtherToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.GraphicToolStripMenuItem, Me.ProcessToolStripMenuItem, Me.ComparisonToolStripMenuItem, Me.OtherToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(7, 2, 0, 2)
@@ -140,26 +145,26 @@ Partial Class Form_Main
         '
         Me.LoadTreesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoadTreesDataToolStripMenuItem, Me.QuickLoadToolStripMenuItem, Me.LoadOneTreeToolStripMenuItem, Me.AddTreesDataToolStripMenuItem})
         Me.LoadTreesToolStripMenuItem.Name = "LoadTreesToolStripMenuItem"
-        Me.LoadTreesToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
+        Me.LoadTreesToolStripMenuItem.Size = New System.Drawing.Size(221, 22)
         Me.LoadTreesToolStripMenuItem.Text = "Load Trees"
         '
         'LoadTreesDataToolStripMenuItem
         '
         Me.LoadTreesDataToolStripMenuItem.Name = "LoadTreesDataToolStripMenuItem"
-        Me.LoadTreesDataToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.LoadTreesDataToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.LoadTreesDataToolStripMenuItem.Text = "Load Trees (More Format)"
         '
         'QuickLoadToolStripMenuItem
         '
         Me.QuickLoadToolStripMenuItem.Name = "QuickLoadToolStripMenuItem"
-        Me.QuickLoadToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
-        Me.QuickLoadToolStripMenuItem.Text = "Fast Load"
+        Me.QuickLoadToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
+        Me.QuickLoadToolStripMenuItem.Text = "Quick Load (Beast, Mrbayes)"
         '
         'LoadOneTreeToolStripMenuItem
         '
         Me.LoadOneTreeToolStripMenuItem.Enabled = False
         Me.LoadOneTreeToolStripMenuItem.Name = "LoadOneTreeToolStripMenuItem"
-        Me.LoadOneTreeToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.LoadOneTreeToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.LoadOneTreeToolStripMenuItem.Text = "Load Single Tree"
         Me.LoadOneTreeToolStripMenuItem.Visible = False
         '
@@ -167,77 +172,77 @@ Partial Class Form_Main
         '
         Me.AddTreesDataToolStripMenuItem.Enabled = False
         Me.AddTreesDataToolStripMenuItem.Name = "AddTreesDataToolStripMenuItem"
-        Me.AddTreesDataToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.AddTreesDataToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.AddTreesDataToolStripMenuItem.Text = "Add Trees"
         '
         'LoadDistrutionToolStripMenuItem
         '
         Me.LoadDistrutionToolStripMenuItem.Enabled = False
         Me.LoadDistrutionToolStripMenuItem.Name = "LoadDistrutionToolStripMenuItem"
-        Me.LoadDistrutionToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
-        Me.LoadDistrutionToolStripMenuItem.Text = "Load Distribution"
+        Me.LoadDistrutionToolStripMenuItem.Size = New System.Drawing.Size(221, 22)
+        Me.LoadDistrutionToolStripMenuItem.Text = "Load States (Distributions)"
         '
         'LoadFinalTreeToolStripMenuItem
         '
         Me.LoadFinalTreeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoadConsensusTreeToolStripMenuItem, Me.MakeFinalTreeToolStripMenuItem1})
         Me.LoadFinalTreeToolStripMenuItem.Enabled = False
         Me.LoadFinalTreeToolStripMenuItem.Name = "LoadFinalTreeToolStripMenuItem"
-        Me.LoadFinalTreeToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
+        Me.LoadFinalTreeToolStripMenuItem.Size = New System.Drawing.Size(221, 22)
         Me.LoadFinalTreeToolStripMenuItem.Text = "Load Condensed Tree"
         '
         'LoadConsensusTreeToolStripMenuItem
         '
         Me.LoadConsensusTreeToolStripMenuItem.Name = "LoadConsensusTreeToolStripMenuItem"
-        Me.LoadConsensusTreeToolStripMenuItem.Size = New System.Drawing.Size(331, 22)
+        Me.LoadConsensusTreeToolStripMenuItem.Size = New System.Drawing.Size(221, 22)
         Me.LoadConsensusTreeToolStripMenuItem.Text = "Load User-specified Tree"
         '
         'MakeFinalTreeToolStripMenuItem1
         '
         Me.MakeFinalTreeToolStripMenuItem1.Name = "MakeFinalTreeToolStripMenuItem1"
-        Me.MakeFinalTreeToolStripMenuItem1.Size = New System.Drawing.Size(331, 22)
-        Me.MakeFinalTreeToolStripMenuItem1.Text = "Compute Condensed Tree (No Branch Length)"
+        Me.MakeFinalTreeToolStripMenuItem1.Size = New System.Drawing.Size(221, 22)
+        Me.MakeFinalTreeToolStripMenuItem1.Text = "Compute Condensed Tree"
         '
         'OpenResultToolStripMenuItem
         '
         Me.OpenResultToolStripMenuItem.Name = "OpenResultToolStripMenuItem"
-        Me.OpenResultToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
+        Me.OpenResultToolStripMenuItem.Size = New System.Drawing.Size(221, 22)
         Me.OpenResultToolStripMenuItem.Text = "Load Result"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(195, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(218, 6)
         '
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveResultToolStripMenuItem, Me.SaveDistributionToolStripMenuItem, Me.SaveLogToolStripMenuItem})
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(221, 22)
         Me.SaveToolStripMenuItem.Text = "Save"
         '
         'SaveResultToolStripMenuItem
         '
         Me.SaveResultToolStripMenuItem.Name = "SaveResultToolStripMenuItem"
-        Me.SaveResultToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
-        Me.SaveResultToolStripMenuItem.Text = "Save RASP Result"
+        Me.SaveResultToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.SaveResultToolStripMenuItem.Text = "Save Results"
         '
         'SaveDistributionToolStripMenuItem
         '
         Me.SaveDistributionToolStripMenuItem.Name = "SaveDistributionToolStripMenuItem"
-        Me.SaveDistributionToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
-        Me.SaveDistributionToolStripMenuItem.Text = "Save Distribution"
+        Me.SaveDistributionToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.SaveDistributionToolStripMenuItem.Text = "Save States"
         '
         'SaveLogToolStripMenuItem
         '
         Me.SaveLogToolStripMenuItem.Name = "SaveLogToolStripMenuItem"
-        Me.SaveLogToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+        Me.SaveLogToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.SaveLogToolStripMenuItem.Text = "Save Logs"
         '
         'ExportToolStripMenuItem
         '
         Me.ExportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FormatedTreeToolStripMenuItem, Me.TreeDataSetToolStripMenuItem, Me.RandomTreesToolStripMenuItem})
         Me.ExportToolStripMenuItem.Name = "ExportToolStripMenuItem"
-        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
+        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(221, 22)
         Me.ExportToolStripMenuItem.Text = "Export Trees"
         '
         'FormatedTreeToolStripMenuItem
@@ -264,19 +269,19 @@ Partial Class Form_Main
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(195, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(218, 6)
         '
         'CloseDataToolStripMenuItem
         '
         Me.CloseDataToolStripMenuItem.Enabled = False
         Me.CloseDataToolStripMenuItem.Name = "CloseDataToolStripMenuItem"
-        Me.CloseDataToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
+        Me.CloseDataToolStripMenuItem.Size = New System.Drawing.Size(221, 22)
         Me.CloseDataToolStripMenuItem.Text = "Close Current Data"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(221, 22)
         Me.ExitToolStripMenuItem.Text = "Exit RASP"
         '
         'GraphicToolStripMenuItem
@@ -289,34 +294,34 @@ Partial Class Form_Main
         'TreeViewToolStripMenuItem
         '
         Me.TreeViewToolStripMenuItem.Name = "TreeViewToolStripMenuItem"
-        Me.TreeViewToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.TreeViewToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.TreeViewToolStripMenuItem.Text = "Tree View"
         '
         'PiePictureToolStripMenuItem
         '
         Me.PiePictureToolStripMenuItem.Name = "PiePictureToolStripMenuItem"
-        Me.PiePictureToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.PiePictureToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.PiePictureToolStripMenuItem.Text = "Node View"
         '
         'TracerViewToolStripMenuItem
         '
         Me.TracerViewToolStripMenuItem.Enabled = False
         Me.TracerViewToolStripMenuItem.Name = "TracerViewToolStripMenuItem"
-        Me.TracerViewToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.TracerViewToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.TracerViewToolStripMenuItem.Text = "Tracer View"
         '
         'TraitsViewToolStripMenuItem
         '
         Me.TraitsViewToolStripMenuItem.Name = "TraitsViewToolStripMenuItem"
-        Me.TraitsViewToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
-        Me.TraitsViewToolStripMenuItem.Text = "Distribution View"
+        Me.TraitsViewToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.TraitsViewToolStripMenuItem.Text = "State View"
         '
         'ProcessToolStripMenuItem
         '
         Me.ProcessToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModelTestToolStripMenuItem, Me.ToolStripSeparator8, Me.StatisticalMethodsToolStripMenuItem, Me.OriginalMethodsToolStripMenuItem, Me.TraitsEvolutionToolStripMenuItem})
         Me.ProcessToolStripMenuItem.Name = "ProcessToolStripMenuItem"
-        Me.ProcessToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
-        Me.ProcessToolStripMenuItem.Text = "Analysis"
+        Me.ProcessToolStripMenuItem.Size = New System.Drawing.Size(102, 20)
+        Me.ProcessToolStripMenuItem.Text = "Reconstruction"
         '
         'ModelTestToolStripMenuItem
         '
@@ -415,42 +420,55 @@ Partial Class Form_Main
         Me.ChromosomeEvolutionChromEvolToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
         Me.ChromosomeEvolutionChromEvolToolStripMenuItem.Text = "Chromosome Evolution (ChromEvol)"
         '
+        'ComparisonToolStripMenuItem
+        '
+        Me.ComparisonToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TreeClusterToolStripMenuItem, Me.StatesVsTreesToolStripMenuItem})
+        Me.ComparisonToolStripMenuItem.Name = "ComparisonToolStripMenuItem"
+        Me.ComparisonToolStripMenuItem.Size = New System.Drawing.Size(88, 20)
+        Me.ComparisonToolStripMenuItem.Text = "Comparison"
+        '
+        'TreeClusterToolStripMenuItem
+        '
+        Me.TreeClusterToolStripMenuItem.Name = "TreeClusterToolStripMenuItem"
+        Me.TreeClusterToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TreeClusterToolStripMenuItem.Text = "Trees Cluster"
+        '
+        'StatesVsTreesToolStripMenuItem
+        '
+        Me.StatesVsTreesToolStripMenuItem.Name = "StatesVsTreesToolStripMenuItem"
+        Me.StatesVsTreesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.StatesVsTreesToolStripMenuItem.Text = "State vs. Trees"
+        '
         'OtherToolStripMenuItem
         '
-        Me.OtherToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InstallReinstallToolStripMenuItem, Me.ToolStripSeparator7, Me.RemoveOutgroupToolStripMenuItem, Me.CombineResultsToolStripMenuItem, Me.OmittedTaxaToolStripMenuItem1, Me.TreeTimeMultiplierToolStripMenuItem, Me.ToolStripSeparator1, Me.DatingToolStripMenuItem, Me.BatchToolToolStripMenuItem})
+        Me.OtherToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InstallReinstallToolStripMenuItem, Me.ToolStripSeparator7, Me.RemoveOutgroupToolStripMenuItem, Me.CombineResultsToolStripMenuItem, Me.OmittedTaxaToolStripMenuItem1, Me.ToolStripSeparator9, Me.AddTreeLengthToolStripMenuItem, Me.TreeTimeMultiplierToolStripMenuItem, Me.ToolStripSeparator1, Me.ConvertStatesToolStripMenuItem, Me.DatingToolStripMenuItem, Me.BatchToolToolStripMenuItem})
         Me.OtherToolStripMenuItem.Name = "OtherToolStripMenuItem"
         Me.OtherToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
         Me.OtherToolStripMenuItem.Text = "Tools"
         '
         'InstallReinstallToolStripMenuItem
         '
-        Me.InstallReinstallToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RForWindowsToolStripMenuItem, Me.BioGeoBEARSToolStripMenuItem1, Me.ToolStripSeparator4, Me.FindRscriptexeToolStripMenuItem})
+        Me.InstallReinstallToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BioGeoBEARSToolStripMenuItem1, Me.ToolStripSeparator4, Me.FindRscriptexeToolStripMenuItem})
         Me.InstallReinstallToolStripMenuItem.Name = "InstallReinstallToolStripMenuItem"
         Me.InstallReinstallToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
         Me.InstallReinstallToolStripMenuItem.Text = "Install 3rd Party"
         '
-        'RForWindowsToolStripMenuItem
-        '
-        Me.RForWindowsToolStripMenuItem.Name = "RForWindowsToolStripMenuItem"
-        Me.RForWindowsToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
-        Me.RForWindowsToolStripMenuItem.Text = "R for Windows"
-        '
         'BioGeoBEARSToolStripMenuItem1
         '
         Me.BioGeoBEARSToolStripMenuItem1.Name = "BioGeoBEARSToolStripMenuItem1"
-        Me.BioGeoBEARSToolStripMenuItem1.Size = New System.Drawing.Size(176, 22)
-        Me.BioGeoBEARSToolStripMenuItem1.Text = "BioGeoBEARS"
+        Me.BioGeoBEARSToolStripMenuItem1.Size = New System.Drawing.Size(172, 22)
+        Me.BioGeoBEARSToolStripMenuItem1.Text = "R packages"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(173, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(169, 6)
         '
         'FindRscriptexeToolStripMenuItem
         '
         Me.FindRscriptexeToolStripMenuItem.Name = "FindRscriptexeToolStripMenuItem"
-        Me.FindRscriptexeToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
-        Me.FindRscriptexeToolStripMenuItem.Text = "Path of Rscript.exe"
+        Me.FindRscriptexeToolStripMenuItem.Size = New System.Drawing.Size(172, 22)
+        Me.FindRscriptexeToolStripMenuItem.Text = "Select Rscript.exe"
         '
         'ToolStripSeparator7
         '
@@ -475,24 +493,34 @@ Partial Class Form_Main
         Me.OmittedTaxaToolStripMenuItem1.Size = New System.Drawing.Size(215, 22)
         Me.OmittedTaxaToolStripMenuItem1.Text = "Add Omitted Groups"
         '
+        'ToolStripSeparator9
+        '
+        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(212, 6)
+        '
+        'AddTreeLengthToolStripMenuItem
+        '
+        Me.AddTreeLengthToolStripMenuItem.Name = "AddTreeLengthToolStripMenuItem"
+        Me.AddTreeLengthToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.AddTreeLengthToolStripMenuItem.Text = "Add Branch Length"
+        '
         'TreeTimeMultiplierToolStripMenuItem
         '
         Me.TreeTimeMultiplierToolStripMenuItem.Name = "TreeTimeMultiplierToolStripMenuItem"
         Me.TreeTimeMultiplierToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.TreeTimeMultiplierToolStripMenuItem.Text = "Tree Length Multiplier "
+        Me.TreeTimeMultiplierToolStripMenuItem.Text = "Branch Length Multiplier "
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(212, 6)
-        Me.ToolStripSeparator1.Visible = False
         '
         'DatingToolStripMenuItem
         '
         Me.DatingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoadDataToolStripMenuItem, Me.DPPAnalysisToolStripMenuItem})
         Me.DatingToolStripMenuItem.Name = "DatingToolStripMenuItem"
         Me.DatingToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.DatingToolStripMenuItem.Text = "Molecular Colock"
+        Me.DatingToolStripMenuItem.Text = "Molecular Clock"
         Me.DatingToolStripMenuItem.Visible = False
         '
         'LoadDataToolStripMenuItem
@@ -524,13 +552,13 @@ Partial Class Form_Main
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(111, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'DebugToolStripMenuItem
         '
         Me.DebugToolStripMenuItem.Name = "DebugToolStripMenuItem"
-        Me.DebugToolStripMenuItem.Size = New System.Drawing.Size(111, 22)
+        Me.DebugToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.DebugToolStripMenuItem.Text = "Debug"
         '
         'TreeBox
@@ -583,7 +611,7 @@ Partial Class Form_Main
         'CmdBox
         '
         Me.CmdBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CmdBox.BackColor = System.Drawing.Color.White
         Me.CmdBox.ForeColor = System.Drawing.Color.Black
         Me.CmdBox.Location = New System.Drawing.Point(0, 384)
@@ -595,8 +623,8 @@ Partial Class Form_Main
         'DataGridView1
         '
         Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(0, 36)
@@ -608,7 +636,7 @@ Partial Class Form_Main
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.TreeInfo)
         Me.GroupBox1.Controls.Add(Me.FinalTreeBox)
@@ -631,7 +659,7 @@ Partial Class Form_Main
         'Button1
         '
         Me.Button1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.Location = New System.Drawing.Point(12, 440)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(212, 26)
@@ -642,7 +670,7 @@ Partial Class Form_Main
         'TreeInfo
         '
         Me.TreeInfo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TreeInfo.BackColor = System.Drawing.SystemColors.Info
         Me.TreeInfo.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TreeInfo.Location = New System.Drawing.Point(7, 179)
@@ -707,16 +735,16 @@ Partial Class Form_Main
         'ProgressBar1
         '
         Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ProgressBar1.Location = New System.Drawing.Point(0, 545)
         Me.ProgressBar1.Maximum = 10000
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(790, 28)
         Me.ProgressBar1.TabIndex = 21
         '
-        'Range_Timer
+        'DIVA_Timer
         '
-        Me.Range_Timer.Interval = 1000
+        Me.DIVA_Timer.Interval = 1000
         '
         'Bayes_Timer
         '
@@ -735,9 +763,9 @@ Partial Class Form_Main
         Me.statebox.TabIndex = 22
         Me.statebox.Text = ""
         '
-        'FDTimer
+        'Main_Timer
         '
-        Me.FDTimer.Interval = 1000
+        Me.Main_Timer.Interval = 1000
         '
         'Lag_Timer
         '
@@ -755,6 +783,12 @@ Partial Class Form_Main
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
         Me.ToolStripSeparator6.Size = New System.Drawing.Size(359, 6)
+        '
+        'ConvertStatesToolStripMenuItem
+        '
+        Me.ConvertStatesToolStripMenuItem.Name = "ConvertStatesToolStripMenuItem"
+        Me.ConvertStatesToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.ConvertStatesToolStripMenuItem.Text = "Convert States"
         '
         'Form_Main
         '
@@ -813,7 +847,7 @@ Partial Class Form_Main
     Friend WithEvents CloseDataToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MakeFinalTreeToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OtherToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Range_Timer As System.Windows.Forms.Timer
+    Friend WithEvents DIVA_Timer As System.Windows.Forms.Timer
     Friend WithEvents LoadTreesDataToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AddTreesDataToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TreeBox_P As System.Windows.Forms.TextBox
@@ -821,7 +855,7 @@ Partial Class Form_Main
     Friend WithEvents OmittedTaxaToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Bayes_Timer As System.Windows.Forms.Timer
     Friend WithEvents statebox As System.Windows.Forms.RichTextBox
-    Friend WithEvents FDTimer As System.Windows.Forms.Timer
+    Friend WithEvents Main_Timer As System.Windows.Forms.Timer
     Friend WithEvents QuickLoadToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LoadOneTreeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SaveToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -850,7 +884,6 @@ Partial Class Form_Main
     Friend WithEvents InstallReinstallToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BioGeoBEARSToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator7 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents RForWindowsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FindRscriptexeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents Check_Package_Timer As System.Windows.Forms.Timer
@@ -871,5 +904,10 @@ Partial Class Form_Main
     Friend WithEvents BioGeoBEARSToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TreeTimeMultiplierToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
-
+    Friend WithEvents AddTreeLengthToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
+    Friend WithEvents ComparisonToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TreeClusterToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents StatesVsTreesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConvertStatesToolStripMenuItem As ToolStripMenuItem
 End Class

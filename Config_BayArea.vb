@@ -234,9 +234,9 @@ Public Class Config_BayArea
                     Next
                     If point_1 > 1 Then
                         Temp_node(point_1 - 2, 2) = point_2.ToString + "," + Temp_node(point_1 - 2, 2)
-                        Temp_node(point_1 - 2, 4) = min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
-                        Temp_node(point_1 - 2, 5) = max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
-                    End If
+						Temp_node(point_1 - 2, 4) = Math.Min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+						Temp_node(point_1 - 2, 5) = Math.Max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+					End If
                     point_2 += 1
                     point_1 -= 1
                     Temp_node(point_1, 0) = ""
@@ -252,9 +252,9 @@ Public Class Config_BayArea
                         taxon_array(tx) = tree_char(i)
                         tx += 1
                         Temp_node(point_1 - 1, 1) += tree_char(i) + ","
-                        Temp_node(point_1 - 1, 4) = min(Val(Temp_node(point_1 - 1, 4)), tx)
-                        Temp_node(point_1 - 1, 5) = max(Val(Temp_node(point_1 - 1, 4)), tx)
-                    End If
+						Temp_node(point_1 - 1, 4) = Math.Min(Val(Temp_node(point_1 - 1, 4)), tx)
+						Temp_node(point_1 - 1, 5) = Math.Max(Val(Temp_node(point_1 - 1, 4)), tx)
+					End If
             End Select
         Next
         If has_length Then
@@ -310,19 +310,19 @@ Public Class Config_BayArea
             MsgBox("Chain length should be an integer multiple of frequent of samples.")
             Exit Sub
         End If
-            delete_temp_file("bayArea.areas.txt")
-            delete_temp_file("bayArea.geo.txt")
-            delete_temp_file("bayArea.tree.txt")
-            delete_temp_file("bayArea.config.txt")
-            Dim range_file As New StreamWriter(root_path + "temp\bayarea.areas.txt", False)
-            range_file.WriteLine(dtView.Count.ToString + " " + RangeStr.Length.ToString)
-            For i As Integer = 1 To dtView.Count
-                range_file.WriteLine(MainWindow.DataGridView1.Rows(i - 1).Cells(0).Value.ToString + " " + Distributiton_to_Binary(MainWindow.DataGridView1.Rows(i - 1).Cells(2).Value.ToString, RangeStr.Length))
-            Next
-            range_file.Close()
+        delete_temp_file("bayArea.areas.txt")
+        delete_temp_file("bayArea.geo.txt")
+        delete_temp_file("bayArea.tree.txt")
+        delete_temp_file("bayArea.config.txt")
+        Dim range_file As New StreamWriter(root_path + "temp\bayarea.areas.txt", False)
+        range_file.WriteLine(dtView.Count.ToString + " " + RangeStr.Length.ToString)
+        For i As Integer = 1 To dtView.Count
+            range_file.WriteLine(dtView.Item(i - 1).Item(0).ToString + " " + Distributiton_to_Binary(dtView.Item(i - 1).Item(state_index).ToString, RangeStr.Length))
+        Next
+        range_file.Close()
 
-            Dim geo_file As New StreamWriter(root_path + "temp\bayarea.geo.txt", False)
-            geo_file.WriteLine("# 0.0")
+        Dim geo_file As New StreamWriter(root_path + "temp\bayarea.geo.txt", False)
+        geo_file.WriteLine("# 0.0")
         For i As Integer = 0 To RangeStr.Length - 1
             If CSng(DataGridView1.Rows(i).Cells(1).Value) = 0 Then
                 DataGridView1.Rows(i).Cells(1).Value = "0.000001"
@@ -332,49 +332,49 @@ Public Class Config_BayArea
             End If
             geo_file.WriteLine(DataGridView1.Rows(i).Cells(1).Value.ToString + " " + DataGridView1.Rows(i).Cells(2).Value.ToString)
         Next
-            geo_file.Close()
+        geo_file.Close()
 
-            Dim tree_file As New StreamWriter(root_path + "temp\bayarea.tree.txt", False)
-            tree_file.WriteLine(bay_tree)
-            tree_file.Close()
+        Dim tree_file As New StreamWriter(root_path + "temp\bayarea.tree.txt", False)
+        tree_file.WriteLine(bay_tree)
+        tree_file.Close()
 
-            Dim config_file As New StreamWriter(root_path + "temp\bayarea.config.txt", False)
-            config_file.WriteLine("-areaFileName=bayarea.areas.txt")
-            config_file.WriteLine("-geoFileName=bayarea.geo.txt")
-            config_file.WriteLine("-treeFileName=bayarea.tree.txt")
-            config_file.WriteLine("-chainLength=" + TextBox3.Text)
-            config_file.WriteLine("-parameterSampleFrequency=" + TextBox1.Text)
-            config_file.WriteLine("-historySampleFrequency=" + TextBox1.Text)
-            config_file.WriteLine("-chainBurnIn=0")
-            config_file.WriteLine("-probBurnIn=0")
-            config_file.WriteLine("-printFrequency=" + TextBox1.Text)
-            Select Case ComboBox1.SelectedIndex
-                Case 0
-                    config_file.WriteLine("-modelType=1")
-                Case Else
-                    config_file.WriteLine("-modelType=3")
-            End Select
-            config_file.WriteLine("-guessInitialRates=" + ComboBox4.Text)
-            config_file.WriteLine("-geoDistancePowerPositive=" + ComboBox2.Text)
-            config_file.WriteLine("-geoDistanceTruncate=" + ComboBox3.Text)
-            config_file.WriteLine(TextBox2.Text)
-            config_file.Close()
+        Dim config_file As New StreamWriter(root_path + "temp\bayarea.config.txt", False)
+        config_file.WriteLine("-areaFileName=bayarea.areas.txt")
+        config_file.WriteLine("-geoFileName=bayarea.geo.txt")
+        config_file.WriteLine("-treeFileName=bayarea.tree.txt")
+        config_file.WriteLine("-chainLength=" + TextBox3.Text)
+        config_file.WriteLine("-parameterSampleFrequency=" + TextBox1.Text)
+        config_file.WriteLine("-historySampleFrequency=" + TextBox1.Text)
+        config_file.WriteLine("-chainBurnIn=0")
+        config_file.WriteLine("-probBurnIn=0")
+        config_file.WriteLine("-printFrequency=" + TextBox1.Text)
+        Select Case ComboBox1.SelectedIndex
+            Case 0
+                config_file.WriteLine("-modelType=1")
+            Case Else
+                config_file.WriteLine("-modelType=3")
+        End Select
+        config_file.WriteLine("-guessInitialRates=" + ComboBox4.Text)
+        config_file.WriteLine("-geoDistancePowerPositive=" + ComboBox2.Text)
+        config_file.WriteLine("-geoDistanceTruncate=" + ComboBox3.Text)
+        config_file.WriteLine(TextBox2.Text)
+        config_file.Close()
 
-            StartTreeView = False
-            Process_ID = 7
-            bayarea_gen = 0
-            MainWindow.FDTimer.Enabled = True
-            bayesIsrun = True
-            Process_Text += Chr(10) + "**********BAYAREA ANALYSIS**********"
+        StartTreeView = False
+        Process_ID = 7
+        bayarea_gen = 0
+        MainWindow.Main_Timer.Enabled = True
+        bayesIsrun = True
+        Process_Text += Chr(10) + "**********BAYAREA ANALYSIS**********"
         Process_Text += Chr(10) + "Analysis start at " + Date.Now.ToString + Chr(10)
 
         config_BayArea_cycle = CSng(TextBox3.Text)
         config_BayArea_fre = CSng(TextBox1.Text)
 
-            Dim lb As New Thread(AddressOf loadbayes)
-            lb.CurrentCulture = ci
-            lb.Start()
-            Me.Hide()
+        Dim lb As New Thread(AddressOf loadbayes)
+        lb.CurrentCulture = ci
+        lb.Start()
+        Me.Hide()
     End Sub
     Public Sub loadbayes()
         current_dir = Directory.GetCurrentDirectory

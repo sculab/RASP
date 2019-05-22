@@ -192,8 +192,8 @@ Public Class Config_SDIVA
         If Me.Visible = True Then
             If RangeStr.Length <> DataGridView1.Columns.Count Then
                 If taxon_num > 10 Then
-                    NumericUpDown1.Value = max(2, CInt(2 ^ (taxon_num / 60)))
-                End If
+					NumericUpDown1.Value = Math.Max(2, CInt(2 ^ (taxon_num / 60)))
+				End If
                 Dim Tempchar() As Char = RangeStr.ToUpper
                 NumericUpDown2.Maximum = RangeStr.Length
                 Array.Sort(Tempchar)
@@ -284,32 +284,6 @@ Public Class Config_SDIVA
         If CheckBox10.Checked Then
             CheckBox11.Checked = False
         End If
-    End Sub
-
-    Private Sub CheckBox3_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox3.CheckedChanged
-        If CheckBox3.Checked = False Then
-            TextBox6.Enabled = False
-            TextBox7.ReadOnly = True
-            CheckBox10.Enabled = False
-            CheckBox11.Enabled = False
-            CheckBox12.Enabled = True
-        Else
-
-            TextBox6.Enabled = True
-            TextBox7.ReadOnly = False
-            CheckBox10.Enabled = True
-            CheckBox11.Enabled = True
-            CheckBox12.Enabled = False
-        End If
-    End Sub
-
-    Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
-        Try
-            CheckBox3.Checked = True
-            TextBox6.Text = DIVAForm.ComboBox1.Text.Split(New Char() {"|"c})(1)
-        Catch ex As Exception
-
-        End Try
     End Sub
 
     Private Sub TextBox6_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox6.TextChanged

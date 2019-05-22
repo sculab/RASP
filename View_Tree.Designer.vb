@@ -28,6 +28,7 @@ Partial Class View_Tree
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LoadResultToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveCurrentViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveTreeToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CurrentTreeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -49,6 +50,7 @@ Partial Class View_Tree
         Me.KeyStatesOnlyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EventNodesOnlyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.IncreaseTreeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SwapSubtreeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SwapWholeTreeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
@@ -102,8 +104,6 @@ Partial Class View_Tree
         Me.TabPage8 = New System.Windows.Forms.TabPage()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
-        Me.IncreaseTreeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveCurrentViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -141,8 +141,8 @@ Partial Class View_Tree
         'Panel1
         '
         Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.AutoScroll = True
         Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.Controls.Add(Me.PictureBox1)
@@ -171,20 +171,27 @@ Partial Class View_Tree
         'LoadResultToolStripMenuItem
         '
         Me.LoadResultToolStripMenuItem.Name = "LoadResultToolStripMenuItem"
-        Me.LoadResultToolStripMenuItem.Size = New System.Drawing.Size(185, 22)
+        Me.LoadResultToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.LoadResultToolStripMenuItem.Text = "Save Result"
+        '
+        'SaveCurrentViewToolStripMenuItem
+        '
+        Me.SaveCurrentViewToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.SaveCurrentViewToolStripMenuItem.Name = "SaveCurrentViewToolStripMenuItem"
+        Me.SaveCurrentViewToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
+        Me.SaveCurrentViewToolStripMenuItem.Text = "Save Current View"
         '
         'SaveInfoToolStripMenuItem
         '
         Me.SaveInfoToolStripMenuItem.Name = "SaveInfoToolStripMenuItem"
-        Me.SaveInfoToolStripMenuItem.Size = New System.Drawing.Size(185, 22)
+        Me.SaveInfoToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.SaveInfoToolStripMenuItem.Text = "Save Info"
         '
         'SaveTreeToolStripMenuItem1
         '
         Me.SaveTreeToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CurrentTreeToolStripMenuItem, Me.TreeWithTimeToolStripMenuItem})
         Me.SaveTreeToolStripMenuItem1.Name = "SaveTreeToolStripMenuItem1"
-        Me.SaveTreeToolStripMenuItem1.Size = New System.Drawing.Size(185, 22)
+        Me.SaveTreeToolStripMenuItem1.Size = New System.Drawing.Size(181, 22)
         Me.SaveTreeToolStripMenuItem1.Text = "Export Tree"
         '
         'CurrentTreeToolStripMenuItem
@@ -203,7 +210,7 @@ Partial Class View_Tree
         '
         Me.SaveAsPNGFileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveTreeToolStripMenuItem, Me.SaveLegendToolStripMenuItem, Me.SaveDiagramToolStripMenuItem})
         Me.SaveAsPNGFileToolStripMenuItem.Name = "SaveAsPNGFileToolStripMenuItem"
-        Me.SaveAsPNGFileToolStripMenuItem.Size = New System.Drawing.Size(185, 22)
+        Me.SaveAsPNGFileToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.SaveAsPNGFileToolStripMenuItem.Text = "Export Graphic"
         '
         'SaveTreeToolStripMenuItem
@@ -227,18 +234,18 @@ Partial Class View_Tree
         'ExportDistributionToolStripMenuItem
         '
         Me.ExportDistributionToolStripMenuItem.Name = "ExportDistributionToolStripMenuItem"
-        Me.ExportDistributionToolStripMenuItem.Size = New System.Drawing.Size(185, 22)
-        Me.ExportDistributionToolStripMenuItem.Text = "Export Distribution"
+        Me.ExportDistributionToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
+        Me.ExportDistributionToolStripMenuItem.Text = "Export State"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(182, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(178, 6)
         '
         'LoadResultToolStripMenuItem1
         '
         Me.LoadResultToolStripMenuItem1.Name = "LoadResultToolStripMenuItem1"
-        Me.LoadResultToolStripMenuItem1.Size = New System.Drawing.Size(185, 22)
+        Me.LoadResultToolStripMenuItem1.Size = New System.Drawing.Size(181, 22)
         Me.LoadResultToolStripMenuItem1.Text = "Load Result"
         '
         'ViewToolStripMenuItem
@@ -307,6 +314,13 @@ Partial Class View_Tree
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(249, 6)
         '
+        'IncreaseTreeToolStripMenuItem
+        '
+        Me.IncreaseTreeToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.IncreaseTreeToolStripMenuItem.Name = "IncreaseTreeToolStripMenuItem"
+        Me.IncreaseTreeToolStripMenuItem.Size = New System.Drawing.Size(252, 22)
+        Me.IncreaseTreeToolStripMenuItem.Text = "Rearrange Tree"
+        '
         'SwapSubtreeToolStripMenuItem
         '
         Me.SwapSubtreeToolStripMenuItem.Name = "SwapSubtreeToolStripMenuItem"
@@ -349,7 +363,7 @@ Partial Class View_Tree
         'ListBox1
         '
         Me.ListBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.ItemHeight = 15
         Me.ListBox1.Location = New System.Drawing.Point(0, 0)
@@ -361,14 +375,14 @@ Partial Class View_Tree
         'Panel2
         '
         Me.Panel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel2.AutoScroll = True
         Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.Controls.Add(Me.PictureBox2)
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(192, 252)
+        Me.Panel2.Size = New System.Drawing.Size(192, 256)
         Me.Panel2.TabIndex = 4
         '
         'PictureBox2
@@ -382,7 +396,7 @@ Partial Class View_Tree
         'TabControl1
         '
         Me.TabControl1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
@@ -442,15 +456,15 @@ Partial Class View_Tree
         'ListView1
         '
         Me.ListView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
         Me.ListView1.LabelWrap = False
         Me.ListView1.Location = New System.Drawing.Point(0, 0)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(192, 248)
+        Me.ListView1.Size = New System.Drawing.Size(192, 252)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -495,8 +509,8 @@ Partial Class View_Tree
         'TextBox1
         '
         Me.TextBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox1.Location = New System.Drawing.Point(0, 0)
         Me.TextBox1.Multiline = True
@@ -509,7 +523,7 @@ Partial Class View_Tree
         'GroupBox2
         '
         Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.Button1)
         Me.GroupBox2.Controls.Add(Me.CheckBox7)
         Me.GroupBox2.Controls.Add(Me.CheckBox6)
@@ -636,7 +650,7 @@ Partial Class View_Tree
         'DataGridView1
         '
         Me.DataGridView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
@@ -752,8 +766,8 @@ Partial Class View_Tree
         'TabControl2
         '
         Me.TabControl2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl2.Controls.Add(Me.TabPage4)
         Me.TabControl2.Controls.Add(Me.TabPage5)
         Me.TabControl2.Controls.Add(Me.TabPage8)
@@ -836,8 +850,8 @@ Partial Class View_Tree
         'PictureBox3
         '
         Me.PictureBox3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox3.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(474, 368)
@@ -847,7 +861,7 @@ Partial Class View_Tree
         'TextBox2
         '
         Me.TextBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBox2.Location = New System.Drawing.Point(3, 374)
         Me.TextBox2.Multiline = True
         Me.TextBox2.Name = "TextBox2"
@@ -868,27 +882,13 @@ Partial Class View_Tree
         'RichTextBox1
         '
         Me.RichTextBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RichTextBox1.Location = New System.Drawing.Point(0, 0)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.Size = New System.Drawing.Size(477, 481)
         Me.RichTextBox1.TabIndex = 0
         Me.RichTextBox1.Text = ""
-        '
-        'IncreaseTreeToolStripMenuItem
-        '
-        Me.IncreaseTreeToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
-        Me.IncreaseTreeToolStripMenuItem.Name = "IncreaseTreeToolStripMenuItem"
-        Me.IncreaseTreeToolStripMenuItem.Size = New System.Drawing.Size(252, 22)
-        Me.IncreaseTreeToolStripMenuItem.Text = "Rearrange Tree"
-        '
-        'SaveCurrentViewToolStripMenuItem
-        '
-        Me.SaveCurrentViewToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
-        Me.SaveCurrentViewToolStripMenuItem.Name = "SaveCurrentViewToolStripMenuItem"
-        Me.SaveCurrentViewToolStripMenuItem.Size = New System.Drawing.Size(185, 22)
-        Me.SaveCurrentViewToolStripMenuItem.Text = "Save Current View"
         '
         'View_Tree
         '
@@ -967,59 +967,58 @@ Partial Class View_Tree
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents CheckBox8 As System.Windows.Forms.CheckBox
-    Friend WithEvents TabControl2 As System.Windows.Forms.TabControl
-    Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
-    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToplogyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents MostLikelyStatesOnlyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents KeyStatesOnlyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents EventNodesOnlyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents SaveDiagramToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents NumericUpDown1 As System.Windows.Forms.NumericUpDown
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents NumericUpDown4 As System.Windows.Forms.NumericUpDown
-    Friend WithEvents ShowPoint As System.Windows.Forms.CheckBox
-    Friend WithEvents ProgressBar1 As System.Windows.Forms.ProgressBar
-    Friend WithEvents NumericUpDown3 As System.Windows.Forms.NumericUpDown
-    Friend WithEvents SingleClade As System.Windows.Forms.CheckBox
-    Friend WithEvents FromParents As System.Windows.Forms.CheckBox
-    Friend WithEvents Showline As System.Windows.Forms.CheckBox
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents TimeBox As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents EventModelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents UseSingleAreaModelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SwapSubtreeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SaveTreeToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents Showlegend As System.Windows.Forms.CheckBox
-    Friend WithEvents CurrentTreeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TreeWithTimeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ExportDistributionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SwapWholeTreeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents GoToToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TabControl3 As System.Windows.Forms.TabControl
-    Friend WithEvents TabPage6 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage7 As System.Windows.Forms.TabPage
-    Friend WithEvents ListView1 As System.Windows.Forms.ListView
-    Friend WithEvents ColorDialog1 As System.Windows.Forms.ColorDialog
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents DisplayMostMLSInCenterToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TabPage8 As System.Windows.Forms.TabPage
-    Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
-    Friend WithEvents IncreaseTreeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SaveCurrentViewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-
+	Friend WithEvents Button2 As System.Windows.Forms.Button
+	Friend WithEvents Label5 As System.Windows.Forms.Label
+	Friend WithEvents CheckBox8 As System.Windows.Forms.CheckBox
+	Friend WithEvents TabControl2 As System.Windows.Forms.TabControl
+	Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
+	Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
+	Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+	Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
+	Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+	Friend WithEvents ToplogyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents MostLikelyStatesOnlyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents KeyStatesOnlyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents EventNodesOnlyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+	Friend WithEvents SaveDiagramToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents NumericUpDown1 As System.Windows.Forms.NumericUpDown
+	Friend WithEvents Label1 As System.Windows.Forms.Label
+	Friend WithEvents Label2 As System.Windows.Forms.Label
+	Friend WithEvents NumericUpDown4 As System.Windows.Forms.NumericUpDown
+	Friend WithEvents ShowPoint As System.Windows.Forms.CheckBox
+	Friend WithEvents ProgressBar1 As System.Windows.Forms.ProgressBar
+	Friend WithEvents NumericUpDown3 As System.Windows.Forms.NumericUpDown
+	Friend WithEvents SingleClade As System.Windows.Forms.CheckBox
+	Friend WithEvents FromParents As System.Windows.Forms.CheckBox
+	Friend WithEvents Showline As System.Windows.Forms.CheckBox
+	Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
+	Friend WithEvents TimeBox As System.Windows.Forms.TextBox
+	Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+	Friend WithEvents Label3 As System.Windows.Forms.Label
+	Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
+	Friend WithEvents EventModelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents UseSingleAreaModelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents SwapSubtreeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents SaveTreeToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
+	Friend WithEvents Showlegend As System.Windows.Forms.CheckBox
+	Friend WithEvents CurrentTreeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents TreeWithTimeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents ExportDistributionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents SwapWholeTreeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
+	Friend WithEvents GoToToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents TabControl3 As System.Windows.Forms.TabControl
+	Friend WithEvents TabPage6 As System.Windows.Forms.TabPage
+	Friend WithEvents TabPage7 As System.Windows.Forms.TabPage
+	Friend WithEvents ListView1 As System.Windows.Forms.ListView
+	Friend WithEvents ColorDialog1 As System.Windows.Forms.ColorDialog
+	Friend WithEvents Button1 As System.Windows.Forms.Button
+	Friend WithEvents DisplayMostMLSInCenterToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents TabPage8 As System.Windows.Forms.TabPage
+	Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
+	Friend WithEvents IncreaseTreeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents SaveCurrentViewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Friend WithEvents DataGridView1 As DataGridView
 End Class

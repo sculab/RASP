@@ -5,7 +5,9 @@ Imports System.Math
 Imports System.Threading
 
 Public Class View_Tree
+    Public show_my_tree As String = ""
     Dim data_type As Integer = 0
+    Dim current_state_mode = 0
     Dim Poly_Node(,) As String
     Dim Node_Relationship(,) As String
     Dim Poly_Node_row(,) As Single
@@ -36,6 +38,8 @@ Public Class View_Tree
     '区域饼图
     Dim Current_AreaS(,) As String
     Dim Current_AreaP(,) As Single
+    Dim max_dis_value As Single = -1 / 0
+    Dim min_dis_value As Single = 1 / 0
     '色卡
     Dim Color_S() As String
     Dim Color_B() As Brush
@@ -45,7 +49,14 @@ Public Class View_Tree
     Dim has_length As Boolean = False
     '平滑度
     Dim smooth_x As Integer = 1
-    Public Show_Tree As String
+
+    Public temp_result_file As String
+
+    Dim time_view As New DataView
+    Dim time_Dataset As New DataSet
+    Dim Loading As Boolean = True
+    Dim TimeView As Integer = 0
+    Public tree_view_limit As Boolean = False
     Public Function Swap_tree(ByVal Treeline As String, ByVal gotnode As Integer) As String
         Dim tree_char() As String
         ReDim tree_char(NumofTaxon * 7)
@@ -214,7 +225,6 @@ Public Class View_Tree
         End If
         Return new_tree
     End Function
-
     Public Sub Read_Poly_Tree(ByVal Treeline As String)
         If Treeline.EndsWith(";") = False Then
             Treeline += ";"
@@ -336,8 +346,8 @@ Public Class View_Tree
                     Next
                     If point_1 > 1 Then
                         Temp_node(point_1 - 2, 2) = point_2.ToString + "," + Temp_node(point_1 - 2, 2)
-                        Temp_node(point_1 - 2, 4) = min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
-                        Temp_node(point_1 - 2, 5) = max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+                        Temp_node(point_1 - 2, 4) = Min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+                        Temp_node(point_1 - 2, 5) = Max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
                     End If
                     point_2 += 1
                     point_1 -= 1
@@ -370,8 +380,8 @@ Public Class View_Tree
                         taxon_array(tx) = tree_char(i)
                         tx += 1
                         Temp_node(point_1 - 1, 1) += tree_char(i) + ","
-                        Temp_node(point_1 - 1, 4) = min(Val(Temp_node(point_1 - 1, 4)), tx)
-                        Temp_node(point_1 - 1, 5) = max(Val(Temp_node(point_1 - 1, 4)), tx)
+                        Temp_node(point_1 - 1, 4) = Min(Val(Temp_node(point_1 - 1, 4)), tx)
+                        Temp_node(point_1 - 1, 5) = Max(Val(Temp_node(point_1 - 1, 4)), tx)
                     End If
             End Select
         Next
@@ -412,7 +422,7 @@ Public Class View_Tree
                 For Each j As String In anc_node
                     If j <> "" Then
                         Poly_Node(CInt(j), 9) = i.ToString
-                        Poly_Node(i, 0) = max(Poly_Node(i, 0), Poly_Node(CInt(j), 0) + 1)
+                        Poly_Node(i, 0) = Math.Max(Val(Poly_Node(i, 0)), Poly_Node(CInt(j), 0) + 1)
                     End If
                 Next
             Else
@@ -425,7 +435,7 @@ Public Class View_Tree
         NumericUpDown3.Value = NumofTaxon * 2 - 1
         NumericUpDown3.Minimum = NumofTaxon + 1
         If swaping = False Then
-            NumericUpDown1.Value = Math.Truncate(max((maxtime / 5), 1))
+            NumericUpDown1.Value = Math.Truncate(Max((maxtime / 5), 1))
         End If
         If maxtime <= 0 Then
             has_length = False
@@ -437,7 +447,7 @@ Public Class View_Tree
             If Poly_Node(i, 2) <> "" Then
                 For Each j As String In anc_node
                     If j <> "" Then
-                        max_level = max(Poly_Node(i, 0), max_level)
+                        max_level = Math.Max(Val(Poly_Node(i, 0)), max_level)
                     End If
                 Next
                 For Each j As String In anc_node
@@ -511,18 +521,13 @@ Public Class View_Tree
             Next
         End If
     End Sub
-
     Private Sub TreeView_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         ' e.Cancel = True
         ' Me.Hide()
     End Sub
-    Dim temp_result_file As String
-    Dim time_view As New DataView
-    Dim time_Dataset As New DataSet
-    Dim Loading As Boolean = True
-    Dim TimeView As Integer = 0
+
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TabControl2.TabPages.RemoveByKey("TabPage5")
+
         data_type = 0
         System.Threading.Thread.CurrentThread.CurrentCulture = ci
         CheckForIllegalCrossThreadCalls = False
@@ -572,7 +577,9 @@ Public Class View_Tree
             'Try
             If Me.Visible = True And StartTreeView Then
                 draw_result = File.Exists(root_path + "temp" + path_char + "analysis_result.log")
-
+                If show_my_tree <> "" Then
+                    draw_result = False
+                End If
                 If draw_result And StartTreeView Then
                     Dim k As Integer = 0
                     Do
@@ -587,52 +594,38 @@ Public Class View_Tree
                     read_results(temp_result_file)
 
                 ElseIf StartTreeView = True Then
-                    If tree_show_with_value <> "" Then
-                        Show_Tree = tree_show_with_value.Replace(";", "")
-                        NumofTaxon = Show_Tree.Length - Show_Tree.Replace(",", "").Length + 1
-                        NumofNode = Show_Tree.Length - Show_Tree.Replace("(", "").Length
-
-                        ReDim TaxonName(NumofTaxon - 1)
-                        ReDim Distribution(NumofTaxon - 1)
-                        For i As Integer = 0 To NumofTaxon - 1
-                            TaxonName(i) = MainWindow.DataGridView1.Rows(i).Cells(1).Value
-                            Distribution(i) = MainWindow.DataGridView1.Rows(i).Cells(2).Value
-                            max_taxon_name = max(max_taxon_name, TaxonName(i).Length)
-                        Next
-                        ReDim Current_AreaS(NumofNode - 1, 32)
-                        ReDim Current_AreaP(NumofNode - 1, 32)
-                        ReDim Color_S(0)
-                        ReDim Color_B(0)
-                        Color_S(0) = "*"
-                        Color_B(0) = Brushes.Black
-
-                        For i As Integer = 0 To RangeLength - 1
-                            ReDim Preserve Color_S(UBound(Color_S) + 1)
-                            ReDim Preserve Color_B(UBound(Color_S))
-                            Color_S(UBound(Color_S)) = ChrW(65 + i)
-                        Next
-                        For Each i As String In Distribution
-                            If Array.IndexOf(Color_S, sort_area(i)) < 0 Then
-                                ReDim Preserve Color_S(UBound(Color_S) + 1)
-                                ReDim Preserve Color_B(UBound(Color_S))
-                                Color_S(UBound(Color_S)) = sort_area(i)
-                            End If
-                        Next
-                        load_color()
-                        Read_Poly_Tree(Show_Tree)
+                    If show_my_tree = "" Then
+                        If tree_show_with_value <> "" Then
+                            show_my_tree = tree_show_with_value.Replace(";", "")
+                            load_my_tree()
+                        Else
+                            StartTreeView = False
+                            draw_result = False
+                        End If
                     Else
-                        StartTreeView = False
-                        draw_result = False
+                        load_my_tree()
                     End If
+
                 End If
             End If
-            'Catch ex As Exception
-            '    StartTreeView = False
-            '    draw_result = False
-            '    MsgBox(ex.ToString)
-            '    MsgBox("Error of reading result file!", MsgBoxStyle.Information)
-            '    Me.Hide()
-            'End Try
+            For i As Integer = 0 To NumofTaxon - 1
+                If IsNumeric(Distribution(i)) Then
+                    current_state_mode = 1
+                    Exit For
+                End If
+            Next
+            If current_state_mode = 1 Then
+                For i As Integer = 0 To NumofTaxon - 1
+                    If IsNumeric(Distribution(i)) Then
+                        If CSng(Distribution(i)) > max_dis_value Then
+                            max_dis_value = CSng(Distribution(i))
+                        End If
+                        If CSng(Distribution(i)) < min_dis_value Then
+                            min_dis_value = CSng(Distribution(i))
+                        End If
+                    End If
+                Next
+            End If
             If StartTreeView Then
                 Loading = False
                 PictureBox1.Width = (max_level + 2) * Branch_length + 2 * Border_separation + (max_taxon_name + RangeStr.Length + 8) * Label_font.SizeInPoints
@@ -640,8 +633,50 @@ Public Class View_Tree
                 Bitmap_Tree = New Bitmap(CInt(PictureBox1.Width), CInt(PictureBox1.Height))
                 draw_tree(Graphics.FromImage(Bitmap_Tree))
                 PictureBox1.Refresh()
+                If tree_view_limit Then
+                    tree_view_limit = False
+                    TabControl1.Visible = False
+                    TabControl2.Dock = DockStyle.Fill
+                    TabControl2.TabPages.RemoveAt(2)
+                    TabControl2.TabPages.RemoveAt(1)
+                    IncreaseTreeToolStripMenuItem_Click(sender, e)
+                End If
             End If
         End If
+    End Sub
+    Public Sub load_my_tree()
+        NumofTaxon = show_my_tree.Length - show_my_tree.Replace(",", "").Length + 1
+        NumofNode = show_my_tree.Length - show_my_tree.Replace("(", "").Length
+
+        ReDim TaxonName(NumofTaxon - 1)
+        ReDim Distribution(NumofTaxon - 1)
+        For i As Integer = 0 To NumofTaxon - 1
+            TaxonName(i) = dtView.Item(i).Item(1).ToString
+            Distribution(i) = dtView.Item(i).Item(state_index).ToString
+            max_taxon_name = Math.Max(max_taxon_name, TaxonName(i).Length)
+        Next
+
+        ReDim Current_AreaS(NumofNode - 1, 32)
+        ReDim Current_AreaP(NumofNode - 1, 32)
+        ReDim Color_S(0)
+        ReDim Color_B(0)
+        Color_S(0) = "*"
+        Color_B(0) = Brushes.Black
+
+        For i As Integer = 0 To RangeLength - 1
+            ReDim Preserve Color_S(UBound(Color_S) + 1)
+            ReDim Preserve Color_B(UBound(Color_S))
+            Color_S(UBound(Color_S)) = ChrW(65 + i)
+        Next
+        For Each i As String In Distribution
+            If Array.IndexOf(Color_S, sort_area(i)) < 0 Then
+                ReDim Preserve Color_S(UBound(Color_S) + 1)
+                ReDim Preserve Color_B(UBound(Color_S))
+                Color_S(UBound(Color_S)) = sort_area(i)
+            End If
+        Next
+        load_color()
+        Read_Poly_Tree(show_my_tree)
     End Sub
     Public Sub SortNum(ByRef input_array() As Object)
         For i As Integer = 0 To UBound(input_array)
@@ -721,7 +756,7 @@ Public Class View_Tree
             ReDim Preserve Distribution(Temparray)
             ReDim Preserve TaxonName(Temparray)
             TaxonName(Temparray) = line.Split(New Char() {"	"c})(1)
-            max_taxon_name = max(max_taxon_name, TaxonName(Temparray).Length)
+            max_taxon_name = Max(max_taxon_name, TaxonName(Temparray).Length)
             Distribution(Temparray) = line.Split(New Char() {"	"c})(2).ToUpper
 
             Temparray += 1
@@ -736,9 +771,9 @@ Public Class View_Tree
         Next
         RangeLength = temp_range.Length
         NumofTaxon = Temparray
-        Show_Tree = sr.ReadLine.Split(New Char() {"="c})(1).Replace(";", "")
-        NumofNode = Show_Tree.Length - Show_Tree.Replace("(", "").Length
-        Read_Poly_Tree(Show_Tree)
+        show_my_tree = sr.ReadLine.Split(New Char() {"="c})(1).Replace(";", "")
+        NumofNode = show_my_tree.Length - show_my_tree.Replace("(", "").Length
+        Read_Poly_Tree(show_my_tree)
         Temparray = 1
 
         ListBox1.Items.Clear()
@@ -899,7 +934,7 @@ Public Class View_Tree
                             If var_name = "taxon_pie_radii" Then
                                 taxon_pie_radii = var_value
                             End If
-                           
+
                         End If
                         line = sr.ReadLine
                     Loop Until line = ""
@@ -933,8 +968,8 @@ Public Class View_Tree
         ListBox1.SelectedIndex = (result_ID - 1) * (NumofNode + 1)
         ComboBox2.SelectedIndex = 0
         If has_rec Then
-            Dim result1 As DialogResult = MessageBox.Show("Load reconstructions with maximal S-DIVA value only?", _
-            "Load reconstructions", _
+            Dim result1 As DialogResult = MessageBox.Show("Load reconstructions with maximal S-DIVA value only?",
+            "Load reconstructions",
             MessageBoxButtons.YesNo)
             If result1 = MsgBoxResult.Yes Then
                 Dim th1 As New Thread(AddressOf read_max_reconstruction)
@@ -970,7 +1005,7 @@ Public Class View_Tree
     Public Sub read_max_reconstruction()
         Dim temp_value As Single = 0
         Dim max_value As Single = -1
-        Dim max_array() As String
+        Dim max_array(0) As String
 
         Dim sr As StreamReader
         sr = New StreamReader(reconstr_path)
@@ -1152,7 +1187,7 @@ Public Class View_Tree
         ReDim Poly_terminal_xy_draw(NumofTaxon - 1, 2)
         Dim Tree_pen As New System.Drawing.Pen(System.Drawing.Color.Black, Line_width)
         Dim Select_pen As New System.Drawing.Pen(System.Drawing.Color.Red, Line_width * 2)
-        Dim Line_pen As New System.Drawing.Pen(System.Drawing.Color.LightGray, max(1, CInt(Line_width / 2)))
+        Dim Line_pen As New System.Drawing.Pen(System.Drawing.Color.LightGray, Max(1, CInt(Line_width / 2)))
         Dim startpoint As Integer = (max_level + 2) * Branch_length + Border_separation 'x
 
         For i As Integer = 0 To NumofTaxon - 1
@@ -1246,7 +1281,7 @@ Public Class View_Tree
                     Dim x2() As Single, y2() As Single
                     ReDim x2(32)
                     ReDim y2(32)
-                   
+
                     If Show_area_pies Then
                         If CSng(Poly_Node(j, 6)) >= Hide_pie Then
                             If MostLikelyStatesOnlyToolStripMenuItem.Checked Then '只显示最有可能的分布
@@ -1463,16 +1498,26 @@ Public Class View_Tree
                 Temp_str = "(" + Distribution(i) + ") " + Temp_str
             End If
             If Display_taxon_pie Then
-                If RadioButton2.Checked Then
-                    TempGrap.FillPie(Brushes.LightGray, startpoint - CInt(Poly_terminal_xy_draw(i, 1)) - taxon_pie_radii, CInt(Poly_terminal_xy_draw(i, 0)) - taxon_pie_radii, taxon_pie_radii * 2, taxon_pie_radii * 2, 0, CSng(359.99))
-                    For Each c As Char In Distribution(i)
-                        TempGrap.FillPie(Color_B(Array.IndexOf(Color_S, sort_area(Distribution(i)))), startpoint - CInt(Poly_terminal_xy_draw(i, 1)) - taxon_pie_radii, CInt(Poly_terminal_xy_draw(i, 0)) - taxon_pie_radii, taxon_pie_radii * 2, taxon_pie_radii * 2, CSng(CSng(359.99) * (Asc(c) - 65) / RangeLength), CSng(CSng(359.99) / RangeLength))
-                    Next
-                    TempGrap.DrawEllipse(New Pen(Color.Black), startpoint - CInt(Poly_terminal_xy_draw(i, 1)) - taxon_pie_radii, CInt(Poly_terminal_xy_draw(i, 0)) - taxon_pie_radii, taxon_pie_radii * 2, taxon_pie_radii * 2)
-                Else
-                    TempGrap.FillPie(Color_B(Array.IndexOf(Color_S, sort_area(Distribution(i)))), startpoint - CInt(Poly_terminal_xy_draw(i, 1)) - taxon_pie_radii, CInt(Poly_terminal_xy_draw(i, 0)) - taxon_pie_radii, taxon_pie_radii * 2, taxon_pie_radii * 2, 0, CSng(359.99))
-                    TempGrap.DrawEllipse(New Pen(Color.Black), startpoint - CInt(Poly_terminal_xy_draw(i, 1)) - taxon_pie_radii, CInt(Poly_terminal_xy_draw(i, 0)) - taxon_pie_radii, taxon_pie_radii * 2, taxon_pie_radii * 2)
-                End If
+                Select Case current_state_mode
+                    Case 0
+                        If RadioButton2.Checked Then
+                            TempGrap.FillPie(Brushes.LightGray, startpoint - CInt(Poly_terminal_xy_draw(i, 1)) - taxon_pie_radii, CInt(Poly_terminal_xy_draw(i, 0)) - taxon_pie_radii, taxon_pie_radii * 2, taxon_pie_radii * 2, 0, CSng(359.99))
+                            For Each c As Char In Distribution(i)
+                                TempGrap.FillPie(Color_B(Array.IndexOf(Color_S, sort_area(Distribution(i)))), startpoint - CInt(Poly_terminal_xy_draw(i, 1)) - taxon_pie_radii, CInt(Poly_terminal_xy_draw(i, 0)) - taxon_pie_radii, taxon_pie_radii * 2, taxon_pie_radii * 2, CSng(CSng(359.99) * (Asc(c) - 65) / RangeLength), CSng(CSng(359.99) / RangeLength))
+                            Next
+                            TempGrap.DrawEllipse(New Pen(Color.Black), startpoint - CInt(Poly_terminal_xy_draw(i, 1)) - taxon_pie_radii, CInt(Poly_terminal_xy_draw(i, 0)) - taxon_pie_radii, taxon_pie_radii * 2, taxon_pie_radii * 2)
+                        Else
+                            TempGrap.FillPie(Color_B(Array.IndexOf(Color_S, sort_area(Distribution(i)))), startpoint - CInt(Poly_terminal_xy_draw(i, 1)) - taxon_pie_radii, CInt(Poly_terminal_xy_draw(i, 0)) - taxon_pie_radii, taxon_pie_radii * 2, taxon_pie_radii * 2, 0, CSng(359.99))
+                            TempGrap.DrawEllipse(New Pen(Color.Black), startpoint - CInt(Poly_terminal_xy_draw(i, 1)) - taxon_pie_radii, CInt(Poly_terminal_xy_draw(i, 0)) - taxon_pie_radii, taxon_pie_radii * 2, taxon_pie_radii * 2)
+                        End If
+                    Case 1
+                        If IsNumeric(Distribution(i)) Then
+                            Dim n As Integer = 255 * (max_dis_value - CSng(Distribution(i))) / (max_dis_value - min_dis_value)
+                            Dim mycolor As Color = Color.FromArgb(n, n, n)
+                            TempGrap.FillPie(New SolidBrush(mycolor), startpoint - CInt(Poly_terminal_xy_draw(i, 1)) - taxon_pie_radii, CInt(Poly_terminal_xy_draw(i, 0)) - taxon_pie_radii, taxon_pie_radii * 2, taxon_pie_radii * 2, 0, CSng(359.99))
+                        End If
+                        TempGrap.DrawEllipse(New Pen(Color.Black), startpoint - CInt(Poly_terminal_xy_draw(i, 1)) - taxon_pie_radii, CInt(Poly_terminal_xy_draw(i, 0)) - taxon_pie_radii, taxon_pie_radii * 2, taxon_pie_radii * 2)
+                End Select
             End If
             TempGrap.DrawString(Temp_str, Tree_font, Brushes.Black, startpoint - CInt(Poly_terminal_xy_draw(i, 1)) + pie_radii, CInt(Poly_terminal_xy_draw(i, 0)) - Tree_font.GetHeight / 2)
         Next
@@ -1499,7 +1544,7 @@ Public Class View_Tree
         If draw_result Then
             For i As Integer = 0 To NumofNode - 1
                 If (Poly_Node_col(i, 0) + 1) * Taxon_separation + Label_font.Height + pie_radii > e.Y And e.Y > (Poly_Node_col(i, 0) + 1) * Taxon_separation + Label_font.Height - pie_radii Then
-                    If (max_level + 2) * Branch_length + Border_separation - Poly_Node_col(i, 1) * Branch_length + pie_radii > e.X And _
+                    If (max_level + 2) * Branch_length + Border_separation - Poly_Node_col(i, 1) * Branch_length + pie_radii > e.X And
                     e.X > (max_level + 2) * Branch_length + Border_separation - Poly_Node_col(i, 1) * Branch_length - pie_radii Then
                         click_node = True
                         Selected_node = i
@@ -1525,7 +1570,7 @@ Public Class View_Tree
         ElseIf StartTreeView Then
             For i As Integer = 0 To NumofNode - 1
                 If (Poly_Node_col(i, 0) + 1) * Taxon_separation + Label_font.Height + pie_radii > e.Y And e.Y > (Poly_Node_col(i, 0) + 1) * Taxon_separation + Label_font.Height - pie_radii Then
-                    If (max_level + 2) * Branch_length + Border_separation - Poly_Node_col(i, 1) * Branch_length + pie_radii > e.X And _
+                    If (max_level + 2) * Branch_length + Border_separation - Poly_Node_col(i, 1) * Branch_length + pie_radii > e.X And
                     e.X > (max_level + 2) * Branch_length + Border_separation - Poly_Node_col(i, 1) * Branch_length - pie_radii Then
                         click_node = True
                         Selected_node = i
@@ -3175,7 +3220,7 @@ Public Class View_Tree
     Private Sub SwapSubtreeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SwapSubtreeToolStripMenuItem.Click
         If Selected_node >= 0 Then
             swaping = True
-            Show_Tree = Swap_tree(Show_Tree, Selected_node + 1)
+            show_my_tree = Swap_tree(show_my_tree, Selected_node + 1)
             Load_result()
             cale_relation()
             Global_Info()
@@ -3252,7 +3297,7 @@ Public Class View_Tree
     End Sub
 
     Private Sub CurrentTreeToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CurrentTreeToolStripMenuItem.Click
-        If Show_Tree <> "" Then
+        If show_my_tree <> "" Then
             Dim opendialog As New SaveFileDialog
             opendialog.Filter = "Phylip Tree File (*.tre)|*.tre;*.TRE|ALL Files(*.*)|*.*"
             opendialog.FileName = ""
@@ -3263,7 +3308,7 @@ Public Class View_Tree
             If resultdialog = DialogResult.OK Then
                 Dim wr As New StreamWriter(opendialog.FileName, False)
                 If opendialog.FileName.ToUpper.EndsWith(".TRE") Then
-                    Dim temp_tree As String = Show_Tree + ";"
+                    Dim temp_tree As String = show_my_tree + ";"
                     For i As Integer = 1 To NumofTaxon
                         temp_tree = temp_tree.Replace("(" + i.ToString + ",", "($%*" + i.ToString + "$%*,")
                         temp_tree = temp_tree.Replace("," + i.ToString + ")", ",$%*" + i.ToString + "$%*)")
@@ -3310,7 +3355,7 @@ Public Class View_Tree
 
     Private Sub SwapWholeTreeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SwapWholeTreeToolStripMenuItem.Click
         swaping = True
-        Show_Tree = Swap_Whole(Show_Tree)
+        show_my_tree = Swap_Whole(show_my_tree)
         If draw_result = True Then
             '[加载结果r1]
             Load_result()
@@ -3562,8 +3607,8 @@ Public Class View_Tree
         For i As Integer = 0 To 0 ' NumofNode - 1
             If Poly_Node(i, 4) > Poly_Node(i, 5) Then
                 Selected_node = i - 1
-                Show_Tree = Swap_tree(Show_Tree, Selected_node + 1)
-                Read_Poly_Tree(Show_Tree)
+                show_my_tree = Swap_tree(show_my_tree, Selected_node + 1)
+                Read_Poly_Tree(show_my_tree)
             End If
 
         Next
@@ -3592,17 +3637,17 @@ Public Class View_Tree
                     Dim l As Integer = Poly_Node(NumofNode - 1 - i, 2).Split(",")(0)
                     Dim r As Integer = Poly_Node(NumofNode - 1 - i, 2).Split(",")(1)
                     If Poly_Node(l, 3).Split(",").Length > Poly_Node(r, 3).Split(",").Length Then
-                        Show_Tree = Swap_tree(Show_Tree, NumofNode - i)
-                        Read_Poly_Tree(Show_Tree)
+                        show_my_tree = Swap_tree(show_my_tree, NumofNode - i)
+                        Read_Poly_Tree(show_my_tree)
                     End If
                 ElseIf Poly_Node(NumofNode - 1 - i, 2).Split(",").Length = 2 Then
                     If Poly_Node(NumofNode - 1 - i, 3).StartsWith(Poly_Node(NumofNode - 1 - i, 1)) Then
-                        Show_Tree = Swap_tree(Show_Tree, NumofNode - i)
-                        Read_Poly_Tree(Show_Tree)
+                        show_my_tree = Swap_tree(show_my_tree, NumofNode - i)
+                        Read_Poly_Tree(show_my_tree)
                     End If
                 End If
             End If
-            
+
         Next
         If draw_result = True Then
             '[加载结果r1]
@@ -3620,13 +3665,13 @@ Public Class View_Tree
     End Sub
 
     Private Sub SaveCurrentViewToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveCurrentViewToolStripMenuItem.Click
-            Dim opendialog As New SaveFileDialog
-            opendialog.Filter = "Text File (*.txt)|*.txt;*.TXT|ALL Files(*.*)|*.*"
-            opendialog.FileName = ""
-            opendialog.DefaultExt = ".txt"
-            opendialog.CheckFileExists = False
-            opendialog.CheckPathExists = True
-            Dim resultdialog As DialogResult = opendialog.ShowDialog()
+        Dim opendialog As New SaveFileDialog
+        opendialog.Filter = "Text File (*.txt)|*.txt;*.TXT|ALL Files(*.*)|*.*"
+        opendialog.FileName = ""
+        opendialog.DefaultExt = ".txt"
+        opendialog.CheckFileExists = False
+        opendialog.CheckPathExists = True
+        Dim resultdialog As DialogResult = opendialog.ShowDialog()
         If resultdialog = DialogResult.OK Then
 
 
@@ -3639,7 +3684,7 @@ Public Class View_Tree
                 w_f_t.WriteLine(i.ToString + "	" + TaxonName(i - 1) + "	" + Distribution(i - 1))
             Next
             w_f_t.WriteLine("[TREE]")
-            w_f_t.WriteLine("Tree=" + Show_Tree)
+            w_f_t.WriteLine("Tree=" + show_my_tree)
             w_f_t.WriteLine("[RESULT]")
             For i As Integer = 0 To UBound(Result_list)
                 If (i Mod Result_list.Length) = 0 Then

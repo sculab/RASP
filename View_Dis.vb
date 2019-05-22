@@ -379,8 +379,8 @@ Public Class View_Dis
         For i As Integer = 0 To ListBox1.Items.Count - 1
             If ListBox1.Items(i).ToString.StartsWith("q") Then
                 cal_column(i)
-                Config_Traits.TextBox2.Text = Config_Traits.TextBox2.Text & "pr " & ListBox1.Items(i).ToString & " uniform " & max((prob_para(4) - prob_para(5)), prob_para(0)).ToString & " " & min((prob_para(4) + prob_para(5)), prob_para(1)).ToString & vbCrLf
-            End If
+				Config_Traits.TextBox2.Text = Config_Traits.TextBox2.Text & "pr " & ListBox1.Items(i).ToString & " uniform " & Max((prob_para(4) - prob_para(5)), prob_para(0)).ToString & " " & Min((prob_para(4) + prob_para(5)), prob_para(1)).ToString & vbCrLf
+			End If
         Next
         Config_Traits.ComboBox1.SelectedIndex = 1
         Config_Traits.ComboBox2.SelectedIndex = 0

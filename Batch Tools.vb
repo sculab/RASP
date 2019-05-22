@@ -40,14 +40,13 @@ Public Class Batch_Tools
         End Try
     End Sub
     Public Function load_final_trees(ByVal tree_path As String) As String
-        Dim rt As StreamReader
+        Dim rt As New StreamReader(tree_path)
         Dim line As String = ""
         Dim tree_complete As String = ""
         Dim name_num As Integer = 0
         Try
-            rt = New StreamReader(tree_path)
             line = rt.ReadLine
-            Dim f_t_name(,) As String
+            Dim f_t_name(1, 0) As String
             Do While line Is Nothing = False
 
                 Do

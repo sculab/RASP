@@ -34,7 +34,7 @@ Public Class Tool_DPP
         If Me.Visible = True Then
             ReDim TaxonName(taxon_num - 1)
             For i As Integer = 0 To taxon_num - 1
-                TaxonName(i) = MainWindow.DataGridView1.Rows(i).Cells(1).Value
+                TaxonName(i) = dtView.Item(i).Item(1).ToString
             Next
             If DataGridView5.Rows.Count <= 0 Then
                 ComboBox2.SelectedIndex = 0

@@ -235,9 +235,9 @@ Public Class Config_BGB
                     Next
                     If point_1 > 1 Then
                         Temp_node(point_1 - 2, 2) = point_2.ToString + "," + Temp_node(point_1 - 2, 2)
-                        Temp_node(point_1 - 2, 4) = min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
-                        Temp_node(point_1 - 2, 5) = max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
-                    End If
+						Temp_node(point_1 - 2, 4) = Math.Min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+						Temp_node(point_1 - 2, 5) = Math.Max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+					End If
                     point_2 += 1
                     point_1 -= 1
                     Temp_node(point_1, 0) = ""
@@ -269,9 +269,9 @@ Public Class Config_BGB
                         taxon_array(tx) = tree_char(i)
                         tx += 1
                         Temp_node(point_1 - 1, 1) += tree_char(i) + ","
-                        Temp_node(point_1 - 1, 4) = min(Val(Temp_node(point_1 - 1, 4)), tx)
-                        Temp_node(point_1 - 1, 5) = max(Val(Temp_node(point_1 - 1, 4)), tx)
-                    End If
+						Temp_node(point_1 - 1, 4) = Math.Min(Val(Temp_node(point_1 - 1, 4)), tx)
+						Temp_node(point_1 - 1, 5) = Math.Max(Val(Temp_node(point_1 - 1, 4)), tx)
+					End If
             End Select
         Next
         make_chain(taxon_num - 1 - 1)
@@ -308,8 +308,8 @@ Public Class Config_BGB
                 ReDim TaxonName(taxon_num - 1)
                 ReDim Distribution(taxon_num - 1)
                 For i As Integer = 0 To taxon_num - 1
-                    TaxonName(i) = MainWindow.DataGridView1.Rows(i).Cells(1).Value
-                    Distribution(i) = MainWindow.DataGridView1.Rows(i).Cells(2).Value
+                    TaxonName(i) = dtView.Item(i).Item(1).ToString
+                    Distribution(i) = dtView.Item(i).Item(state_index).ToString
                     ListBox3.Items.Add(TaxonName(i))
                     ListBox4.Items.Add(TaxonName(i))
                 Next
@@ -577,8 +577,8 @@ Public Class Config_BGB
                     Next
                     If point_1 > 1 Then
                         Temp_node(point_1 - 2, 2) = point_2.ToString + "," + Temp_node(point_1 - 2, 2)
-                        Temp_node(point_1 - 2, 4) = min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
-                        Temp_node(point_1 - 2, 5) = max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+                        Temp_node(point_1 - 2, 4) = Math.Min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+                        Temp_node(point_1 - 2, 5) = Math.Max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
                     End If
                     point_2 += 1
                     point_1 -= 1
@@ -611,8 +611,8 @@ Public Class Config_BGB
                         taxon_array(tx) = tree_char(i)
                         tx += 1
                         Temp_node(point_1 - 1, 1) += tree_char(i) + ","
-                        Temp_node(point_1 - 1, 4) = min(Val(Temp_node(point_1 - 1, 4)), tx)
-                        Temp_node(point_1 - 1, 5) = max(Val(Temp_node(point_1 - 1, 4)), tx)
+                        Temp_node(point_1 - 1, 4) = Math.Min(Val(Temp_node(point_1 - 1, 4)), tx)
+                        Temp_node(point_1 - 1, 5) = Math.Max(Val(Temp_node(point_1 - 1, 4)), tx)
                     End If
             End Select
         Next
@@ -821,9 +821,9 @@ Public Class Config_BGB
                 If dis_str <> "" Then
                     Dim temp As Boolean = True
                     For i As Integer = 0 To DataGridView5.Rows.Count - 1
-                        If (DataGridView5.Rows(i).Cells(0).Value.ToString = ListBox3.Items(ListBox3.SelectedIndex) Or _
-                            DataGridView5.Rows(i).Cells(0).Value.ToString = ListBox4.Items(ListBox4.SelectedIndex)) And _
-                        (DataGridView5.Rows(i).Cells(1).Value.ToString = ListBox3.Items(ListBox3.SelectedIndex) Or _
+                        If (DataGridView5.Rows(i).Cells(0).Value.ToString = ListBox3.Items(ListBox3.SelectedIndex) Or
+                            DataGridView5.Rows(i).Cells(0).Value.ToString = ListBox4.Items(ListBox4.SelectedIndex)) And
+                        (DataGridView5.Rows(i).Cells(1).Value.ToString = ListBox3.Items(ListBox3.SelectedIndex) Or
                             DataGridView5.Rows(i).Cells(1).Value.ToString = ListBox4.Items(ListBox4.SelectedIndex)) Then
                             temp = False
                         End If
@@ -1039,8 +1039,8 @@ Public Class Config_BGB
         ReDim TaxonName(taxon_num - 1)
         ReDim Distribution(taxon_num - 1)
         For i As Integer = 0 To taxon_num - 1
-            TaxonName(i) = MainWindow.DataGridView1.Rows(i).Cells(1).Value
-            Distribution(i) = MainWindow.DataGridView1.Rows(i).Cells(2).Value
+            TaxonName(i) = dtView.Item(i).Item(1).ToString
+            Distribution(i) = dtView.Item(i).Item(state_index).ToString
             ListBox3.Items.Add(TaxonName(i))
             ListBox4.Items.Add(TaxonName(i))
         Next
@@ -1311,12 +1311,12 @@ Public Class Config_BGB
                 BGB_Body = BGB_Body.Replace("#max_range_size#", NumericUpDown2.Value)
                 '每个线程单核心以提高稳定性
                 BGB_Body = BGB_Body.Replace("#cores_to_use#", 1)
-                BGB_Body = BGB_Body.Replace("#timeperiod#", BGB_path + "temp/final.timeperiod")
+				BGB_Body = BGB_Body.Replace("#timeperiod#", lib_path + "temp/final.timeperiod")
 
-                For i As Integer = 0 To 3
+				For i As Integer = 0 To 3
                     If File.Exists(root_path + "temp\" + i.ToString + ".tp") Then
-                        BGB_Body = BGB_Body.Replace("#ratematrix" + i.ToString + "#", BGB_path + "temp/" + i.ToString + ".rm")
-                        Select Case i
+						BGB_Body = BGB_Body.Replace("#ratematrix" + i.ToString + "#", lib_path + "temp/" + i.ToString + ".rm")
+						Select Case i
                             Case 0
                                 BGB_Body = BGB_Body.Replace("#dispersal_multipliers_fn#", "dispersal_multipliers_fn")
                                 BGB_Body = BGB_Body.Replace("#" + i.ToString + "#", "")
@@ -1341,8 +1341,11 @@ Public Class Config_BGB
                 wr.Close()
             Case 0, 2
                 Dim sr0 As New StreamReader(root_path + "Plug-ins\BGB\header.r")
-                BGB_Header = sr0.ReadToEnd
-                sr0.Close()
+				BGB_Header = sr0.ReadToEnd
+				If rscript = root_path + "Plug-ins\R\bin\i386\Rscript.exe" Then
+					BGB_Header = BGB_Header.Replace("#r_lib#", "")
+				End If
+				sr0.Close()
                 BGB_Header += "source(" + """" + "BGB.r" + """" + ")" + Chr(10)
                 BGB_Header += "})"
 
@@ -1365,20 +1368,20 @@ Public Class Config_BGB
                 BGB_Body += sr2.ReadToEnd
                 sr2.Close()
 
-                BGB_Header = BGB_Header.Replace("#BGB_path#", BGB_path)
+				BGB_Header = BGB_Header.Replace("#BGB_path#", lib_path)
 
-                BGB_Body = BGB_Body.Replace("#BGB_path#", BGB_path)
-                BGB_Body = BGB_Body.Replace("#max_range_size#", NumericUpDown2.Value)
+				BGB_Body = BGB_Body.Replace("#BGB_path#", lib_path)
+				BGB_Body = BGB_Body.Replace("#max_range_size#", NumericUpDown2.Value)
                 BGB_Body = BGB_Body.Replace("#cores_to_use#", NumericUpDown1.Value)
                 BGB_Body = BGB_Body.Replace("#excluded_ranges#", excluded_ranges)
                 BGB_Body = BGB_Body.Replace("#included_ranges#", included_ranges)
-                BGB_Body = BGB_Body.Replace("#timeperiod#", BGB_path + "temp/final.timeperiod")
+				BGB_Body = BGB_Body.Replace("#timeperiod#", lib_path + "temp/final.timeperiod")
 
 
-                For i As Integer = 0 To 3
+				For i As Integer = 0 To 3
                     If File.Exists(root_path + "temp\" + i.ToString + ".tp") Then
-                        BGB_Body = BGB_Body.Replace("#ratematrix" + i.ToString + "#", BGB_path + "temp/" + i.ToString + ".rm")
-                        Select Case i
+						BGB_Body = BGB_Body.Replace("#ratematrix" + i.ToString + "#", lib_path + "temp/" + i.ToString + ".rm")
+						Select Case i
                             Case 0
                                 BGB_Body = BGB_Body.Replace("#dispersal_multipliers_fn#", "dispersal_multipliers_fn")
                                 BGB_Body = BGB_Body.Replace("#" + i.ToString + "#", "")
@@ -1395,9 +1398,9 @@ Public Class Config_BGB
                     End If
                 Next
 
-                BGB_Body = BGB_Body.Replace("#treefile#", BGB_path + "temp/final.tre")
-                BGB_Body = BGB_Body.Replace("#datafile#", BGB_path + "temp/final.data")
-                If time_period_num > 1 Then
+				BGB_Body = BGB_Body.Replace("#treefile#", lib_path + "temp/final.tre")
+				BGB_Body = BGB_Body.Replace("#datafile#", lib_path + "temp/final.data")
+				If time_period_num > 1 Then
                     BGB_Body = BGB_Body.Replace("#time_period#", "")
                 End If
                 Dim sw_header As New StreamWriter(root_path + "temp\LOAD_BGB.r", False)

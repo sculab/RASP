@@ -19,8 +19,8 @@ Public Class Form_Welcome
     End Sub
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         If current_file < total_file Then
-            ProgressBar1.Value = min(current_file / total_file * 100, 100)
-        Else
+			ProgressBar1.Value = Math.Min(current_file / total_file * 100, 100)
+		Else
             Timer1.Enabled = False
             Dim RegCHZN As New Regex("[\u4e00-\u9fa5]")
             Dim m As Match = RegCHZN.Match(root_path)
@@ -28,23 +28,23 @@ Public Class Form_Welcome
                 MsgBox("安装路径不得含有中文（亚洲语言字符）！" + Chr(13) + "RASP install path should not contain Asia language character!")
                 End
             End If
-            If TargetOS = "macos" Then
-                rscript = "C:\R\bin\i386\Rscript.exe"
-            Else
-                Dim sr As New StreamReader(root_path + "Plug-ins\BGB\R_path.txt")
-                rscript = sr.ReadLine
+			If TargetOS = "macos" Then
+				rscript = "C:\R\bin\i386\Rscript.exe"
+			ElseIf File.Exists(root_path + "Plug-ins\R_path.txt") Then
+				Dim sr As New StreamReader(root_path + "Plug-ins\R_path.txt")
+				rscript = sr.ReadLine
                 sr.Close()
             End If
 
             
             If File.Exists(rscript) = False Then
-                If File.Exists(root_path + "Plug-ins\R\bin\Rscript.exe") Then
-                    rscript = root_path + "Plug-ins\R\bin\Rscript.exe"
-                    Dim sw As New StreamWriter(root_path + "Plug-ins\BGB\R_path.txt")
-                    sw.WriteLine(rscript)
-                    sw.Close()
-                Else
-                    Dim Key1 As Microsoft.Win32.RegistryKey
+				If File.Exists(root_path + "Plug-ins\R\bin\i386\Rscript.exe") Then
+					rscript = root_path + "Plug-ins\R\bin\i386\Rscript.exe"
+					Dim sw As New StreamWriter(root_path + "Plug-ins\R_path.txt")
+					sw.WriteLine(rscript)
+					sw.Close()
+				Else
+					Dim Key1 As Microsoft.Win32.RegistryKey
                     Key1 = My.Computer.Registry.LocalMachine
                     Dim Key2 As Microsoft.Win32.RegistryKey
                     Key2 = Key1.OpenSubKey("SOFTWARE\R-core\R", False)
@@ -52,7 +52,7 @@ Public Class Form_Welcome
                         MsgBox("You need to install R to free all functions of RASP." + Chr(10) + "Select [Tools-> Install 3rd Party] for more information")
                     ElseIf (Key2.GetValue("InstallPath") Is Nothing) = False Then
                         If File.Exists(Key2.GetValue("InstallPath") + "\bin\Rscript.exe") Then
-                            Dim sw As New StreamWriter(root_path + "Plug-ins\BGB\R_path.txt")
+                            Dim sw As New StreamWriter(root_path + "Plug-ins\R_path.txt")
                             sw.WriteLine(rscript)
                             sw.Close()
                         Else
@@ -73,8 +73,8 @@ Public Class Form_Welcome
         End If  '判断待删除的目录是否存在,不存在则退出.  
         If (Not Directory.Exists(aimPath)) Then Exit Sub ' 
         Dim fileList() As String = Directory.GetFileSystemEntries(aimPath)  ' 遍历所有的文件和目录  
-        total_file = max(fileList.Length, total_file)
-        For Each FileName As String In fileList
+		total_file = Math.Max(fileList.Length, total_file)
+		For Each FileName As String In fileList
             If (Directory.Exists(FileName)) Then  ' 先当作目录处理如果存在这个目录就递归
                 DeleteDir(aimPath + Path.GetFileName(FileName))
             Else  ' 否则直接Delete文件  

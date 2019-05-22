@@ -65,14 +65,14 @@ Public Class Config_Traits
         opendialog.CheckPathExists = True
         Dim resultdialog As DialogResult = opendialog.ShowDialog()
         If resultdialog = DialogResult.OK Then
-            export_omitted(opendialog.FileName + ".trees", root_path + "temp" + path_char + "lg_t2.tre")
+            export_omitted(opendialog.FileName + ".trees", root_path + "temp" + path_char + "clean_num.trees")
             Dim dw As New StreamWriter(opendialog.FileName + ".dat", False)
             For i As Integer = 1 To dtView.Count
-                dtView.Item(i - 1).Item(2) = dtView.Item(i - 1).Item(2).ToString.Replace(" ", "")
-                If dtView.Item(i - 1).Item(2) = "" Or dtView.Item(i - 1).Item(2) = "\" Then
+                dtView.Item(i - 1).Item(state_index) = dtView.Item(i - 1).Item(state_index).ToString.Replace(" ", "")
+                If dtView.Item(i - 1).Item(state_index) = "" Or dtView.Item(i - 1).Item(state_index) = "\" Then
                     dw.WriteLine(dtView.Item(i - 1).Item(1) + "	" + "-")
                 Else
-                    dw.WriteLine(dtView.Item(i - 1).Item(1) + "	" + dtView.Item(i - 1).Item(2))
+                    dw.WriteLine(dtView.Item(i - 1).Item(1) + "	" + dtView.Item(i - 1).Item(state_index))
                 End If
             Next
             dw.Close()
@@ -274,7 +274,7 @@ Public Class Config_Traits
         swf.WriteLine("BayesTraits Results")
         swf.WriteLine("[TAXON]")
         For i As Integer = 1 To dtView.Count
-            swf.WriteLine(dtView.Item(i - 1).Item(0).ToString + "	" + dtView.Item(i - 1).Item(1).ToString + "	" + dtView.Item(i - 1).Item(2).ToString.ToUpper)
+            swf.WriteLine(dtView.Item(i - 1).Item(0).ToString + "	" + dtView.Item(i - 1).Item(1).ToString + "	" + dtView.Item(i - 1).Item(state_index).ToString.ToUpper)
         Next
         swf.WriteLine("[TREE]")
         swf.WriteLine("Tree=" + tree_show_with_value)
@@ -330,12 +330,12 @@ Public Class Config_Traits
             TimerTraits.Enabled = False
             RangeStr = ""
             For i As Integer = 1 To dtView.Count
-                For Each c As Char In dtView.Item(i - 1).Item(2).ToString.ToUpper
+                For Each c As Char In dtView.Item(i - 1).Item(state_index).ToString.ToUpper
                     If Asc(c) >= Asc("A") And Asc(c) <= Asc("Z") Then
                         If RangeStr.Contains(c) = False Then
                             RangeStr = RangeStr + c.ToString
                         End If
-                    ElseIf dtView.Item(i - 1).Item(2).ToString <> "-" And dtView.Item(i - 1).Item(2).ToString <> "\" Then
+                    ElseIf dtView.Item(i - 1).Item(state_index).ToString <> "-" And dtView.Item(i - 1).Item(state_index).ToString <> "\" Then
                         MsgBox("Distributions of Taxon " + dtView.Item(i - 1).Item(0).ToString + " should be letters!")
                         Exit Sub
                         MsgBox("Only result of Multistate could be load into RASP!")
@@ -365,12 +365,12 @@ Public Class Config_Traits
     Private Sub LoadLogToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LoadLogToolStripMenuItem.Click
         RangeStr = ""
         For i As Integer = 1 To dtView.Count
-            For Each c As Char In dtView.Item(i - 1).Item(2).ToString.ToUpper
+            For Each c As Char In dtView.Item(i - 1).Item(state_index).ToString.ToUpper
                 If Asc(c) >= Asc("A") And Asc(c) <= Asc("Z") Then
                     If RangeStr.Contains(c) = False Then
                         RangeStr = RangeStr + c.ToString
                     End If
-                ElseIf dtView.Item(i - 1).Item(2).ToString <> "-" And dtView.Item(i - 1).Item(2).ToString <> "\" Then
+                ElseIf dtView.Item(i - 1).Item(state_index).ToString <> "-" And dtView.Item(i - 1).Item(state_index).ToString <> "\" Then
                     MsgBox("Distributions of Taxon " + dtView.Item(i - 1).Item(0).ToString + " should be letters!")
                     Exit Sub
                     MsgBox("Only result of Multistate could be load into RASP!")

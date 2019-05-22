@@ -98,11 +98,11 @@ Public Class Config_Chrom
             Dim f_path As String = opendialog.FileName.Substring(0, opendialog.FileName.Length - f_name.Length)
             Dim dw As New StreamWriter(opendialog.FileName + ".dat", False)
             For i As Integer = 1 To dtView.Count
-                dtView.Item(i - 1).Item(2) = dtView.Item(i - 1).Item(2).ToString.Replace(" ", "")
-                If dtView.Item(i - 1).Item(2) = "" Or dtView.Item(i - 1).Item(2) = "\" Then
+                dtView.Item(i - 1).Item(state_index) = dtView.Item(i - 1).Item(state_index).ToString.Replace(" ", "")
+                If dtView.Item(i - 1).Item(state_index) = "" Or dtView.Item(i - 1).Item(state_index) = "\" Then
                     dw.WriteLine(">" + dtView.Item(i - 1).Item(0) + vbCrLf + "X")
                 Else
-                    dw.WriteLine(">" + dtView.Item(i - 1).Item(0) + vbCrLf + dtView.Item(i - 1).Item(2))
+                    dw.WriteLine(">" + dtView.Item(i - 1).Item(0) + vbCrLf + dtView.Item(i - 1).Item(state_index))
                 End If
             Next
             dw.Close()
@@ -201,11 +201,11 @@ Public Class Config_Chrom
 
 
         For i As Integer = 1 To dtView.Count
-            tree_line = tree_line.Replace("(" + dtView.Item(i - 1).Item(0).ToString + "-" + dtView.Item(i - 1).Item(2).ToString + ",", "($%*" + dtView.Item(i - 1).Item(0).ToString + "$%*,")
-            tree_line = tree_line.Replace("," + dtView.Item(i - 1).Item(0).ToString + "-" + dtView.Item(i - 1).Item(2).ToString + ")", ",$%*" + dtView.Item(i - 1).Item(0).ToString + "$%*)")
-            tree_line = tree_line.Replace("," + dtView.Item(i - 1).Item(0).ToString + "-" + dtView.Item(i - 1).Item(2).ToString + ",", ",$%*" + dtView.Item(i - 1).Item(0).ToString + "$%*,")
-            tree_line = tree_line.Replace("," + dtView.Item(i - 1).Item(0).ToString + "-" + dtView.Item(i - 1).Item(2).ToString + ":", ",$%*" + dtView.Item(i - 1).Item(0).ToString + "$%*:")
-            tree_line = tree_line.Replace("(" + dtView.Item(i - 1).Item(0).ToString + "-" + dtView.Item(i - 1).Item(2).ToString + ":", "($%*" + dtView.Item(i - 1).Item(0).ToString + "$%*:")
+            tree_line = tree_line.Replace("(" + dtView.Item(i - 1).Item(0).ToString + "-" + dtView.Item(i - 1).Item(state_index).ToString + ",", "($%*" + dtView.Item(i - 1).Item(0).ToString + "$%*,")
+            tree_line = tree_line.Replace("," + dtView.Item(i - 1).Item(0).ToString + "-" + dtView.Item(i - 1).Item(state_index).ToString + ")", ",$%*" + dtView.Item(i - 1).Item(0).ToString + "$%*)")
+            tree_line = tree_line.Replace("," + dtView.Item(i - 1).Item(0).ToString + "-" + dtView.Item(i - 1).Item(state_index).ToString + ",", ",$%*" + dtView.Item(i - 1).Item(0).ToString + "$%*,")
+            tree_line = tree_line.Replace("," + dtView.Item(i - 1).Item(0).ToString + "-" + dtView.Item(i - 1).Item(state_index).ToString + ":", ",$%*" + dtView.Item(i - 1).Item(0).ToString + "$%*:")
+            tree_line = tree_line.Replace("(" + dtView.Item(i - 1).Item(0).ToString + "-" + dtView.Item(i - 1).Item(state_index).ToString + ":", "($%*" + dtView.Item(i - 1).Item(0).ToString + "$%*:")
         Next
         If tree_line.Contains("/") = False Then
             For i As Integer = 1 To dtView.Count - 1
@@ -251,8 +251,8 @@ Public Class Config_Chrom
                 If temp(0).StartsWith("N") Then
                     Dim temp_node_id As Integer = CInt(temp(0).Replace("N", "")) + NumofTaxon
                     temp_node_id = Left_to_right(temp_node_id, Treeline)
-                    Dim temp_id() As Integer
-                    Dim temp_prob() As Single
+                    Dim temp_id(0) As Integer
+                    Dim temp_prob(0) As Single
                     For i As Integer = 1 To UBound(temp)
                         If IsNumeric(temp(i)) Then
                             ReDim Preserve temp_id(i - 1)
@@ -278,7 +278,7 @@ Public Class Config_Chrom
         swf.WriteLine("ChromEvol Result file (Number)")
         swf.WriteLine("[TAXON]")
         For i As Integer = 1 To dtView.Count
-            swf.WriteLine(dtView.Item(i - 1).Item(0).ToString + "	" + dtView.Item(i - 1).Item(1).ToString + "	" + dtView.Item(i - 1).Item(2).ToString.ToUpper)
+            swf.WriteLine(dtView.Item(i - 1).Item(0).ToString + "	" + dtView.Item(i - 1).Item(1).ToString + "	" + dtView.Item(i - 1).Item(state_index).ToString.ToUpper)
         Next
         swf.WriteLine("[TREE]")
         swf.WriteLine("Tree=" + tree_show_with_value)
@@ -337,11 +337,11 @@ Public Class Config_Chrom
         End Try
         Dim dw As New StreamWriter(f_path + f_name + ".dat", False)
         For i As Integer = 1 To dtView.Count
-            dtView.Item(i - 1).Item(2) = dtView.Item(i - 1).Item(2).ToString.Replace(" ", "")
-            If dtView.Item(i - 1).Item(2) = "" Or dtView.Item(i - 1).Item(2) = "\" Then
+            dtView.Item(i - 1).Item(state_index) = dtView.Item(i - 1).Item(state_index).ToString.Replace(" ", "")
+            If dtView.Item(i - 1).Item(state_index) = "" Or dtView.Item(i - 1).Item(state_index) = "\" Then
                 dw.WriteLine(">" + dtView.Item(i - 1).Item(0) + vbCrLf + "X")
             Else
-                dw.WriteLine(">" + dtView.Item(i - 1).Item(0) + vbCrLf + dtView.Item(i - 1).Item(2).ToString.ToUpper)
+                dw.WriteLine(">" + dtView.Item(i - 1).Item(0) + vbCrLf + dtView.Item(i - 1).Item(state_index).ToString.ToUpper)
             End If
         Next
         dw.Close()

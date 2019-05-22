@@ -65,8 +65,8 @@ Partial Class View_Dis
         'PictureBox1
         '
         Me.PictureBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox1.BackColor = System.Drawing.Color.White
         Me.PictureBox1.Location = New System.Drawing.Point(112, 27)
         Me.PictureBox1.Name = "PictureBox1"
@@ -94,13 +94,13 @@ Partial Class View_Dis
         'LoadResultToolStripMenuItem
         '
         Me.LoadResultToolStripMenuItem.Name = "LoadResultToolStripMenuItem"
-        Me.LoadResultToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.LoadResultToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LoadResultToolStripMenuItem.Text = "Load Result"
         '
         'SaveGraphicToolStripMenuItem
         '
         Me.SaveGraphicToolStripMenuItem.Name = "SaveGraphicToolStripMenuItem"
-        Me.SaveGraphicToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.SaveGraphicToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SaveGraphicToolStripMenuItem.Text = "Save Graphic"
         '
         'AnalysisToolStripMenuItem
@@ -279,7 +279,7 @@ Partial Class View_Dis
         'TextBox1
         '
         Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.TextBox1.Location = New System.Drawing.Point(0, 232)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
@@ -365,7 +365,7 @@ Partial Class View_Dis
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "View_Dis"
-        Me.Text = "Distribution"
+        Me.Text = "States"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()

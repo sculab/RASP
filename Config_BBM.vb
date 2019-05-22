@@ -279,7 +279,7 @@ Public Class Config_BBM
         sr.WriteLine("Format datatype=restriction;")
         sr.WriteLine("Matrix")
         For i As Integer = 1 To dtView.Count
-            sr.WriteLine("TID" + MainWindow.DataGridView1.Rows(i - 1).Cells(0).Value.ToString + "    " + Distributiton_to_Binary(MainWindow.DataGridView1.Rows(i - 1).Cells(2).Value.ToString, RangeStr.Length))
+            sr.WriteLine("TID" + dtView.Item(i - 1).Item(0).ToString + "    " + Distributiton_to_Binary(dtView.Item(i - 1).Item(state_index).ToString, RangeStr.Length))
         Next
         Select Case ComboBox3.Text
             Case "Null"
@@ -363,8 +363,8 @@ Public Class Config_BBM
     Private Sub Bayesian_VisibleChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.VisibleChanged
         If Me.Visible Then
             NumericUpDown1.Maximum = RangeStr.Length
-            NumericUpDown1.Value = min(4, RangeStr.Length)
-            If DataGridView2.ColumnCount = 0 Then
+			NumericUpDown1.Value = Math.Min(4, RangeStr.Length)
+			If DataGridView2.ColumnCount = 0 Then
                 DataGridView2.DataSource = nodeView
                 DataGridView2.Columns(0).SortMode = DataGridViewColumnSortMode.NotSortable
                 DataGridView2.Columns(1).SortMode = DataGridViewColumnSortMode.NotSortable

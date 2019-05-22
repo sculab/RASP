@@ -60,7 +60,6 @@ Partial Class Config_SDIVA
         Me.CheckBox11 = New System.Windows.Forms.CheckBox()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.CheckBox10 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -85,8 +84,8 @@ Partial Class Config_SDIVA
         'DataGridView1
         '
         Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(2, 2)
@@ -99,7 +98,7 @@ Partial Class Config_SDIVA
         'ListBox1
         '
         Me.ListBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.ItemHeight = 15
@@ -112,7 +111,7 @@ Partial Class Config_SDIVA
         'ListBox2
         '
         Me.ListBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ListBox2.FormattingEnabled = True
         Me.ListBox2.ItemHeight = 15
@@ -190,7 +189,7 @@ Partial Class Config_SDIVA
         'Button4
         '
         Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button4.Location = New System.Drawing.Point(587, 442)
+        Me.Button4.Location = New System.Drawing.Point(583, 442)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 26)
         Me.Button4.TabIndex = 10
@@ -220,7 +219,7 @@ Partial Class Config_SDIVA
         'GroupBox2
         '
         Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.CheckBox6)
         Me.GroupBox2.Controls.Add(Me.CheckBox5)
         Me.GroupBox2.Controls.Add(Me.Label1)
@@ -464,17 +463,6 @@ Partial Class Config_SDIVA
         Me.CheckBox10.Text = "With omitted in"
         Me.CheckBox10.UseVisualStyleBackColor = True
         '
-        'CheckBox3
-        '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(12, 119)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(130, 19)
-        Me.CheckBox3.TabIndex = 43
-        Me.CheckBox3.Text = "Estimate for nodes"
-        Me.CheckBox3.UseVisualStyleBackColor = True
-        Me.CheckBox3.Visible = False
-        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.TextBox6)
@@ -493,11 +481,11 @@ Partial Class Config_SDIVA
         'TabControl1
         '
         Me.TabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(0, 28)
+        Me.TabControl1.Location = New System.Drawing.Point(2, 28)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(401, 286)
@@ -528,8 +516,8 @@ Partial Class Config_SDIVA
         'DataGridView2
         '
         Me.DataGridView2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Location = New System.Drawing.Point(2, 2)
         Me.DataGridView2.Name = "DataGridView2"
@@ -585,7 +573,6 @@ Partial Class Config_SDIVA
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.NumericUpDown3)
         Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.CheckBox3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.CheckBox9)
         Me.Controls.Add(Me.TextBox1)
@@ -659,7 +646,6 @@ Partial Class Config_SDIVA
     Friend WithEvents CheckBox11 As System.Windows.Forms.CheckBox
     Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
     Friend WithEvents CheckBox10 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBox5 As System.Windows.Forms.CheckBox

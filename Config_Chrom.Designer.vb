@@ -56,7 +56,7 @@ Partial Class Config_Chrom
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(380, 304)
+        Me.Button1.Location = New System.Drawing.Point(378, 308)
         Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
@@ -142,13 +142,13 @@ Partial Class Config_Chrom
         Me.TextBox4.ReadOnly = True
         Me.TextBox4.Size = New System.Drawing.Size(248, 86)
         Me.TextBox4.TabIndex = 9
-        Me.TextBox4.Text = "_branchMul 999" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_simulationsNum 0" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_logValue 6" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_maxOptimizationIterations 5" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_ep" & _
-            "silonLLimprovement 0.01" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_optimizePointsNum 10,3,1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_optimizeIterNum 0,2,5" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_gai" & _
-            "nConstR 1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_lossConstR 1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_duplConstR 1"
+        Me.TextBox4.Text = "_branchMul 999" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_simulationsNum 0" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_logValue 6" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_maxOptimizationIterations 5" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_ep" &
+    "silonLLimprovement 0.01" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_optimizePointsNum 10,3,1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_optimizeIterNum 0,2,5" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_gai" &
+    "nConstR 1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_lossConstR 1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_duplConstR 1"
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(461, 304)
+        Me.Button2.Location = New System.Drawing.Point(459, 308)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 11
@@ -161,7 +161,7 @@ Partial Class Config_Chrom
         Me.TextBox5.Multiline = True
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.ReadOnly = True
-        Me.TextBox5.Size = New System.Drawing.Size(263, 265)
+        Me.TextBox5.Size = New System.Drawing.Size(263, 269)
         Me.TextBox5.TabIndex = 12
         Me.TextBox5.Text = resources.GetString("TextBox5.Text")
         '
@@ -281,7 +281,7 @@ Partial Class Config_Chrom
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(271, 304)
+        Me.Button3.Location = New System.Drawing.Point(271, 308)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
         Me.Button3.TabIndex = 15

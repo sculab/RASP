@@ -112,9 +112,9 @@ Public Class Tool_Combine
                     Next
                     If point_1 > 1 Then
                         Temp_node(point_1 - 2, 2) = point_2.ToString + "," + Temp_node(point_1 - 2, 2)
-                        Temp_node(point_1 - 2, 4) = min(Val(Temp_node(point_1 - 2, 4)), (Val(Combine_Node(point_2, 5)) + Val(Combine_Node(point_2, 4))) / 2)
-                        Temp_node(point_1 - 2, 5) = max(Val(Temp_node(point_1 - 2, 5)), (Val(Combine_Node(point_2, 5)) + Val(Combine_Node(point_2, 4))) / 2)
-                    End If
+						Temp_node(point_1 - 2, 4) = Math.Min(Val(Temp_node(point_1 - 2, 4)), (Val(Combine_Node(point_2, 5)) + Val(Combine_Node(point_2, 4))) / 2)
+						Temp_node(point_1 - 2, 5) = Math.Max(Val(Temp_node(point_1 - 2, 5)), (Val(Combine_Node(point_2, 5)) + Val(Combine_Node(point_2, 4))) / 2)
+					End If
                     point_2 += 1
                     point_1 -= 1
                     Temp_node(point_1, 0) = ""
@@ -146,9 +146,9 @@ Public Class Tool_Combine
                         taxon_array(tx) = tree_char(i)
                         tx += 1
                         Temp_node(point_1 - 1, 1) += tree_char(i) + ","
-                        Temp_node(point_1 - 1, 4) = min(Val(Temp_node(point_1 - 1, 4)), tx)
-                        Temp_node(point_1 - 1, 5) = max(Val(Temp_node(point_1 - 1, 4)), tx)
-                    End If
+						Temp_node(point_1 - 1, 4) = Math.Min(Val(Temp_node(point_1 - 1, 4)), tx)
+						Temp_node(point_1 - 1, 5) = Math.Max(Val(Temp_node(point_1 - 1, 4)), tx)
+					End If
             End Select
         Next
         make_chain(NumofNode - 1)

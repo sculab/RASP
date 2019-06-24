@@ -27,43 +27,43 @@ Public Class Tool_Cluster
 						For k As Integer = 0 To UBound(temp_sign)
 							temp_sign(k) = True
 						Next
-						'A
-						For k As Integer = 0 To list_trees(i).Node_Number - 2
-							Dim k_index As Integer = Array.IndexOf(list_trees(j).Node_Chain, list_trees(i).Node_Chain(k))
-							If k_index < 0 Then
-								count_list(1) += list_trees(i).Node_Weight_A(k)
-							Else
-								temp_sign(k_index) = False
-							End If
-						Next
-						For k As Integer = 0 To list_trees(j).Node_Number - 2
-							If temp_sign(k) Then
-								count_list(3) += list_trees(j).Node_Weight_A(k)
-							End If
-						Next
-						count_list(0) = list_trees(i).Chain_Sum_A
-						count_list(2) = list_trees(j).Chain_Sum_A
+                        'A
+                        'For k As Integer = 0 To list_trees(i).Node_Number - 2
+                        '	Dim k_index As Integer = Array.IndexOf(list_trees(j).Node_Chain, list_trees(i).Node_Chain(k))
+                        '	If k_index < 0 Then
+                        '		count_list(1) += list_trees(i).Node_Weight_A(k)
+                        '	Else
+                        '		temp_sign(k_index) = False
+                        '	End If
+                        'Next
+                        'For k As Integer = 0 To list_trees(j).Node_Number - 2
+                        '	If temp_sign(k) Then
+                        '		count_list(3) += list_trees(j).Node_Weight_A(k)
+                        '	End If
+                        'Next
+                        'count_list(0) = list_trees(i).Chain_Sum_A
+                        'count_list(2) = list_trees(j).Chain_Sum_A
 
-						'B
-						'For k As Integer = 0 To list_trees(i).Node_Number - 2
-						'	Dim k_index As Integer = Array.IndexOf(list_trees(j).Node_Chain, list_trees(i).Node_Chain(k))
-						'	If k_index < 0 Then
-						'		count_list(1) += list_trees(i).Node_Weight_B(k)
-						'	Else
-						'		temp_sign(k_index) = False
-						'	End If
-						'Next
-						'For k As Integer = 0 To list_trees(j).Node_Number - 2
-						'	If temp_sign(k) Then
-						'		count_list(3) += list_trees(j).Node_Weight_B(k)
-						'	End If
-						'Next
-						'count_list(0) = list_trees(i).Chain_Sum_B
-						'count_list(2) = list_trees(j).Chain_Sum_B
+                        'B
+                        For k As Integer = 0 To list_trees(i).Node_Number - 2
+                            Dim k_index As Integer = Array.IndexOf(list_trees(j).Node_Chain, list_trees(i).Node_Chain(k))
+                            If k_index < 0 Then
+                                count_list(1) += list_trees(i).Node_Weight_B(k)
+                            Else
+                                temp_sign(k_index) = False
+                            End If
+                        Next
+                        For k As Integer = 0 To list_trees(j).Node_Number - 2
+                            If temp_sign(k) Then
+                                count_list(3) += list_trees(j).Node_Weight_B(k)
+                            End If
+                        Next
+                        count_list(0) = list_trees(i).Chain_Sum_B
+                        count_list(2) = list_trees(j).Chain_Sum_B
 
-						count_matrix(count_arr) = Math.Round((count_list(1) / count_list(0) + count_list(3) / count_list(2)) / 2, 4)
+                        count_matrix(count_arr) = Math.Round((count_list(1) + count_list(3)) / (count_list(0) + count_list(2)), 4)
 
-						If count_matrix(count_arr) = 0 Then
+                        If count_matrix(count_arr) = 0 Then
                             ReDim Preserve same_tree(same_tree.Length)
                             same_tree(UBound(same_tree)) = j
                         End If
@@ -119,7 +119,7 @@ Public Class Tool_Cluster
         Return (t + t - p + 1) * p / 2 - t + q - 1
     End Function
     Public Sub write_matrix()
-        Dim count_arr As Integer = 0
+
         Dim sw1 As New StreamWriter(root_path + "temp\matrix_0.txt")
         Dim sw2 As New StreamWriter(root_path + "temp\matrix_1.txt")
         For i As Integer = 1 To list_trees.Count
@@ -242,9 +242,9 @@ Public Class Tool_Cluster
             line = line.Replace("#limit#", "1")
             line = line.Replace("#matrix#", "matrix_1.txt")
         End If
-		line = line.Replace("#expand#", "1")
+        line = line.Replace("#expand#", "1")
 
-		wr4.Write(line)
+        wr4.Write(line)
         sr1.Close()
         wr4.Close()
         Dim wr5 As New StreamWriter(root_path + "temp\run_cluster.bat", False, System.Text.Encoding.Default)
@@ -260,6 +260,18 @@ Public Class Tool_Cluster
         Process.Start(startInfo)
         Directory.SetCurrentDirectory(current_dir)
     End Sub
+    Public Sub nor_matrix()
+        Dim max_dis As Single = 0
+        For i As Integer = 1 To list_trees.Count * (list_trees.Count - 1) / 2
+            If max_dis < count_matrix(i) Then
+                max_dis = count_matrix(i)
+            End If
+        Next
+        For i As Integer = 1 To list_trees.Count * (list_trees.Count - 1) / 2
+            count_matrix(i) = count_matrix(i) / max_dis
+        Next
+    End Sub
+
     Private Sub Timer_R_Tick(sender As Object, e As EventArgs) Handles Timer_R.Tick
         Try
             Select Case timer_id
@@ -274,6 +286,7 @@ Public Class Tool_Cluster
                     ElseIf sum_gen = UBound(count_matrix) Then
                         stopW.Stop()
                         timer_id = 0
+                        'nor_matrix()
                         write_matrix()
                     End If
                 Case 2
@@ -1087,7 +1100,12 @@ Public Class Tool_Cluster
                 End If
                 og = (Array.IndexOf(f_t_name, og) + 1)
                 Dim temp_i As Int16 = CInt(og)
+
+                current_dir = Directory.GetCurrentDirectory
+                Directory.SetCurrentDirectory(root_path)
                 ctree(temp_i, root_path, cons_tre)
+                Directory.SetCurrentDirectory(current_dir)
+
                 'File.Copy(root_path + "temp\intree", root_path + "temp\clust_" + ListView1.SelectedIndices(0).ToString + "_con.tre", True)
                 make_final_tree(tree_count)
             End If

@@ -5,6 +5,7 @@ Public Class Form_Welcome
     Private Sub Welcome_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         System.Threading.Thread.CurrentThread.CurrentCulture = ci
         Timer1.Enabled = True
+        change_lang(local_lang)
         MainWindow.Show()
         format_path()
         Dim th1 As New Thread(AddressOf load_main)

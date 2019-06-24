@@ -3,7 +3,7 @@
 We have written RASP (Reconstruct Ancestral State in Phylogenies) software to implements Dispersal-Vicariance Analysis (S-DIVA), Lagrange (DEC model), Bayes-Lagrange, BayArea and Bayesian Binary MCMC (BBM)methods. RASP is easy-to-install on the Windows, Mac, and Linux platforms, provides a user-friendly graphical interface, and generates exportable graphical results.
 In RASP, the module of S-DIVA analysis is modified from source code of DIVA 1.2 (Ronquist, 2001) and the MCMC analysis in BBM is modified from source code of Mrbayes 3.1.2 (Ronquist & Huelsenbeck, 2003). DEC model of geographic range evolution was described in Ree et al. (2005) and Ree & Smith (2008). DEC analysis is modified from source code of C++ version of Lagrange developed by Smith (2010). BayArea method was described in Landis et al. (2013)
 
-## Cite
+## Cites
 
 Program:
 ```
@@ -17,12 +17,16 @@ DEC model (Lagrange):
 ```
 Ree, R H and S A Smith. 2008. Maximum likelihood inference of geographic range evolution by dispersal, local extinction, and cladogenesis. Systematic Biology. 57(1): 4-14. 
 ```
-S-DEC method
+S-DEC method:
 ```
 Beaulieu, J.M., Tank, D.C., Donoghue, M.J., 2013. A Southern Hemisphere origin for campanulid angiosperms, with traces of the break-up of Gondwana. BMC Evolutionary Biology. 13(1), 80. 
+```
 Bayarea:
+```
 Landis M J, Matzke N J, Moore B R, et al. 2013.Bayesian analysis of biogeography when the number of areas is large. Systematic biology. 62 (6): 789-804 
+```
 BBM:
+```
 Ronquist F, Huelsenbeck JP (2003) MrBayes3: Bayesian phylogenetic inference undermixed models. Bioinformatics 19:1572–1574.
 ```
 BioGeoBEARS:
@@ -47,4 +51,5 @@ Glick, L., & Mayrose, I. (2014). ChromEvol: assessing the pattern of chromosome 
 
 You could compile RASP from source code or download the compiled RASP achive from:
     http://mnh.scu.edu.cn/soft/blog/RASP/index.html
+	 or 
 	https://sourceforge.net/projects/rasp2/

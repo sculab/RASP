@@ -228,9 +228,7 @@
                                 Else
                                     Node_Support_Value(point_2 - 1) = Val(tree_char(i))
                                 End If
-
                             End If
-
                         Else
                             tx += 1
 							temp_node_terminal(point_1 - 1) += tree_char(i) + ","
@@ -284,8 +282,8 @@
 				Node_Count(i) = temp_list.Length
 				Node_Chain(i) = Join(temp_list, ",")
 				Node_Weight_A(i) = Node_Count(i) / taxon_num * Node_Level_A(i) / max_level_A
-				Node_Weight_B(i) = Node_Count(i) / taxon_num * max_level_B / Node_Level_B(i)
-				Chain_Sum_A += Node_Weight_A(i)
+                Node_Weight_B(i) = Node_Count(i) / Node_Level_B(i)
+                Chain_Sum_A += Node_Weight_A(i)
 				Chain_Sum_B += Node_Weight_B(i)
 			Next
 		End Sub

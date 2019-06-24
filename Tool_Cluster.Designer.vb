@@ -86,7 +86,7 @@ Partial Class Tool_Cluster
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(598, 32)
+        Me.Label3.Location = New System.Drawing.Point(590, 32)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(92, 15)
         Me.Label3.TabIndex = 6
@@ -122,25 +122,25 @@ Partial Class Tool_Cluster
         '
         Me.SaveToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveMatrixToolStripMenuItem, Me.SaveTreesToolStripMenuItem, Me.SaveALLToolStripMenuItem})
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(105, 22)
         Me.SaveToolStripMenuItem.Text = "Save"
         '
         'SaveMatrixToolStripMenuItem
         '
         Me.SaveMatrixToolStripMenuItem.Name = "SaveMatrixToolStripMenuItem"
-        Me.SaveMatrixToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveMatrixToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
         Me.SaveMatrixToolStripMenuItem.Text = "Save Matrix"
         '
         'SaveTreesToolStripMenuItem
         '
         Me.SaveTreesToolStripMenuItem.Name = "SaveTreesToolStripMenuItem"
-        Me.SaveTreesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveTreesToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
         Me.SaveTreesToolStripMenuItem.Text = "Save Selected"
         '
         'SaveALLToolStripMenuItem
         '
         Me.SaveALLToolStripMenuItem.Name = "SaveALLToolStripMenuItem"
-        Me.SaveALLToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveALLToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
         Me.SaveALLToolStripMenuItem.Text = "Save ALL"
         Me.SaveALLToolStripMenuItem.Visible = False
         '
@@ -148,7 +148,7 @@ Partial Class Tool_Cluster
         '
         Me.LoadToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoadMatrixToolStripMenuItem, Me.LoadIntoRASPToolStripMenuItem, Me.LoadGeneNamesToolStripMenuItem})
         Me.LoadToolStripMenuItem.Name = "LoadToolStripMenuItem"
-        Me.LoadToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LoadToolStripMenuItem.Size = New System.Drawing.Size(105, 22)
         Me.LoadToolStripMenuItem.Text = "Load"
         '
         'LoadMatrixToolStripMenuItem
@@ -182,21 +182,20 @@ Partial Class Tool_Cluster
         '
         Me.CalculateMatrixToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LeveledRFDistanceToolStripMenuItem, Me.RFDistanceToolStripMenuItem, Me.SPRDistanceToolStripMenuItem})
         Me.CalculateMatrixToolStripMenuItem.Name = "CalculateMatrixToolStripMenuItem"
-        Me.CalculateMatrixToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CalculateMatrixToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.CalculateMatrixToolStripMenuItem.Text = "Calculate Matrix"
         '
         'LeveledRFDistanceToolStripMenuItem
         '
         Me.LeveledRFDistanceToolStripMenuItem.Name = "LeveledRFDistanceToolStripMenuItem"
         Me.LeveledRFDistanceToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.LeveledRFDistanceToolStripMenuItem.Text = "Leveled RF Distance"
+        Me.LeveledRFDistanceToolStripMenuItem.Text = "Weighted RF Distance"
         '
         'RFDistanceToolStripMenuItem
         '
         Me.RFDistanceToolStripMenuItem.Name = "RFDistanceToolStripMenuItem"
         Me.RFDistanceToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
         Me.RFDistanceToolStripMenuItem.Text = "Normalized RF Distance"
-        Me.RFDistanceToolStripMenuItem.Visible = False
         '
         'SPRDistanceToolStripMenuItem
         '
@@ -209,7 +208,7 @@ Partial Class Tool_Cluster
         '
         Me.ClusterTreeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HierarchicalClusterToolStripMenuItem, Me.TestKToolStripMenuItem1, Me.MCLToolStripMenuItem})
         Me.ClusterTreeToolStripMenuItem.Name = "ClusterTreeToolStripMenuItem"
-        Me.ClusterTreeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ClusterTreeToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.ClusterTreeToolStripMenuItem.Text = "Cluster Trees"
         '
         'HierarchicalClusterToolStripMenuItem
@@ -234,13 +233,13 @@ Partial Class Tool_Cluster
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(166, 6)
         Me.ToolStripSeparator2.Visible = False
         '
         'StatisticsToolStripMenuItem
         '
         Me.StatisticsToolStripMenuItem.Name = "StatisticsToolStripMenuItem"
-        Me.StatisticsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.StatisticsToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.StatisticsToolStripMenuItem.Text = "Statistics"
         Me.StatisticsToolStripMenuItem.Visible = False
         '
@@ -321,7 +320,7 @@ Partial Class Tool_Cluster
         '
         Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(601, 242)
+        Me.Label5.Location = New System.Drawing.Point(593, 242)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(53, 15)
         Me.Label5.TabIndex = 15
@@ -330,7 +329,7 @@ Partial Class Tool_Cluster
         'NumericUpDown1
         '
         Me.NumericUpDown1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NumericUpDown1.Location = New System.Drawing.Point(622, 260)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(614, 260)
         Me.NumericUpDown1.Maximum = New Decimal(New Integer() {128, 0, 0, 0})
         Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
@@ -347,7 +346,7 @@ Partial Class Tool_Cluster
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Location = New System.Drawing.Point(185, 28)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(413, 396)
+        Me.Panel1.Size = New System.Drawing.Size(407, 396)
         Me.Panel1.TabIndex = 18
         '
         'ProgressBar1
@@ -357,7 +356,7 @@ Partial Class Tool_Cluster
         Me.ProgressBar1.Location = New System.Drawing.Point(1, 425)
         Me.ProgressBar1.Maximum = 10000
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(597, 23)
+        Me.ProgressBar1.Size = New System.Drawing.Size(591, 23)
         Me.ProgressBar1.TabIndex = 19
         '
         'Label6
@@ -376,7 +375,7 @@ Partial Class Tool_Cluster
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"ward.D", "ward.D2", "single", "complete", "average", "mcquitty", "median", "centroid"})
-        Me.ComboBox1.Location = New System.Drawing.Point(601, 50)
+        Me.ComboBox1.Location = New System.Drawing.Point(593, 50)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(83, 23)
         Me.ComboBox1.TabIndex = 21
@@ -385,7 +384,7 @@ Partial Class Tool_Cluster
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(601, 85)
+        Me.Label1.Location = New System.Drawing.Point(593, 85)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(65, 15)
         Me.Label1.TabIndex = 24
@@ -394,7 +393,7 @@ Partial Class Tool_Cluster
         'TextBox4
         '
         Me.TextBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox4.Location = New System.Drawing.Point(622, 209)
+        Me.TextBox4.Location = New System.Drawing.Point(614, 209)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(62, 21)
         Me.TextBox4.TabIndex = 28
@@ -404,18 +403,18 @@ Partial Class Tool_Cluster
         '
         Me.CheckBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(602, 190)
+        Me.CheckBox3.Location = New System.Drawing.Point(595, 185)
         Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(75, 19)
+        Me.CheckBox3.Size = New System.Drawing.Size(95, 19)
         Me.CheckBox3.TabIndex = 29
-        Me.CheckBox3.Text = "Distance"
+        Me.CheckBox3.Text = "Cut distance"
         Me.CheckBox3.UseVisualStyleBackColor = True
         '
         'Label4
         '
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(604, 134)
+        Me.Label4.Location = New System.Drawing.Point(596, 134)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(32, 15)
         Me.Label4.TabIndex = 30
@@ -425,7 +424,7 @@ Partial Class Tool_Cluster
         '
         Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(619, 161)
+        Me.Label7.Location = New System.Drawing.Point(611, 161)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(17, 15)
         Me.Label7.TabIndex = 31
@@ -434,7 +433,7 @@ Partial Class Tool_Cluster
         'NumericUpDown2
         '
         Me.NumericUpDown2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NumericUpDown2.Location = New System.Drawing.Point(642, 131)
+        Me.NumericUpDown2.Location = New System.Drawing.Point(634, 131)
         Me.NumericUpDown2.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown2.Minimum = New Decimal(New Integer() {2, 0, 0, 0})
         Me.NumericUpDown2.Name = "NumericUpDown2"
@@ -445,7 +444,7 @@ Partial Class Tool_Cluster
         'NumericUpDown3
         '
         Me.NumericUpDown3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NumericUpDown3.Location = New System.Drawing.Point(642, 158)
+        Me.NumericUpDown3.Location = New System.Drawing.Point(634, 158)
         Me.NumericUpDown3.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown3.Minimum = New Decimal(New Integer() {4, 0, 0, 0})
         Me.NumericUpDown3.Name = "NumericUpDown3"
@@ -456,7 +455,7 @@ Partial Class Tool_Cluster
         'NumericUpDown4
         '
         Me.NumericUpDown4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NumericUpDown4.Location = New System.Drawing.Point(622, 103)
+        Me.NumericUpDown4.Location = New System.Drawing.Point(614, 103)
         Me.NumericUpDown4.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.NumericUpDown4.Minimum = New Decimal(New Integer() {2, 0, 0, 0})
         Me.NumericUpDown4.Name = "NumericUpDown4"

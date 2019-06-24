@@ -4,7 +4,7 @@ Imports System.Runtime.InteropServices
 Imports System.Globalization.CultureInfo
 Module Module_Var
     Public Version As String = "4.1.3"
-    Public build As String = "20190512"
+    Public build As String = "20190624"
     Public enableMin As Boolean = True
     Public isDebug As Boolean = False
     Public ci As System.Globalization.CultureInfo = New System.Globalization.CultureInfo("en-us")

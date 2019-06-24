@@ -98,7 +98,6 @@ Public Class Tool_SvT
                             tree_value_arrray(count) = node_distance(list_trees(k), i, j)
                         Next
                     Next
-
                     Dim t_min As Single = matrix_Min_positive(tree_value_arrray, 1)
                     If t_min < 0 Then
                         MsgBox(list_trees(k).Tree_Line)

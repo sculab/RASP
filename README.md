@@ -46,7 +46,6 @@ ChromEvol:
 Glick, L., & Mayrose, I. (2014). ChromEvol: assessing the pattern of chromosome number evolution and the inference of polyploidy along a phylogeny. Molecular Biology and Evolution, 31(7), 1914-1922.
 ```
 
-
 ## Install
 
 You could compile RASP from source code or download the compiled RASP achive from:

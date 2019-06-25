@@ -127,8 +127,6 @@ Module Module_Var
         lib_path = root_path.Replace("\", "/")
         Dec_Sym = CInt("0").ToString("F1").Replace("0", "")
         If Dec_Sym <> "." Then
-            'MsgBox("Please change your system's number format to English! (ex. 3.14 not 3,14)")
-            'End
             MsgBox("Notice: RASP will use dat (.) as decimal quotation instead of comma (,). We recommand to change your system's number format to English! ")
         End If
     End Sub

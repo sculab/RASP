@@ -1,7 +1,8 @@
 ﻿# RASP (Reconstruct Ancestral State in Phylogenies) 
 
-We have written RASP (Reconstruct Ancestral State in Phylogenies) software to implements Dispersal-Vicariance Analysis (S-DIVA), Lagrange (DEC model), Bayes-Lagrange, BayArea and Bayesian Binary MCMC (BBM)methods. RASP is easy-to-install on the Windows, Mac, and Linux platforms, provides a user-friendly graphical interface, and generates exportable graphical results.
-In RASP, the module of S-DIVA analysis is modified from source code of DIVA 1.2 (Ronquist, 2001) and the MCMC analysis in BBM is modified from source code of Mrbayes 3.1.2 (Ronquist & Huelsenbeck, 2003). DEC model of geographic range evolution was described in Ree et al. (2005) and Ree & Smith (2008). DEC analysis is modified from source code of C++ version of Lagrange developed by Smith (2010). BayArea method was described in Landis et al. (2013)
+We have written RASP (Reconstruct Ancestral State in Phylogenies) software to reconstruct ancestral states through phylogenetic trees. We develop methods to explore the phylogenetic signal of characters to particular tree, calculate distance between trees, cluster trees into groups, and apply generalized statistical ancestral reconstruction methods to trees
+RASP is easy-to-install on the Windows and Mac platforms, provides a user-friendly graphical interface, and generates exportable graphical results.
+
 
 ## Cites
 
@@ -39,11 +40,35 @@ R Core Team (2017) R: A language and environment for statistical computing. R Fo
 ```
 BayesTraits:
 ```
-Pagel M, Meade A. BayesTraits. Computer program and documentation available at http://www.evolution.rdg.ac.uk/BayesTraits.html, 2007.
+Meade, A., & Pagel, M. (2018). BayesTraits: a computer package for analyses of trait evolution. available at http://www.evolution.rdg.ac.uk/BayesTraitsV3.0.1/BayesTraitsV3.0.1.html```
 ```
-ChromEvol:
+To use Ancestral reconstruction in R package 'ape' 5.3, please cite:
 ```
-Glick, L., & Mayrose, I. (2014). ChromEvol: assessing the pattern of chromosome number evolution and the inference of polyploidy along a phylogeny. Molecular Biology and Evolution, 31(7), 1914-1922.
+Paradis, E. and Schliep, K., 2018. ape 5.0: an environment for modern phylogenetics and evolutionary analyses in R. Bioinformatics, 35(3), pp.526-528.```
+```
+The triple distance (Steel M. 1992) is implemented in mp-est 2.0 (Liu, et al. 2010). The RF distance (Robinson and Foulds 1981), KF distance (Kuhner and Felsenstein 1994), path difference (Steel and Penny 1993) and SPR distance (de Oliveira Martins, et al. 2008; De Oliveira Martins, et al. 2014) were implemented in R package 'phangorn' 2.5.5 (Schliep 2010).
+Cites:
+```
+Robinson, D.F. and Foulds,  L.R. (1981) Comparison of phylogenetic trees, Mathematical Biosciences, 53(1), 131-147
+De Oliveira Martins L., Leal E., Kishino H. (2008) Phylogenetic Detection of Recombination with a Bayesian Prior on the Distance between Trees. PLoS ONE 3(7). e2651. doi: 10.1371/journal.pone.0002651
+De Oliveira Martins, L., Mallo, D., & Posada, D. (2014). A Bayesian supertree model for genome-wide species tree reconstruction. Systematic biology, 65(3), 397-416.
+Kuhner, M. K. and Felsenstein, J. (1994) A simulation comparison of phylogeny algorithms under equal and unequal evolutionary rates, Molecular Biology and Evolution, 11(3), 459-468
+Liu, L., Yu, L., and Edwards, S.V. (2010). A maximum pseudo-likelihood approach for estimating species trees under the coalescent model. BMC Evol. Biol. 10: 302
+Schliep, K. P. (2010). phangorn: phylogenetic analysis in R. Bioinformatics, 27(4), 592-593.
+Steel M. A. and Penny P. (1993) Distributions of tree comparison metrics - some new results, Syst. Biol., 42(2), 126-141
+Steel M. (1992) The Complexity of Reconstructing Trees from Qualitative Characters and Subtrees. Journal of Classification 9:91-116.
+```
+For the Continuous states, Moran's I (Moran 1948, 1950), Abouheif's Cmean (Abouheif 1999), Pagel's λ (Pagel 1999) and Blomberg's K (Blomberg et al. 2003) models were calculate using R package 'adephylo' 1.1-11 (Jombart et al. 2010).
+For the discrete states, Pagel's λ is calculated using R package 'geiger' 2.0.6.2 (Pennell, et al. 2014).
+Cites:
+```
+Abouheif, E. 1999. A method for testing the assumption of phylogenetic independence in comparative data. Evol. Ecol. Res. 1:895-909.
+Blomberg, S. P., Garland, T. and Ives, A. R. (2003) Testing for phylogenetic signal in comparative data: Behavioral traits are more labile. Evolution, 57, 717-745.
+Jombart T, Balloux F, Dray S. Adephylo: new tools for investigating the phylogenetic signal in biological traits. Bioinformatics, 2010, 26(15): 1907-1909.
+Moran, P. A. P. 1948. The interpretation of statistical maps. J. R. Stat. Soc. Ser. B Methodol. 10:243-251.
+Moran, P. A. P. 1950. Notes on continuous stochastic phenomena. Biometrika 37:17-23.
+Pagel, M. (1999) Inferring the historical patterns of biological evolution. Nature, 401, 877-884.
+Pennell, M. W., Eastman, J. M., Slater, G. J., et al. (2014). geiger v2. 0: an expanded suite of methods for fitting macroevolutionary models to phylogenetic trees. Bioinformatics, 30(15), 2216-2218.
 ```
 
 ## Install

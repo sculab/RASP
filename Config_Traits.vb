@@ -1,12 +1,13 @@
 ﻿Imports System.IO
 Public Class Config_Traits
 
-    Dim commandlines(2048) As String
+
     Dim Select_Node_Num As Integer
     Dim Tree_Node_Num As Integer
     Dim traits_result_path, traits_result_file As String
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Dim isselectnode As Boolean = False
+        Dim commandlines As String = ""
         For i As Integer = 1 To nodeView.Count
             If DataGridView2.Rows(i - 1).Cells(2).FormattedValue.ToString = "True" Then
                 isselectnode = True
@@ -32,95 +33,78 @@ Public Class Config_Traits
         Dim node_count As Integer = final_tree.Length - final_tree.Replace("(", "").Length
 
         Read_Poly_Node(final_tree.Replace(";", ""))
-        For i As Integer = 0 To 2048
-            commandlines(i) = ""
-        Next
 
-        commandlines(0) = ComboBox6.SelectedIndex + 1
-        commandlines(100) = ComboBox1.SelectedIndex + 1
+        commandlines += (ComboBox6.SelectedIndex + 1).ToString + vbLf
+        commandlines += (ComboBox1.SelectedIndex + 1).ToString + vbLf
 
         For i As Integer = 1 To nodeView.Count
             If DataGridView2.Rows(i - 1).Cells(2).FormattedValue.ToString = "True" Then
-                commandlines(200 + nodeView.Count - i) = "AddNode Node" + (nodeView.Count - i + 1).ToString + " " + Poly_Node((nodeView.Count - i), 3).Replace(",", " ")
+                commandlines += "AddTag TNode" + (nodeView.Count - i + 1).ToString + " " + Poly_Node((nodeView.Count - i), 3).Replace(",", " ") + vbLf
+                commandlines += "AddNode Node" + (nodeView.Count - i + 1).ToString + " TNode" + (nodeView.Count - i + 1).ToString + vbLf
+                If DataGridView2.Rows(i - 1).Cells(3).FormattedValue.ToString <> "" Then
+                    commandlines += "Fossil FNode" + (nodeView.Count - i + 1).ToString + " TNode" + (nodeView.Count - i + 1).ToString + " " + DataGridView2.Rows(i - 1).Cells(3).FormattedValue.ToString.ToUpper + vbLf
+                End If
             End If
-            If DataGridView2.Rows(i - 1).Cells(3).FormattedValue.ToString <> "" Then
-                commandlines(1000 + i) = "Fossil Node" + i.ToString + " " + DataGridView2.Rows(i - 1).Cells(3).FormattedValue.ToString.ToUpper + " " + Poly_Node(i - 1, 3).Replace(",", " ")
+
+        Next
+
+        If ComboBox1.SelectedIndex = 0 Then
+            commandlines += "MLTries " + TextBox6.Text + vbLf
+        Else
+            commandlines += "Sample " + TextBox1.Text + vbLf
+            commandlines += "Iterations " + TextBox3.Text + vbLf
+            commandlines += "BurnIn " + TextBox4.Text + vbLf
+            commandlines += ComboBox2.Text + vbLf
+            commandlines += ComboBox3.Text + vbLf
+            commandlines += ComboBox5.Text + vbLf
+            commandlines += ComboBox4.Text + vbLf
+        End If
+        commandlines += TextBox2.Text.Replace(Chr(13), vbLf) + vbLf
+        commandlines += "run" + vbLf
+
+        export_omitted(root_path + "temp\trait.trees", root_path + "temp" + path_char + "clean_num.trees")
+        Dim dw As New StreamWriter(root_path + "temp\trait.dat", False)
+        For i As Integer = 1 To dtView.Count
+            dtView.Item(i - 1).Item(state_index) = dtView.Item(i - 1).Item(state_index).ToString.Replace(" ", "")
+            If dtView.Item(i - 1).Item(state_index) = "" Or dtView.Item(i - 1).Item(state_index) = "\" Then
+                dw.WriteLine(dtView.Item(i - 1).Item(0) + "	" + "-")
+            Else
+                dw.WriteLine(dtView.Item(i - 1).Item(0) + "	" + dtView.Item(i - 1).Item(state_index))
             End If
         Next
-        commandlines(2000) = "Sample " + TextBox1.Text
-        commandlines(2001) = "Iterations " + TextBox3.Text
-        commandlines(2002) = "BurnIn " + TextBox4.Text
-        commandlines(2003) = "MLTries " + TextBox6.Text
-        commandlines(2004) = ComboBox2.Text
-        commandlines(2005) = ComboBox3.Text
-        commandlines(2006) = ComboBox5.Text
-        commandlines(2007) = ComboBox4.Text
-        commandlines(2008) = TextBox2.Text.Replace(Chr(13), vbLf)
-        commandlines(2048) = "run"
-        Dim opendialog As New SaveFileDialog
-        opendialog.Filter = "ALL Files(*.*)|*.*"
-        opendialog.FileName = ""
-        opendialog.DefaultExt = ""
-        opendialog.CheckFileExists = False
-        opendialog.CheckPathExists = True
-        Dim resultdialog As DialogResult = opendialog.ShowDialog()
-        If resultdialog = DialogResult.OK Then
-            export_omitted(opendialog.FileName + ".trees", root_path + "temp" + path_char + "clean_num.trees")
-            Dim dw As New StreamWriter(opendialog.FileName + ".dat", False)
-            For i As Integer = 1 To dtView.Count
-                dtView.Item(i - 1).Item(state_index) = dtView.Item(i - 1).Item(state_index).ToString.Replace(" ", "")
-                If dtView.Item(i - 1).Item(state_index) = "" Or dtView.Item(i - 1).Item(state_index) = "\" Then
-                    dw.WriteLine(dtView.Item(i - 1).Item(1) + "	" + "-")
-                Else
-                    dw.WriteLine(dtView.Item(i - 1).Item(1) + "	" + dtView.Item(i - 1).Item(state_index))
-                End If
-            Next
-            dw.Close()
-            Dim dw1 As New StreamWriter(opendialog.FileName + ".ini", False)
-            For i As Integer = 0 To 2048
-                If commandlines(i) <> "" Then
-                        dw1.Write(commandlines(i) + vbLf)
-                End If
-            Next
-            dw1.Close()
-            Dim f_name As String = opendialog.FileName.Substring(opendialog.FileName.LastIndexOf("\") + 1)
-            Dim f_path As String = opendialog.FileName.Substring(0, opendialog.FileName.Length - f_name.Length)
+        dw.Close()
 
+        Dim dw1 As New StreamWriter(root_path + "temp\trait.ini", False)
+        dw1.Write(commandlines)
+        dw1.Close()
 
-            'Dim res_dialog As DialogResult = MsgBox("Do you want to use BayesTraitsV2.0.2 in RASP?", MsgBoxStyle.YesNo)
-            'If res_dialog = Windows.Forms.DialogResult.Yes Then
-            'End If
-            TextBox5.Text = "Use following command to run BayesTraits:" + vbCrLf + "Mac OS:" + vbCrLf _
-                + "./BayesTraitsV2 " + f_name + ".trees " + f_name + ".dat < " + f_name + ".ini" + vbCrLf + "Windows:" + vbCrLf _
-                + "BayesTraitsV2.exe " + f_name + ".trees " + f_name + ".dat < " + f_name + ".ini"
-            If TargetOS = "win32" Then
-                Dim msg_reslut As DialogResult = MsgBox("Do you want to run BayesTraitsV2.0.2 automatically?", MsgBoxStyle.YesNo)
-                If msg_reslut = Windows.Forms.DialogResult.Yes Then
-                    File.Copy(root_path + "Plug-ins\BayesTraitsV2.0.2.exe", f_path + "BayesTraitsV2.exe", True)
-                    If File.Exists(f_path + "endtraits") Then
-                        File.Delete(f_path + "endtraits")
-                    End If
-                    If File.Exists(opendialog.FileName + ".dat.log.txt") Then
-                        File.Delete(opendialog.FileName + ".dat.log.txt")
-                    End If
-                    If File.Exists(opendialog.FileName + ".dat.log.txt.Stones.txt") Then
-                        File.Delete(opendialog.FileName + ".dat.log.txt.Stones.txt")
-                    End If
-                    Dim dw2 As New StreamWriter(opendialog.FileName + ".bat", False)
-                    dw2.WriteLine("BayesTraitsV2.exe " + f_name + ".trees " + f_name + ".dat < " + f_name + ".ini")
-                    'dw2.WriteLine("pause")
-                    dw2.WriteLine("cls>endtraits")
-                    dw2.Close()
-                    Dim startInfo As New ProcessStartInfo
-                    startInfo.FileName = f_name + ".bat"
-                    startInfo.WorkingDirectory = f_path
-                    Process.Start(startInfo)
-                    traits_result_path = f_path
-                    traits_result_file = opendialog.FileName + ".dat.log.txt"
-                    TimerTraits.Enabled = True
-                End If
-            End If
+        If File.Exists(root_path + "temp\endtraits") Then
+            File.Delete(root_path + "temp\endtraits")
         End If
+        If File.Exists(root_path + "temp\trait.dat.log.txt") Then
+            File.Delete(root_path + "temp\trait.dat.log.txt")
+        End If
+        If File.Exists(root_path + "temp\trait.dat.log.txt.Stones.txt") Then
+            File.Delete(root_path + "temp\trait.dat.log.txt.Stones.txt")
+        End If
+        Dim dw2 As New StreamWriter(root_path + "temp\run_traits.bat", False)
+        dw2.WriteLine("""" + root_path + "Plug-ins\BayesTraits.exe" + """" + " trait.trees trait.dat < trait.ini")
+        dw2.WriteLine("cls>endtraits")
+        dw2.Close()
+        current_dir = Directory.GetCurrentDirectory
+        Directory.SetCurrentDirectory(root_path + "temp\")
+        Dim startInfo As New ProcessStartInfo
+        startInfo.FileName = "run_traits.bat"
+        startInfo.WorkingDirectory = root_path + "temp"
+        startInfo.UseShellExecute = False
+        startInfo.CreateNoWindow = False
+        Process.Start(startInfo)
+        Directory.SetCurrentDirectory(current_dir)
+        traits_result_path = root_path + "temp\"
+        traits_result_file = root_path + "temp\trait.dat.log.txt"
+
+        TimerTraits.Enabled = True
+
     End Sub
 
     Public Sub export_omitted(ByVal export_file_name As String, ByVal source_file_name As String)
@@ -131,7 +115,7 @@ Public Class Config_Traits
         wt.WriteLine("	Dimensions ntax=" + dtView.Count.ToString + ";")
         wt.WriteLine("	Taxlabels")
         For i As Integer = 0 To dtView.Count - 1
-            wt.WriteLine("		" + dtView.Item(i)(1))
+            wt.WriteLine("		" + dtView.Item(i)(0))
         Next
 
         wt.WriteLine("		;")
@@ -140,7 +124,7 @@ Public Class Config_Traits
         wt.WriteLine("Begin trees;")
         wt.WriteLine("	Translate")
         For i As Integer = 0 To dtView.Count - 1
-            wt.WriteLine("		" + dtView.Item(i)(0) + " " + dtView.Item(i)(1) + ",")
+            wt.WriteLine("		" + dtView.Item(i)(0) + " " + dtView.Item(i)(0) + ",")
         Next
         wt.WriteLine(";")
         Dim rt As New StreamReader(source_file_name)
@@ -163,7 +147,7 @@ Public Class Config_Traits
     End Sub
 
     Private Sub Bayestraits_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        ComboBox1.SelectedIndex = 1
+        ComboBox1.SelectedIndex = 0
         ComboBox2.SelectedIndex = 0
         ComboBox3.SelectedIndex = 0
         ComboBox4.SelectedIndex = 0
@@ -324,45 +308,96 @@ Public Class Config_Traits
     Private Sub TimerTraits_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerTraits.Tick
         If File.Exists(traits_result_path + "endtraits") Then
             File.Delete(traits_result_path + "endtraits")
-            If File.Exists(traits_result_path + "BayesTraitsV2.exe") Then
-                File.Delete(traits_result_path + "BayesTraitsV2.exe")
-            End If
             TimerTraits.Enabled = False
-            RangeStr = ""
-            For i As Integer = 1 To dtView.Count
-                For Each c As Char In dtView.Item(i - 1).Item(state_index).ToString.ToUpper
-                    If Asc(c) >= Asc("A") And Asc(c) <= Asc("Z") Then
-                        If RangeStr.Contains(c) = False Then
-                            RangeStr = RangeStr + c.ToString
-                        End If
-                    ElseIf dtView.Item(i - 1).Item(state_index).ToString <> "-" And dtView.Item(i - 1).Item(state_index).ToString <> "\" Then
-                        MsgBox("Distributions of Taxon " + dtView.Item(i - 1).Item(0).ToString + " should be letters!")
-                        Exit Sub
-                        MsgBox("Only result of Multistate could be load into RASP!")
-                    End If
-                Next
-            Next
-            If RangeStr.Length = 1 Then
-                MsgBox("There should be two different areas at least!")
-                MsgBox("Only result of Multistate could be load into RASP!")
-                Exit Sub
-            End If
-            For Each c As Char In RangeStr.ToUpper
-                If AscW(c) - AscW("A") + 1 > RangeStr.Length Then
-                    MsgBox("Distributions should be Continuous letters! Please alter area '" + c + "'.")
-                    MsgBox("Only result of Multistate could be load into RASP!")
-                    Exit Sub
-                End If
-            Next
+            'RangeStr = ""
+            'For i As Integer = 1 To dtView.Count
+            '    For Each c As Char In dtView.Item(i - 1).Item(state_index).ToString.ToUpper
+            '        If Asc(c) >= Asc("A") And Asc(c) <= Asc("Z") Then
+            '            If RangeStr.Contains(c) = False Then
+            '                RangeStr = RangeStr + c.ToString
+            '            End If
+            '        ElseIf dtView.Item(i - 1).Item(state_index).ToString <> "-" And dtView.Item(i - 1).Item(state_index).ToString <> "\" Then
+            '            MsgBox("Distributions of Taxon " + dtView.Item(i - 1).Item(0).ToString + " should be letters!")
+            '            Exit Sub
+            '            MsgBox("Only result of Multistate could be load into RASP!")
+            '        End If
+            '    Next
+            'Next
+            'If RangeStr.Length = 1 Then
+            '    MsgBox("There should be two different areas at least!")
+            '    MsgBox("Only result of Multistate could be load into RASP!")
+            '    Exit Sub
+            'End If
+            'For Each c As Char In RangeStr.ToUpper
+            '    If AscW(c) - AscW("A") + 1 > RangeStr.Length Then
+            '        MsgBox("Distributions should be Continuous letters! Please alter area '" + c + "'.")
+            '        MsgBox("Only result of Multistate could be load into RASP!")
+            '        Exit Sub
+            '    End If
+            'Next
             If File.Exists(traits_result_file) Then
+                TraitsView.traits_view_file = traits_result_file
+                TraitsView.Show()
+                ProgressBar1.Value = 9500
                 read_traits_file(traits_result_file)
+                Hide()
             Else
-                MsgBox("Please check your data and commands and try again!")
+                MsgBox("Please check your data and commands!")
+            End If
+            ProgressBar1.Value = 0
+        Else
+            If File.Exists(traits_result_file) Then
+                If File.Exists(traits_result_path + "temp_count.txt") = False Then
+
+                    File.Copy(traits_result_file, traits_result_path + "temp_count.txt")
+                    Dim sr As New StreamReader(traits_result_path + "temp_count.txt")
+                    Dim line As String = ""
+                    Dim conut_line As Integer = 0
+                    Dim start_count As Boolean = False
+                    If ComboBox1.SelectedIndex = 0 Then
+                        Do
+                            line = sr.ReadLine
+
+                            If line Is Nothing Then
+                                Exit Do
+                            End If
+                            If start_count Then
+                                conut_line += 1
+                            Else
+                                If line.StartsWith("Tree No") Then
+                                    start_count = True
+                                End If
+                            End If
+                        Loop
+                        sr.Close()
+                        ProgressBar1.Value = Math.Min(10000, CInt(conut_line / CInt(MainWindow.TreeBox_P.Text) * 9000))
+                        File.Delete(traits_result_path + "temp_count.txt")
+                    Else
+                        Do
+                            line = sr.ReadLine
+
+                            If line Is Nothing Then
+                                Exit Do
+                            End If
+                            If start_count Then
+                                conut_line += 1
+                            Else
+                                If line.StartsWith("Iteration") Then
+                                    start_count = True
+                                End If
+                            End If
+                        Loop
+                        sr.Close()
+                        ProgressBar1.Value = Math.Min(10000, CInt(conut_line / ((CInt(TextBox3.Text) - CInt(TextBox4.Text)) / CInt(TextBox1.Text)) * 9000))
+                        File.Delete(traits_result_path + "temp_count.txt")
+                    End If
+
+                End If
             End If
         End If
     End Sub
 
-    Private Sub LoadLogToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LoadLogToolStripMenuItem.Click
+    Private Sub LoadLogToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         RangeStr = ""
         For i As Integer = 1 To dtView.Count
             For Each c As Char In dtView.Item(i - 1).Item(state_index).ToString.ToUpper

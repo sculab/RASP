@@ -4,13 +4,16 @@ Public Class Tool_SvT
     Public range_list() As Char
     Public state_group() As String
     Dim list_trees As New ArrayList
-    Dim weight_trees() As Single
+    Dim coco_score() As Single
+    Dim Moran_I() As Single
     Dim timer_id As Integer = 0
     Dim timer_count As Integer
     Dim tree_value_arrray() As Single
     Dim taxon_value_array() As Single
+    Dim tree_value_arrray_org() As Single
+    Dim taxon_value_array_org() As Single
     Private Sub Tool_State_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CheckForIllegalCrossThreadCalls = False
+
         Timer_R.Enabled = True
     End Sub
     Public Sub load_trees()
@@ -34,7 +37,7 @@ Public Class Tool_SvT
                 If ListBox1.SelectedIndices.Count >= 1 Then
                     ListView1.Items.Clear()
                     ListView1.Columns(1).Text = "Diff."
-                    ReDim weight_trees(list_trees.Count - 1)
+                    ReDim coco_score(list_trees.Count - 1)
                     Dim tree_id() As Integer
                     ReDim tree_id(list_trees.Count - 1)
                     For i As Integer = 0 To list_trees.Count - 1
@@ -52,12 +55,12 @@ Public Class Tool_SvT
                             End If
                             total_count += k_count
                         Next
-                        weight_trees(i) = total_count
+                        coco_score(i) = total_count
                     Next
-                    Array.Sort(weight_trees, tree_id, New scomparer)
+                    Array.Sort(coco_score, tree_id, New scomparer)
                     Dim new_list As List(Of ListViewItem) = New List(Of ListViewItem)()
                     For i As Integer = list_trees.Count - 1 To 0 Step -1
-                        new_list.Add(New ListViewItem({(tree_id(i) + 1).ToString, weight_trees(i).ToString, list_trees(tree_id(i)).Tree_Line}))
+                        new_list.Add(New ListViewItem({(tree_id(i) + 1).ToString, coco_score(i).ToString, list_trees(tree_id(i)).Tree_Line}))
                     Next
                     ListView1.Items.AddRange(new_list.ToArray)
                 Else
@@ -68,35 +71,47 @@ Public Class Tool_SvT
                 ListView1.Columns(1).Text = "Score"
                 ReDim tree_value_arrray(dtView.Count * (dtView.Count - 1) / 2)
                 ReDim taxon_value_array(dtView.Count * (dtView.Count - 1) / 2)
-                ReDim weight_trees(list_trees.Count - 1)
+                ReDim tree_value_arrray_org(dtView.Count * (dtView.Count - 1) / 2)
+                ReDim taxon_value_array_org(dtView.Count * (dtView.Count - 1) / 2)
+                ReDim coco_score(list_trees.Count - 1)
+                ReDim Moran_I(list_trees.Count - 1)
                 Dim count As Integer = 0
                 For i As Integer = 1 To dtView.Count - 1
                     For j As Integer = i + 1 To dtView.Count
                         count += 1
                         If dtView.Item(i - 1).Item(state_index).ToString = "" Or dtView.Item(j - 1).Item(state_index).ToString = "" Or dtView.Item(i - 1).Item(state_index).ToString = "?" Or dtView.Item(j - 1).Item(state_index).ToString = "?" Then
-                            taxon_value_array(count) = 1 / 0
+                            taxon_value_array_org(count) = 1 / 0
                         Else
-                            taxon_value_array(count) = Math.Abs(CSng(dtView.Item(i - 1).Item(state_index)) - CSng(dtView.Item(j - 1).Item(state_index)))
+                            taxon_value_array_org(count) = Math.Abs(CSng(dtView.Item(i - 1).Item(state_index)) - CSng(dtView.Item(j - 1).Item(state_index)))
                         End If
                     Next
                 Next
                 Dim x_min As Single = matrix_Min_positive(taxon_value_array, 1)
                 Dim x_max As Single = matrix_Max_positive(taxon_value_array, 1)
                 For i As Integer = 1 To UBound(taxon_value_array)
-                    taxon_value_array(i) = (taxon_value_array(i) - x_min) / (x_max - x_min)
+                    taxon_value_array(i) = (taxon_value_array_org(i) - x_min) / (x_max - x_min)
                 Next
                 Dim x_average As Single = AVERAGE_positive(taxon_value_array, 1)
+                Dim x_average_org As Single = AVERAGE_positive(taxon_value_array_org, 1)
                 Dim tree_id() As Integer
                 ReDim tree_id(list_trees.Count - 1)
                 For k As Integer = 0 To list_trees.Count - 1
                     timer_count += 1
                     tree_id(k) = k
                     count = 0
+                    Dim mi_1 As Single = 0
+                    Dim mi_2 As Single = 0
+                    Dim mi_3 As Single = 0
                     For i As Integer = 1 To dtView.Count - 1
                         For j As Integer = i + 1 To dtView.Count
                             count += 1
                             tree_value_arrray(count) = node_distance(list_trees(k), i, j)
+                            If taxon_value_array(i) <> 1 / 0 Then
+                                mi_1 += 1 / tree_value_arrray(count) * (CSng(dtView.Item(i - 1).Item(state_index)) - x_average_org) * (CSng(dtView.Item(j - 1).Item(state_index)) - x_average_org)
+                                mi_2 += 1 / tree_value_arrray(count)
+                            End If
                         Next
+                        mi_3 += (CSng(dtView.Item(i - 1).Item(state_index)) - x_average_org) ^ 2
                     Next
                     Dim t_min As Single = matrix_Min_positive(tree_value_arrray, 1)
                     If t_min < 0 Then
@@ -118,12 +133,14 @@ Public Class Tool_SvT
                             coco_down_2 += (tree_value_arrray(i) - t_average) ^ 2
                         End If
                     Next
-                    weight_trees(k) = coco_up / ((coco_down_1 * coco_down_2) ^ 0.5)
+
+                    coco_score(k) = coco_up / ((coco_down_1 * coco_down_2) ^ 0.5)
+                    Moran_I(k) = dtView.Count * mi_1 / mi_2 / mi_3
                 Next
-                Array.Sort(weight_trees, tree_id, New lcomparer)
+                Array.Sort(coco_score, tree_id, New lcomparer)
                 Dim new_list As List(Of ListViewItem) = New List(Of ListViewItem)()
                 For i As Integer = list_trees.Count - 1 To 0 Step -1
-                    new_list.Add(New ListViewItem({(tree_id(i) + 1).ToString, weight_trees(i).ToString, list_trees(tree_id(i)).Tree_Line}))
+                    new_list.Add(New ListViewItem({(tree_id(i) + 1).ToString, Moran_I(i).ToString, list_trees(tree_id(i)).Tree_Line}))
                 Next
                 ListView1.Items.AddRange(new_list.ToArray)
         End Select
@@ -138,40 +155,13 @@ Public Class Tool_SvT
     Public Function cal_matrix_index(ByVal i As Integer, ByVal j As Integer, ByVal t As Integer) As Integer
         Return (2 * t - i - 1) * i / 2 - t + j
     End Function
-    Public Function node_distance(ByVal tree As Object, ByVal terminal_id1 As Integer, ByVal terminal_id2 As Integer) As Single
-        Dim common_node As Integer = -1
-        Dim node_list1() As String = tree.Terminal_Chain(terminal_id1 - 1).Split(",")
-        Dim node_list2() As String = tree.Terminal_Chain(terminal_id2 - 1).Split(",")
-        For i As Integer = 1 To UBound(node_list1)
-            If Array.IndexOf(node_list2, node_list1(i)) >= 0 Then
-                common_node = node_list1(i)
-                Exit For
-            End If
-        Next
-        If tree.Has_Length Then
-            Return tree.Terminal_Total_Length(terminal_id1 - 1) + tree.Terminal_Total_Length(terminal_id2 - 1) - 2 * tree.Node_Total_Length(common_node)
-        Else
-            Return Math.Max(tree.Time_Length(terminal_id1 - 1), tree.Time_Length(terminal_id2 - 1)) * 2 - 2 * tree.Node_Total_Length(common_node)
-        End If
-    End Function
-    Public Function comp_list(ByVal str1 As String, ByVal str2 As String) As Integer
-        Dim arr1() As String = str1.Split(",")
-        Dim arr2() As String = str2.Split(",")
-        Dim count As Integer = 0
-        For Each i As String In arr1
-            If Array.IndexOf(arr2, i) >= 0 Then
-                count += 1
-            End If
-        Next
-        Return arr1.Length + arr2.Length - 2 * count
-    End Function
 
-    Private Sub Tool_State_MenuComplete(sender As Object, e As EventArgs) Handles Me.MenuComplete
 
-    End Sub
+
 
     Private Sub Tool_State_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         If Me.Visible = True Then
+            CheckForIllegalCrossThreadCalls = False
             MainWindow.DataGridView1.Enabled = False
             Select Case state_mode
                 Case 0
@@ -230,6 +220,8 @@ Public Class Tool_SvT
 
             Dim Tree_view_form As New View_Tree
             Tree_view_form.tree_view_limit = True
+            Tree_view_form.current_state = state_index
+
             Tree_view_form.show_my_tree = lvi.SubItems(2).Text
             Tree_view_form.Show()
         End If
@@ -317,8 +309,15 @@ Public Class Tool_SvT
         wt.WriteLine("End;")
         wt.Close()
     End Sub
-
-    Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView1.SelectedIndexChanged
-
+    Private Sub ListView1_ColumnClick(sender As Object, e As ColumnClickEventArgs) Handles ListView1.ColumnClick
+        Dim columnsort As New ColumnSort(e.Column)
+        columnsort.bAscending = (ListView1.Sorting = SortOrder.Ascending)
+        If columnsort.bAscending Then
+            ListView1.Sorting = SortOrder.Descending
+        Else
+            ListView1.Sorting = SortOrder.Ascending
+        End If
+        ListView1.ListViewItemSorter = columnsort
+        ListView1.ListViewItemSorter = Nothing
     End Sub
 End Class

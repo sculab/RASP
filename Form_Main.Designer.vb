@@ -61,17 +61,21 @@ Partial Class Form_Main
         Me.StatisticalDispersalVicarianceAnalysisSDIVAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatisticalDECSDECToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatisticalDIVALIKEToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
+        Me.StatisticalERSYMARDInAPEToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OriginalMethodsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DispersalExtinctionCladogenesisDECToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BayesianInferenceForDiscreteAreasBayAreaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DIVALIKEInBiogenBEARSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ERSYMARDModelInAPEToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BayesianBinaryMCMCBBMToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.TraitsEvolutionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BayesianBinaryMCMCBBMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CommandBuilderForBayesTraitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChromosomeEvolutionChromEvolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComparisonToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TreeClusterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StatesVsTreesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TreeVsStatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OtherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InstallReinstallToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BioGeoBEARSToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -85,6 +89,7 @@ Partial Class Form_Main
         Me.AddTreeLengthToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TreeTimeMultiplierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ConvertStatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LoadDataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DPPAnalysisToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -117,7 +122,7 @@ Partial Class Form_Main
         Me.BGB_Timer = New System.Windows.Forms.Timer(Me.components)
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.Check_Package_Timer = New System.Windows.Forms.Timer(Me.components)
-        Me.ConvertStatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MultiStateReconstructionInBayesTraitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -223,19 +228,19 @@ Partial Class Form_Main
         'SaveResultToolStripMenuItem
         '
         Me.SaveResultToolStripMenuItem.Name = "SaveResultToolStripMenuItem"
-        Me.SaveResultToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.SaveResultToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SaveResultToolStripMenuItem.Text = "Save Results"
         '
         'SaveDistributionToolStripMenuItem
         '
         Me.SaveDistributionToolStripMenuItem.Name = "SaveDistributionToolStripMenuItem"
-        Me.SaveDistributionToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.SaveDistributionToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SaveDistributionToolStripMenuItem.Text = "Save States"
         '
         'SaveLogToolStripMenuItem
         '
         Me.SaveLogToolStripMenuItem.Name = "SaveLogToolStripMenuItem"
-        Me.SaveLogToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.SaveLogToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SaveLogToolStripMenuItem.Text = "Save Logs"
         '
         'ExportToolStripMenuItem
@@ -249,21 +254,21 @@ Partial Class Form_Main
         '
         Me.FormatedTreeToolStripMenuItem.Enabled = False
         Me.FormatedTreeToolStripMenuItem.Name = "FormatedTreeToolStripMenuItem"
-        Me.FormatedTreeToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.FormatedTreeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.FormatedTreeToolStripMenuItem.Text = "Condensed Tree"
         '
         'TreeDataSetToolStripMenuItem
         '
         Me.TreeDataSetToolStripMenuItem.Enabled = False
         Me.TreeDataSetToolStripMenuItem.Name = "TreeDataSetToolStripMenuItem"
-        Me.TreeDataSetToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.TreeDataSetToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TreeDataSetToolStripMenuItem.Text = "Discarded Trees"
         '
         'RandomTreesToolStripMenuItem
         '
         Me.RandomTreesToolStripMenuItem.Enabled = False
         Me.RandomTreesToolStripMenuItem.Name = "RandomTreesToolStripMenuItem"
-        Me.RandomTreesToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.RandomTreesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RandomTreesToolStripMenuItem.Text = "Random Trees"
         '
         'ToolStripSeparator3
@@ -294,31 +299,31 @@ Partial Class Form_Main
         'TreeViewToolStripMenuItem
         '
         Me.TreeViewToolStripMenuItem.Name = "TreeViewToolStripMenuItem"
-        Me.TreeViewToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.TreeViewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TreeViewToolStripMenuItem.Text = "Tree View"
         '
         'PiePictureToolStripMenuItem
         '
         Me.PiePictureToolStripMenuItem.Name = "PiePictureToolStripMenuItem"
-        Me.PiePictureToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.PiePictureToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.PiePictureToolStripMenuItem.Text = "Node View"
         '
         'TracerViewToolStripMenuItem
         '
         Me.TracerViewToolStripMenuItem.Enabled = False
         Me.TracerViewToolStripMenuItem.Name = "TracerViewToolStripMenuItem"
-        Me.TracerViewToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.TracerViewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TracerViewToolStripMenuItem.Text = "Tracer View"
         '
         'TraitsViewToolStripMenuItem
         '
         Me.TraitsViewToolStripMenuItem.Name = "TraitsViewToolStripMenuItem"
-        Me.TraitsViewToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.TraitsViewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TraitsViewToolStripMenuItem.Text = "State View"
         '
         'ProcessToolStripMenuItem
         '
-        Me.ProcessToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModelTestToolStripMenuItem, Me.ToolStripSeparator8, Me.StatisticalMethodsToolStripMenuItem, Me.OriginalMethodsToolStripMenuItem, Me.TraitsEvolutionToolStripMenuItem})
+        Me.ProcessToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModelTestToolStripMenuItem, Me.ToolStripSeparator8, Me.StatisticalMethodsToolStripMenuItem, Me.OriginalMethodsToolStripMenuItem, Me.ToolStripSeparator5, Me.TraitsEvolutionToolStripMenuItem})
         Me.ProcessToolStripMenuItem.Name = "ProcessToolStripMenuItem"
         Me.ProcessToolStripMenuItem.Size = New System.Drawing.Size(102, 20)
         Me.ProcessToolStripMenuItem.Text = "Reconstruction"
@@ -344,7 +349,7 @@ Partial Class Form_Main
         '
         'StatisticalMethodsToolStripMenuItem
         '
-        Me.StatisticalMethodsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StatisticalDispersalVicarianceAnalysisSDIVAToolStripMenuItem, Me.StatisticalDECSDECToolStripMenuItem, Me.StatisticalDIVALIKEToolStripMenuItem})
+        Me.StatisticalMethodsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StatisticalDispersalVicarianceAnalysisSDIVAToolStripMenuItem, Me.StatisticalDECSDECToolStripMenuItem, Me.StatisticalDIVALIKEToolStripMenuItem, Me.ToolStripSeparator11, Me.StatisticalERSYMARDInAPEToolStripMenuItem, Me.MultiStateReconstructionInBayesTraitsToolStripMenuItem})
         Me.StatisticalMethodsToolStripMenuItem.Enabled = False
         Me.StatisticalMethodsToolStripMenuItem.Name = "StatisticalMethodsToolStripMenuItem"
         Me.StatisticalMethodsToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
@@ -368,9 +373,20 @@ Partial Class Form_Main
         Me.StatisticalDIVALIKEToolStripMenuItem.Size = New System.Drawing.Size(435, 22)
         Me.StatisticalDIVALIKEToolStripMenuItem.Text = "Statistical DIVALIKE/DEC/BAYAREALIKE in BioGeoBEARS (S-BGB)"
         '
+        'ToolStripSeparator11
+        '
+        Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
+        Me.ToolStripSeparator11.Size = New System.Drawing.Size(432, 6)
+        '
+        'StatisticalERSYMARDInAPEToolStripMenuItem
+        '
+        Me.StatisticalERSYMARDInAPEToolStripMenuItem.Name = "StatisticalERSYMARDInAPEToolStripMenuItem"
+        Me.StatisticalERSYMARDInAPEToolStripMenuItem.Size = New System.Drawing.Size(435, 22)
+        Me.StatisticalERSYMARDInAPEToolStripMenuItem.Text = "Statistical ER/SYM/ARD in APE"
+        '
         'OriginalMethodsToolStripMenuItem
         '
-        Me.OriginalMethodsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DispersalExtinctionCladogenesisDECToolStripMenuItem, Me.BayesianInferenceForDiscreteAreasBayAreaToolStripMenuItem, Me.DIVALIKEInBiogenBEARSToolStripMenuItem})
+        Me.OriginalMethodsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DispersalExtinctionCladogenesisDECToolStripMenuItem, Me.BayesianInferenceForDiscreteAreasBayAreaToolStripMenuItem, Me.DIVALIKEInBiogenBEARSToolStripMenuItem, Me.ToolStripSeparator10, Me.ERSYMARDModelInAPEToolStripMenuItem, Me.BayesianBinaryMCMCBBMToolStripMenuItem1})
         Me.OriginalMethodsToolStripMenuItem.Enabled = False
         Me.OriginalMethodsToolStripMenuItem.Name = "OriginalMethodsToolStripMenuItem"
         Me.OriginalMethodsToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
@@ -394,25 +410,37 @@ Partial Class Form_Main
         Me.DIVALIKEInBiogenBEARSToolStripMenuItem.Size = New System.Drawing.Size(333, 22)
         Me.DIVALIKEInBiogenBEARSToolStripMenuItem.Text = "DIVALIKE/DEC/BAYAREALIKE in BioGeoBEARS"
         '
+        'ToolStripSeparator10
+        '
+        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
+        Me.ToolStripSeparator10.Size = New System.Drawing.Size(330, 6)
+        '
+        'ERSYMARDModelInAPEToolStripMenuItem
+        '
+        Me.ERSYMARDModelInAPEToolStripMenuItem.Name = "ERSYMARDModelInAPEToolStripMenuItem"
+        Me.ERSYMARDModelInAPEToolStripMenuItem.Size = New System.Drawing.Size(333, 22)
+        Me.ERSYMARDModelInAPEToolStripMenuItem.Text = "ER/SYM/ARD in APE"
+        '
+        'BayesianBinaryMCMCBBMToolStripMenuItem1
+        '
+        Me.BayesianBinaryMCMCBBMToolStripMenuItem1.Name = "BayesianBinaryMCMCBBMToolStripMenuItem1"
+        Me.BayesianBinaryMCMCBBMToolStripMenuItem1.Size = New System.Drawing.Size(333, 22)
+        Me.BayesianBinaryMCMCBBMToolStripMenuItem1.Text = "Bayesian Binary MCMC (BBM)"
+        '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(183, 6)
+        Me.ToolStripSeparator5.Visible = False
+        '
         'TraitsEvolutionToolStripMenuItem
         '
-        Me.TraitsEvolutionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BayesianBinaryMCMCBBMToolStripMenuItem, Me.CommandBuilderForBayesTraitsToolStripMenuItem, Me.ChromosomeEvolutionChromEvolToolStripMenuItem})
+        Me.TraitsEvolutionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChromosomeEvolutionChromEvolToolStripMenuItem})
         Me.TraitsEvolutionToolStripMenuItem.Enabled = False
         Me.TraitsEvolutionToolStripMenuItem.Name = "TraitsEvolutionToolStripMenuItem"
         Me.TraitsEvolutionToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
-        Me.TraitsEvolutionToolStripMenuItem.Text = "Traits Evolution"
-        '
-        'BayesianBinaryMCMCBBMToolStripMenuItem
-        '
-        Me.BayesianBinaryMCMCBBMToolStripMenuItem.Name = "BayesianBinaryMCMCBBMToolStripMenuItem"
-        Me.BayesianBinaryMCMCBBMToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
-        Me.BayesianBinaryMCMCBBMToolStripMenuItem.Text = "Bayesian Binary MCMC (BBM)"
-        '
-        'CommandBuilderForBayesTraitsToolStripMenuItem
-        '
-        Me.CommandBuilderForBayesTraitsToolStripMenuItem.Name = "CommandBuilderForBayesTraitsToolStripMenuItem"
-        Me.CommandBuilderForBayesTraitsToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
-        Me.CommandBuilderForBayesTraitsToolStripMenuItem.Text = "Command Builder for BayesTraits"
+        Me.TraitsEvolutionToolStripMenuItem.Text = "Command Builder"
+        Me.TraitsEvolutionToolStripMenuItem.Visible = False
         '
         'ChromosomeEvolutionChromEvolToolStripMenuItem
         '
@@ -422,7 +450,7 @@ Partial Class Form_Main
         '
         'ComparisonToolStripMenuItem
         '
-        Me.ComparisonToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TreeClusterToolStripMenuItem, Me.StatesVsTreesToolStripMenuItem})
+        Me.ComparisonToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TreeClusterToolStripMenuItem, Me.TreeVsStatesToolStripMenuItem})
         Me.ComparisonToolStripMenuItem.Name = "ComparisonToolStripMenuItem"
         Me.ComparisonToolStripMenuItem.Size = New System.Drawing.Size(88, 20)
         Me.ComparisonToolStripMenuItem.Text = "Comparison"
@@ -431,13 +459,13 @@ Partial Class Form_Main
         '
         Me.TreeClusterToolStripMenuItem.Name = "TreeClusterToolStripMenuItem"
         Me.TreeClusterToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.TreeClusterToolStripMenuItem.Text = "Trees Cluster"
+        Me.TreeClusterToolStripMenuItem.Text = "Trees vs. Trees"
         '
-        'StatesVsTreesToolStripMenuItem
+        'TreeVsStatesToolStripMenuItem
         '
-        Me.StatesVsTreesToolStripMenuItem.Name = "StatesVsTreesToolStripMenuItem"
-        Me.StatesVsTreesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.StatesVsTreesToolStripMenuItem.Text = "State vs. Trees"
+        Me.TreeVsStatesToolStripMenuItem.Name = "TreeVsStatesToolStripMenuItem"
+        Me.TreeVsStatesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TreeVsStatesToolStripMenuItem.Text = "Trees vs. States"
         '
         'OtherToolStripMenuItem
         '
@@ -515,6 +543,12 @@ Partial Class Form_Main
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(212, 6)
         '
+        'ConvertStatesToolStripMenuItem
+        '
+        Me.ConvertStatesToolStripMenuItem.Name = "ConvertStatesToolStripMenuItem"
+        Me.ConvertStatesToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.ConvertStatesToolStripMenuItem.Text = "Convert States"
+        '
         'DatingToolStripMenuItem
         '
         Me.DatingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoadDataToolStripMenuItem, Me.DPPAnalysisToolStripMenuItem})
@@ -552,13 +586,13 @@ Partial Class Form_Main
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(111, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'DebugToolStripMenuItem
         '
         Me.DebugToolStripMenuItem.Name = "DebugToolStripMenuItem"
-        Me.DebugToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DebugToolStripMenuItem.Size = New System.Drawing.Size(111, 22)
         Me.DebugToolStripMenuItem.Text = "Debug"
         '
         'TreeBox
@@ -784,11 +818,11 @@ Partial Class Form_Main
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
         Me.ToolStripSeparator6.Size = New System.Drawing.Size(359, 6)
         '
-        'ConvertStatesToolStripMenuItem
+        'MultiStateReconstructionInBayesTraitsToolStripMenuItem
         '
-        Me.ConvertStatesToolStripMenuItem.Name = "ConvertStatesToolStripMenuItem"
-        Me.ConvertStatesToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.ConvertStatesToolStripMenuItem.Text = "Convert States"
+        Me.MultiStateReconstructionInBayesTraitsToolStripMenuItem.Name = "MultiStateReconstructionInBayesTraitsToolStripMenuItem"
+        Me.MultiStateReconstructionInBayesTraitsToolStripMenuItem.Size = New System.Drawing.Size(435, 22)
+        Me.MultiStateReconstructionInBayesTraitsToolStripMenuItem.Text = "MultiState Reconstruction in BayesTraits"
         '
         'Form_Main
         '
@@ -897,8 +931,6 @@ Partial Class Form_Main
     Friend WithEvents StatisticalDECSDECToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StatisticalDIVALIKEToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TraitsEvolutionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents BayesianBinaryMCMCBBMToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents CommandBuilderForBayesTraitsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ChromosomeEvolutionChromEvolToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator8 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents BioGeoBEARSToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
@@ -908,6 +940,13 @@ Partial Class Form_Main
     Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
     Friend WithEvents ComparisonToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TreeClusterToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents StatesVsTreesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConvertStatesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TreeVsStatesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BayesianBinaryMCMCBBMToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator5 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
+    Friend WithEvents ERSYMARDModelInAPEToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator11 As ToolStripSeparator
+    Friend WithEvents StatisticalERSYMARDInAPEToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MultiStateReconstructionInBayesTraitsToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -57,6 +57,7 @@ Public Class View_Tree
     Dim Loading As Boolean = True
     Dim TimeView As Integer = 0
     Public tree_view_limit As Boolean = False
+    Public current_state As Integer
     Public Function Swap_tree(ByVal Treeline As String, ByVal gotnode As Integer) As String
         Dim tree_char() As String
         ReDim tree_char(NumofTaxon * 7)
@@ -652,7 +653,7 @@ Public Class View_Tree
         ReDim Distribution(NumofTaxon - 1)
         For i As Integer = 0 To NumofTaxon - 1
             TaxonName(i) = dtView.Item(i).Item(1).ToString
-            Distribution(i) = dtView.Item(i).Item(state_index).ToString
+            Distribution(i) = dtView.Item(i).Item(current_state).ToString
             max_taxon_name = Math.Max(max_taxon_name, TaxonName(i).Length)
         Next
 

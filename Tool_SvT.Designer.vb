@@ -30,7 +30,6 @@ Partial Class Tool_SvT
         Me.TreesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AnalysisToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.FindBestFitTreeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -38,6 +37,7 @@ Partial Class Tool_SvT
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.Timer_R = New System.Windows.Forms.Timer(Me.components)
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -88,18 +88,6 @@ Partial Class Tool_SvT
         Me.FindBestFitTreeToolStripMenuItem.Name = "FindBestFitTreeToolStripMenuItem"
         Me.FindBestFitTreeToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.FindBestFitTreeToolStripMenuItem.Text = "State vs. Trees"
-        '
-        'ListBox1
-        '
-        Me.ListBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.ItemHeight = 15
-        Me.ListBox1.Location = New System.Drawing.Point(0, 27)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.ListBox1.Size = New System.Drawing.Size(100, 334)
-        Me.ListBox1.TabIndex = 1
         '
         'ListView1
         '
@@ -152,6 +140,18 @@ Partial Class Tool_SvT
         Me.Label6.TabIndex = 21
         Me.Label6.Text = "Waiting..."
         '
+        'ListBox1
+        '
+        Me.ListBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.ItemHeight = 15
+        Me.ListBox1.Location = New System.Drawing.Point(0, 27)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
+        Me.ListBox1.Size = New System.Drawing.Size(100, 334)
+        Me.ListBox1.TabIndex = 1
+        '
         'Tool_SvT
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -175,9 +175,8 @@ Partial Class Tool_SvT
     End Sub
 
     Friend WithEvents MenuStrip1 As MenuStrip
-	Friend WithEvents ListBox1 As ListBox
-	Friend WithEvents AnalysisToolStripMenuItem As ToolStripMenuItem
-	Friend WithEvents AnalysisToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents AnalysisToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AnalysisToolStripMenuItem1 As ToolStripMenuItem
 	Friend WithEvents FindBestFitTreeToolStripMenuItem As ToolStripMenuItem
 	Friend WithEvents ListView1 As ListView
 	Friend WithEvents ColumnHeader1 As ColumnHeader
@@ -189,4 +188,5 @@ Partial Class Tool_SvT
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents Timer_R As Timer
     Friend WithEvents Label6 As Label
+    Friend WithEvents ListBox1 As ListBox
 End Class

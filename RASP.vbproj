@@ -162,6 +162,7 @@
     <Compile Include="Form_Preference.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Module_Functions.vb" />
     <Compile Include="Module_lang.vb" />
     <Compile Include="Module_Stat.vb" />
     <Compile Include="Module_Tree.vb" />
@@ -201,6 +202,12 @@
       <DependentUpon>Tool_Cluster.vb</DependentUpon>
     </Compile>
     <Compile Include="Tool_Cluster.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tool_TvS.Designer.vb">
+      <DependentUpon>Tool_TvS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tool_TvS.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View_OptionForm.Designer.vb">
@@ -343,6 +350,9 @@
     <EmbeddedResource Include="Tool_Cluster.resx">
       <DependentUpon>Tool_Cluster.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tool_TvS.resx">
+      <DependentUpon>Tool_TvS.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View_OptionForm.resx">
       <DependentUpon>View_OptionForm.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -419,7 +429,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
-  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

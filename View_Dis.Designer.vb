@@ -54,6 +54,8 @@ Partial Class View_Dis
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.CheckBox4 = New System.Windows.Forms.CheckBox()
+        Me.SaveResultToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,7 +88,7 @@ Partial Class View_Dis
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoadResultToolStripMenuItem, Me.SaveGraphicToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoadResultToolStripMenuItem, Me.ToolStripSeparator1, Me.SaveGraphicToolStripMenuItem, Me.SaveResultToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(39, 20)
         Me.FileToolStripMenuItem.Text = "File"
@@ -109,6 +111,7 @@ Partial Class View_Dis
         Me.AnalysisToolStripMenuItem.Name = "AnalysisToolStripMenuItem"
         Me.AnalysisToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
         Me.AnalysisToolStripMenuItem.Text = "Generate"
+        Me.AnalysisToolStripMenuItem.Visible = False
         '
         'BayesTraitsParametersToolStripMenuItem
         '
@@ -296,6 +299,7 @@ Partial Class View_Dis
         Me.TextBox2.Size = New System.Drawing.Size(82, 21)
         Me.TextBox2.TabIndex = 17
         Me.TextBox2.Text = "Root P"
+        Me.TextBox2.Visible = False
         '
         'CheckBox3
         '
@@ -306,6 +310,7 @@ Partial Class View_Dis
         Me.CheckBox3.Size = New System.Drawing.Size(15, 14)
         Me.CheckBox3.TabIndex = 18
         Me.CheckBox3.UseVisualStyleBackColor = True
+        Me.CheckBox3.Visible = False
         '
         'TextBox3
         '
@@ -333,6 +338,17 @@ Partial Class View_Dis
         Me.CheckBox4.TabIndex = 21
         Me.CheckBox4.Text = "Cal. between:"
         Me.CheckBox4.UseVisualStyleBackColor = True
+        '
+        'SaveResultToolStripMenuItem
+        '
+        Me.SaveResultToolStripMenuItem.Name = "SaveResultToolStripMenuItem"
+        Me.SaveResultToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveResultToolStripMenuItem.Text = "Save Result"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
         '
         'View_Dis
         '
@@ -365,7 +381,7 @@ Partial Class View_Dis
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "View_Dis"
-        Me.Text = "States"
+        Me.Text = "BayesTraits States"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
@@ -408,4 +424,6 @@ Partial Class View_Dis
     Friend WithEvents UniformMeanToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GammaToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExpontialToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SaveResultToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
 End Class

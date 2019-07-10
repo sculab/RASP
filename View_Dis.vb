@@ -53,7 +53,7 @@ Public Class View_Dis
         sw.Close()
 
     End Sub
-    Dim traits_view_file As String
+    Public traits_view_file As String
     Dim prob_dist() As Integer
     Dim prob_para(6) As Single
     Dim split_count As Integer = 20
@@ -375,12 +375,11 @@ Public Class View_Dis
     End Sub
 
     Private Sub UniformMeanToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UniformMeanToolStripMenuItem1.Click
-        Config_Traits.TextBox2.Text = ""
+
         For i As Integer = 0 To ListBox1.Items.Count - 1
             If ListBox1.Items(i).ToString.StartsWith("q") Then
                 cal_column(i)
-				Config_Traits.TextBox2.Text = Config_Traits.TextBox2.Text & "pr " & ListBox1.Items(i).ToString & " uniform " & Max((prob_para(4) - prob_para(5)), prob_para(0)).ToString & " " & Min((prob_para(4) + prob_para(5)), prob_para(1)).ToString & vbCrLf
-			End If
+            End If
         Next
         Config_Traits.ComboBox1.SelectedIndex = 1
         Config_Traits.ComboBox2.SelectedIndex = 0
@@ -423,5 +422,30 @@ Public Class View_Dis
         Config_Traits.ComboBox5.SelectedIndex = 1
         Config_Traits.ComboBox6.SelectedIndex = 0
         Config_Traits.Show()
+    End Sub
+
+    Private Sub View_Dis_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+        If Me.Visible Then
+            If traits_view_file <> "" Then
+                read_traits_file(traits_view_file)
+            End If
+        End If
+    End Sub
+
+    Private Sub SaveResultToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveResultToolStripMenuItem.Click
+        If File.Exists(traits_view_file) Then
+            Dim opendialog As New SaveFileDialog
+            opendialog.Filter = "Text File (*.txt)|*.txt;*.TXT|ALL Files(*.*)|*.*"
+            opendialog.FileName = ""
+            opendialog.DefaultExt = ".txt"
+            opendialog.CheckFileExists = False
+            opendialog.CheckPathExists = True
+            Dim resultdialog As DialogResult = opendialog.ShowDialog()
+            If resultdialog = DialogResult.OK Then
+                File.Copy(traits_view_file, opendialog.FileName, True)
+            End If
+        Else
+            MsgBox("No result to save!", MsgBoxStyle.Information)
+        End If
     End Sub
 End Class

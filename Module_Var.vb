@@ -3,12 +3,12 @@ Imports System.Threading
 Imports System.Runtime.InteropServices
 Imports System.Globalization.CultureInfo
 Module Module_Var
-    Public Version As String = "4.1.3"
-    Public build As String = "20190624"
+    Public Version As String = "4.2"
+    Public build As String = "20190708"
     Public enableMin As Boolean = True
-    Public isDebug As Boolean = False
+    Public isDebug As Boolean = True
     Public ci As System.Globalization.CultureInfo = New System.Globalization.CultureInfo("en-us")
-#Const TargetOS = "win32"
+#Const TargetOS = "macos"
 #If TargetOS = "linux" Then
     Public TargetOS As String = "linux"
 #ElseIf TargetOS = "macos" Then
@@ -40,6 +40,7 @@ Module Module_Var
     Public TracerForm As New View_Tracer
     Public CombineForm As New Tool_Combine
     Public SvTForm As New Tool_SvT
+    Public TvSForm As New Tool_TvS
     Public BayAreaForm As New Config_BayArea
     Public TraitsForm As New Config_Traits
     Public ChromForm As New Config_Chrom
@@ -328,25 +329,7 @@ Module Module_Var
         Next
         Return dis
     End Function
-    Public Function sort_str(ByVal str As String) As String
-        Dim tmp() As Char = str
-        Array.Sort(tmp)
-        Return tmp
-    End Function
-    Public Function cal_sd(ByVal single_array() As Single) As Single
-        Dim u As Single = 0
-        Dim m As Single = 0
-        Dim n As Integer = single_array.Length
-        For Each i As Single In single_array
-            m += i
-        Next
-        m = m / n
-        For Each i As Single In single_array
-            u += (i - m) ^ 2
-        Next
-        u = (u / (n - 1)) ^ 0.5
-        Return u
-    End Function
+
     '节点编号转换
 
     Public Function Left_to_right(ByVal left_id As Integer, ByVal tree_line As String) As Integer
@@ -381,5 +364,24 @@ Module Module_Var
             End If
         Next
         Return t_num + t1
+    End Function
+
+
+
+    Public Function node_distance(ByVal tree As Object, ByVal terminal_id1 As Integer, ByVal terminal_id2 As Integer) As Single
+        Dim common_node As Integer = -1
+        Dim node_list1() As String = tree.Terminal_Chain(terminal_id1 - 1).Split(",")
+        Dim node_list2() As String = tree.Terminal_Chain(terminal_id2 - 1).Split(",")
+        For i As Integer = 1 To UBound(node_list1)
+            If Array.IndexOf(node_list2, node_list1(i)) >= 0 Then
+                common_node = node_list1(i)
+                Exit For
+            End If
+        Next
+        If tree.Has_Length Then
+            Return tree.Terminal_Total_Length(terminal_id1 - 1) + tree.Terminal_Total_Length(terminal_id2 - 1) - 2 * tree.Node_Total_Length(common_node)
+        Else
+            Return Math.Max(tree.Time_Length(terminal_id1 - 1), tree.Time_Length(terminal_id2 - 1)) * 2 - 2 * tree.Node_Total_Length(common_node)
+        End If
     End Function
 End Module

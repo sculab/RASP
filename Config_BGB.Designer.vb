@@ -62,6 +62,7 @@ Partial Class Config_BGB
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -109,8 +110,8 @@ Partial Class Config_BGB
         'TabControl1
         '
         Me.TabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
@@ -155,7 +156,7 @@ Partial Class Config_BGB
         Me.NumericUpDown2.Size = New System.Drawing.Size(38, 21)
         Me.NumericUpDown2.TabIndex = 24
         Me.NumericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NumericUpDown2.Value = New Decimal(New Integer() {4, 0, 0, 0})
+        Me.NumericUpDown2.Value = New Decimal(New Integer() {2, 0, 0, 0})
         '
         'Label1
         '
@@ -170,8 +171,8 @@ Partial Class Config_BGB
         'DataGridView1
         '
         Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
@@ -195,7 +196,7 @@ Partial Class Config_BGB
         'ListBox1
         '
         Me.ListBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.ItemHeight = 15
@@ -209,7 +210,7 @@ Partial Class Config_BGB
         'ListBox2
         '
         Me.ListBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ListBox2.FormattingEnabled = True
         Me.ListBox2.ItemHeight = 15
@@ -320,7 +321,7 @@ Partial Class Config_BGB
         'DataGridView3
         '
         Me.DataGridView3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView3.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView3.Location = New System.Drawing.Point(500, 66)
@@ -389,8 +390,8 @@ Partial Class Config_BGB
         'DataGridView2
         '
         Me.DataGridView2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Location = New System.Drawing.Point(0, 0)
@@ -430,7 +431,7 @@ Partial Class Config_BGB
         'DataGridView5
         '
         Me.DataGridView5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView5.Location = New System.Drawing.Point(357, 0)
         Me.DataGridView5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -462,7 +463,7 @@ Partial Class Config_BGB
         'DataGridView4
         '
         Me.DataGridView4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView4.Location = New System.Drawing.Point(249, 50)
         Me.DataGridView4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -474,7 +475,7 @@ Partial Class Config_BGB
         'ListBox4
         '
         Me.ListBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ListBox4.FormattingEnabled = True
         Me.ListBox4.ItemHeight = 15
         Me.ListBox4.Location = New System.Drawing.Point(125, 50)
@@ -486,7 +487,7 @@ Partial Class Config_BGB
         'ListBox3
         '
         Me.ListBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ListBox3.FormattingEnabled = True
         Me.ListBox3.ItemHeight = 15
         Me.ListBox3.Location = New System.Drawing.Point(3, 50)
@@ -528,18 +529,18 @@ Partial Class Config_BGB
         Me.ComboBox1.Items.AddRange(New Object() {"DEC", "DEC+j", "DIVALIKE", "DIVALIKE+j", "BAYAREALIKE", "BAYAREALIKE+j"})
         Me.ComboBox1.Location = New System.Drawing.Point(4, 403)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(168, 23)
+        Me.ComboBox1.Size = New System.Drawing.Size(143, 23)
         Me.ComboBox1.TabIndex = 41
         '
         'CheckBox1
         '
         Me.CheckBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(196, 406)
+        Me.CheckBox1.Location = New System.Drawing.Point(153, 406)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(129, 19)
+        Me.CheckBox1.Size = New System.Drawing.Size(82, 19)
         Me.CheckBox1.TabIndex = 42
-        Me.CheckBox1.Text = "Hide CMD Window"
+        Me.CheckBox1.Text = "Hide CMD"
         Me.CheckBox1.UseVisualStyleBackColor = True
         Me.CheckBox1.Visible = False
         '
@@ -568,12 +569,25 @@ Partial Class Config_BGB
         Me.Label5.TabIndex = 44
         Me.Label5.Text = "Threads:"
         '
+        'ComboBox3
+        '
+        Me.ComboBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ComboBox3.BackColor = System.Drawing.SystemColors.Window
+        Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Items.AddRange(New Object() {"optimx", "GenSA"})
+        Me.ComboBox3.Location = New System.Drawing.Point(241, 403)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(84, 23)
+        Me.ComboBox3.TabIndex = 45
+        '
         'Config_BGB
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(660, 432)
         Me.ControlBox = False
+        Me.Controls.Add(Me.ComboBox3)
         Me.Controls.Add(Me.NumericUpDown1)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.CheckBox1)
@@ -647,4 +661,5 @@ Partial Class Config_BGB
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents Button14 As System.Windows.Forms.Button
     Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox3 As ComboBox
 End Class

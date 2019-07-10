@@ -805,6 +805,7 @@ Public Class Config_BGB
 
         ComboBox1.SelectedIndex = 0
         ComboBox2.SelectedIndex = 0
+        ComboBox3.SelectedIndex = 0
         Me.TabControl1.TabPages.RemoveAt(2)
         System.Threading.Thread.CurrentThread.CurrentCulture = ci
     End Sub
@@ -1312,8 +1313,12 @@ Public Class Config_BGB
                 '每个线程单核心以提高稳定性
                 BGB_Body = BGB_Body.Replace("#cores_to_use#", 1)
 				BGB_Body = BGB_Body.Replace("#timeperiod#", lib_path + "temp/final.timeperiod")
-
-				For i As Integer = 0 To 3
+                If ComboBox3.SelectedIndex = 0 Then
+                    BGB_Body = BGB_Body.Replace("#optimx#", "TRUE")
+                Else
+                    BGB_Body = BGB_Body.Replace("#optimx#", "'GenSA'")
+                End If
+                For i As Integer = 0 To 3
                     If File.Exists(root_path + "temp\" + i.ToString + ".tp") Then
 						BGB_Body = BGB_Body.Replace("#ratematrix" + i.ToString + "#", lib_path + "temp/" + i.ToString + ".rm")
 						Select Case i
@@ -1368,17 +1373,22 @@ Public Class Config_BGB
                 BGB_Body += sr2.ReadToEnd
                 sr2.Close()
 
-				BGB_Header = BGB_Header.Replace("#BGB_path#", lib_path)
+                BGB_Header = BGB_Header.Replace("#lib_path#", lib_path)
 
-				BGB_Body = BGB_Body.Replace("#BGB_path#", lib_path)
-				BGB_Body = BGB_Body.Replace("#max_range_size#", NumericUpDown2.Value)
+                BGB_Body = BGB_Body.Replace("#lib_path#", lib_path)
+                BGB_Body = BGB_Body.Replace("#max_range_size#", NumericUpDown2.Value)
                 BGB_Body = BGB_Body.Replace("#cores_to_use#", NumericUpDown1.Value)
                 BGB_Body = BGB_Body.Replace("#excluded_ranges#", excluded_ranges)
                 BGB_Body = BGB_Body.Replace("#included_ranges#", included_ranges)
-				BGB_Body = BGB_Body.Replace("#timeperiod#", lib_path + "temp/final.timeperiod")
+                BGB_Body = BGB_Body.Replace("#timeperiod#", lib_path + "temp/final.timeperiod")
 
+                If ComboBox3.SelectedIndex = 0 Then
+                    BGB_Body = BGB_Body.Replace("#optimx#", "TRUE")
+                Else
+                    BGB_Body = BGB_Body.Replace("#optimx#", "'GenSA'")
+                End If
 
-				For i As Integer = 0 To 3
+                For i As Integer = 0 To 3
                     If File.Exists(root_path + "temp\" + i.ToString + ".tp") Then
 						BGB_Body = BGB_Body.Replace("#ratematrix" + i.ToString + "#", lib_path + "temp/" + i.ToString + ".rm")
 						Select Case i

@@ -29,15 +29,13 @@ Public Class Form_Welcome
                 MsgBox("安装路径不得含有中文（亚洲语言字符）！" + Chr(13) + "RASP install path should not contain Asia language character!")
                 End
             End If
-			If TargetOS = "macos" Then
-				rscript = "C:\R\bin\i386\Rscript.exe"
-			ElseIf File.Exists(root_path + "Plug-ins\R_path.txt") Then
-				Dim sr As New StreamReader(root_path + "Plug-ins\R_path.txt")
-				rscript = sr.ReadLine
+            If File.Exists(root_path + "Plug-ins\R_path.txt") Then
+                Dim sr As New StreamReader(root_path + "Plug-ins\R_path.txt")
+                rscript = sr.ReadLine
                 sr.Close()
             End If
 
-            
+
             If File.Exists(rscript) = False Then
 				If File.Exists(root_path + "Plug-ins\R\bin\i386\Rscript.exe") Then
 					rscript = root_path + "Plug-ins\R\bin\i386\Rscript.exe"

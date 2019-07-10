@@ -37,7 +37,6 @@
                 MainWindow.TraitsEvolutionToolStripMenuItem.Text = "性状演化"
                 MainWindow.ComparisonToolStripMenuItem.Text = "比较"
                 MainWindow.TreeClusterToolStripMenuItem.Text = "树聚类"
-                MainWindow.StatesVsTreesToolStripMenuItem.Text = "性状和树比较"
                 MainWindow.OtherToolStripMenuItem.Text = "工具"
                 MainWindow.InstallReinstallToolStripMenuItem.Text = "安装三方库"
                 MainWindow.RemoveOutgroupToolStripMenuItem.Text = "去除选中的类群"

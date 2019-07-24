@@ -877,9 +877,9 @@ Public Class Config_BGB
                     area_dispersal += DataGridView2.Rows(i).Cells(j).Value.ToString + " "
                 Next
                 area_dispersal = area_dispersal.Remove(area_dispersal.Length - 1)
-                area_dispersal += Chr(10)
+                area_dispersal += vbCrLf
             Next
-            area_dispersal += Chr(10) + Chr(10)
+            area_dispersal += vbCrLf + vbCrLf
         Next
         dispersal_durations = ""
         For i As Integer = 1 To time_period_num
@@ -1273,7 +1273,7 @@ Public Class Config_BGB
         dispersal_durations = ""
         Dim check_num As Integer = 0
         For i As Integer = 1 To time_period_num
-            dispersal_durations += DataGridView3.Rows(i).Cells(0).Value + Chr(10)
+            dispersal_durations += DataGridView3.Rows(i).Cells(0).Value + vbCrLf
             If CSng(DataGridView3.Rows(i).Cells(0).Value) >= root_time Then
                 check_num += 1
             End If
@@ -1282,15 +1282,15 @@ Public Class Config_BGB
             MsgBox("The timeperiods has to have just only one oldest time that is older than the root age of the tree")
             Exit Sub
         End If
-        taxon_range_data = taxon_num.ToString + "	" + RangeStr.Length.ToString + " (" + area_labels.Remove(area_labels.Length - 1) + ")" + Chr(10)
+        taxon_range_data = taxon_num.ToString + "	" + RangeStr.Length.ToString + " (" + area_labels.Remove(area_labels.Length - 1) + ")" + vbCrLf
         For i As Integer = 0 To taxon_num - 1
-            taxon_range_data += TaxonName(i) + "	" + Distributiton_to_Binary(Distribution(i), RangeStr.Length) + Chr(10)
+            taxon_range_data += TaxonName(i) + "	" + Distributiton_to_Binary(Distribution(i), RangeStr.Length) + vbCrLf
         Next
 
         mrca = ""
         For i As Integer = 0 To DataGridView5.Rows.Count - 1
-            mrca += "mrca = " + "ag" + i.ToString + " " + DataGridView5.Rows(i).Cells(0).Value + " " + DataGridView5.Rows(i).Cells(1).Value + Chr(10)
-            mrca += "fixnode = " + "ag" + i.ToString + " " + Distributiton_to_Binary(DataGridView5.Rows(i).Cells(2).Value, RangeStr.Length) + Chr(10)
+            mrca += "mrca = " + "ag" + i.ToString + " " + DataGridView5.Rows(i).Cells(0).Value + " " + DataGridView5.Rows(i).Cells(1).Value + vbCrLf
+            mrca += "fixnode = " + "ag" + i.ToString + " " + Distributiton_to_Binary(DataGridView5.Rows(i).Cells(2).Value, RangeStr.Length) + vbCrLf
         Next
         Dim wr1 As New StreamWriter(root_path + "temp\final.tre", False, System.Text.Encoding.Default)
         wr1.Write(lag_tree)
@@ -1351,10 +1351,10 @@ Public Class Config_BGB
 					BGB_Header = BGB_Header.Replace("#r_lib#", "")
 				End If
 				sr0.Close()
-                BGB_Header += "source(" + """" + "BGB.r" + """" + ")" + Chr(10)
+                BGB_Header += "source(" + """" + "BGB.r" + """" + ")" + vbCrLf
                 BGB_Header += "})"
 
-                BGB_Body = "tryCatch({" + Chr(10)
+                BGB_Body = "tryCatch({" + vbCrLf
 
                 If BGB_mode = 0 Then
                     Dim sr1 As New StreamReader(root_path + "Plug-ins\BGB\model_test.r")
@@ -1492,17 +1492,17 @@ Public Class Config_BGB
                 area_dispersal += i.ToString + Chr(9)
             Next
             area_dispersal.Remove(area_dispersal.Length - 1)
-            area_dispersal += Chr(10)
+            area_dispersal += vbCrLf
             For i As Integer = (k - 1) * RangeStr.Length To k * RangeStr.Length - 1
                 For j As Integer = 0 To RangeStr.Length - 1
                     area_dispersal += DataGridView2.Rows(i).Cells(j).Value.ToString + Chr(9)
                 Next
                 area_dispersal = area_dispersal.Remove(area_dispersal.Length - 1)
-                area_dispersal += Chr(10)
+                area_dispersal += vbCrLf
             Next
-            area_dispersal += Chr(10)
+            area_dispersal += vbCrLf
         Next
-        area_dispersal += "END" + Chr(10)
+        area_dispersal += "END" + vbCrLf
         Dim wr3 As New StreamWriter(root_path + "temp\" + ComboBox2.SelectedIndex.ToString + ".rm", False, System.Text.Encoding.Default)
         wr3.Write(area_dispersal)
         wr3.Close()

@@ -365,8 +365,8 @@ Public Class Config_BayArea
         bayarea_gen = 0
         MainWindow.Main_Timer.Enabled = True
         bayesIsrun = True
-        Process_Text += Chr(10) + "**********BAYAREA ANALYSIS**********"
-        Process_Text += Chr(10) + "Analysis start at " + Date.Now.ToString + Chr(10)
+        Process_Text += vbCrLf + "**********BAYAREA ANALYSIS**********"
+        Process_Text += vbCrLf + "Analysis start at " + Date.Now.ToString + vbCrLf
 
         config_BayArea_cycle = CSng(TextBox3.Text)
         config_BayArea_fre = CSng(TextBox1.Text)

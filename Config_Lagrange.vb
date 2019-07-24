@@ -310,9 +310,9 @@ Public Class Config_Lagrange
                     area_dispersal += DataGridView2.Rows(i).Cells(j).Value.ToString + " "
                 Next
                 area_dispersal = area_dispersal.Remove(area_dispersal.Length - 1)
-                area_dispersal += Chr(10)
+                area_dispersal += vbCrLf
             Next
-            area_dispersal += Chr(10) + Chr(10)
+            area_dispersal += vbCrLf + vbCrLf
         Next
 
         excluded_ranges = ""
@@ -391,15 +391,15 @@ Public Class Config_Lagrange
             Exit Sub
         End If
 
-        taxon_range_data = taxon_num.ToString + "	" + RangeStr.Length.ToString + Chr(10)
+        taxon_range_data = taxon_num.ToString + "	" + RangeStr.Length.ToString + vbCrLf
         For i As Integer = 0 To taxon_num - 1
-            taxon_range_data += TaxonName(i) + "	" + Distributiton_to_Binary(Distribution(i), RangeStr.Length) + Chr(10)
+            taxon_range_data += TaxonName(i) + "	" + Distributiton_to_Binary(Distribution(i), RangeStr.Length) + vbCrLf
         Next
 
         mrca = ""
         For i As Integer = 0 To DataGridView5.Rows.Count - 1
-            mrca += "mrca = " + "ag" + i.ToString + " " + DataGridView5.Rows(i).Cells(0).Value + " " + DataGridView5.Rows(i).Cells(1).Value + Chr(10)
-            mrca += "fixnode = " + "ag" + i.ToString + " " + Distributiton_to_Binary(DataGridView5.Rows(i).Cells(2).Value, RangeStr.Length) + Chr(10)
+            mrca += "mrca = " + "ag" + i.ToString + " " + DataGridView5.Rows(i).Cells(0).Value + " " + DataGridView5.Rows(i).Cells(1).Value + vbCrLf
+            mrca += "fixnode = " + "ag" + i.ToString + " " + Distributiton_to_Binary(DataGridView5.Rows(i).Cells(2).Value, RangeStr.Length) + vbCrLf
         Next
 
         lg_file = RichTextBox1.Text
@@ -1006,9 +1006,9 @@ Public Class Config_Lagrange
                         area_dispersal += DataGridView2.Rows(i).Cells(j).Value.ToString + " "
                     Next
                     area_dispersal = area_dispersal.Remove(area_dispersal.Length - 1)
-                    area_dispersal += Chr(10)
+                    area_dispersal += vbCrLf
                 Next
-                area_dispersal += Chr(10) + Chr(10)
+                area_dispersal += vbCrLf + vbCrLf
             Next
             dispersal_durations = ""
             For i As Integer = 1 To time_period_num

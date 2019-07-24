@@ -63,6 +63,7 @@ Partial Class Form_Main
         Me.StatisticalDIVALIKEToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
         Me.StatisticalERSYMARDInAPEToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MultiStateReconstructionInBayesTraitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OriginalMethodsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DispersalExtinctionCladogenesisDECToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BayesianInferenceForDiscreteAreasBayAreaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -122,7 +123,6 @@ Partial Class Form_Main
         Me.BGB_Timer = New System.Windows.Forms.Timer(Me.components)
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.Check_Package_Timer = New System.Windows.Forms.Timer(Me.components)
-        Me.MultiStateReconstructionInBayesTraitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -228,19 +228,19 @@ Partial Class Form_Main
         'SaveResultToolStripMenuItem
         '
         Me.SaveResultToolStripMenuItem.Name = "SaveResultToolStripMenuItem"
-        Me.SaveResultToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveResultToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.SaveResultToolStripMenuItem.Text = "Save Results"
         '
         'SaveDistributionToolStripMenuItem
         '
         Me.SaveDistributionToolStripMenuItem.Name = "SaveDistributionToolStripMenuItem"
-        Me.SaveDistributionToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveDistributionToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.SaveDistributionToolStripMenuItem.Text = "Save States"
         '
         'SaveLogToolStripMenuItem
         '
         Me.SaveLogToolStripMenuItem.Name = "SaveLogToolStripMenuItem"
-        Me.SaveLogToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveLogToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.SaveLogToolStripMenuItem.Text = "Save Logs"
         '
         'ExportToolStripMenuItem
@@ -254,21 +254,21 @@ Partial Class Form_Main
         '
         Me.FormatedTreeToolStripMenuItem.Enabled = False
         Me.FormatedTreeToolStripMenuItem.Name = "FormatedTreeToolStripMenuItem"
-        Me.FormatedTreeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FormatedTreeToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
         Me.FormatedTreeToolStripMenuItem.Text = "Condensed Tree"
         '
         'TreeDataSetToolStripMenuItem
         '
         Me.TreeDataSetToolStripMenuItem.Enabled = False
         Me.TreeDataSetToolStripMenuItem.Name = "TreeDataSetToolStripMenuItem"
-        Me.TreeDataSetToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TreeDataSetToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
         Me.TreeDataSetToolStripMenuItem.Text = "Discarded Trees"
         '
         'RandomTreesToolStripMenuItem
         '
         Me.RandomTreesToolStripMenuItem.Enabled = False
         Me.RandomTreesToolStripMenuItem.Name = "RandomTreesToolStripMenuItem"
-        Me.RandomTreesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RandomTreesToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
         Me.RandomTreesToolStripMenuItem.Text = "Random Trees"
         '
         'ToolStripSeparator3
@@ -299,26 +299,26 @@ Partial Class Form_Main
         'TreeViewToolStripMenuItem
         '
         Me.TreeViewToolStripMenuItem.Name = "TreeViewToolStripMenuItem"
-        Me.TreeViewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TreeViewToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.TreeViewToolStripMenuItem.Text = "Tree View"
         '
         'PiePictureToolStripMenuItem
         '
         Me.PiePictureToolStripMenuItem.Name = "PiePictureToolStripMenuItem"
-        Me.PiePictureToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PiePictureToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.PiePictureToolStripMenuItem.Text = "Node View"
         '
         'TracerViewToolStripMenuItem
         '
         Me.TracerViewToolStripMenuItem.Enabled = False
         Me.TracerViewToolStripMenuItem.Name = "TracerViewToolStripMenuItem"
-        Me.TracerViewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TracerViewToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.TracerViewToolStripMenuItem.Text = "Tracer View"
         '
         'TraitsViewToolStripMenuItem
         '
         Me.TraitsViewToolStripMenuItem.Name = "TraitsViewToolStripMenuItem"
-        Me.TraitsViewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TraitsViewToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.TraitsViewToolStripMenuItem.Text = "State View"
         '
         'ProcessToolStripMenuItem
@@ -383,6 +383,12 @@ Partial Class Form_Main
         Me.StatisticalERSYMARDInAPEToolStripMenuItem.Name = "StatisticalERSYMARDInAPEToolStripMenuItem"
         Me.StatisticalERSYMARDInAPEToolStripMenuItem.Size = New System.Drawing.Size(435, 22)
         Me.StatisticalERSYMARDInAPEToolStripMenuItem.Text = "Statistical ER/SYM/ARD in APE"
+        '
+        'MultiStateReconstructionInBayesTraitsToolStripMenuItem
+        '
+        Me.MultiStateReconstructionInBayesTraitsToolStripMenuItem.Name = "MultiStateReconstructionInBayesTraitsToolStripMenuItem"
+        Me.MultiStateReconstructionInBayesTraitsToolStripMenuItem.Size = New System.Drawing.Size(435, 22)
+        Me.MultiStateReconstructionInBayesTraitsToolStripMenuItem.Text = "MultiState Reconstruction in BayesTraits"
         '
         'OriginalMethodsToolStripMenuItem
         '
@@ -465,7 +471,7 @@ Partial Class Form_Main
         '
         Me.TreeVsStatesToolStripMenuItem.Name = "TreeVsStatesToolStripMenuItem"
         Me.TreeVsStatesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.TreeVsStatesToolStripMenuItem.Text = "Trees vs. States"
+        Me.TreeVsStatesToolStripMenuItem.Text = "Trees and States"
         '
         'OtherToolStripMenuItem
         '
@@ -817,12 +823,6 @@ Partial Class Form_Main
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
         Me.ToolStripSeparator6.Size = New System.Drawing.Size(359, 6)
-        '
-        'MultiStateReconstructionInBayesTraitsToolStripMenuItem
-        '
-        Me.MultiStateReconstructionInBayesTraitsToolStripMenuItem.Name = "MultiStateReconstructionInBayesTraitsToolStripMenuItem"
-        Me.MultiStateReconstructionInBayesTraitsToolStripMenuItem.Size = New System.Drawing.Size(435, 22)
-        Me.MultiStateReconstructionInBayesTraitsToolStripMenuItem.Text = "MultiState Reconstruction in BayesTraits"
         '
         'Form_Main
         '

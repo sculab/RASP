@@ -48,14 +48,14 @@ Public Class Form_Welcome
                     Dim Key2 As Microsoft.Win32.RegistryKey
                     Key2 = Key1.OpenSubKey("SOFTWARE\R-core\R", False)
                     If Key2 Is Nothing Then
-                        MsgBox("You need to install R to free all functions of RASP." + Chr(10) + "Select [Tools-> Install 3rd Party] for more information")
+                        MsgBox("You need to install R to free all functions of RASP." + vbCrLf + "Select [Tools-> Install 3rd Party] for more information")
                     ElseIf (Key2.GetValue("InstallPath") Is Nothing) = False Then
                         If File.Exists(Key2.GetValue("InstallPath") + "\bin\Rscript.exe") Then
                             Dim sw As New StreamWriter(root_path + "Plug-ins\R_path.txt")
                             sw.WriteLine(rscript)
                             sw.Close()
                         Else
-                            MsgBox("You need to install R to free all functions of RASP." + Chr(10) + "Select [Tools-> Install 3rd Party] for more information")
+                            MsgBox("You need to install R to free all functions of RASP." + vbCrLf + "Select [Tools-> Install 3rd Party] for more information")
                         End If
                     End If
                 End If

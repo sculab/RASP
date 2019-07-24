@@ -201,7 +201,7 @@ Partial Class Tool_Cluster
         '
         Me.CalculateMatrixToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubcladesDistanceToolStripMenuItem, Me.RFDistanceToolStripMenuItem, Me.LeveledRFDistanceToolStripMenuItem, Me.ToolStripSeparator4, Me.TripleDistanceToolStripMenuItem, Me.ToolStripSeparator5, Me.SPRDistanceToolStripMenuItem, Me.ToolStripSeparator6, Me.RFDistanceToolStripMenuItem1, Me.NormalizedRFDistanceToolStripMenuItem, Me.NormalizedWeightedRFDistanceToolStripMenuItem, Me.ToolStripSeparator7, Me.PathDistanceToolStripMenuItem, Me.WeightedPathDistanceToolStripMenuItem, Me.ToolStripSeparator8, Me.KFDistanceToolStripMenuItem})
         Me.CalculateMatrixToolStripMenuItem.Name = "CalculateMatrixToolStripMenuItem"
-        Me.CalculateMatrixToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.CalculateMatrixToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CalculateMatrixToolStripMenuItem.Text = "Calculate Matrix"
         '
         'SubcladesDistanceToolStripMenuItem
@@ -209,12 +209,14 @@ Partial Class Tool_Cluster
         Me.SubcladesDistanceToolStripMenuItem.Name = "SubcladesDistanceToolStripMenuItem"
         Me.SubcladesDistanceToolStripMenuItem.Size = New System.Drawing.Size(275, 22)
         Me.SubcladesDistanceToolStripMenuItem.Text = "Sub-nodes (SN) Distance"
+        Me.SubcladesDistanceToolStripMenuItem.Visible = False
         '
         'RFDistanceToolStripMenuItem
         '
         Me.RFDistanceToolStripMenuItem.Name = "RFDistanceToolStripMenuItem"
         Me.RFDistanceToolStripMenuItem.Size = New System.Drawing.Size(275, 22)
         Me.RFDistanceToolStripMenuItem.Text = "Normalized SN Distance"
+        Me.RFDistanceToolStripMenuItem.Visible = False
         '
         'LeveledRFDistanceToolStripMenuItem
         '
@@ -227,6 +229,7 @@ Partial Class Tool_Cluster
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
         Me.ToolStripSeparator4.Size = New System.Drawing.Size(272, 6)
+        Me.ToolStripSeparator4.Visible = False
         '
         'TripleDistanceToolStripMenuItem
         '
@@ -300,7 +303,7 @@ Partial Class Tool_Cluster
         '
         Me.ClusterTreeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HierarchicalClusterToolStripMenuItem, Me.TestKToolStripMenuItem1, Me.MCLToolStripMenuItem})
         Me.ClusterTreeToolStripMenuItem.Name = "ClusterTreeToolStripMenuItem"
-        Me.ClusterTreeToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.ClusterTreeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ClusterTreeToolStripMenuItem.Text = "Cluster Trees"
         '
         'HierarchicalClusterToolStripMenuItem
@@ -325,13 +328,13 @@ Partial Class Tool_Cluster
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(166, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
         Me.ToolStripSeparator2.Visible = False
         '
         'StatisticsToolStripMenuItem
         '
         Me.StatisticsToolStripMenuItem.Name = "StatisticsToolStripMenuItem"
-        Me.StatisticsToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.StatisticsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.StatisticsToolStripMenuItem.Text = "Statistics"
         Me.StatisticsToolStripMenuItem.Visible = False
         '
@@ -585,7 +588,7 @@ Partial Class Tool_Cluster
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "Tool_Cluster"
-        Me.Text = "Trees Cluster"
+        Me.Text = "Trees vs. Trees"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()

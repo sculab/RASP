@@ -4,11 +4,11 @@ Imports System.Runtime.InteropServices
 Imports System.Globalization.CultureInfo
 Module Module_Var
     Public Version As String = "4.2"
-    Public build As String = "20190708"
+    Public build As String = "20190724"
     Public enableMin As Boolean = True
-    Public isDebug As Boolean = True
+    Public isDebug As Boolean = False
     Public ci As System.Globalization.CultureInfo = New System.Globalization.CultureInfo("en-us")
-#Const TargetOS = "macos"
+#Const TargetOS = "win32"
 #If TargetOS = "linux" Then
     Public TargetOS As String = "linux"
 #ElseIf TargetOS = "macos" Then

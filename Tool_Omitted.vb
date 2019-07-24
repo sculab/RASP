@@ -614,7 +614,7 @@ Public Class Tool_Omitted
         winfo.Close()
         Process_ID = -1
         Process_Int = 0
-        Process_Text = "Export Successfully!" + Chr(10)
+        Process_Text = "Export Successfully!" + vbCrLf
     End Sub
 
     Public Sub export_clade()
@@ -682,7 +682,7 @@ Public Class Tool_Omitted
         wt.WriteLine("End;")
         rt.Close()
         wt.Close()
-        Process_Text = "Export Successfully!" + Chr(10)
+        Process_Text = "Export Successfully!" + vbCrLf
     End Sub
     Dim export_file_name As String
 
@@ -736,5 +736,9 @@ Public Class Tool_Omitted
     Dim ComboBox_text As String = ""
     Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
         ComboBox_text = ComboBox1.Text
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Close()
     End Sub
 End Class

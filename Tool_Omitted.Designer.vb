@@ -37,6 +37,7 @@ Partial Class Tool_Omitted
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -48,7 +49,7 @@ Partial Class Tool_Omitted
         Me.ComboBox1.Location = New System.Drawing.Point(53, 17)
         Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(291, 23)
+        Me.ComboBox1.Size = New System.Drawing.Size(352, 23)
         Me.ComboBox1.TabIndex = 40
         '
         'DataGridView1
@@ -58,7 +59,7 @@ Partial Class Tool_Omitted
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(350, 114)
+        Me.DataGridView1.Size = New System.Drawing.Size(411, 114)
         Me.DataGridView1.TabIndex = 42
         '
         'Button2
@@ -86,7 +87,7 @@ Partial Class Tool_Omitted
         Me.TextBox1.Location = New System.Drawing.Point(53, 51)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(291, 21)
+        Me.TextBox1.Size = New System.Drawing.Size(352, 21)
         Me.TextBox1.TabIndex = 45
         '
         'Label3
@@ -118,7 +119,7 @@ Partial Class Tool_Omitted
         '
         'TreeBox
         '
-        Me.TreeBox.Location = New System.Drawing.Point(101, 83)
+        Me.TreeBox.Location = New System.Drawing.Point(108, 83)
         Me.TreeBox.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TreeBox.Name = "TreeBox"
         Me.TreeBox.ReadOnly = True
@@ -160,14 +161,14 @@ Partial Class Tool_Omitted
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(350, 112)
+        Me.GroupBox2.Size = New System.Drawing.Size(411, 112)
         Me.GroupBox2.TabIndex = 53
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Trees data set"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(154, 245)
+        Me.Button1.Location = New System.Drawing.Point(141, 245)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(97, 27)
         Me.Button1.TabIndex = 54
@@ -176,18 +177,30 @@ Partial Class Tool_Omitted
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(257, 245)
+        Me.Button4.Location = New System.Drawing.Point(244, 245)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(97, 27)
         Me.Button4.TabIndex = 54
         Me.Button4.Text = "Export clade"
         Me.Button4.UseVisualStyleBackColor = True
         '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(358, 245)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(56, 27)
+        Me.Button5.TabIndex = 55
+        Me.Button5.Text = "Close"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
         'Tool_Omitted
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(356, 278)
+        Me.ClientSize = New System.Drawing.Size(417, 278)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox2)
@@ -195,7 +208,6 @@ Partial Class Tool_Omitted
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.DataGridView1)
         Me.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "Tool_Omitted"
@@ -220,4 +232,5 @@ Partial Class Tool_Omitted
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents Button5 As Button
 End Class

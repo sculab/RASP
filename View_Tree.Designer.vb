@@ -316,7 +316,7 @@ Partial Class View_Tree
         '
         'IncreaseTreeToolStripMenuItem
         '
-        Me.IncreaseTreeToolStripMenuItem.BackColor = System.Drawing.SystemColors.Info
+        Me.IncreaseTreeToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control
         Me.IncreaseTreeToolStripMenuItem.Name = "IncreaseTreeToolStripMenuItem"
         Me.IncreaseTreeToolStripMenuItem.Size = New System.Drawing.Size(252, 22)
         Me.IncreaseTreeToolStripMenuItem.Text = "Rearrange Tree"
@@ -382,7 +382,7 @@ Partial Class View_Tree
         Me.Panel2.Controls.Add(Me.PictureBox2)
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(192, 256)
+        Me.Panel2.Size = New System.Drawing.Size(192, 258)
         Me.Panel2.TabIndex = 4
         '
         'PictureBox2
@@ -464,7 +464,7 @@ Partial Class View_Tree
         Me.ListView1.Location = New System.Drawing.Point(0, 0)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(192, 252)
+        Me.ListView1.Size = New System.Drawing.Size(192, 254)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details

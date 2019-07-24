@@ -196,7 +196,7 @@ Public Class Tool_TvS
 
             Dim Tree_view_form As New View_Tree
             Tree_view_form.tree_view_limit = True
-            Tree_view_form.current_state = lvi.SubItems(0).Text
+            Tree_view_form.current_state = CInt(lvi.SubItems(0).Text) + 1
             Tree_view_form.show_my_tree = lvi.SubItems(3).Text
             Tree_view_form.Show()
         End If

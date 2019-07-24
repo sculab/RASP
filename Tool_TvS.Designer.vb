@@ -92,13 +92,13 @@ Partial Class Tool_TvS
         'FindBestFitTreeToolStripMenuItem
         '
         Me.FindBestFitTreeToolStripMenuItem.Name = "FindBestFitTreeToolStripMenuItem"
-        Me.FindBestFitTreeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FindBestFitTreeToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.FindBestFitTreeToolStripMenuItem.Text = "Tree vs. States"
         '
         'StateVsTreesToolStripMenuItem
         '
         Me.StateVsTreesToolStripMenuItem.Name = "StateVsTreesToolStripMenuItem"
-        Me.StateVsTreesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.StateVsTreesToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.StateVsTreesToolStripMenuItem.Text = "State vs.Trees"
         '
         'OptionToolStripMenuItem
@@ -107,12 +107,15 @@ Partial Class Tool_TvS
         Me.OptionToolStripMenuItem.Name = "OptionToolStripMenuItem"
         Me.OptionToolStripMenuItem.Size = New System.Drawing.Size(60, 21)
         Me.OptionToolStripMenuItem.Text = "Option"
+        Me.OptionToolStripMenuItem.Visible = False
         '
         'ModelTestToolStripMenuItem
         '
+        Me.ModelTestToolStripMenuItem.Checked = True
         Me.ModelTestToolStripMenuItem.CheckOnClick = True
+        Me.ModelTestToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ModelTestToolStripMenuItem.Name = "ModelTestToolStripMenuItem"
-        Me.ModelTestToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.ModelTestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ModelTestToolStripMenuItem.Text = "Model test"
         '
         'ListView1
@@ -230,7 +233,7 @@ Partial Class Tool_TvS
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "Tool_TvS"
-        Me.Text = "Tree vs. States"
+        Me.Text = "Tree and States"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)

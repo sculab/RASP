@@ -52,10 +52,10 @@ Public Class Config_BBM
         End If
         Dim node_count As Integer = final_tree.Length - final_tree.Replace("(", "").Length
         bayesIsrun = True
-        MainWindow.CmdBox.AppendText(Chr(10) + "**************************" + Chr(10))
-        MainWindow.CmdBox.AppendText("*Bayesian MCMC Analysis*" + Chr(10))
-        MainWindow.CmdBox.AppendText("**************************" + Chr(10))
-        MainWindow.CmdBox.AppendText("Process begin at " + Date.Now.ToString + Chr(10))
+        MainWindow.CmdBox.AppendText(vbCrLf + "**************************" + vbCrLf)
+        MainWindow.CmdBox.AppendText("*Bayesian MCMC Analysis*" + vbCrLf)
+        MainWindow.CmdBox.AppendText("**************************" + vbCrLf)
+        MainWindow.CmdBox.AppendText("Process begin at " + Date.Now.ToString + vbCrLf)
 
         Read_Poly_Node(final_tree.Replace(";", ""))
         For i As Integer = 0 To 1024
@@ -79,13 +79,13 @@ Public Class Config_BBM
         End Select
         Select Case ComboBox1.Text + ComboBox2.Text
             Case "Fixed (JC)" + "Equal"
-                MainWindow.CmdBox.AppendText("Using Model: JC" + Chr(10))
+                MainWindow.CmdBox.AppendText("Using Model: JC" + vbCrLf)
             Case "Fixed (JC)" + "Gamma (+G)"
-                MainWindow.CmdBox.AppendText("Using Model: JC+G" + Chr(10))
+                MainWindow.CmdBox.AppendText("Using Model: JC+G" + vbCrLf)
             Case "Estimated (F81)" + "Equal"
-                MainWindow.CmdBox.AppendText("Using Model: F81" + Chr(10))
+                MainWindow.CmdBox.AppendText("Using Model: F81" + vbCrLf)
             Case Else
-                MainWindow.CmdBox.AppendText("Using Model: F81+G" + Chr(10))
+                MainWindow.CmdBox.AppendText("Using Model: F81+G" + vbCrLf)
         End Select
 
         Select_Node_Num = 0
@@ -122,7 +122,7 @@ Public Class Config_BBM
             show_pie = "bayes"
             current_dir = Directory.GetCurrentDirectory
             Directory.SetCurrentDirectory(root_path)
-            MainWindow.CmdBox.AppendText("Using command: " + commandlines(1022) + Chr(10))
+            MainWindow.CmdBox.AppendText("Using command: " + commandlines(1022) + vbCrLf)
             MainWindow.ProgressBar1.Maximum = CInt(TextBox3.Text)
             MainWindow.Bayes_Timer.Enabled = True
             Me.Hide()

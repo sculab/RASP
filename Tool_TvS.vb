@@ -107,7 +107,12 @@ Public Class Tool_TvS
         Select Case temp_mode
             Case 1
                 For i As Integer = 1 To dtView.Count
-                    trait_value(i - 1) = CSng(dtView.Item(i - 1).Item(current_index))
+                    If IsNumeric(dtView.Item(i - 1).Item(current_index)) Then
+                        trait_value(i - 1) = CSng(dtView.Item(i - 1).Item(current_index))
+                    Else
+                        trait_value(i - 1) = "NA"
+                    End If
+
                 Next
                 trait_value_text = "c(" + join_array(trait_value, ",") & ")"
             Case 0, 2
@@ -134,7 +139,9 @@ Public Class Tool_TvS
                 ReDim state_group(temp_str.Length - 1)
                 For i As Integer = 1 To dtView.Count
                     For Each c As Char In dtView.Item(i - 1).Item(current_index).ToString.ToUpper
-                        state_group(Asc(c) - Asc("A")) += "," + i.ToString
+                        If Asc(c) >= Asc("A") And Asc(c) <= Asc("Z") Then
+                            state_group(Asc(c) - Asc("A")) += "," + i.ToString
+                        End If
                     Next
                 Next
                 For i As Integer = 0 To UBound(state_group)
@@ -210,22 +217,32 @@ Public Class Tool_TvS
         sw_header.Close()
         For i As Integer = 2 To MainWindow.DataGridView1.ColumnCount - 2
             Dim temp_mode As Integer = 0
-            Dim isNum As Boolean = True
+            Dim has_num As Boolean = False
             Dim isSingle As Boolean = True
+            Dim has_char As Boolean = False
             For j As Integer = 1 To dtView.Count
-                If IsNumeric(dtView.Item(j - 1).Item(i)) = False Then
-                    isNum = False
+                If IsNumeric(dtView.Item(j - 1).Item(i)) Then
+                    has_num = True
+                End If
+                If IsNumeric(dtView.Item(j - 1).Item(i)) = False And dtView.Item(j - 1).Item(i).ToString <> "?" And dtView.Item(j - 1).Item(i).ToString <> "" Then
+                    has_char = True
                 End If
                 If dtView.Item(j - 1).Item(i).ToString.Length > 1 Then
                     isSingle = False
                 End If
             Next
-            If isNum Then
+
+            If has_num = True And has_char = False Then
                 temp_mode = 1
-            ElseIf isSingle Then
-                temp_mode = 2
+            ElseIf has_num = False And has_char = True Then
+                If isSingle Then
+                    temp_mode = 2
+                Else
+                    temp_mode = 0
+                End If
             Else
-                temp_mode = 0
+                MsgBox("Error in loading characters, please check your state data!")
+                Exit Sub
             End If
 
             claculate_score(temp_mode, i, user_tree.Tree_Line, i - 1)
@@ -316,22 +333,32 @@ Public Class Tool_TvS
         Dim count As Integer = 0
         Do
             Dim temp_mode As Integer = 0
-            Dim isNum As Boolean = True
+            Dim has_num As Boolean = False
+            Dim has_char As Boolean = False
+
             Dim isSingle As Boolean = True
             For j As Integer = 1 To dtView.Count
-                If IsNumeric(dtView.Item(j - 1).Item(state_index)) = False Then
-                    isNum = False
+                If IsNumeric(dtView.Item(j - 1).Item(state_index)) Then
+                    has_num = True
+                End If
+                If IsNumeric(dtView.Item(j - 1).Item(state_index)) = False And dtView.Item(j - 1).Item(state_index).ToString <> "?" And dtView.Item(j - 1).Item(state_index).ToString <> "" Then
+                    has_char = True
                 End If
                 If dtView.Item(j - 1).Item(state_index).ToString.Length > 1 Then
                     isSingle = False
                 End If
             Next
-            If isNum Then
+            If has_num = True And has_char = False Then
                 temp_mode = 1
-            ElseIf isSingle Then
-                temp_mode = 2
+            ElseIf has_num = False And has_char = True Then
+                If isSingle Then
+                    temp_mode = 2
+                Else
+                    temp_mode = 0
+                End If
             Else
-                temp_mode = 0
+                MsgBox("Error in loading characters, please check your state data!")
+                Exit Sub
             End If
             count += 1
             claculate_score(temp_mode, state_index, line, count)

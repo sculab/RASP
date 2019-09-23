@@ -50,8 +50,8 @@
         For i As Integer = 1 To dtView.Count
             Dim Temp_d As String = dtView.Item(i - 1).Item(state_index).ToString
             If IsNumeric(Temp_d) Then
-                state_max = CSng(Temp_d)
-                state_min = CSng(Temp_d)
+                state_max = Int(CSng(Temp_d)) + 1
+                state_min = Int(CSng(Temp_d))
                 Exit For
             End If
         Next
@@ -60,10 +60,10 @@
             Dim Temp_d As String = dtView.Item(i - 1).Item(state_index).ToString
             If IsNumeric(Temp_d) Then
                 If CSng(Temp_d) > state_max Then
-                    state_max = CSng(Temp_d)
+                    state_max = Int(CSng(Temp_d)) + 1
                 End If
                 If CSng(Temp_d) <state_min Then
-                    state_min= CSng(Temp_d)
+                    state_min = Int(CSng(Temp_d))
                 End If
             End If
         Next

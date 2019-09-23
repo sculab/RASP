@@ -2470,7 +2470,9 @@ Public Class View_Tree
         If ListBox1.Items.Count > 0 And begin_draw Then
             Load_result()
         End If
-        Global_Info()
+        If result_ID > 0 Then
+            Global_Info()
+        End If
         TextBox1.Text = Global_Text
         PictureBox1.Width = (max_level + 2) * Branch_length + 2 * Border_separation + (max_taxon_name + RangeStr.Length + 8) * Label_font.SizeInPoints
         PictureBox1.Height = (NumofTaxon + 5) * Taxon_separation + Border_separation + Label_font.Height + Tree_font.Height 'y

@@ -193,9 +193,9 @@ Public Class Tool_Cluster
             line = line.Replace("#limit#", "1")
             line = line.Replace("#matrix#", "matrix_1.txt")
         End If
-		line = line.Replace("#r_clust#", "r_clust<-rect.hclust(h_clust,k=" + NumericUpDown4.Value.ToString + ")")
+        line = line.Replace("#k_value#", NumericUpDown4.Value.ToString)
 
-		line = line.Replace("#expand#", "1")
+        line = line.Replace("#expand#", "1")
 
 		wr4.Write(line)
         sr1.Close()
@@ -275,16 +275,15 @@ Public Class Tool_Cluster
                         Label6.Text = (stopW.ElapsedMilliseconds / 1000 / 60 / sum_gen * (UBound(count_matrix) - sum_gen)).ToString("F2") & "m ..."
                     ElseIf sum_gen = UBound(count_matrix) Then
                         stopW.Stop()
-                        timer_id = 9
-
+                        timer_id = 0
                         write_matrix("matrix_0")
-                        nor_matrix()
+                        'nor_matrix()
                         Label6.Text = dist_info
-                        draw_heatmap("matrix_0.txt")
+                        'draw_heatmap("matrix_0.txt")
                     End If
 
                 Case 2
-                    Label6.Text = "working"
+                    Label6.Text = "Working ..."
                     If File.Exists(root_path + "temp\clust_end.txt") Then
                         timer_id = 0
                         ListView1.Items.Clear()
@@ -300,7 +299,7 @@ Public Class Tool_Cluster
                         Loop Until line Is Nothing
                         sr.Close()
                         ListView1.Items.Add(New ListViewItem({"All trees", list_trees.Count.ToString, ""}))
-                        Label6.Text = "Complete"
+                        Label6.Text = dist_info
                     Else
                         If File.Exists(root_path + "temp\clust_iter.txt") Then
                             Dim sr As New StreamReader(root_path + "temp\clust_iter.txt")
@@ -310,13 +309,13 @@ Public Class Tool_Cluster
                         End If
                     End If
                 Case 3
-                    Label6.Text = "loading"
+                    Label6.Text = "Loading ..."
                     ProgressBar1.Value = timer_count / CInt(MainWindow.TreeBox_P.Text) * 10000
                 Case 4
-                    Label6.Text = "loading"
+                    Label6.Text = "Loading ..."
                     ProgressBar1.Value = timer_count
                 Case 5
-                    Label6.Text = "working"
+                    Label6.Text = "Working ..."
                     If File.Exists(root_path + "temp\clust_end.txt") Then
                         timer_id = 0
                         ListView1.Items.Clear()
@@ -332,7 +331,7 @@ Public Class Tool_Cluster
                         Loop Until line Is Nothing
                         sr.Close()
                         ListView1.Items.Add(New ListViewItem({"All trees", list_trees.Count.ToString, ""}))
-                        Label6.Text = "Complete"
+                        Label6.Text = dist_info
                     Else
                         If File.Exists(root_path + "temp\clust_iter.txt") Then
                             Dim sr As New StreamReader(root_path + "temp\clust_iter.txt")
@@ -342,19 +341,23 @@ Public Class Tool_Cluster
                         End If
                     End If
                 Case 6
-                    Label6.Text = "working"
+                    Label6.Text = "Working"
                     If File.Exists(root_path + "temp\clust_end.txt") Then
                         timer_id = 0
-                        ListView1.Items.Clear()
-                        ListView1.Items.Add(New ListViewItem({"", "", ""}))
-                        ListView1.Items.Add(New ListViewItem({"Plot of k", "", ""}))
-                        If File.Exists(root_path + "temp\best_k.txt") Then
-                            Dim sr As New StreamReader(root_path + "temp\best_k.txt")
-                            Dim line As String = sr.ReadLine
-                            sr.Close()
-                            NumericUpDown4.Value = CInt(line)
+                        'ListView1.Items.Clear()
+                        'ListView1.Items.Add(New ListViewItem({"", "", ""}))
+                        'ListView1.Items.Add(New ListViewItem({"Plot of k", "", ""}))
+                        If File.Exists(root_path + "temp\test_k.png") Then
+                            File.Copy(root_path + "temp\test_k.png", root_path + "temp\clust_temp.png", True)
+                            PictureBox1.Load(root_path + "temp\clust_temp.png")
+                            If File.Exists(root_path + "temp\best_k.txt") Then
+                                Dim sr As New StreamReader(root_path + "temp\best_k.txt")
+                                Dim line As String = sr.ReadLine
+                                sr.Close()
+                                NumericUpDown4.Value = CInt(line)
+                            End If
                         End If
-                        Label6.Text = "Complete"
+                        Label6.Text = dist_info
                     Else
                         If File.Exists(root_path + "temp\clust_iter.txt") Then
                             Dim sr As New StreamReader(root_path + "temp\clust_iter.txt")
@@ -364,7 +367,7 @@ Public Class Tool_Cluster
                         End If
                     End If
                 Case 7
-                    Label6.Text = "working"
+                    Label6.Text = "Working ..."
                     If File.Exists(root_path + "temp\mpest.end") Then
                         timer_id = 4
                         Dim th1 As New Threading.Thread(AddressOf load_matrix_ext)
@@ -373,7 +376,7 @@ Public Class Tool_Cluster
 
                     End If
                 Case 8
-                    Label6.Text = "working"
+                    Label6.Text = "Working ..."
                     If File.Exists(root_path + "temp\dist.end") Then
                         timer_id = 4
                         Dim th1 As New Threading.Thread(AddressOf load_matrix_ext)
@@ -381,10 +384,12 @@ Public Class Tool_Cluster
                         Label6.Text = dist_info
                     End If
                 Case 9
+                    Label6.Text = "Working"
                     If File.Exists(root_path + "temp\heatmap.end") Then
                         timer_id = 0
                         File.Copy(root_path + "temp\heatmap.png", root_path + "temp\clust_temp.png", True)
                         PictureBox1.Load(root_path + "temp\clust_temp.png")
+                        Label6.Text = dist_info
                     End If
             End Select
 
@@ -415,16 +420,15 @@ Public Class Tool_Cluster
         Next
         sr1.Close()
         write_matrix("matrix_0")
-        draw_heatmap("matrix_0.txt")
-        timer_id = 9
-        nor_matrix()
-
+        timer_id = 0
+        'draw_heatmap("matrix_0.txt")
+        'nor_matrix()
     End Sub
     Private Sub Tool_Tree_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         CheckForIllegalCrossThreadCalls = False
         Timer_R.Enabled = True
-		ComboBox1.SelectedIndex = 3
+        ComboBox1.SelectedIndex = 9
         If TargetOS = "macos" Then
             HideCMDWindowToolStripMenuItem.Checked = True
         Else
@@ -455,6 +459,42 @@ Public Class Tool_Cluster
 
                 Else
                     File.Copy(root_path + "temp\clust_" + ListView1.SelectedIndices(0).ToString + ".png", root_path + "temp\clust_temp.png", True)
+                    Dim id_sumer As New StreamReader(root_path + "temp\gene_name.txt")
+                    Dim gene_name_list(0) As String
+                    Dim gene_name_count(0) As Integer
+                    Dim gene_name_count_cluster(0) As Integer
+                    Dim line As String = id_sumer.ReadLine
+                    Do While line Is Nothing = False
+                        Dim name As String = line.Substring(0, line.LastIndexOf("_"))
+                        If Array.IndexOf(gene_name_list, name) < 0 Then
+                            ReDim Preserve gene_name_list(gene_name_list.Length)
+                            gene_name_list(UBound(gene_name_list)) = name
+                            ReDim Preserve gene_name_count(gene_name_count.Length)
+                            gene_name_count(UBound(gene_name_count)) = 1
+                            ReDim Preserve gene_name_count_cluster(gene_name_count_cluster.Length)
+                            gene_name_count_cluster(UBound(gene_name_count_cluster)) = 0
+                        Else
+                            gene_name_count(Array.IndexOf(gene_name_list, name)) += 1
+                        End If
+                        line = id_sumer.ReadLine
+                    Loop
+                    id_sumer.Close()
+
+
+                    Dim id_reader As New StreamReader(root_path + "temp\clust_" + ListView1.SelectedIndices(0).ToString + "_id.txt")
+                    line = id_reader.ReadLine
+                    Do While line Is Nothing = False
+                        Dim name As String = line.Substring(0, line.LastIndexOf("_"))
+                        If Array.IndexOf(gene_name_list, name) >= 0 Then
+                            gene_name_count_cluster(Array.IndexOf(gene_name_list, name)) += 1
+                        End If
+                        line = id_reader.ReadLine
+                    Loop
+                    id_reader.Close()
+                    TextBox1.Text = ""
+                    For i As Integer = 1 To UBound(gene_name_count_cluster)
+                        TextBox1.Text += gene_name_list(i) + vbTab + gene_name_count_cluster(i).ToString + "/" + gene_name_count(i).ToString + vbCrLf
+                    Next
                 End If
                 PictureBox1.Load(root_path + "temp\clust_temp.png")
             Catch ex As Exception
@@ -515,7 +555,7 @@ Public Class Tool_Cluster
             timer_count = i / temp_count * 10000
         Next
         sr1.Close()
-        nor_matrix()
+        'nor_matrix()
         timer_id = 0
         MsgBox(temp_count.ToString & "*" & temp_count.ToString & " matrix loaded.")
     End Sub
@@ -680,6 +720,7 @@ Public Class Tool_Cluster
                     Next
                     'File.Copy(root_path + "temp\mcl_groups.txt", opendialog.SelectedPath + "\mcl_groups.txt", True)
                     File.Copy(root_path + "temp\matrix_0.txt", opendialog.SelectedPath + "\matrix.csv", True)
+                    File.Copy(root_path + "temp\gene_name.txt", opendialog.SelectedPath + "\gene_name.txt", True)
                     'File.Copy(root_path + "temp\matrix_1.txt", opendialog.SelectedPath + "\matrix_1.csv", True)
                 End If
             Catch ex As Exception
@@ -701,7 +742,7 @@ Public Class Tool_Cluster
             stopW.Reset()
             stopW.Start()
             dist_type = "wSN"
-            dist_info = "Using " + LeveledRFDistanceToolStripMenuItem.Text + " (click here to show heatmap)"
+            dist_info = "Using " + LeveledRFDistanceToolStripMenuItem.Text
             Label6.Text = ""
             ReDim my_threads(thread_num - 1)
             For i As Integer = 0 To thread_num - 1
@@ -726,7 +767,7 @@ Public Class Tool_Cluster
             stopW.Reset()
             stopW.Start()
             dist_type = "nSN"
-            dist_info = "Using " + RFDistanceToolStripMenuItem.Text + " (click here to show heatmap)"
+            dist_info = "Using " + RFDistanceToolStripMenuItem.Text
             Label6.Text = ""
             ReDim my_threads(thread_num - 1)
             For i As Integer = 0 To thread_num - 1
@@ -759,9 +800,9 @@ Public Class Tool_Cluster
         Loop Until line Is Nothing
         sr.Close()
         timer_id = 0
-        If File.Exists(root_path + "temp\gene_name.txt") Then
-            File.Delete(root_path + "temp\gene_name.txt")
-        End If
+        'If File.Exists(root_path + "temp\gene_name.txt") Then
+        '    File.Delete(root_path + "temp\gene_name.txt")
+        'End If
     End Sub
 
 	Private Sub LoadGeneNamesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadGeneNamesToolStripMenuItem.Click
@@ -796,29 +837,30 @@ Public Class Tool_Cluster
 	End Sub
 
 	Private Sub HierarchicalClusterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HierarchicalClusterToolStripMenuItem.Click
-		If File.Exists(root_path + "temp\matrix_0.txt") Then
-			ListView1.Items.Clear()
-			If File.Exists(root_path + "temp\clust_end.txt") Then
-				File.Delete(root_path + "temp\clust_end.txt")
-			End If
-			If File.Exists(root_path + "temp\clust_groups.txt") Then
-				File.Delete(root_path + "temp\clust_groups.txt")
-			End If
-			If File.Exists(root_path + "temp\clust_iter.txt") Then
-				File.Delete(root_path + "temp\clust_iter.txt")
-			End If
-			'If File.Exists(root_path + "temp\consense.exe") = False Then
-			'	File.Copy(root_path + "Plug-ins\Phylip\consense.exe", root_path + "temp\consense.exe")
-			'End If
-			Label6.Text = "calculating.."
-			ProgressBar1.Value = 100
-			timer_id = 2
-			reset_sw = True
-			Dim th1 As New Threading.Thread(AddressOf r_cluster)
-			th1.Start()
-		Else
-			MsgBox("Do not find matrix!")
-		End If
+        If File.Exists(root_path + "temp\matrix_0.txt") Then
+            TextBox1.Text = ""
+            ListView1.Items.Clear()
+            If File.Exists(root_path + "temp\clust_end.txt") Then
+                File.Delete(root_path + "temp\clust_end.txt")
+            End If
+            If File.Exists(root_path + "temp\clust_groups.txt") Then
+                File.Delete(root_path + "temp\clust_groups.txt")
+            End If
+            If File.Exists(root_path + "temp\clust_iter.txt") Then
+                File.Delete(root_path + "temp\clust_iter.txt")
+            End If
+            'If File.Exists(root_path + "temp\consense.exe") = False Then
+            '	File.Copy(root_path + "Plug-ins\Phylip\consense.exe", root_path + "temp\consense.exe")
+            'End If
+            Label6.Text = "calculating.."
+            ProgressBar1.Value = 100
+            timer_id = 2
+            reset_sw = True
+            Dim th1 As New Threading.Thread(AddressOf r_cluster)
+            th1.Start()
+        Else
+            MsgBox("Do not find matrix! Please calculate matrix first!")
+        End If
 	End Sub
 
     Private Sub MCLToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MCLToolStripMenuItem.Click
@@ -1067,53 +1109,95 @@ Public Class Tool_Cluster
 
     Private Sub ListView1_DoubleClick(sender As Object, e As EventArgs) Handles ListView1.DoubleClick
         If ListView1.SelectedItems.Count > 0 Then
-            If ListView1.SelectedIndices(0) <> 0 Then
-                If File.Exists(root_path + "temp" + path_char + "outfile") Then
-                    File.Delete(root_path + "temp" + path_char + "outfile")
-                End If
-                If File.Exists(root_path + "temp" + path_char + "outtree") Then
-                    File.Delete(root_path + "temp" + path_char + "outtree")
-                End If
-                If File.Exists(root_path + "temp" + path_char + "intree") Then
-                    File.Delete(root_path + "temp" + path_char + "intree")
-                End If
-                Dim tree_count As Integer = 1
-                If ListView1.SelectedIndices(0) = ListView1.Items.Count - 1 Then
-                    File.Copy(root_path + "temp\clean_num.trees", root_path + "temp\intree", True)
-                Else
-                    File.Copy(root_path + "temp\clust_" + ListView1.SelectedIndices(0).ToString + "_clean.trees", root_path + "temp\intree", True)
-                End If
-                tree_count = ListView1.SelectedItems(0).SubItems(1).Text
-                Dim rt As New StreamReader(root_path + "temp\intree")
-                Dim f_t_name() As String = rt.ReadLine.Replace("(", "").Replace(")", "").Replace(";", ",").Split(New Char() {","c})
-                For i As Integer = 0 To UBound(f_t_name)
-                    If f_t_name(i).Contains(":") Then
-                        f_t_name(i) = f_t_name(i).Split(":")(0)
-                    End If
-                Next
-                rt.Close()
-                MainWindow.DataGridView1.EndEdit()
-                Dim og As String = "-1"
-                For i As Integer = 1 To dtView.Count
-                    If MainWindow.DataGridView1.Rows(i - 1).Cells(0).FormattedValue.ToString = "True" Then
-                        og = i.ToString
-                    End If
-                Next
-                If og = "-1" Then
-                    Dim og_res As DialogResult = MsgBox("Please select one outgroup to build the consense tree.", MsgBoxStyle.Information)
-                    Exit Sub
-                End If
-                og = (Array.IndexOf(f_t_name, og) + 1)
-                Dim temp_i As Int16 = CInt(og)
+            '合并树
+            'If ListView1.SelectedIndices(0) <> 0 Then
+            '    If File.Exists(root_path + "temp" + path_char + "outfile") Then
+            '        File.Delete(root_path + "temp" + path_char + "outfile")
+            '    End If
+            '    If File.Exists(root_path + "temp" + path_char + "outtree") Then
+            '        File.Delete(root_path + "temp" + path_char + "outtree")
+            '    End If
+            '    If File.Exists(root_path + "temp" + path_char + "intree") Then
+            '        File.Delete(root_path + "temp" + path_char + "intree")
+            '    End If
+            '    Dim tree_count As Integer = 1
+            '    If ListView1.SelectedIndices(0) = ListView1.Items.Count - 1 Then
+            '        File.Copy(root_path + "temp\clean_num.trees", root_path + "temp\intree", True)
+            '    Else
+            '        File.Copy(root_path + "temp\clust_" + ListView1.SelectedIndices(0).ToString + "_clean.trees", root_path + "temp\intree", True)
+            '    End If
+            '    tree_count = ListView1.SelectedItems(0).SubItems(1).Text
+            '    Dim rt As New StreamReader(root_path + "temp\intree")
+            '    Dim f_t_name() As String = rt.ReadLine.Replace("(", "").Replace(")", "").Replace(";", ",").Split(New Char() {","c})
+            '    For i As Integer = 0 To UBound(f_t_name)
+            '        If f_t_name(i).Contains(":") Then
+            '            f_t_name(i) = f_t_name(i).Split(":")(0)
+            '        End If
+            '    Next
+            '    rt.Close()
+            '    MainWindow.DataGridView1.EndEdit()
+            '    Dim og As String = "-1"
+            '    For i As Integer = 1 To dtView.Count
+            '        If MainWindow.DataGridView1.Rows(i - 1).Cells(0).FormattedValue.ToString = "True" Then
+            '            og = i.ToString
+            '        End If
+            '    Next
+            '    If og = "-1" Then
+            '        Dim og_res As DialogResult = MsgBox("Please select one outgroup to build the consense tree.", MsgBoxStyle.Information)
+            '        Exit Sub
+            '    End If
+            '    og = (Array.IndexOf(f_t_name, og) + 1)
+            '    Dim temp_i As Int16 = CInt(og)
 
-                current_dir = Directory.GetCurrentDirectory
-                Directory.SetCurrentDirectory(root_path)
-                ctree(temp_i, root_path, cons_tre)
-                Directory.SetCurrentDirectory(current_dir)
+            '    current_dir = Directory.GetCurrentDirectory
+            '    Directory.SetCurrentDirectory(root_path)
+            '    ctree(temp_i, root_path, cons_tre)
+            '    Directory.SetCurrentDirectory(current_dir)
 
-                'File.Copy(root_path + "temp\intree", root_path + "temp\clust_" + ListView1.SelectedIndices(0).ToString + "_con.tre", True)
-                make_final_tree(tree_count)
-            End If
+            '    'File.Copy(root_path + "temp\intree", root_path + "temp\clust_" + ListView1.SelectedIndices(0).ToString + "_con.tre", True)
+            '    make_final_tree(tree_count)
+            'End If
+            '显示成分
+            'If ListView1.SelectedIndices(0) <> 0 Then
+            '    If ListView1.SelectedIndices(0) <> ListView1.Items.Count - 1 Then
+            '        Dim id_sumer As New StreamReader(root_path + "temp\gene_name.txt")
+            '        Dim gene_name_list(0) As String
+            '        Dim gene_name_count(0) As Integer
+            '        Dim gene_name_count_cluster(0) As Integer
+            '        Dim line As String = id_sumer.ReadLine
+            '        Do While line Is Nothing = False
+            '            Dim name As String = line.Substring(0, line.LastIndexOf("_"))
+            '            If Array.IndexOf(gene_name_list, name) < 0 Then
+            '                ReDim Preserve gene_name_list(gene_name_list.Length)
+            '                gene_name_list(UBound(gene_name_list)) = name
+            '                ReDim Preserve gene_name_count(gene_name_count.Length)
+            '                gene_name_count(UBound(gene_name_count)) = 1
+            '                ReDim Preserve gene_name_count_cluster(gene_name_count_cluster.Length)
+            '                gene_name_count_cluster(UBound(gene_name_count_cluster)) = 0
+            '            Else
+            '                gene_name_count(Array.IndexOf(gene_name_list, name)) += 1
+            '            End If
+            '            line = id_sumer.ReadLine
+            '        Loop
+            '        id_sumer.Close()
+
+
+            '        Dim id_reader As New StreamReader(root_path + "temp\clust_" + ListView1.SelectedIndices(0).ToString + "_id.txt")
+            '        line = id_reader.ReadLine
+            '        Do While line Is Nothing = False
+            '            Dim name As String = line.Substring(0, line.LastIndexOf("_"))
+            '            If Array.IndexOf(gene_name_list, name) >= 0 Then
+            '                gene_name_count_cluster(Array.IndexOf(gene_name_list, name)) += 1
+            '            End If
+            '            line = id_reader.ReadLine
+            '        Loop
+            '        id_reader.Close()
+            '        TextBox1.Text = ""
+            '        For i As Integer = 1 To UBound(gene_name_count_cluster)
+            '            TextBox1.Text += gene_name_list(i) + vbTab + gene_name_count_cluster(i).ToString + "/" + gene_name_count(i).ToString + vbCrLf
+            '        Next
+            '    End If
+            'End If
         End If
     End Sub
 
@@ -1150,7 +1234,7 @@ Public Class Tool_Cluster
             sw_run.Close()
             timer_id = 7
             dist_type = "mpest"
-            dist_info = "Using " + TripleDistanceToolStripMenuItem.Text + " (click here to show heatmap)"
+            dist_info = "Using " + TripleDistanceToolStripMenuItem.Text
             current_dir = Directory.GetCurrentDirectory
             Directory.SetCurrentDirectory(root_path + "temp\")
             Dim startInfo As New ProcessStartInfo
@@ -1171,7 +1255,7 @@ Public Class Tool_Cluster
             File.Delete(root_path + "temp\dist.end")
         End If
         dist_type = "spr"
-        dist_info = "Using " + SPRDistanceToolStripMenuItem.Text + " (click here to show heatmap)"
+        dist_info = "Using " + SPRDistanceToolStripMenuItem.Text
         ProgressBar1.Value = 1600
         timer_id = 8
         reset_sw = True
@@ -1247,7 +1331,7 @@ Public Class Tool_Cluster
             stopW.Reset()
             stopW.Start()
             dist_type = "SN"
-            dist_info = "Using " + SubcladesDistanceToolStripMenuItem.Text + " (click here to show heatmap)"
+            dist_info = "Using " + SubcladesDistanceToolStripMenuItem.Text
             Label6.Text = ""
             ReDim my_threads(thread_num - 1)
             For i As Integer = 0 To thread_num - 1
@@ -1264,7 +1348,7 @@ Public Class Tool_Cluster
             File.Delete(root_path + "temp\dist.end")
         End If
         dist_type = "RF"
-        dist_info = "Using " + RFDistanceToolStripMenuItem1.Text + " (click here to show heatmap)"
+        dist_info = "Using " + RFDistanceToolStripMenuItem1.Text
         ProgressBar1.Value = 1600
         timer_id = 8
         reset_sw = True
@@ -1276,7 +1360,7 @@ Public Class Tool_Cluster
             File.Delete(root_path + "temp\dist.end")
         End If
         dist_type = "nRF"
-        dist_info = "Using " + NormalizedRFDistanceToolStripMenuItem.Text + " (click here to show heatmap)"
+        dist_info = "Using " + NormalizedRFDistanceToolStripMenuItem.Text
         ProgressBar1.Value = 1600
         timer_id = 8
         reset_sw = True
@@ -1288,7 +1372,7 @@ Public Class Tool_Cluster
             File.Delete(root_path + "temp\dist.end")
         End If
         dist_type = "nwRF"
-        dist_info = "Using " + NormalizedWeightedRFDistanceToolStripMenuItem.Text + " (click here to show heatmap)"
+        dist_info = "Using " + NormalizedWeightedRFDistanceToolStripMenuItem.Text
         ProgressBar1.Value = 1600
         timer_id = 8
         reset_sw = True
@@ -1300,7 +1384,7 @@ Public Class Tool_Cluster
             File.Delete(root_path + "temp\dist.end")
         End If
         dist_type = "path"
-        dist_info = "Using " + PathDistanceToolStripMenuItem.Text + " (click here to show heatmap)"
+        dist_info = "Using " + PathDistanceToolStripMenuItem.Text
         ProgressBar1.Value = 1600
         timer_id = 8
         reset_sw = True
@@ -1312,7 +1396,7 @@ Public Class Tool_Cluster
             File.Delete(root_path + "temp\dist.end")
         End If
         dist_type = "wpath"
-        dist_info = "Using " + WeightedPathDistanceToolStripMenuItem.Text + " (click here to show heatmap)"
+        dist_info = "Using " + WeightedPathDistanceToolStripMenuItem.Text
         ProgressBar1.Value = 1600
         timer_id = 8
         reset_sw = True
@@ -1324,7 +1408,7 @@ Public Class Tool_Cluster
             File.Delete(root_path + "temp\dist.end")
         End If
         dist_type = "KF"
-        dist_info = "Using " + KFDistanceToolStripMenuItem.Text + " (click here to show heatmap)"
+        dist_info = "Using " + KFDistanceToolStripMenuItem.Text
         ProgressBar1.Value = 1600
         timer_id = 8
         reset_sw = True
@@ -1349,9 +1433,28 @@ Public Class Tool_Cluster
     End Sub
 
     Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
+        'If File.Exists(root_path + "temp\heatmap.png") Then
+        '    File.Copy(root_path + "temp\heatmap.png", root_path + "temp\clust_temp.png", True)
+        '    PictureBox1.Load(root_path + "temp\clust_temp.png")
+        'End If
+    End Sub
+
+
+    Private Sub ShowHeatmapToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowHeatmapToolStripMenuItem.Click
         If File.Exists(root_path + "temp\heatmap.png") Then
             File.Copy(root_path + "temp\heatmap.png", root_path + "temp\clust_temp.png", True)
             PictureBox1.Load(root_path + "temp\clust_temp.png")
+        Else
+            MsgBox("Could not find heatmap! Please make a heatmap first!")
+        End If
+    End Sub
+
+    Private Sub MakeHeatmapToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MakeHeatmapToolStripMenuItem.Click
+        If File.Exists(root_path + "temp" + path_char + "matrix_0.txt") Then
+            timer_id = 9
+            draw_heatmap("matrix_0.txt")
+        Else
+            MsgBox("Do not find matrix! Please calculate matrix first!")
         End If
     End Sub
 End Class

@@ -61,6 +61,9 @@ Partial Class Tool_Cluster
         Me.MCLToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.StatisticsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HeatmapToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MakeHeatmapToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ShowHeatmapToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HideCMDWindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -88,6 +91,7 @@ Partial Class Tool_Cluster
         Me.NumericUpDown2 = New System.Windows.Forms.NumericUpDown()
         Me.NumericUpDown3 = New System.Windows.Forms.NumericUpDown()
         Me.NumericUpDown4 = New System.Windows.Forms.NumericUpDown()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -136,38 +140,38 @@ Partial Class Tool_Cluster
         '
         Me.SaveToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveMatrixToolStripMenuItem, Me.SaveGraphicToolStripMenuItem, Me.SaveTreesToolStripMenuItem, Me.SaveALLToolStripMenuItem})
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(105, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SaveToolStripMenuItem.Text = "Save"
         '
         'SaveMatrixToolStripMenuItem
         '
         Me.SaveMatrixToolStripMenuItem.Name = "SaveMatrixToolStripMenuItem"
-        Me.SaveMatrixToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.SaveMatrixToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SaveMatrixToolStripMenuItem.Text = "Save Matrix"
         '
         'SaveGraphicToolStripMenuItem
         '
         Me.SaveGraphicToolStripMenuItem.Name = "SaveGraphicToolStripMenuItem"
-        Me.SaveGraphicToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.SaveGraphicToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SaveGraphicToolStripMenuItem.Text = "Save Graphic"
         '
         'SaveTreesToolStripMenuItem
         '
         Me.SaveTreesToolStripMenuItem.Name = "SaveTreesToolStripMenuItem"
-        Me.SaveTreesToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.SaveTreesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SaveTreesToolStripMenuItem.Text = "Save Selected"
         '
         'SaveALLToolStripMenuItem
         '
         Me.SaveALLToolStripMenuItem.Name = "SaveALLToolStripMenuItem"
-        Me.SaveALLToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.SaveALLToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SaveALLToolStripMenuItem.Text = "Save ALL"
         '
         'LoadToolStripMenuItem
         '
         Me.LoadToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoadMatrixToolStripMenuItem, Me.LoadIntoRASPToolStripMenuItem, Me.LoadGeneNamesToolStripMenuItem})
         Me.LoadToolStripMenuItem.Name = "LoadToolStripMenuItem"
-        Me.LoadToolStripMenuItem.Size = New System.Drawing.Size(105, 22)
+        Me.LoadToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LoadToolStripMenuItem.Text = "Load"
         '
         'LoadMatrixToolStripMenuItem
@@ -192,7 +196,7 @@ Partial Class Tool_Cluster
         '
         'AnalysisToolStripMenuItem
         '
-        Me.AnalysisToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CalculateMatrixToolStripMenuItem, Me.ClusterTreeToolStripMenuItem, Me.ToolStripSeparator2, Me.StatisticsToolStripMenuItem})
+        Me.AnalysisToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CalculateMatrixToolStripMenuItem, Me.ClusterTreeToolStripMenuItem, Me.HeatmapToolStripMenuItem, Me.ToolStripSeparator2, Me.StatisticsToolStripMenuItem})
         Me.AnalysisToolStripMenuItem.Name = "AnalysisToolStripMenuItem"
         Me.AnalysisToolStripMenuItem.Size = New System.Drawing.Size(66, 21)
         Me.AnalysisToolStripMenuItem.Text = "Analysis"
@@ -338,6 +342,25 @@ Partial Class Tool_Cluster
         Me.StatisticsToolStripMenuItem.Text = "Statistics"
         Me.StatisticsToolStripMenuItem.Visible = False
         '
+        'HeatmapToolStripMenuItem
+        '
+        Me.HeatmapToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MakeHeatmapToolStripMenuItem, Me.ShowHeatmapToolStripMenuItem})
+        Me.HeatmapToolStripMenuItem.Name = "HeatmapToolStripMenuItem"
+        Me.HeatmapToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HeatmapToolStripMenuItem.Text = "Heatmap"
+        '
+        'MakeHeatmapToolStripMenuItem
+        '
+        Me.MakeHeatmapToolStripMenuItem.Name = "MakeHeatmapToolStripMenuItem"
+        Me.MakeHeatmapToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MakeHeatmapToolStripMenuItem.Text = "Make Heatmap"
+        '
+        'ShowHeatmapToolStripMenuItem
+        '
+        Me.ShowHeatmapToolStripMenuItem.Name = "ShowHeatmapToolStripMenuItem"
+        Me.ShowHeatmapToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ShowHeatmapToolStripMenuItem.Text = "Show Heatmap"
+        '
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HideCMDWindowToolStripMenuItem, Me.ToolStripSeparator1, Me.ZoomOutToolStripMenuItem, Me.ZoomInToolStripMenuItem, Me.ToolStripSeparator3, Me.ConsensusTreeToolStripMenuItem})
@@ -387,14 +410,13 @@ Partial Class Tool_Cluster
         '
         'ListView1
         '
-        Me.ListView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader1})
         Me.ListView1.FullRowSelect = True
+        Me.ListView1.HideSelection = False
         Me.ListView1.Location = New System.Drawing.Point(0, 28)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(185, 396)
+        Me.ListView1.Size = New System.Drawing.Size(185, 253)
         Me.ListView1.TabIndex = 14
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -472,7 +494,7 @@ Partial Class Tool_Cluster
         Me.ComboBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"ward.D", "ward.D2", "single", "complete", "average", "mcquitty", "median", "centroid"})
+        Me.ComboBox1.Items.AddRange(New Object() {"ward.D", "ward.D2", "single", "complete", "average", "mcquitty", "median", "centroid", "k-means"})
         Me.ComboBox1.Location = New System.Drawing.Point(593, 50)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(83, 23)
@@ -548,7 +570,7 @@ Partial Class Tool_Cluster
         Me.NumericUpDown3.Name = "NumericUpDown3"
         Me.NumericUpDown3.Size = New System.Drawing.Size(42, 21)
         Me.NumericUpDown3.TabIndex = 33
-        Me.NumericUpDown3.Value = New Decimal(New Integer() {10, 0, 0, 0})
+        Me.NumericUpDown3.Value = New Decimal(New Integer() {16, 0, 0, 0})
         '
         'NumericUpDown4
         '
@@ -561,11 +583,24 @@ Partial Class Tool_Cluster
         Me.NumericUpDown4.TabIndex = 34
         Me.NumericUpDown4.Value = New Decimal(New Integer() {3, 0, 0, 0})
         '
+        'TextBox1
+        '
+        Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.TextBox1.BackColor = System.Drawing.SystemColors.Info
+        Me.TextBox1.Location = New System.Drawing.Point(0, 287)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ReadOnly = True
+        Me.TextBox1.Size = New System.Drawing.Size(185, 134)
+        Me.TextBox1.TabIndex = 35
+        '
         'Tool_Cluster
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(690, 449)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.NumericUpDown4)
         Me.Controls.Add(Me.NumericUpDown3)
         Me.Controls.Add(Me.NumericUpDown2)
@@ -665,4 +700,8 @@ Partial Class Tool_Cluster
     Friend WithEvents ToolStripSeparator8 As ToolStripSeparator
     Friend WithEvents KFDistanceToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaveGraphicToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents HeatmapToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MakeHeatmapToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ShowHeatmapToolStripMenuItem As ToolStripMenuItem
 End Class

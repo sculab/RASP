@@ -27,7 +27,9 @@ Partial Class View_Dis
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LoadResultToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.SaveGraphicToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveResultToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AnalysisToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BayesTraitsParametersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UniformMaxMinToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -54,8 +56,6 @@ Partial Class View_Dis
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.CheckBox4 = New System.Windows.Forms.CheckBox()
-        Me.SaveResultToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,14 +96,25 @@ Partial Class View_Dis
         'LoadResultToolStripMenuItem
         '
         Me.LoadResultToolStripMenuItem.Name = "LoadResultToolStripMenuItem"
-        Me.LoadResultToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LoadResultToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.LoadResultToolStripMenuItem.Text = "Load Result"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(144, 6)
         '
         'SaveGraphicToolStripMenuItem
         '
         Me.SaveGraphicToolStripMenuItem.Name = "SaveGraphicToolStripMenuItem"
-        Me.SaveGraphicToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveGraphicToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.SaveGraphicToolStripMenuItem.Text = "Save Graphic"
+        '
+        'SaveResultToolStripMenuItem
+        '
+        Me.SaveResultToolStripMenuItem.Name = "SaveResultToolStripMenuItem"
+        Me.SaveResultToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.SaveResultToolStripMenuItem.Text = "Save Result"
         '
         'AnalysisToolStripMenuItem
         '
@@ -156,7 +167,7 @@ Partial Class View_Dis
         'NumericUpDown1
         '
         Me.NumericUpDown1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NumericUpDown1.Location = New System.Drawing.Point(697, 29)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(695, 29)
         Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(49, 21)
@@ -186,7 +197,7 @@ Partial Class View_Dis
         'NumericUpDown2
         '
         Me.NumericUpDown2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NumericUpDown2.Location = New System.Drawing.Point(697, 56)
+        Me.NumericUpDown2.Location = New System.Drawing.Point(695, 56)
         Me.NumericUpDown2.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown2.Name = "NumericUpDown2"
         Me.NumericUpDown2.Size = New System.Drawing.Size(49, 21)
@@ -206,7 +217,7 @@ Partial Class View_Dis
         'NumericUpDown3
         '
         Me.NumericUpDown3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NumericUpDown3.Location = New System.Drawing.Point(697, 83)
+        Me.NumericUpDown3.Location = New System.Drawing.Point(695, 83)
         Me.NumericUpDown3.Minimum = New Decimal(New Integer() {2, 0, 0, 0})
         Me.NumericUpDown3.Name = "NumericUpDown3"
         Me.NumericUpDown3.Size = New System.Drawing.Size(49, 21)
@@ -218,7 +229,7 @@ Partial Class View_Dis
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.Location = New System.Drawing.Point(641, 259)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(105, 23)
+        Me.Button1.Size = New System.Drawing.Size(101, 23)
         Me.Button1.TabIndex = 10
         Me.Button1.Text = "Refresh"
         Me.Button1.UseVisualStyleBackColor = True
@@ -229,7 +240,7 @@ Partial Class View_Dis
         Me.Label4.BackColor = System.Drawing.Color.Gray
         Me.Label4.Location = New System.Drawing.Point(643, 138)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(103, 21)
+        Me.Label4.Size = New System.Drawing.Size(101, 21)
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "Color"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -238,7 +249,7 @@ Partial Class View_Dis
         '
         Me.NumericUpDown4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.NumericUpDown4.Increment = New Decimal(New Integer() {5, 0, 0, 0})
-        Me.NumericUpDown4.Location = New System.Drawing.Point(697, 110)
+        Me.NumericUpDown4.Location = New System.Drawing.Point(695, 110)
         Me.NumericUpDown4.Minimum = New Decimal(New Integer() {5, 0, 0, 0})
         Me.NumericUpDown4.Name = "NumericUpDown4"
         Me.NumericUpDown4.Size = New System.Drawing.Size(49, 21)
@@ -258,8 +269,6 @@ Partial Class View_Dis
         'CheckBox1
         '
         Me.CheckBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CheckBox1.Checked = True
-        Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox1.Location = New System.Drawing.Point(641, 166)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(105, 19)
@@ -270,8 +279,6 @@ Partial Class View_Dis
         'CheckBox2
         '
         Me.CheckBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CheckBox2.Checked = True
-        Me.CheckBox2.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox2.Location = New System.Drawing.Point(641, 186)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(105, 19)
@@ -296,7 +303,7 @@ Partial Class View_Dis
         Me.TextBox2.Location = New System.Drawing.Point(664, 402)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(82, 21)
+        Me.TextBox2.Size = New System.Drawing.Size(78, 21)
         Me.TextBox2.TabIndex = 17
         Me.TextBox2.Text = "Root P"
         Me.TextBox2.Visible = False
@@ -315,40 +322,33 @@ Partial Class View_Dis
         'TextBox3
         '
         Me.TextBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox3.Location = New System.Drawing.Point(697, 232)
+        Me.TextBox3.Location = New System.Drawing.Point(694, 232)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(50, 21)
+        Me.TextBox3.Size = New System.Drawing.Size(48, 21)
         Me.TextBox3.TabIndex = 19
+        Me.TextBox3.Text = "1"
         '
         'TextBox4
         '
         Me.TextBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBox4.Location = New System.Drawing.Point(641, 232)
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(49, 21)
+        Me.TextBox4.Size = New System.Drawing.Size(48, 21)
         Me.TextBox4.TabIndex = 20
+        Me.TextBox4.Text = "0"
         '
         'CheckBox4
         '
         Me.CheckBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CheckBox4.AutoSize = True
+        Me.CheckBox4.Checked = True
+        Me.CheckBox4.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox4.Location = New System.Drawing.Point(641, 211)
         Me.CheckBox4.Name = "CheckBox4"
         Me.CheckBox4.Size = New System.Drawing.Size(101, 19)
         Me.CheckBox4.TabIndex = 21
         Me.CheckBox4.Text = "Cal. between:"
         Me.CheckBox4.UseVisualStyleBackColor = True
-        '
-        'SaveResultToolStripMenuItem
-        '
-        Me.SaveResultToolStripMenuItem.Name = "SaveResultToolStripMenuItem"
-        Me.SaveResultToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.SaveResultToolStripMenuItem.Text = "Save Result"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
         '
         'View_Dis
         '

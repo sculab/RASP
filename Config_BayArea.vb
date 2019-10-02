@@ -317,7 +317,8 @@ Public Class Config_BayArea
         Dim range_file As New StreamWriter(root_path + "temp\bayarea.areas.txt", False)
         range_file.WriteLine(dtView.Count.ToString + " " + RangeStr.Length.ToString)
         For i As Integer = 1 To dtView.Count
-            range_file.WriteLine(dtView.Item(i - 1).Item(0).ToString + " " + Distributiton_to_Binary(dtView.Item(i - 1).Item(state_index).ToString, RangeStr.Length))
+            range_file.WriteLine(
+                dtView.Item(i - 1).Item(0).ToString + " " + Distributiton_to_Binary(dtView.Item(i - 1).Item(state_index).ToString, RangeStr.Length))
         Next
         range_file.Close()
 

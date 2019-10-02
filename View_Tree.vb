@@ -2486,23 +2486,7 @@ Public Class View_Tree
         PictureBox2.Refresh()
     End Sub
     Private Sub SaveInfoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveInfoToolStripMenuItem.Click
-        If TextBox1.Text <> "" Then
-            Dim opendialog As New SaveFileDialog
-            opendialog.Filter = "Text File (*.txt)|*.txt;*.TXT|ALL Files(*.*)|*.*"
-            opendialog.FileName = ""
-            opendialog.DefaultExt = ".txt"
-            opendialog.CheckFileExists = False
-            opendialog.CheckPathExists = True
-            Dim resultdialog As DialogResult = opendialog.ShowDialog()
-            If resultdialog = DialogResult.OK Then
-                Dim sw As New StreamWriter(opendialog.FileName)
-                sw.Write(TextBox1.Text)
-                sw.Close()
-                MsgBox("Save Successfully!", MsgBoxStyle.Information)
-            End If
-        Else
-            MsgBox("No information to save!", MsgBoxStyle.Information)
-        End If
+
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox5.CheckedChanged, CheckBox6.CheckedChanged, CheckBox7.CheckedChanged
@@ -3734,6 +3718,46 @@ Public Class View_Tree
             MsgBox("Save Successfully!", MsgBoxStyle.Information)
         Else
             MsgBox("No result to save!", MsgBoxStyle.Information)
+        End If
+    End Sub
+
+    Private Sub DispersalInformationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DispersalInformationToolStripMenuItem.Click
+        If TextBox1.Text <> "" Then
+            Dim opendialog As New SaveFileDialog
+            opendialog.Filter = "Text File (*.txt)|*.txt;*.TXT|ALL Files(*.*)|*.*"
+            opendialog.FileName = ""
+            opendialog.DefaultExt = ".txt"
+            opendialog.CheckFileExists = False
+            opendialog.CheckPathExists = True
+            Dim resultdialog As DialogResult = opendialog.ShowDialog()
+            If resultdialog = DialogResult.OK Then
+                Dim sw As New StreamWriter(opendialog.FileName)
+                sw.Write(TextBox1.Text)
+                sw.Close()
+                MsgBox("Save Successfully!", MsgBoxStyle.Information)
+            End If
+        Else
+            MsgBox("No information to save!", MsgBoxStyle.Information)
+        End If
+    End Sub
+
+    Private Sub SupplementInformationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SupplementInformationToolStripMenuItem.Click
+        If RichTextBox1.Text <> "" Then
+            Dim opendialog As New SaveFileDialog
+            opendialog.Filter = "Excel File (*.xls)|*.xls;*.XLS|Text File (*.txt)|*.txt;*.TXT|ALL Files(*.*)|*.*"
+            opendialog.FileName = ""
+            opendialog.DefaultExt = ".xls"
+            opendialog.CheckFileExists = False
+            opendialog.CheckPathExists = True
+            Dim resultdialog As DialogResult = opendialog.ShowDialog()
+            If resultdialog = DialogResult.OK Then
+                Dim sw As New StreamWriter(opendialog.FileName)
+                sw.Write(RichTextBox1.Text)
+                sw.Close()
+                MsgBox("Save Successfully!", MsgBoxStyle.Information)
+            End If
+        Else
+            MsgBox("No information to save!", MsgBoxStyle.Information)
         End If
     End Sub
 End Class

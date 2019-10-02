@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Tool_TvS
     Inherits System.Windows.Forms.Form
 
     'Form 重写 Dispose，以清理组件列表。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Tool_TvS
     '注意: 以下过程是 Windows 窗体设计器所必需的
     '可以使用 Windows 窗体设计器修改它。  
     '不要使用代码编辑器修改它。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Tool_TvS))
@@ -29,8 +29,8 @@ Partial Class Tool_TvS
         Me.ExportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FullTableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AnalysisToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FindBestFitTreeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StateVsTreesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FindBestFitTreeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModelTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListView1 = New System.Windows.Forms.ListView()
@@ -46,7 +46,6 @@ Partial Class Tool_TvS
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.Timer_R = New System.Windows.Forms.Timer(Me.components)
         Me.Label6 = New System.Windows.Forms.Label()
@@ -84,22 +83,22 @@ Partial Class Tool_TvS
         '
         'AnalysisToolStripMenuItem1
         '
-        Me.AnalysisToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FindBestFitTreeToolStripMenuItem, Me.StateVsTreesToolStripMenuItem})
+        Me.AnalysisToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StateVsTreesToolStripMenuItem, Me.FindBestFitTreeToolStripMenuItem})
         Me.AnalysisToolStripMenuItem1.Name = "AnalysisToolStripMenuItem1"
         Me.AnalysisToolStripMenuItem1.Size = New System.Drawing.Size(66, 21)
         Me.AnalysisToolStripMenuItem1.Text = "Analysis"
         '
-        'FindBestFitTreeToolStripMenuItem
-        '
-        Me.FindBestFitTreeToolStripMenuItem.Name = "FindBestFitTreeToolStripMenuItem"
-        Me.FindBestFitTreeToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
-        Me.FindBestFitTreeToolStripMenuItem.Text = "Tree vs. States"
-        '
         'StateVsTreesToolStripMenuItem
         '
         Me.StateVsTreesToolStripMenuItem.Name = "StateVsTreesToolStripMenuItem"
-        Me.StateVsTreesToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
-        Me.StateVsTreesToolStripMenuItem.Text = "State vs.Trees"
+        Me.StateVsTreesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.StateVsTreesToolStripMenuItem.Text = "State vs. Trees"
+        '
+        'FindBestFitTreeToolStripMenuItem
+        '
+        Me.FindBestFitTreeToolStripMenuItem.Name = "FindBestFitTreeToolStripMenuItem"
+        Me.FindBestFitTreeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FindBestFitTreeToolStripMenuItem.Text = "Tree vs. States"
         '
         'OptionToolStripMenuItem
         '
@@ -115,7 +114,7 @@ Partial Class Tool_TvS
         Me.ModelTestToolStripMenuItem.CheckOnClick = True
         Me.ModelTestToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ModelTestToolStripMenuItem.Name = "ModelTestToolStripMenuItem"
-        Me.ModelTestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ModelTestToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
         Me.ModelTestToolStripMenuItem.Text = "Model test"
         '
         'ListView1
@@ -123,8 +122,9 @@ Partial Class Tool_TvS
         Me.ListView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader12, Me.ColumnHeader11, Me.ColumnHeader6, Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader7, Me.ColumnHeader8, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader13})
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader12, Me.ColumnHeader11, Me.ColumnHeader6, Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader7, Me.ColumnHeader8, Me.ColumnHeader9, Me.ColumnHeader10})
         Me.ListView1.FullRowSelect = True
+        Me.ListView1.HideSelection = False
         Me.ListView1.Location = New System.Drawing.Point(0, 27)
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(559, 333)
@@ -190,11 +190,6 @@ Partial Class Tool_TvS
         '
         Me.ColumnHeader10.Text = "P-value (K)"
         Me.ColumnHeader10.Width = 75
-        '
-        'ColumnHeader13
-        '
-        Me.ColumnHeader13.Text = "D count"
-        Me.ColumnHeader13.Width = 75
         '
         'ProgressBar1
         '
@@ -266,5 +261,4 @@ Partial Class Tool_TvS
     Friend WithEvents ColumnHeader12 As ColumnHeader
     Friend WithEvents OptionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ModelTestToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ColumnHeader13 As ColumnHeader
 End Class

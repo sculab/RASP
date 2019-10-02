@@ -75,8 +75,8 @@ Partial Class Form_Main
         Me.TraitsEvolutionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChromosomeEvolutionChromEvolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComparisonToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TreeClusterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TreeVsStatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TreeClusterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OtherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InstallReinstallToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BioGeoBEARSToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -90,11 +90,16 @@ Partial Class Form_Main
         Me.AddTreeLengthToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TreeTimeMultiplierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AddStatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConvertStatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddStatesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteStatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
         Me.DatingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LoadDataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DPPAnalysisToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BatchToolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SetSeedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DebugToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -106,6 +111,8 @@ Partial Class Form_Main
         Me.CmdBox = New System.Windows.Forms.RichTextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.BeforeLoad = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TreeInfo = New System.Windows.Forms.RichTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -123,9 +130,6 @@ Partial Class Form_Main
         Me.BGB_Timer = New System.Windows.Forms.Timer(Me.components)
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.Check_Package_Timer = New System.Windows.Forms.Timer(Me.components)
-        Me.BeforeLoad = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.SetSeedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -231,19 +235,19 @@ Partial Class Form_Main
         'SaveResultToolStripMenuItem
         '
         Me.SaveResultToolStripMenuItem.Name = "SaveResultToolStripMenuItem"
-        Me.SaveResultToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveResultToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.SaveResultToolStripMenuItem.Text = "Save Results"
         '
         'SaveDistributionToolStripMenuItem
         '
         Me.SaveDistributionToolStripMenuItem.Name = "SaveDistributionToolStripMenuItem"
-        Me.SaveDistributionToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveDistributionToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.SaveDistributionToolStripMenuItem.Text = "Save States"
         '
         'SaveLogToolStripMenuItem
         '
         Me.SaveLogToolStripMenuItem.Name = "SaveLogToolStripMenuItem"
-        Me.SaveLogToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveLogToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.SaveLogToolStripMenuItem.Text = "Save Logs"
         '
         'ExportToolStripMenuItem
@@ -257,21 +261,21 @@ Partial Class Form_Main
         '
         Me.FormatedTreeToolStripMenuItem.Enabled = False
         Me.FormatedTreeToolStripMenuItem.Name = "FormatedTreeToolStripMenuItem"
-        Me.FormatedTreeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FormatedTreeToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
         Me.FormatedTreeToolStripMenuItem.Text = "Condensed Tree"
         '
         'TreeDataSetToolStripMenuItem
         '
         Me.TreeDataSetToolStripMenuItem.Enabled = False
         Me.TreeDataSetToolStripMenuItem.Name = "TreeDataSetToolStripMenuItem"
-        Me.TreeDataSetToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TreeDataSetToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
         Me.TreeDataSetToolStripMenuItem.Text = "Discarded Trees"
         '
         'RandomTreesToolStripMenuItem
         '
         Me.RandomTreesToolStripMenuItem.Enabled = False
         Me.RandomTreesToolStripMenuItem.Name = "RandomTreesToolStripMenuItem"
-        Me.RandomTreesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RandomTreesToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
         Me.RandomTreesToolStripMenuItem.Text = "Random Trees"
         '
         'ToolStripSeparator3
@@ -302,26 +306,26 @@ Partial Class Form_Main
         'TreeViewToolStripMenuItem
         '
         Me.TreeViewToolStripMenuItem.Name = "TreeViewToolStripMenuItem"
-        Me.TreeViewToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.TreeViewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TreeViewToolStripMenuItem.Text = "Tree View"
         '
         'PiePictureToolStripMenuItem
         '
         Me.PiePictureToolStripMenuItem.Name = "PiePictureToolStripMenuItem"
-        Me.PiePictureToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.PiePictureToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.PiePictureToolStripMenuItem.Text = "Node View"
         '
         'TracerViewToolStripMenuItem
         '
         Me.TracerViewToolStripMenuItem.Enabled = False
         Me.TracerViewToolStripMenuItem.Name = "TracerViewToolStripMenuItem"
-        Me.TracerViewToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.TracerViewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TracerViewToolStripMenuItem.Text = "Tracer View"
         '
         'TraitsViewToolStripMenuItem
         '
         Me.TraitsViewToolStripMenuItem.Name = "TraitsViewToolStripMenuItem"
-        Me.TraitsViewToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.TraitsViewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TraitsViewToolStripMenuItem.Text = "State View"
         '
         'ProcessToolStripMenuItem
@@ -459,11 +463,17 @@ Partial Class Form_Main
         '
         'ComparisonToolStripMenuItem
         '
-        Me.ComparisonToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TreeClusterToolStripMenuItem, Me.TreeVsStatesToolStripMenuItem})
+        Me.ComparisonToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TreeVsStatesToolStripMenuItem, Me.TreeClusterToolStripMenuItem})
         Me.ComparisonToolStripMenuItem.Enabled = False
         Me.ComparisonToolStripMenuItem.Name = "ComparisonToolStripMenuItem"
         Me.ComparisonToolStripMenuItem.Size = New System.Drawing.Size(88, 20)
         Me.ComparisonToolStripMenuItem.Text = "Comparison"
+        '
+        'TreeVsStatesToolStripMenuItem
+        '
+        Me.TreeVsStatesToolStripMenuItem.Name = "TreeVsStatesToolStripMenuItem"
+        Me.TreeVsStatesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TreeVsStatesToolStripMenuItem.Text = "Trees && States"
         '
         'TreeClusterToolStripMenuItem
         '
@@ -471,15 +481,9 @@ Partial Class Form_Main
         Me.TreeClusterToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TreeClusterToolStripMenuItem.Text = "Trees vs. Trees"
         '
-        'TreeVsStatesToolStripMenuItem
-        '
-        Me.TreeVsStatesToolStripMenuItem.Name = "TreeVsStatesToolStripMenuItem"
-        Me.TreeVsStatesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.TreeVsStatesToolStripMenuItem.Text = "Trees and States"
-        '
         'OtherToolStripMenuItem
         '
-        Me.OtherToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InstallReinstallToolStripMenuItem, Me.ToolStripSeparator7, Me.RemoveOutgroupToolStripMenuItem, Me.CombineResultsToolStripMenuItem, Me.OmittedTaxaToolStripMenuItem1, Me.ToolStripSeparator9, Me.AddTreeLengthToolStripMenuItem, Me.TreeTimeMultiplierToolStripMenuItem, Me.ToolStripSeparator1, Me.ConvertStatesToolStripMenuItem, Me.DatingToolStripMenuItem, Me.BatchToolToolStripMenuItem, Me.SetSeedToolStripMenuItem})
+        Me.OtherToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InstallReinstallToolStripMenuItem, Me.ToolStripSeparator7, Me.OmittedTaxaToolStripMenuItem1, Me.RemoveOutgroupToolStripMenuItem, Me.CombineResultsToolStripMenuItem, Me.ToolStripSeparator9, Me.AddTreeLengthToolStripMenuItem, Me.TreeTimeMultiplierToolStripMenuItem, Me.ToolStripSeparator1, Me.AddStatesToolStripMenuItem, Me.ToolStripSeparator12, Me.DatingToolStripMenuItem, Me.BatchToolToolStripMenuItem, Me.SetSeedToolStripMenuItem})
         Me.OtherToolStripMenuItem.Enabled = False
         Me.OtherToolStripMenuItem.Name = "OtherToolStripMenuItem"
         Me.OtherToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
@@ -547,18 +551,42 @@ Partial Class Form_Main
         '
         Me.TreeTimeMultiplierToolStripMenuItem.Name = "TreeTimeMultiplierToolStripMenuItem"
         Me.TreeTimeMultiplierToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.TreeTimeMultiplierToolStripMenuItem.Text = "Branch Length Multiplier "
+        Me.TreeTimeMultiplierToolStripMenuItem.Text = "Scaling Branch Length"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(212, 6)
         '
+        'AddStatesToolStripMenuItem
+        '
+        Me.AddStatesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConvertStatesToolStripMenuItem, Me.AddStatesToolStripMenuItem1, Me.DeleteStatesToolStripMenuItem})
+        Me.AddStatesToolStripMenuItem.Name = "AddStatesToolStripMenuItem"
+        Me.AddStatesToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.AddStatesToolStripMenuItem.Text = "Edit States"
+        '
         'ConvertStatesToolStripMenuItem
         '
         Me.ConvertStatesToolStripMenuItem.Name = "ConvertStatesToolStripMenuItem"
-        Me.ConvertStatesToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.ConvertStatesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ConvertStatesToolStripMenuItem.Text = "Convert States"
+        '
+        'AddStatesToolStripMenuItem1
+        '
+        Me.AddStatesToolStripMenuItem1.Name = "AddStatesToolStripMenuItem1"
+        Me.AddStatesToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.AddStatesToolStripMenuItem1.Text = "Add States"
+        '
+        'DeleteStatesToolStripMenuItem
+        '
+        Me.DeleteStatesToolStripMenuItem.Name = "DeleteStatesToolStripMenuItem"
+        Me.DeleteStatesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DeleteStatesToolStripMenuItem.Text = "Delete States"
+        '
+        'ToolStripSeparator12
+        '
+        Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
+        Me.ToolStripSeparator12.Size = New System.Drawing.Size(212, 6)
         '
         'DatingToolStripMenuItem
         '
@@ -587,6 +615,12 @@ Partial Class Form_Main
         Me.BatchToolToolStripMenuItem.Text = "Batch Tool"
         Me.BatchToolToolStripMenuItem.Visible = False
         '
+        'SetSeedToolStripMenuItem
+        '
+        Me.SetSeedToolStripMenuItem.Name = "SetSeedToolStripMenuItem"
+        Me.SetSeedToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.SetSeedToolStripMenuItem.Text = "Seed For Random Trees"
+        '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.DebugToolStripMenuItem})
@@ -597,13 +631,13 @@ Partial Class Form_Main
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(111, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'DebugToolStripMenuItem
         '
         Me.DebugToolStripMenuItem.Name = "DebugToolStripMenuItem"
-        Me.DebugToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DebugToolStripMenuItem.Size = New System.Drawing.Size(111, 22)
         Me.DebugToolStripMenuItem.Text = "Debug"
         '
         'TreeBox
@@ -702,6 +736,25 @@ Partial Class Form_Main
         Me.GroupBox1.TabIndex = 20
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Tree Option"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(8, 104)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(110, 15)
+        Me.Label5.TabIndex = 47
+        Me.Label5.Text = "Discard After Load:"
+        '
+        'BeforeLoad
+        '
+        Me.BeforeLoad.BackColor = System.Drawing.Color.White
+        Me.BeforeLoad.Location = New System.Drawing.Point(139, 74)
+        Me.BeforeLoad.Name = "BeforeLoad"
+        Me.BeforeLoad.Size = New System.Drawing.Size(88, 21)
+        Me.BeforeLoad.TabIndex = 46
+        Me.BeforeLoad.Text = "0"
+        Me.BeforeLoad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Button1
         '
@@ -831,31 +884,6 @@ Partial Class Form_Main
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
         Me.ToolStripSeparator6.Size = New System.Drawing.Size(359, 6)
         '
-        'BeforeLoad
-        '
-        Me.BeforeLoad.BackColor = System.Drawing.Color.White
-        Me.BeforeLoad.Location = New System.Drawing.Point(139, 74)
-        Me.BeforeLoad.Name = "BeforeLoad"
-        Me.BeforeLoad.Size = New System.Drawing.Size(88, 21)
-        Me.BeforeLoad.TabIndex = 46
-        Me.BeforeLoad.Text = "0"
-        Me.BeforeLoad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(8, 104)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(110, 15)
-        Me.Label5.TabIndex = 47
-        Me.Label5.Text = "Discard After Load:"
-        '
-        'SetSeedToolStripMenuItem
-        '
-        Me.SetSeedToolStripMenuItem.Name = "SetSeedToolStripMenuItem"
-        Me.SetSeedToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.SetSeedToolStripMenuItem.Text = "Seed For Random Trees"
-        '
         'Form_Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -972,7 +1000,6 @@ Partial Class Form_Main
     Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
     Friend WithEvents ComparisonToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TreeClusterToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ConvertStatesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TreeVsStatesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BayesianBinaryMCMCBBMToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator5 As ToolStripSeparator
@@ -984,4 +1011,9 @@ Partial Class Form_Main
     Friend WithEvents BeforeLoad As TextBox
     Friend WithEvents SetSeedToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Label5 As Label
+    Friend WithEvents AddStatesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator12 As ToolStripSeparator
+    Friend WithEvents ConvertStatesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AddStatesToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents DeleteStatesToolStripMenuItem As ToolStripMenuItem
 End Class

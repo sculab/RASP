@@ -298,7 +298,7 @@ Public Class Tool_SvT
         wt.WriteLine("Begin trees;")
         wt.WriteLine("	Translate")
         For i As Integer = 0 To dtView.Count - 1
-            wt.WriteLine("		" + dtView.Item(i)(0) + " " + dtView.Item(i)(1) + ",")
+            wt.WriteLine("		" + dtView.Item(i)(0).ToString + " " + dtView.Item(i)(1) + ",")
         Next
         wt.WriteLine(";")
 

@@ -16,7 +16,7 @@ Public Class Tool_TvS
                             Dim sr_state As New StreamReader(root_path + "temp\MPS.state")
                             timer_count = CSng(sr_state.ReadLine())
                             sr_state.Close()
-                            If timer_count < (MainWindow.DataGridView1.ColumnCount - 3) Then
+                            If timer_count < (MainWindow.DataGridView1.ColumnCount - 3) And File.Exists(root_path + "temp\MPS.end") = False Then
                                 Label6.Text = timer_count.ToString & "/" & (MainWindow.DataGridView1.ColumnCount - 3).ToString
                                 ProgressBar1.Value = timer_count / (MainWindow.DataGridView1.ColumnCount - 3) * 10000
                             Else
@@ -37,7 +37,7 @@ Public Class Tool_TvS
                         End Try
                     Else
                         Label6.Text = "Loading"
-                        ProgressBar1.Value = 6180
+                        ProgressBar1.Value = 3820
                     End If
                 Case 2
                     If File.Exists(root_path + "temp\MPS.state") Then
@@ -45,18 +45,21 @@ Public Class Tool_TvS
                             Dim sr_state As New StreamReader(root_path + "temp\MPS.state")
                             timer_count = CSng(sr_state.ReadLine())
                             sr_state.Close()
-                            If timer_count < CInt(MainWindow.TreeBox.Text) Then
+                            If timer_count < CInt(MainWindow.TreeBox.Text) And File.Exists(root_path + "temp\BGB.end") = False Then
                                 Label6.Text = timer_count.ToString & "/" & (MainWindow.TreeBox.Text).ToString
                                 ProgressBar1.Value = timer_count / CInt(MainWindow.TreeBox.Text) * 10000
                             Else
                                 timer_id = 0
+
                                 If File.Exists(root_path + "temp\mps_result.txt") Then
                                     Dim sr_result As New StreamReader(root_path + "temp\mps_result.txt")
                                     Dim line As String = sr_result.ReadLine
                                     Dim new_list As List(Of ListViewItem) = New List(Of ListViewItem)()
                                     line = sr_result.ReadLine
                                     Do
-                                        new_list.Add(New ListViewItem(line.Split(vbTab)))
+                                        Dim name_list() As String = line.Split(vbTab)
+                                        name_list(1) = gene_names(CInt(name_list(1)))
+                                        new_list.Add(New ListViewItem(name_list))
                                         line = sr_result.ReadLine
                                     Loop Until line Is Nothing
                                     sr_result.Close()
@@ -68,7 +71,7 @@ Public Class Tool_TvS
                         End Try
                     Else
                         Label6.Text = "Loading"
-                        ProgressBar1.Value = 6180
+                        ProgressBar1.Value = 3820
                     End If
             End Select
         Catch ex As Exception
@@ -115,9 +118,15 @@ Public Class Tool_TvS
 
                 Next
                 trait_value_text = "c(" + join_array(trait_value, ",") & ")"
-            Case 0, 2
+            Case 2
                 For i As Integer = 1 To dtView.Count
-                    trait_value(i - 1) = dtView.Item(i - 1).Item(current_index)
+                    trait_value(i - 1) = dtView.Item(i - 1).Item(current_index).ToString
+                    If trait_value(i - 1) = "" Then
+                        MsgBox("Do not support missing value in " + MainWindow.DataGridView1.Columns(current_index + 1).HeaderText)
+                        sw_mps.Close()
+                        Exit Sub
+                    End If
+
                 Next
                 trait_value_text = "c('" + join_array(trait_value, "','") & "')"
 
@@ -161,6 +170,90 @@ Public Class Tool_TvS
                     End If
                     total_count += k_count
                 Next
+            Case 0
+                For i As Integer = 1 To dtView.Count
+                    trait_value(i - 1) = dtView.Item(i - 1).Item(current_index).ToString
+                    If trait_value(i - 1) = "" Then
+                        MsgBox("Do not support missing value in " + MainWindow.DataGridView1.Columns(current_index + 1).HeaderText)
+                        sw_mps.Close()
+                        Exit Sub
+                    End If
+                Next
+                trait_value_text = "c('" + join_array(trait_value, "','") & "')"
+
+                Dim temp_str As String = ""
+                Dim list_length As Integer = 1
+                For i As Integer = 1 To dtView.Count
+                    For Each c As Char In dtView.Item(i - 1).Item(current_index).ToString.ToUpper
+                        If Asc(c) >= Asc("A") And Asc(c) <= Asc("Z") Then
+                            If temp_str.Contains(c) = False Then
+                                temp_str = temp_str + c.ToString
+                            End If
+                        End If
+                    Next
+                    list_length *= dtView.Item(i - 1).Item(current_index).ToString.Length
+                Next
+
+                Dim range_list() As Char = temp_str
+                'Dim state_group() As String
+                Dim state_group_list(0, 0) As String
+
+                Array.Sort(range_list)
+                MainWindow.DataGridView1.EndEdit()
+                'ReDim state_group(temp_str.Length - 1)
+                ReDim state_group_list(list_length, temp_str.Length + 1)
+                Dim temp_length As Integer = list_length
+                For i As Integer = 1 To dtView.Count
+                    temp_length = temp_length / dtView.Item(i - 1).Item(current_index).ToString.Length
+
+                    For j As Integer = 1 To list_length / temp_length
+                        Dim c As Char = dtView.Item(i - 1).Item(current_index).ToString.ToUpper()(j Mod dtView.Item(i - 1).Item(current_index).ToString.Length)
+                        For k As Integer = 1 To temp_length
+                            If Asc(c) >= Asc("A") And Asc(c) <= Asc("Z") Then
+                                state_group_list((j - 1) * temp_length + k, Asc(c) - Asc("A")) += "," + i.ToString
+                            End If
+                            state_group_list((j - 1) * temp_length + k, temp_str.Length) += "," + c.ToString
+                        Next
+                    Next
+
+                Next
+                For i As Integer = 1 To list_length
+                    For j As Integer = 0 To temp_str.Length
+                        state_group_list(i, j) = state_group_list(i, j).Remove(0, 1)
+                    Next
+                Next
+
+                Dim temp_tree As New Ploy_Tree(input_tree)
+                Dim min_count As Integer = 1000000000
+                Dim min_id As Integer = -1
+                For i As Integer = 1 To list_length
+                    For j As Integer = 0 To temp_str.Length - 1
+                        Dim k_count As Integer = 1000000000
+                        If Array.IndexOf(temp_tree.Node_Chain, state_group_list(i, j)) >= 0 Or state_group_list(i, j).Contains(",") = False Then
+                            k_count = 0
+                        Else
+                            For k As Integer = 0 To temp_tree.Node_Number - 2
+                                k_count = Math.Min(comp_list(state_group_list(i, j), temp_tree.Node_Chain(k)), k_count)
+                            Next
+                        End If
+                        total_count += k_count
+                    Next
+                    state_group_list(i, temp_str.Length + 1) = total_count
+                    If total_count < min_count Then
+                        min_count = total_count
+                        min_id = i
+                    End If
+                    total_count = 0
+                Next
+                total_count = min_count
+                trait_value_text = ""
+                For i As Integer = 1 To list_length
+                    If state_group_list(i, temp_str.Length + 1) = min_count Then
+                        trait_value_text += "c('" + join_array(state_group_list(i, temp_str.Length).Split(","), "','") & "'),"
+                    End If
+                Next
+                trait_value_text = trait_value_text.Remove(trait_value_text.Length - 1, 1)
+
             Case Else
                 For i As Integer = 1 To dtView.Count
                     trait_value(i - 1) = dtView.Item(i - 1).Item(current_index)
@@ -187,12 +280,16 @@ Public Class Tool_TvS
 
     Private Sub FindBestFitTreeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FindBestFitTreeToolStripMenuItem.Click
         user_tree = New Ploy_Tree(MainWindow.FinalTreeBox.Text)
-        timer_id = 1
-        timer_count = 0
-        ListView1.Items.Clear()
         If File.Exists(root_path + "temp\MPS.state") Then
             File.Delete(root_path + "temp\MPS.state")
         End If
+        If File.Exists(root_path + "temp\MPS.end") Then
+            File.Delete(root_path + "temp\MPS.end")
+        End If
+        timer_id = 1
+        timer_count = 0
+        ListView1.Items.Clear()
+
         Dim th1 As New Threading.Thread(AddressOf tree_vs_states)
         th1.Start()
     End Sub
@@ -241,7 +338,7 @@ Public Class Tool_TvS
                     temp_mode = 0
                 End If
             Else
-                MsgBox("Error in loading characters, please check your state data!")
+                MsgBox("Error in loading characters, please check your state data of " + MainWindow.DataGridView1.Columns(i + 1).HeaderText)
                 Exit Sub
             End If
 
@@ -257,6 +354,7 @@ Public Class Tool_TvS
 
         Dim sr_run As New StreamWriter(root_path + "temp\run_mps.bat", False, System.Text.Encoding.Default)
         sr_run.WriteLine("""" + rscript + """" + " run_mps.r")
+        sr_run.WriteLine("echo end>MPS.end")
         sr_run.Close()
 
         current_dir = Directory.GetCurrentDirectory
@@ -285,13 +383,17 @@ Public Class Tool_TvS
             Dim resultdialog As DialogResult = opendialog.ShowDialog()
             If resultdialog = DialogResult.OK Then
                 Dim sw As New StreamWriter(opendialog.FileName)
+                sw.WriteLine("ID,State,Tree,I,I.p,Cmean,Cmean.p,lambda,lambda.p,K,K.p,D")
                 For i As Integer = 0 To ListView1.Items.Count - 1
-                    sw.WriteLine("""" + ListView1.Items(i).SubItems(0).Text + """" + "," + """" + ListView1.Items(i).SubItems(1).Text + """" + "," + """" + ListView1.Items(i).SubItems(2).Text + """" + "," + """" + ListView1.Items(i).SubItems(3).Text + """" + "," + """" + ListView1.Items(i).SubItems(4).Text + """" + "," + """" + ListView1.Items(i).SubItems(5).Text + """")
+                    Dim line As String = """" + ListView1.Items(i).SubItems(1).Text + """"
+                    For k As Integer = 2 To ListView1.Items(i).SubItems.Count - 1
+                        line += "," + """" + ListView1.Items(i).SubItems(k).Text + """"
+                    Next
+                    sw.WriteLine(line)
                 Next
                 sw.Close()
             End If
         End If
-
     End Sub
     Private Sub ListView1_ColumnClick(sender As Object, e As ColumnClickEventArgs) Handles ListView1.ColumnClick
         Dim columnsort As New ColumnSort(e.Column)
@@ -312,12 +414,15 @@ Public Class Tool_TvS
 
     Private Sub StateVsTreesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StateVsTreesToolStripMenuItem.Click
         user_tree = New Ploy_Tree(MainWindow.FinalTreeBox.Text)
-        timer_id = 2
-        timer_count = 0
-        ListView1.Items.Clear()
         If File.Exists(root_path + "temp\MPS.state") Then
             File.Delete(root_path + "temp\MPS.state")
         End If
+        If File.Exists(root_path + "temp\MPS.end") Then
+            File.Delete(root_path + "temp\MPS.end")
+        End If
+        timer_id = 2
+        timer_count = 0
+        ListView1.Items.Clear()
         Dim th1 As New Threading.Thread(AddressOf state_vs_trees)
         th1.Start()
     End Sub
@@ -375,6 +480,7 @@ Public Class Tool_TvS
 
         Dim sr_run As New StreamWriter(root_path + "temp\run_mps.bat", False, System.Text.Encoding.Default)
         sr_run.WriteLine("""" + rscript + """" + " run_mps.r")
+        sr_run.WriteLine("echo end>MPS.end")
         sr_run.Close()
 
         current_dir = Directory.GetCurrentDirectory

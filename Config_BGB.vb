@@ -1210,7 +1210,7 @@ Public Class Config_BGB
         If File.Exists(root_path + "temp\err.log") Then
             File.Delete(root_path + "temp\err.log")
         End If
-        If ListBox1.Items.Count > 400 Then
+        If ListBox1.Items.Count * taxon_num > 4096 Then
             Dim dr As DialogResult = MsgBox("There are too many ranges, you may need hours or days to run the analysis. Continue?", MsgBoxStyle.YesNo)
             If dr = Windows.Forms.DialogResult.No Then
                 Exit Sub

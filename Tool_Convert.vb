@@ -28,18 +28,33 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim temp_name As String = InputBox("Please input the name of new state", "new state", "State")
+        If temp_name <> "" Then
+            Try
+                MainWindow.Taxon_Dataset.Tables("Taxon Table").Columns.Add(temp_name)
+            Catch ex As Exception
+                MsgBox("The name of column is repeated! Please try again!")
+                Exit Sub
+            End Try
+        End If
+
+        dtView = MainWindow.Taxon_Dataset.Tables("Taxon Table").DefaultView
+        MainWindow.DataGridView1.Sort(MainWindow.DataGridView1.Columns(1), System.ComponentModel.ListSortDirection.Ascending)
         For i As Integer = 1 To dtView.Count
             For j As Integer = 1 To DataGridView1.Rows.Count
                 If IsNumeric(dtView.Item(i - 1).Item(state_index).ToString) Then
                     'MsgBox(DataGridView1.Rows(j - 1).Cells("Column1").Value)
                     If CSng(dtView.Item(i - 1).Item(state_index).ToString) >= CSng(DataGridView1.Rows(j - 1).Cells("Column1").Value) Then
                         If CSng(dtView.Item(i - 1).Item(state_index).ToString) <= CSng(DataGridView1.Rows(j - 1).Cells("Column2").Value) Then
-                            dtView.Item(i - 1).Item(state_index) = DataGridView1.Rows(j - 1).Cells("Column3").Value
+                            dtView.Item(i - 1).Item(MainWindow.Taxon_Dataset.Tables("Taxon Table").Columns.Count - 1) = DataGridView1.Rows(j - 1).Cells("Column3").Value
                             Exit For
                         End If
                     End If
                 End If
             Next
+        Next
+        For i As Integer = 2 To MainWindow.DataGridView1.Columns.Count - 1
+            MainWindow.DataGridView1.Columns(i).SortMode = DataGridViewColumnSortMode.NotSortable
         Next
         MainWindow.DataGridView1.EndEdit()
         MainWindow.DataGridView1.Refresh()

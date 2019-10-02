@@ -4,7 +4,7 @@ Imports System.Runtime.InteropServices
 Imports System.Globalization.CultureInfo
 Module Module_Var
     Public Version As String = "4.2"
-    Public build As String = "20190922"
+    Public build As String = "20191002"
     Public enableMin As Boolean = True
     Public Global_seed As Integer = "20180127"
     Public isDebug As Boolean = False
@@ -99,7 +99,7 @@ Module Module_Var
     Public CharMatrix() As String, TaxonList() As String
     Public excludeline As String
     Public fossilline As String
-
+    Public gene_names(0) As String
     Public state_index As Integer = 2
     Public state_header As String = ""
 

@@ -369,7 +369,7 @@ Public Class Tool_Cluster
                 Case 7
                     Label6.Text = "Working ..."
                     If File.Exists(root_path + "temp\mpest.end") Then
-                        timer_id = 4
+                        timer_id = 0
                         Dim th1 As New Threading.Thread(AddressOf load_matrix_ext)
                         th1.Start("mpest.trees_genetree.dis")
                         Label6.Text = dist_info
@@ -378,7 +378,7 @@ Public Class Tool_Cluster
                 Case 8
                     Label6.Text = "Working ..."
                     If File.Exists(root_path + "temp\dist.end") Then
-                        timer_id = 4
+                        timer_id = 0
                         Dim th1 As New Threading.Thread(AddressOf load_matrix_ext)
                         th1.Start("matrix_" + dist_type + ".txt")
                         Label6.Text = dist_info
@@ -428,7 +428,7 @@ Public Class Tool_Cluster
 
         CheckForIllegalCrossThreadCalls = False
         Timer_R.Enabled = True
-        ComboBox1.SelectedIndex = 9
+        ComboBox1.SelectedIndex = 8
         If TargetOS = "macos" Then
             HideCMDWindowToolStripMenuItem.Checked = True
         Else
@@ -1456,5 +1456,17 @@ Public Class Tool_Cluster
         Else
             MsgBox("Do not find matrix! Please calculate matrix first!")
         End If
+    End Sub
+
+    Private Sub KCDistanceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KCDistanceToolStripMenuItem.Click
+        If File.Exists(root_path + "temp\dist.end") Then
+            File.Delete(root_path + "temp\dist.end")
+        End If
+        dist_type = "KC"
+        dist_info = "Using " + KCDistanceToolStripMenuItem.Text
+        ProgressBar1.Value = 1600
+        timer_id = 8
+        reset_sw = True
+        cal_dist(dist_type)
     End Sub
 End Class

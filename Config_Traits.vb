@@ -39,10 +39,12 @@ Public Class Config_Traits
 
         For i As Integer = 1 To nodeView.Count
             If DataGridView2.Rows(i - 1).Cells(2).FormattedValue.ToString = "True" Then
-                commandlines += "AddTag TNode" + (nodeView.Count - i + 1).ToString + " " + Poly_Node((nodeView.Count - i), 3).Replace(",", " ") + vbLf
-                commandlines += "AddNode Node" + (nodeView.Count - i + 1).ToString + " TNode" + (nodeView.Count - i + 1).ToString + vbLf
+                Dim node_id As String = DataGridView2.Rows(nodeView.Count - i).Cells(0).FormattedValue.ToString
+                node_id = node_id.Split(":")(0)
+                commandlines += "AddTag TNode" + node_id + " " + Poly_Node((nodeView.Count - i), 3).Replace(",", " ") + vbLf
+                commandlines += "AddNode Node" + node_id.ToString + " TNode" + node_id + vbLf
                 If DataGridView2.Rows(i - 1).Cells(3).FormattedValue.ToString <> "" Then
-                    commandlines += "Fossil FNode" + (nodeView.Count - i + 1).ToString + " TNode" + (nodeView.Count - i + 1).ToString + " " + DataGridView2.Rows(i - 1).Cells(3).FormattedValue.ToString.ToUpper + vbLf
+                    commandlines += "Fossil FNode" + node_id + " TNode" + node_id + " " + DataGridView2.Rows(i - 1).Cells(3).FormattedValue.ToString.ToUpper + vbLf
                 End If
             End If
 
@@ -62,14 +64,19 @@ Public Class Config_Traits
         commandlines += TextBox2.Text.Replace(Chr(13), vbLf) + vbLf
         commandlines += "run" + vbLf
 
-        export_omitted(root_path + "temp\trait.trees", root_path + "temp" + path_char + "clean_num.trees")
+        If MainWindow.CheckBox3.Checked Then
+            make_rand_tree()
+            export_omitted(root_path + "temp\trait.trees", root_path + "temp" + path_char + "random_clean_num.trees")
+        Else
+            export_omitted(root_path + "temp\trait.trees", root_path + "temp" + path_char + "clean_num.trees")
+        End If
         Dim dw As New StreamWriter(root_path + "temp\trait.dat", False)
         For i As Integer = 1 To dtView.Count
             dtView.Item(i - 1).Item(state_index) = dtView.Item(i - 1).Item(state_index).ToString.Replace(" ", "")
             If dtView.Item(i - 1).Item(state_index) = "" Or dtView.Item(i - 1).Item(state_index) = "\" Then
-                dw.WriteLine(dtView.Item(i - 1).Item(0) + "	" + "-")
+                dw.WriteLine(dtView.Item(i - 1).Item(0).ToString + "	" + "-")
             Else
-                dw.WriteLine(dtView.Item(i - 1).Item(0) + "	" + dtView.Item(i - 1).Item(state_index))
+                dw.WriteLine(dtView.Item(i - 1).Item(0).ToString + "	" + dtView.Item(i - 1).Item(state_index))
             End If
         Next
         dw.Close()
@@ -107,6 +114,38 @@ Public Class Config_Traits
 
     End Sub
 
+    Public Sub make_rand_tree()
+        Dim seed As Integer = DateTime.Now.Millisecond
+        If Global_seed <> "20180127" Then
+            seed = Global_seed
+        End If
+        Dim rand As New System.Random(seed)
+        Dim t As Integer = 0
+        Dim wr As New StreamWriter(root_path + "temp" + path_char + "random_clean_num.trees", False)
+        'Dim count As Integer = 1
+        Dim ran_list(0) As Integer
+        ReDim ran_list(CInt(MainWindow.RandomTextBox.Text))
+        ran_list(0) = 0
+        For i As Integer = 1 To CInt(MainWindow.RandomTextBox.Text)
+            t = rand.Next(CInt(MainWindow.BurninBox.Text) + 1, CInt(MainWindow.TreeBox.Text))
+            ran_list(i) = t
+        Next
+        Array.Sort(ran_list)
+        Dim sr As New StreamReader(root_path + "temp" + path_char + "clean_num.trees")
+        Dim line As String = ""
+        For i As Integer = 1 To CInt(MainWindow.RandomTextBox.Text)
+            For j As Integer = ran_list(i - 1) + 1 To ran_list(i)
+                line = sr.ReadLine()
+            Next
+            If line <> "" Then
+                wr.WriteLine(line)
+            End If
+        Next
+        sr.Close()
+        wr.Close()
+        ProgressBar1.Value = 0
+
+    End Sub
     Public Sub export_omitted(ByVal export_file_name As String, ByVal source_file_name As String)
         Dim wt As New StreamWriter(export_file_name, False)
         wt.WriteLine("#NEXUS")
@@ -115,7 +154,7 @@ Public Class Config_Traits
         wt.WriteLine("	Dimensions ntax=" + dtView.Count.ToString + ";")
         wt.WriteLine("	Taxlabels")
         For i As Integer = 0 To dtView.Count - 1
-            wt.WriteLine("		" + dtView.Item(i)(0))
+            wt.WriteLine("		" + dtView.Item(i)(0).ToString)
         Next
 
         wt.WriteLine("		;")
@@ -124,20 +163,19 @@ Public Class Config_Traits
         wt.WriteLine("Begin trees;")
         wt.WriteLine("	Translate")
         For i As Integer = 0 To dtView.Count - 1
-            wt.WriteLine("		" + dtView.Item(i)(0) + " " + dtView.Item(i)(0) + ",")
+            wt.WriteLine("		" + dtView.Item(i)(0).ToString + " " + dtView.Item(i)(0).ToString + ",")
         Next
         wt.WriteLine(";")
         Dim rt As New StreamReader(source_file_name)
         Dim line As String
-        Dim o_num As Integer = 0
-        Dim tree_num As Integer = 0
+        Dim tree_num As Integer = 1
         For i As Integer = 1 To CInt(MainWindow.BurninBox.Text)
             line = rt.ReadLine
             tree_num = tree_num + 1
         Next
         line = rt.ReadLine
         Do
-            wt.WriteLine("tree NEWTREE_" + o_num.ToString + " = " + line)
+            wt.WriteLine("tree TREE_" + tree_num.ToString + " = " + line)
             line = rt.ReadLine
             tree_num = tree_num + 1
         Loop Until line Is Nothing
@@ -161,6 +199,7 @@ Public Class Config_Traits
                 Dim msg_reslut As DialogResult = MsgBox("BayesTraits is still running, stop it?", MsgBoxStyle.YesNo)
                 If msg_reslut = Windows.Forms.DialogResult.Yes Then
                     TimerTraits.Enabled = False
+                    ProgressBar1.Value = 0
                 End If
             End If
             If DataGridView2.ColumnCount = 0 Then
@@ -173,7 +212,7 @@ Public Class Config_Traits
                 Fossil_node.HeaderText = "Fossil"
                 DataGridView2.Columns.Add(Fossil_node)
                 DataGridView2.Columns(0).Width = 75
-                DataGridView2.Columns(1).Width = 125
+                DataGridView2.Columns(1).Width = 205
                 DataGridView2.Columns(2).Width = 50
                 DataGridView2.Columns(3).Width = 75
                 DataGridView2.Columns(0).SortMode = DataGridViewColumnSortMode.NotSortable
@@ -183,12 +222,13 @@ Public Class Config_Traits
                 DataGridView2.Columns(0).ReadOnly = True
                 DataGridView2.Columns(1).ReadOnly = True
                 DataGridView2.Columns(2).ReadOnly = True
-                DataGridView2.Columns(2).Visible = True
+                DataGridView2.Columns(2).Visible = False
 
-                For i As Integer = 1 To DataGridView2.Rows.Count
-                    DataGridView2.Rows(i - 1).Cells(2).Value = True
-                Next
+
             End If
+            For i As Integer = 1 To DataGridView2.Rows.Count
+                DataGridView2.Rows(i - 1).Cells(2).Value = True
+            Next
         End If
     End Sub
 
@@ -370,7 +410,12 @@ Public Class Config_Traits
                             End If
                         Loop
                         sr.Close()
-                        ProgressBar1.Value = Math.Min(10000, CInt(conut_line / CInt(MainWindow.TreeBox_P.Text) * 9000))
+                        If MainWindow.CheckBox3.Checked Then
+                            ProgressBar1.Value = Math.Min(10000, CInt(conut_line / CInt(MainWindow.RandomTextBox.Text) * 9000))
+                        Else
+                            ProgressBar1.Value = Math.Min(10000, CInt(conut_line / CInt(MainWindow.TreeBox_P.Text) * 9000))
+
+                        End If
                         File.Delete(traits_result_path + "temp_count.txt")
                     Else
                         Do
@@ -436,5 +481,10 @@ Public Class Config_Traits
                 read_traits_file(opendialog.FileName)
             End If
         End If
+    End Sub
+
+    Private Sub Config_Traits_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        e.Cancel = True
+        Me.Hide()
     End Sub
 End Class

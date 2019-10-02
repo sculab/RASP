@@ -552,7 +552,7 @@ Public Class Tool_Omitted
         wt.WriteLine("Begin trees;")
         wt.WriteLine("	Translate")
         For i As Integer = 0 To dtView.Count - 1
-            wt.WriteLine("		" + dtView.Item(i)(0) + " " + dtView.Item(i)(1) + ",")
+            wt.WriteLine("		" + dtView.Item(i)(0).ToString + " " + dtView.Item(i)(1) + ",")
         Next
         For i As Integer = 0 To odView.Count - 2
             wt.WriteLine("		" + odView.Item(i)(0) + " " + odView.Item(i)(1) + ",")

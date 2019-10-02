@@ -76,7 +76,7 @@ Public Class View_Dis
     End Sub
     Public Sub cal_column(ByVal select_index As Integer)
         If curren_select <> select_index Then
-            CheckBox4.Checked = False
+            'CheckBox4.Checked = False
             curren_select = select_index
         End If
         Dim sw As New StreamReader(traits_view_file)
@@ -105,14 +105,16 @@ Public Class View_Dis
                     Dim temp As String = temp_array(select_index)
                     If IsNumeric(temp) Then
                         If CheckBox4.Checked Then
+                            prob_para(1) = CSng(TextBox3.Text)
+                            prob_para(0) = CSng(TextBox4.Text)
                             If CSng(temp) <= CSng(TextBox3.Text) And CSng(temp) >= CSng(TextBox4.Text) Then
                                 Dim temp_num As Single = CSng(temp)
-                                If temp_num < prob_para(0) Then
-                                    prob_para(0) = temp_num
-                                End If
-                                If temp_num > prob_para(1) Then
-                                    prob_para(1) = CSng(temp)
-                                End If
+                                'If temp_num < prob_para(0) Then
+                                '    prob_para(0) = temp_num
+                                'End If
+                                'If temp_num > prob_para(1) Then
+                                '    prob_para(1) = CSng(temp)
+                                'End If
                                 prob_para(2) += temp_num
                                 prob_para(3) += 1
                                 If value_array(0) <> -12345 Then
@@ -225,11 +227,18 @@ Public Class View_Dis
                     drawg.DrawLine(Pens.Black, 35, CInt(40 + (PictureBox1.Height - 80) * i / CInt(NumericUpDown4.Value / 5)), 40, CInt(40 + (PictureBox1.Height - 80) * i / CInt(NumericUpDown4.Value / 5)))
                 Next
                 For i As Integer = 0 To split_count
-                    drawg.DrawString((i / split_count * (prob_para(1) - prob_para(0)) + prob_para(0)).ToString("F2"), newfont, Brushes.Black, CInt(40 + i / split_count * (PictureBox1.Width - 80)), PictureBox1.Height - 40)
+                    If i Mod 10 = 0 Or split_count <= 0 Then
+                        drawg.DrawString((i / split_count * (prob_para(1) - prob_para(0)) + prob_para(0)).ToString("F2"), newfont, Brushes.Black, CInt(40 + i / split_count * (PictureBox1.Width - 80)), PictureBox1.Height - 40)
+                    End If
                     If i < split_count Then
                         Dim r_height As Integer = CInt((prob_dist(i + 1) / prob_para(3)) / NumericUpDown4.Value * 100 * (PictureBox1.Height - 80))
                         Dim r_weight As Integer = CInt((PictureBox1.Width - 80) / split_count - NumericUpDown2.Value)
-                        drawg.FillRectangle(New SolidBrush(Label4.BackColor), CInt(40 + i / split_count * (PictureBox1.Width - 80)) + NumericUpDown2.Value, PictureBox1.Height - 40 - r_height, r_weight, r_height)
+                        If ListBox1.SelectedItem.ToString.Split(" ").Length = 2 Then
+                            drawg.FillRectangle(Int2Brushes(Distributiton_to_Integer(ListBox1.SelectedItem.ToString.Split(" ")(1).Replace("P(", "").Replace(")", ""))), CInt(40 + i / split_count * (PictureBox1.Width - 80)) + NumericUpDown2.Value, PictureBox1.Height - 40 - r_height, r_weight, r_height)
+                        Else
+                            drawg.FillRectangle(Brushes.LightGray, CInt(40 + i / split_count * (PictureBox1.Width - 80)) + NumericUpDown2.Value, PictureBox1.Height - 40 - r_height, r_weight, r_height)
+
+                        End If
                     End If
                 Next
                 Dim mean_x As Integer

@@ -104,6 +104,8 @@ Partial Class View_Tree
         Me.TabPage8 = New System.Windows.Forms.TabPage()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
+        Me.DispersalInformationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SupplementInformationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -183,6 +185,7 @@ Partial Class View_Tree
         '
         'SaveInfoToolStripMenuItem
         '
+        Me.SaveInfoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DispersalInformationToolStripMenuItem, Me.SupplementInformationToolStripMenuItem})
         Me.SaveInfoToolStripMenuItem.Name = "SaveInfoToolStripMenuItem"
         Me.SaveInfoToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.SaveInfoToolStripMenuItem.Text = "Save Info"
@@ -382,7 +385,7 @@ Partial Class View_Tree
         Me.Panel2.Controls.Add(Me.PictureBox2)
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(192, 258)
+        Me.Panel2.Size = New System.Drawing.Size(192, 260)
         Me.Panel2.TabIndex = 4
         '
         'PictureBox2
@@ -460,11 +463,12 @@ Partial Class View_Tree
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
+        Me.ListView1.HideSelection = False
         Me.ListView1.LabelWrap = False
         Me.ListView1.Location = New System.Drawing.Point(0, 0)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(192, 254)
+        Me.ListView1.Size = New System.Drawing.Size(192, 256)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -890,6 +894,18 @@ Partial Class View_Tree
         Me.RichTextBox1.TabIndex = 0
         Me.RichTextBox1.Text = ""
         '
+        'DispersalInformationToolStripMenuItem
+        '
+        Me.DispersalInformationToolStripMenuItem.Name = "DispersalInformationToolStripMenuItem"
+        Me.DispersalInformationToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.DispersalInformationToolStripMenuItem.Text = "Dispersal Information"
+        '
+        'SupplementInformationToolStripMenuItem
+        '
+        Me.SupplementInformationToolStripMenuItem.Name = "SupplementInformationToolStripMenuItem"
+        Me.SupplementInformationToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.SupplementInformationToolStripMenuItem.Text = "Supplement Information"
+        '
         'View_Tree
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -1021,4 +1037,6 @@ Partial Class View_Tree
 	Friend WithEvents IncreaseTreeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Friend WithEvents SaveCurrentViewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DispersalInformationToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SupplementInformationToolStripMenuItem As ToolStripMenuItem
 End Class

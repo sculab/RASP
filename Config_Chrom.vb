@@ -100,9 +100,9 @@ Public Class Config_Chrom
             For i As Integer = 1 To dtView.Count
                 dtView.Item(i - 1).Item(state_index) = dtView.Item(i - 1).Item(state_index).ToString.Replace(" ", "")
                 If dtView.Item(i - 1).Item(state_index) = "" Or dtView.Item(i - 1).Item(state_index) = "\" Then
-                    dw.WriteLine(">" + dtView.Item(i - 1).Item(0) + vbCrLf + "X")
+                    dw.WriteLine(">" + dtView.Item(i - 1).Item(0).ToString + vbCrLf + "X")
                 Else
-                    dw.WriteLine(">" + dtView.Item(i - 1).Item(0) + vbCrLf + dtView.Item(i - 1).Item(state_index))
+                    dw.WriteLine(">" + dtView.Item(i - 1).Item(0).ToString + vbCrLf + dtView.Item(i - 1).Item(state_index))
                 End If
             Next
             dw.Close()
@@ -339,9 +339,9 @@ Public Class Config_Chrom
         For i As Integer = 1 To dtView.Count
             dtView.Item(i - 1).Item(state_index) = dtView.Item(i - 1).Item(state_index).ToString.Replace(" ", "")
             If dtView.Item(i - 1).Item(state_index) = "" Or dtView.Item(i - 1).Item(state_index) = "\" Then
-                dw.WriteLine(">" + dtView.Item(i - 1).Item(0) + vbCrLf + "X")
+                dw.WriteLine(">" + dtView.Item(i - 1).Item(0).ToString + vbCrLf + "X")
             Else
-                dw.WriteLine(">" + dtView.Item(i - 1).Item(0) + vbCrLf + dtView.Item(i - 1).Item(state_index).ToString.ToUpper)
+                dw.WriteLine(">" + dtView.Item(i - 1).Item(0).ToString + vbCrLf + dtView.Item(i - 1).Item(state_index).ToString.ToUpper)
             End If
         Next
         dw.Close()

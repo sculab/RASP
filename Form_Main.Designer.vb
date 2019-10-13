@@ -83,9 +83,9 @@ Partial Class Form_Main
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.FindRscriptexeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+        Me.OmittedTaxaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveOutgroupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CombineResultsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OmittedTaxaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.AddTreeLengthToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TreeTimeMultiplierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -200,7 +200,7 @@ Partial Class Form_Main
         Me.LoadFinalTreeToolStripMenuItem.Enabled = False
         Me.LoadFinalTreeToolStripMenuItem.Name = "LoadFinalTreeToolStripMenuItem"
         Me.LoadFinalTreeToolStripMenuItem.Size = New System.Drawing.Size(221, 22)
-        Me.LoadFinalTreeToolStripMenuItem.Text = "Load Condensed Tree"
+        Me.LoadFinalTreeToolStripMenuItem.Text = "Load Consensus Tree"
         '
         'LoadConsensusTreeToolStripMenuItem
         '
@@ -306,26 +306,26 @@ Partial Class Form_Main
         'TreeViewToolStripMenuItem
         '
         Me.TreeViewToolStripMenuItem.Name = "TreeViewToolStripMenuItem"
-        Me.TreeViewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TreeViewToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.TreeViewToolStripMenuItem.Text = "Tree View"
         '
         'PiePictureToolStripMenuItem
         '
         Me.PiePictureToolStripMenuItem.Name = "PiePictureToolStripMenuItem"
-        Me.PiePictureToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PiePictureToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.PiePictureToolStripMenuItem.Text = "Node View"
         '
         'TracerViewToolStripMenuItem
         '
         Me.TracerViewToolStripMenuItem.Enabled = False
         Me.TracerViewToolStripMenuItem.Name = "TracerViewToolStripMenuItem"
-        Me.TracerViewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TracerViewToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.TracerViewToolStripMenuItem.Text = "Tracer View"
         '
         'TraitsViewToolStripMenuItem
         '
         Me.TraitsViewToolStripMenuItem.Name = "TraitsViewToolStripMenuItem"
-        Me.TraitsViewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TraitsViewToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.TraitsViewToolStripMenuItem.Text = "State View"
         '
         'ProcessToolStripMenuItem
@@ -346,8 +346,8 @@ Partial Class Form_Main
         'BioGeoBEARSToolStripMenuItem2
         '
         Me.BioGeoBEARSToolStripMenuItem2.Name = "BioGeoBEARSToolStripMenuItem2"
-        Me.BioGeoBEARSToolStripMenuItem2.Size = New System.Drawing.Size(308, 22)
-        Me.BioGeoBEARSToolStripMenuItem2.Text = "Compare Six Models Using BioGeoBEARS"
+        Me.BioGeoBEARSToolStripMenuItem2.Size = New System.Drawing.Size(289, 22)
+        Me.BioGeoBEARSToolStripMenuItem2.Text = "Compare Models Using BioGeoBEARS"
         '
         'ToolStripSeparator8
         '
@@ -403,7 +403,7 @@ Partial Class Form_Main
         Me.OriginalMethodsToolStripMenuItem.Enabled = False
         Me.OriginalMethodsToolStripMenuItem.Name = "OriginalMethodsToolStripMenuItem"
         Me.OriginalMethodsToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
-        Me.OriginalMethodsToolStripMenuItem.Text = "On Condensed Tree"
+        Me.OriginalMethodsToolStripMenuItem.Text = "On Consensus Tree"
         '
         'DispersalExtinctionCladogenesisDECToolStripMenuItem
         '
@@ -472,13 +472,13 @@ Partial Class Form_Main
         'TreeVsStatesToolStripMenuItem
         '
         Me.TreeVsStatesToolStripMenuItem.Name = "TreeVsStatesToolStripMenuItem"
-        Me.TreeVsStatesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TreeVsStatesToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
         Me.TreeVsStatesToolStripMenuItem.Text = "Trees && States"
         '
         'TreeClusterToolStripMenuItem
         '
         Me.TreeClusterToolStripMenuItem.Name = "TreeClusterToolStripMenuItem"
-        Me.TreeClusterToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TreeClusterToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
         Me.TreeClusterToolStripMenuItem.Text = "Trees vs. Trees"
         '
         'OtherToolStripMenuItem
@@ -518,6 +518,12 @@ Partial Class Form_Main
         Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
         Me.ToolStripSeparator7.Size = New System.Drawing.Size(212, 6)
         '
+        'OmittedTaxaToolStripMenuItem1
+        '
+        Me.OmittedTaxaToolStripMenuItem1.Name = "OmittedTaxaToolStripMenuItem1"
+        Me.OmittedTaxaToolStripMenuItem1.Size = New System.Drawing.Size(215, 22)
+        Me.OmittedTaxaToolStripMenuItem1.Text = "Add Omitted Groups"
+        '
         'RemoveOutgroupToolStripMenuItem
         '
         Me.RemoveOutgroupToolStripMenuItem.Name = "RemoveOutgroupToolStripMenuItem"
@@ -529,12 +535,6 @@ Partial Class Form_Main
         Me.CombineResultsToolStripMenuItem.Name = "CombineResultsToolStripMenuItem"
         Me.CombineResultsToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
         Me.CombineResultsToolStripMenuItem.Text = "Combine Results"
-        '
-        'OmittedTaxaToolStripMenuItem1
-        '
-        Me.OmittedTaxaToolStripMenuItem1.Name = "OmittedTaxaToolStripMenuItem1"
-        Me.OmittedTaxaToolStripMenuItem1.Size = New System.Drawing.Size(215, 22)
-        Me.OmittedTaxaToolStripMenuItem1.Text = "Add Omitted Groups"
         '
         'ToolStripSeparator9
         '
@@ -568,19 +568,19 @@ Partial Class Form_Main
         'ConvertStatesToolStripMenuItem
         '
         Me.ConvertStatesToolStripMenuItem.Name = "ConvertStatesToolStripMenuItem"
-        Me.ConvertStatesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ConvertStatesToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.ConvertStatesToolStripMenuItem.Text = "Convert States"
         '
         'AddStatesToolStripMenuItem1
         '
         Me.AddStatesToolStripMenuItem1.Name = "AddStatesToolStripMenuItem1"
-        Me.AddStatesToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.AddStatesToolStripMenuItem1.Size = New System.Drawing.Size(154, 22)
         Me.AddStatesToolStripMenuItem1.Text = "Add States"
         '
         'DeleteStatesToolStripMenuItem
         '
         Me.DeleteStatesToolStripMenuItem.Name = "DeleteStatesToolStripMenuItem"
-        Me.DeleteStatesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DeleteStatesToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.DeleteStatesToolStripMenuItem.Text = "Delete States"
         '
         'ToolStripSeparator12

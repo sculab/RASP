@@ -1199,9 +1199,9 @@ Public Class Config_BGB
         If File.Exists(root_path + "temp\restable_AICc_rellike_formatted.txt") Then
             File.Delete(root_path + "temp\restable_AICc_rellike_formatted.txt")
         End If
-        If File.Exists(root_path + "temp\teststable.txt") Then
-            File.Delete(root_path + "temp\teststable.txt")
-        End If
+        'If File.Exists(root_path + "temp\teststable.txt") Then
+        '    File.Delete(root_path + "temp\teststable.txt")
+        'End If
         DeleteFiles(root_path + "temp", ".BGB.txt")
         DeleteFiles(root_path + "temp", ".r")
         DeleteFiles(root_path + "temp", ".end")
@@ -1302,6 +1302,11 @@ Public Class Config_BGB
         Dim wr4 As New StreamWriter(root_path + "temp\final.timeperiod", False, System.Text.Encoding.Default)
         wr4.Write(dispersal_durations)
         wr4.Close()
+        If BGB_mode = 0 Then
+            If CheckBox2.Checked = False Then
+                BGB_mode = 3
+            End If
+        End If
         Select Case BGB_mode
             Case 1
                 Dim sr1 As New StreamReader(root_path + "Plug-ins\BGB\" + ComboBox1.Text + ".r")
@@ -1344,7 +1349,7 @@ Public Class Config_BGB
                 Dim wr As New StreamWriter(root_path + "temp\BGB_model.r", False)
                 wr.Write(BGB_Body)
                 wr.Close()
-            Case 0, 2
+            Case 0, 2, 3
                 Dim sr0 As New StreamReader(root_path + "Plug-ins\BGB\header.r")
 				BGB_Header = sr0.ReadToEnd
 				If rscript = root_path + "Plug-ins\R\bin\i386\Rscript.exe" Then
@@ -1357,11 +1362,15 @@ Public Class Config_BGB
                 BGB_Body = "tryCatch({" + vbCrLf
 
                 If BGB_mode = 0 Then
+                    Dim sr1 As New StreamReader(root_path + "Plug-ins\BGB\model_test+j.r")
+                    BGB_Body += sr1.ReadToEnd
+                    sr1.Close()
+                End If
+                If BGB_mode = 3 Then
                     Dim sr1 As New StreamReader(root_path + "Plug-ins\BGB\model_test.r")
                     BGB_Body += sr1.ReadToEnd
                     sr1.Close()
                 End If
-
                 If BGB_mode = 2 Then
                     Dim sr1 As New StreamReader(root_path + "Plug-ins\BGB\" + ComboBox1.Text + ".r")
                     BGB_Body += sr1.ReadToEnd

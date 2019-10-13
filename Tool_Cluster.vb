@@ -691,7 +691,7 @@ Public Class Tool_Cluster
 				If ListView1.SelectedItems(0).SubItems(0).Text.ToLower.StartsWith("group") Then
                     File.Copy(root_path + "temp\clust_" + ListView1.SelectedIndices(0).ToString + ".png", opendialog.SelectedPath + "\group" + ListView1.SelectedIndices(0).ToString + ".png", True)
                     File.Copy(root_path + "temp\clust_" + ListView1.SelectedIndices(0).ToString + ".trees", opendialog.SelectedPath + "\group" + ListView1.SelectedIndices(0).ToString + ".trees", True)
-                    'File.Copy(root_path + "temp\clust_" + ListView1.SelectedIndices(0).ToString + "_con.tre", opendialog.SelectedPath + "\group" + ListView1.SelectedIndices(0).ToString + "_con.tre", True)
+                    File.Copy(root_path + "temp\clust_" + ListView1.SelectedIndices(0).ToString + "_con.tre", opendialog.SelectedPath + "\group" + ListView1.SelectedIndices(0).ToString + "_con.tre", True)
                     File.Copy(root_path + "temp\clust_" + ListView1.SelectedIndices(0).ToString + "_id.txt", opendialog.SelectedPath + "\group" + ListView1.SelectedIndices(0).ToString + "_id.txt", True)
                 ElseIf ListView1.SelectedItems(0).SubItems(0).Text.ToLower.StartsWith("all") Then
 					File.Copy(root_path + "temp\all_trees.png", opendialog.SelectedPath + "\all_trees.png", True)
@@ -715,7 +715,7 @@ Public Class Tool_Cluster
                     For i As Integer = 1 To ListView1.Items.Count - 2
                         File.Copy(root_path + "temp\clust_" + i.ToString + ".png", opendialog.SelectedPath + "\group" + i.ToString + ".png", True)
                         File.Copy(root_path + "temp\clust_" + i.ToString + ".trees", opendialog.SelectedPath + "\group" + i.ToString + ".trees", True)
-                        'File.Copy(root_path + "temp\clust_" + i.ToString + "_con.tre", opendialog.SelectedPath + "\group" + i.ToString + "_con.tre", True)
+                        File.Copy(root_path + "temp\clust_" + i.ToString + "_con.tre", opendialog.SelectedPath + "\group" + i.ToString + "_con.tre", True)
                         File.Copy(root_path + "temp\clust_" + i.ToString + "_id.txt", opendialog.SelectedPath + "\group" + i.ToString + "_id.txt", True)
                     Next
                     'File.Copy(root_path + "temp\mcl_groups.txt", opendialog.SelectedPath + "\mcl_groups.txt", True)

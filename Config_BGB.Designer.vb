@@ -63,6 +63,7 @@ Partial Class Config_BGB
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -581,6 +582,20 @@ Partial Class Config_BGB
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(84, 23)
         Me.ComboBox3.TabIndex = 45
+        Me.ComboBox3.Visible = False
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Checked = True
+        Me.CheckBox2.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox2.Location = New System.Drawing.Point(4, 406)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(110, 19)
+        Me.CheckBox2.TabIndex = 46
+        Me.CheckBox2.Text = "Test +J models"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.CheckBox2.Visible = False
         '
         'Config_BGB
         '
@@ -588,6 +603,7 @@ Partial Class Config_BGB
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(660, 432)
         Me.ControlBox = False
+        Me.Controls.Add(Me.CheckBox2)
         Me.Controls.Add(Me.ComboBox3)
         Me.Controls.Add(Me.NumericUpDown1)
         Me.Controls.Add(Me.Label5)
@@ -663,4 +679,5 @@ Partial Class Config_BGB
     Friend WithEvents Button14 As System.Windows.Forms.Button
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents ComboBox3 As ComboBox
+    Friend WithEvents CheckBox2 As CheckBox
 End Class

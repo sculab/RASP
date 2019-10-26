@@ -1,0 +1,43 @@
+Combined result file
+[TAXON]
+1	P._fauriei_OahuW	B
+2	P._grandiflora_Kauai1	A
+3	P._greenwelliae_07_Kauai1	A
+4	P._greenwelliae_907_Kauai1	A
+5	P._hathewayi_OahuK2	B
+6	P._hawaiiensis_HawaiiV1	D
+7	P._hawaiiensis_MauiE2	C
+8	P._hexandra_Kauai1	A
+9	P._hexandra_Kauai2	A
+10	P._hexandra_Oahu	B
+11	P._hobdyi_Kauai1	A
+12	P._kaduana_MauiW2	C
+13	P._kaduana_OahuK3	B
+14	P._mariniana_Kauai1	A
+15	P._mariniana_MauiE1	C
+16	P._mariniana_OahuK2	B
+17	P._mauiensis_MauiW1	C
+18	P._mauiensis_Molokai1	C
+19	P._wawrae_Kauai2	A
+[TREE]
+Tree=((((((((7:0.9656850499,17:0.9656850499)100:0.7086257935,(1:1.230218511,5:1.230218511)100:0.4440923324)100:0.1767115552,(12:1.841022399,18:1.841022399)100:0.0108897862802)100:0.3347375986,13:2.185759997)100:0.302349378,(3:1.131363255,4:1.131363255)100:1.35674612)100:1.689170274,((((15:1.994011054,6:1.994011054)100:0.7328279804,16:2.726839034)100:0.2574151709,14:2.984254205)100:0.4601084855,19:3.444362691)100:0.732916959)100:0.7345185743,(2:2.479300491,11:2.479300491)100:2.432497733)100:0.2873119899,((8:2.363984189,9:2.363984189)100:0.4630447802,10:2.826939991)100:2.372081244)100;
+[RESULT]
+DEC+j results:
+node 20 (anc. of terminals 8-9): C 100.00 CD 0.00 B 0.00 BC 0.00 AC 0.00 AD 0.00 BD 0.00 / 0.00 A 0.00 D 0.00 AB 0.00
+node 21 (anc. of terminals 10-9): B 100.00 BD 0.00 C 0.00 BC 0.00 AB 0.00 AD 0.00 CD 0.00 / 0.00 A 0.00 D 0.00 AC 0.00
+node 22 (anc. of terminals 6-15): C 64.26 B 35.73 BC 0.00 AC 0.00 AB 0.00 D 0.00 AD 0.00 / 0.00 BD 0.00 CD 0.00 A 0.00
+node 23 (anc. of terminals 6-14): C 100.00 CD 0.00 B 0.00 BC 0.00 AC 0.00 AD 0.00 BD 0.00 / 0.00 A 0.00 D 0.00 AB 0.00
+node 24 (anc. of terminals 6-16): C 72.36 B 27.63 BC 0.01 AB 0.00 AC 0.00 D 0.00 AD 0.00 / 0.00 CD 0.00 BD 0.00 A 0.00
+node 25 (anc. of terminals 19-16): C 50.58 B 49.42 BC 0.01 AC 0.00 AB 0.00 D 0.00 AD 0.00 / 0.00 BD 0.00 CD 0.00 A 0.00
+node 26 (anc. of terminals 1-5): A 100.00 AD 0.00 B 0.00 AC 0.00 AB 0.00 CD 0.00 / 0.00 BC 0.00 C 0.00 D 0.00 BD 0.00
+node 27 (anc. of terminals 17-7): A 76.51 B 11.80 C 9.08 AB 1.64 AC 0.95 BC 0.02 CD 0.00 D 0.00 BD 0.00 / 0.00 AD 0.00
+node 28 (anc. of terminals 1-7): C 50.24 D 49.76 CD 0.00 AD 0.00 AC 0.00 A 0.00 AB 0.00 / 0.00 BC 0.00 BD 0.00 B 0.00
+node 29 (anc. of terminals 18-12): B 50.62 C 24.87 D 24.52 BD 0.00 BC 0.00 AD 0.00 A 0.00 / 0.00 CD 0.00 AB 0.00 AC 0.00
+node 30 (anc. of terminals 1-12): A 78.86 B 10.67 C 4.98 D 4.57 AB 0.64 AC 0.17 AD 0.12 BC 0.00 BD 0.00 CD 0.00 / 0.00
+node 31 (anc. of terminals 3-4): A 93.85 B 2.76 C 1.12 AB 1.05 D 0.75 AC 0.29 AD 0.19 BC 0.00 BD 0.00 CD 0.00 / 0.00
+node 32 (anc. of terminals 13-4): A 87.94 B 3.91 AB 3.78 C 2.14 AC 1.78 AD 0.22 D 0.20 BC 0.03 BD 0.00 CD 0.00 / 0.00
+node 33 (anc. of terminals 1-4): A 100.00 AD 0.00 B 0.00 AC 0.00 AB 0.00 BD 0.00 CD 0.00 / 0.00 C 0.00 D 0.00 BC 0.00
+node 34 (anc. of terminals 19-4): A 90.63 AB 4.63 AC 2.16 B 1.55 C 0.64 AD 0.28 D 0.08 BC 0.03 BD 0.00 CD 0.00 / 0.00
+node 35 (anc. of terminals 2-11): A 100.00 AD 0.00 B 0.00 AC 0.00 AB 0.00 BD 0.00 CD 0.00 / 0.00 C 0.00 D 0.00 BC 0.00
+node 36 (anc. of terminals 19-11): A 48.39 AB 25.85 B 25.76 AD 0.00 AC 0.00 D 0.00 CD 0.00 / 0.00 BC 0.00 BD 0.00 C 0.00
+node 37 (anc. of terminals 10-11): A 48.63 AB 42.20 B 6.19 AC 2.32 AD 0.29 BC 0.18 C 0.15 BD 0.02 D 0.02 CD 0.00 / 0.00

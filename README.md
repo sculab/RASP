@@ -2,8 +2,17 @@
 
 With the continual progress of sequencing techniques, genome-scale data are increasingly used in phylogenetic studies. With more data from throughout the genome, the relationship between genes and different kinds of characters is receiving more attention. Here, we present version 4 of RASP, a software to reconstruct ancestral states through phylogenetic trees. RASP can apply generalized statistical ancestral reconstruction methods to phylogenies, explore the phylogenetic signal of characters to particular trees, calculate distances between trees, and cluster trees into groups.
 
+## Tutorials:
+[Tutorial 1. Getting started with RASP](http://mnh.scu.edu.cn/soft/blog/RASP/Tutorial%201.html)  
+[Tutorial 2. Selecting the biogeographic model](http://mnh.scu.edu.cn/soft/blog/RASP/Tutorial%202.html)  
+[Tutorial 3. Test phylogenetic signal](http://mnh.scu.edu.cn/soft/blog/RASP/Tutorial%203.html)  
+[Tutorial 4. Trait evolution](http://mnh.scu.edu.cn/soft/blog/RASP/Tutorial%204.html)  
+[Tutorial 5. Compare trees derived from different genes](http://mnh.scu.edu.cn/soft/blog/RASP/Tutorial%205.html)  
+[Tutorial 6. Modify trees and states](http://mnh.scu.edu.cn/soft/blog/RASP/Tutorial%206.html)  
+
 ## Cites
 **To maintain RASP, support users and secure fundings, it is important for us that you cite our paper:**  
+
 Program:
 ```
 Yu Y, Harris AJ, Blair C, He XJ. 2019. RASP (Reconstruct Ancestral State in Phylogenies): a tool for historical biogeography. Molecular Biology and Evolution DOI: 10.1093/molbev/msz257

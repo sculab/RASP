@@ -1,11 +1,9 @@
 ﻿# RASP (Reconstruct Ancestral State in Phylogenies) 
 
-We have written RASP (Reconstruct Ancestral State in Phylogenies) software to reconstruct ancestral states through phylogenetic trees. We develop methods to explore the phylogenetic signal of characters to particular tree, calculate distance between trees, cluster trees into groups, and apply generalized statistical ancestral reconstruction methods to trees.
-RASP is easy-to-install on the Windows and Mac platforms, provides a user-friendly graphical interface, and generates exportable graphical results.
-
+With the continual progress of sequencing techniques, genome-scale data are increasingly used in phylogenetic studies. With more data from throughout the genome, the relationship between genes and different kinds of characters is receiving more attention. Here, we present version 4 of RASP, a software to reconstruct ancestral states through phylogenetic trees. RASP can apply generalized statistical ancestral reconstruction methods to phylogenies, explore the phylogenetic signal of characters to particular trees, calculate distances between trees, and cluster trees into groups.
 
 ## Cites
-
+**To maintain RASP, support users and secure fundings, it is important for us that you cite our paper:**  
 Program:
 ```
 Yu Y, Harris AJ, Blair C, He XJ. 2019. RASP (Reconstruct Ancestral State in Phylogenies): a tool for historical biogeography. Molecular Biology and Evolution DOI: 10.1093/molbev/msz257

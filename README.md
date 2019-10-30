@@ -8,26 +8,29 @@ RASP is easy-to-install on the Windows and Mac platforms, provides a user-friend
 
 Program:
 ```
-Yu Y, Harris AJ, Blair C, He XJ. 2015. RASP (Reconstruct Ancestral State in Phylogenies): a tool for historical biogeography. Molecular Phylogenetics and Evolution 87:46-49
+Yu Y, Harris AJ, Blair C, He XJ. 2019. RASP (Reconstruct Ancestral State in Phylogenies): a tool for historical biogeography. Molecular Biology and Evolution DOI: 10.1093/molbev/msz257
 ```
 S-DIVA method:
 ```
+Yu Y, Harris AJ, Blair C, He XJ. 2015. RASP (Reconstruct Ancestral State in Phylogenies): a tool for historical biogeography. Molecular Phylogenetics and Evolution 87:46-49
 Yu Y, Harris AJ, He XJ. 2010. S-DIVA (statistical dispersal-vicariance analysis): a tool for inferring biogeographic histories. Molecular Phylogenetics and Evolution. 56(2): 848-850
 ```
 DEC model (Lagrange):
 ```
-Ree, R H and S A Smith. 2008. Maximum likelihood inference of geographic range evolution by dispersal, local extinction, and cladogenesis. Systematic Biology. 57(1): 4-14. 
+Ree RH and SA Smith. 2008. Maximum likelihood inference of geographic range evolution by dispersal, local extinction, and cladogenesis. Systematic Biology. 57(1): 4-14. 
 ```
 S-DEC method:
 ```
+Yu Y, Harris AJ, Blair C, He XJ. 2015. RASP (Reconstruct Ancestral State in Phylogenies): a tool for historical biogeography. Molecular Phylogenetics and Evolution 87:46-49
 Beaulieu, J.M., Tank, D.C., Donoghue, M.J., 2013. A Southern Hemisphere origin for campanulid angiosperms, with traces of the break-up of Gondwana. BMC Evolutionary Biology. 13(1), 80. 
 ```
 Bayarea:
 ```
-Landis M J, Matzke N J, Moore B R, et al. 2013.Bayesian analysis of biogeography when the number of areas is large. Systematic biology. 62 (6): 789-804 
+Landis MJ, Matzke NJ, Moore BR, et al. 2013.Bayesian analysis of biogeography when the number of areas is large. Systematic biology. 62 (6): 789-804 
 ```
 BBM:
 ```
+Ali SS, Yu Y, Pfosser M, Wetschnig W. 2012. Inferences of biogeographical histories within subfamily Hyacinthoideae using S-DIVA and Bayesian binary MCMC analysis implemented in RASP (Reconstruct Ancestral State in Phylogenies). Ann Bot 109:95-107.
 Ronquist F, Huelsenbeck JP (2003) MrBayes3: Bayesian phylogenetic inference undermixed models. Bioinformatics 19:1572–1574.
 ```
 BioGeoBEARS:

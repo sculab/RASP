@@ -20,12 +20,12 @@ You could compile RASP from source code or download the compiled RASP achive fro
 
 Program:
 ```
-Yu Y, Harris AJ, Blair C, He XJ. 2019. RASP (Reconstruct Ancestral State in Phylogenies): a tool for historical biogeography. Molecular Biology and Evolution DOI: 10.1093/molbev/msz257
+[Yu Y, Blair C, He XJ. 2019. RASP (Reconstruct Ancestral State in Phylogenies): a tool for historical biogeography. Molecular Biology and Evolution DOI: 10.1093/molbev/msz257] (https://academic.oup.com/mbe/advance-article-abstract/doi/10.1093/molbev/msz257/5610535)
 ```
 S-DIVA method:
 ```
-Yu Y, Harris AJ, Blair C, He XJ. 2015. RASP (Reconstruct Ancestral State in Phylogenies): a tool for historical biogeography. Molecular Phylogenetics and Evolution 87:46-49
-Yu Y, Harris AJ, He XJ. 2010. S-DIVA (statistical dispersal-vicariance analysis): a tool for inferring biogeographic histories. Molecular Phylogenetics and Evolution. 56(2): 848-850
+Yu Y, Harris AJ, Blair C, He XJ. 2015. RASP (Reconstruct Ancestral State in Phylogenies): a tool for historical biogeography. Molecular Phylogenetics and Evolution 87:46-49 
+Yu Y, Harris AJ, He XJ. 2010. S-DIVA (statistical dispersal-vicariance analysis): a tool for inferring biogeographic histories. Molecular Phylogenetics and Evolution. 56(2): 848-850 
 ```
 DEC model (Lagrange):
 ```

@@ -64,6 +64,11 @@ Partial Class Config_BGB
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.OperationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RefreshTheRangeListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveSettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LoadSettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -75,6 +80,7 @@ Partial Class Config_BGB
         CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -117,11 +123,11 @@ Partial Class Config_BGB
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabControl1.Location = New System.Drawing.Point(0, 3)
+        Me.TabControl1.Location = New System.Drawing.Point(0, 28)
         Me.TabControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(660, 393)
+        Me.TabControl1.Size = New System.Drawing.Size(660, 368)
         Me.TabControl1.TabIndex = 39
         '
         'TabPage1
@@ -139,7 +145,7 @@ Partial Class Config_BGB
         Me.TabPage1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage1.Size = New System.Drawing.Size(652, 365)
+        Me.TabPage1.Size = New System.Drawing.Size(652, 340)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Range constraints"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -148,7 +154,7 @@ Partial Class Config_BGB
         '
         Me.NumericUpDown2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.NumericUpDown2.BackColor = System.Drawing.Color.White
-        Me.NumericUpDown2.Location = New System.Drawing.Point(504, 337)
+        Me.NumericUpDown2.Location = New System.Drawing.Point(504, 312)
         Me.NumericUpDown2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.NumericUpDown2.Maximum = New Decimal(New Integer() {15, 0, 0, 0})
         Me.NumericUpDown2.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
@@ -163,7 +169,7 @@ Partial Class Config_BGB
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(439, 339)
+        Me.Label1.Location = New System.Drawing.Point(439, 314)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(66, 15)
         Me.Label1.TabIndex = 25
@@ -181,7 +187,7 @@ Partial Class Config_BGB
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(436, 362)
+        Me.DataGridView1.Size = New System.Drawing.Size(436, 337)
         Me.DataGridView1.TabIndex = 24
         '
         'Label2
@@ -204,7 +210,7 @@ Partial Class Config_BGB
         Me.ListBox1.Location = New System.Drawing.Point(442, 30)
         Me.ListBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(100, 302)
+        Me.ListBox1.Size = New System.Drawing.Size(100, 272)
         Me.ListBox1.Sorted = True
         Me.ListBox1.TabIndex = 25
         '
@@ -218,7 +224,7 @@ Partial Class Config_BGB
         Me.ListBox2.Location = New System.Drawing.Point(549, 30)
         Me.ListBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(100, 302)
+        Me.ListBox2.Size = New System.Drawing.Size(100, 272)
         Me.ListBox2.Sorted = True
         Me.ListBox2.TabIndex = 26
         '
@@ -271,7 +277,7 @@ Partial Class Config_BGB
         Me.TabPage2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage2.Size = New System.Drawing.Size(652, 365)
+        Me.TabPage2.Size = New System.Drawing.Size(652, 340)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Time-Stratified"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -280,7 +286,7 @@ Partial Class Config_BGB
         '
         Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(228, 340)
+        Me.Label6.Location = New System.Drawing.Point(228, 315)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(10, 15)
         Me.Label6.TabIndex = 17
@@ -290,7 +296,7 @@ Partial Class Config_BGB
         '
         Me.Button14.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button14.BackColor = System.Drawing.Color.Transparent
-        Me.Button14.Location = New System.Drawing.Point(387, 336)
+        Me.Button14.Location = New System.Drawing.Point(387, 311)
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(107, 23)
         Me.Button14.TabIndex = 16
@@ -303,7 +309,7 @@ Partial Class Config_BGB
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Items.AddRange(New Object() {"dispersal multipliers", "areas allowed", "areas adjacency", "distances"})
-        Me.ComboBox2.Location = New System.Drawing.Point(500, 335)
+        Me.ComboBox2.Location = New System.Drawing.Point(500, 310)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(152, 23)
         Me.ComboBox2.TabIndex = 15
@@ -311,7 +317,7 @@ Partial Class Config_BGB
         'Button10
         '
         Me.Button10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button10.Location = New System.Drawing.Point(81, 335)
+        Me.Button10.Location = New System.Drawing.Point(81, 310)
         Me.Button10.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(72, 26)
@@ -330,7 +336,7 @@ Partial Class Config_BGB
         Me.DataGridView3.Name = "DataGridView3"
         Me.DataGridView3.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView3.RowTemplate.Height = 23
-        Me.DataGridView3.Size = New System.Drawing.Size(152, 263)
+        Me.DataGridView3.Size = New System.Drawing.Size(152, 238)
         Me.DataGridView3.TabIndex = 1
         '
         'Button6
@@ -347,7 +353,7 @@ Partial Class Config_BGB
         'Button9
         '
         Me.Button9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button9.Location = New System.Drawing.Point(3, 335)
+        Me.Button9.Location = New System.Drawing.Point(3, 310)
         Me.Button9.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(72, 26)
@@ -400,7 +406,7 @@ Partial Class Config_BGB
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView2.RowTemplate.Height = 23
-        Me.DataGridView2.Size = New System.Drawing.Size(494, 329)
+        Me.DataGridView2.Size = New System.Drawing.Size(494, 304)
         Me.DataGridView2.TabIndex = 1
         '
         'TabPage3
@@ -415,7 +421,7 @@ Partial Class Config_BGB
         Me.TabPage3.Location = New System.Drawing.Point(4, 24)
         Me.TabPage3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(652, 365)
+        Me.TabPage3.Size = New System.Drawing.Size(652, 340)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Fossil & MRCA"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -439,7 +445,7 @@ Partial Class Config_BGB
         Me.DataGridView5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DataGridView5.Name = "DataGridView5"
         Me.DataGridView5.RowTemplate.Height = 23
-        Me.DataGridView5.Size = New System.Drawing.Size(295, 362)
+        Me.DataGridView5.Size = New System.Drawing.Size(295, 337)
         Me.DataGridView5.TabIndex = 8
         '
         'Button8
@@ -471,7 +477,7 @@ Partial Class Config_BGB
         Me.DataGridView4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DataGridView4.Name = "DataGridView4"
         Me.DataGridView4.RowTemplate.Height = 23
-        Me.DataGridView4.Size = New System.Drawing.Size(99, 312)
+        Me.DataGridView4.Size = New System.Drawing.Size(99, 287)
         Me.DataGridView4.TabIndex = 7
         '
         'ListBox4
@@ -483,7 +489,7 @@ Partial Class Config_BGB
         Me.ListBox4.Location = New System.Drawing.Point(125, 50)
         Me.ListBox4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ListBox4.Name = "ListBox4"
-        Me.ListBox4.Size = New System.Drawing.Size(116, 304)
+        Me.ListBox4.Size = New System.Drawing.Size(116, 274)
         Me.ListBox4.TabIndex = 6
         '
         'ListBox3
@@ -495,7 +501,7 @@ Partial Class Config_BGB
         Me.ListBox3.Location = New System.Drawing.Point(3, 50)
         Me.ListBox3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ListBox3.Name = "ListBox3"
-        Me.ListBox3.Size = New System.Drawing.Size(116, 304)
+        Me.ListBox3.Size = New System.Drawing.Size(116, 274)
         Me.ListBox3.TabIndex = 5
         '
         'Button12
@@ -597,12 +603,48 @@ Partial Class Config_BGB
         Me.CheckBox2.UseVisualStyleBackColor = True
         Me.CheckBox2.Visible = False
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OperationToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(660, 24)
+        Me.MenuStrip1.TabIndex = 47
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'OperationToolStripMenuItem
+        '
+        Me.OperationToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RefreshTheRangeListToolStripMenuItem, Me.SaveSettingsToolStripMenuItem, Me.LoadSettingToolStripMenuItem})
+        Me.OperationToolStripMenuItem.Name = "OperationToolStripMenuItem"
+        Me.OperationToolStripMenuItem.Size = New System.Drawing.Size(73, 20)
+        Me.OperationToolStripMenuItem.Text = "Operation"
+        '
+        'RefreshTheRangeListToolStripMenuItem
+        '
+        Me.RefreshTheRangeListToolStripMenuItem.Name = "RefreshTheRangeListToolStripMenuItem"
+        Me.RefreshTheRangeListToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
+        Me.RefreshTheRangeListToolStripMenuItem.Text = "Refresh the Range List"
+        '
+        'SaveSettingsToolStripMenuItem
+        '
+        Me.SaveSettingsToolStripMenuItem.Name = "SaveSettingsToolStripMenuItem"
+        Me.SaveSettingsToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
+        Me.SaveSettingsToolStripMenuItem.Text = "Save Setting"
+        '
+        'LoadSettingToolStripMenuItem
+        '
+        Me.LoadSettingToolStripMenuItem.Name = "LoadSettingToolStripMenuItem"
+        Me.LoadSettingToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
+        Me.LoadSettingToolStripMenuItem.Text = "Load Setting"
+        '
         'Config_BGB
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(660, 432)
         Me.ControlBox = False
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.CheckBox2)
         Me.Controls.Add(Me.ComboBox3)
         Me.Controls.Add(Me.NumericUpDown1)
@@ -634,6 +676,8 @@ Partial Class Config_BGB
         CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -680,4 +724,9 @@ Partial Class Config_BGB
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents ComboBox3 As ComboBox
     Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents OperationToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RefreshTheRangeListToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveSettingsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LoadSettingToolStripMenuItem As ToolStripMenuItem
 End Class

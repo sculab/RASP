@@ -168,7 +168,7 @@ Partial Class Config_SDIVA
         '
         Me.SaveSettingsToolStripMenuItem.Name = "SaveSettingsToolStripMenuItem"
         Me.SaveSettingsToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
-        Me.SaveSettingsToolStripMenuItem.Text = "Save Settings"
+        Me.SaveSettingsToolStripMenuItem.Text = "Save Setting"
         '
         'LoadSettingToolStripMenuItem
         '

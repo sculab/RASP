@@ -4,7 +4,7 @@ Imports System.Runtime.InteropServices
 Imports System.Globalization.CultureInfo
 Module Module_Var
     Public Version As String = "4.2"
-    Public build As String = "20191020"
+    Public build As String = "20200103"
     Public enableMin As Boolean = True
     Public Global_seed As Integer = "20180127"
     Public isDebug As Boolean = False
@@ -211,6 +211,7 @@ Module Module_Var
     End Sub
     Public Sub Read_Poly_Node(ByVal Treeline As String)
         Dim NumofNode As Integer = Treeline.Length - Treeline.Replace("(", "").Length
+        Dim NumofTaxon As Integer = Treeline.Length - Treeline.Replace(",", "").Length
         ReDim Poly_Node(NumofNode, 7) '0 root,1 末端, 2 子节点, 4,枝长,6,支持率, 3 全部链, 7 PHYLIP NODE
         For i As Integer = 0 To NumofNode
             Poly_Node(i, 0) = ""
@@ -220,7 +221,7 @@ Module Module_Var
             Poly_Node(i, 6) = "1.00"
         Next
         Dim tree_char() As String
-        ReDim tree_char(NumofNode * 7)
+        ReDim tree_char(NumofTaxon * 7)
         Dim char_id As Integer = 0
         Dim l_c As Integer = 0
         Dim r_c As Integer = 0

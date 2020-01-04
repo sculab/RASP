@@ -420,6 +420,7 @@ Public Class Tool_TvS
         If File.Exists(root_path + "temp\MPS.end") Then
             File.Delete(root_path + "temp\MPS.end")
         End If
+        'If 
         timer_id = 2
         timer_count = 0
         ListView1.Items.Clear()
@@ -433,7 +434,7 @@ Public Class Tool_TvS
         Dim sw_header As New StreamWriter(root_path + "temp\run_mps.r", False, System.Text.Encoding.Default)
         sw_header.Write(mps_header)
         sw_header.Close()
-        Dim sr As New StreamReader(root_path + "temp" + path_char + "clean_num.trees")
+        Dim sr As New StreamReader(root_path + "temp" + path_char + "clean_num_p.trees")
         Dim line As String = sr.ReadLine
         Dim count As Integer = 0
         Do

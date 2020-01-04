@@ -60,6 +60,11 @@ Partial Class Config_Lagrange
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.OperationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RefreshTheRangeListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveSettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LoadSettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -71,6 +76,7 @@ Partial Class Config_Lagrange
         CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button4
@@ -142,36 +148,36 @@ Partial Class Config_Lagrange
         'ListBox2
         '
         Me.ListBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ListBox2.FormattingEnabled = True
         Me.ListBox2.ItemHeight = 15
         Me.ListBox2.Location = New System.Drawing.Point(549, 30)
         Me.ListBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(100, 302)
+        Me.ListBox2.Size = New System.Drawing.Size(100, 272)
         Me.ListBox2.Sorted = True
         Me.ListBox2.TabIndex = 26
         '
         'ListBox1
         '
         Me.ListBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.ItemHeight = 15
         Me.ListBox1.Location = New System.Drawing.Point(442, 30)
         Me.ListBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(100, 302)
+        Me.ListBox1.Size = New System.Drawing.Size(100, 272)
         Me.ListBox1.Sorted = True
         Me.ListBox1.TabIndex = 25
         '
         'DataGridView1
         '
         Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
@@ -179,14 +185,14 @@ Partial Class Config_Lagrange
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(436, 362)
+        Me.DataGridView1.Size = New System.Drawing.Size(436, 334)
         Me.DataGridView1.TabIndex = 24
         '
         'NumericUpDown2
         '
         Me.NumericUpDown2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.NumericUpDown2.BackColor = System.Drawing.Color.White
-        Me.NumericUpDown2.Location = New System.Drawing.Point(504, 337)
+        Me.NumericUpDown2.Location = New System.Drawing.Point(504, 309)
         Me.NumericUpDown2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.NumericUpDown2.Maximum = New Decimal(New Integer() {15, 0, 0, 0})
         Me.NumericUpDown2.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
@@ -200,17 +206,17 @@ Partial Class Config_Lagrange
         'TabControl1
         '
         Me.TabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
+        Me.TabControl1.Location = New System.Drawing.Point(0, 28)
         Me.TabControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(660, 393)
+        Me.TabControl1.Size = New System.Drawing.Size(660, 365)
         Me.TabControl1.TabIndex = 35
         '
         'TabPage1
@@ -229,7 +235,7 @@ Partial Class Config_Lagrange
         Me.TabPage1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage1.Size = New System.Drawing.Size(652, 365)
+        Me.TabPage1.Size = New System.Drawing.Size(652, 337)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Range constraints"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -238,7 +244,7 @@ Partial Class Config_Lagrange
         '
         Me.CheckBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(576, 339)
+        Me.CheckBox3.Location = New System.Drawing.Point(576, 311)
         Me.CheckBox3.Name = "CheckBox3"
         Me.CheckBox3.Size = New System.Drawing.Size(68, 19)
         Me.CheckBox3.TabIndex = 37
@@ -249,7 +255,7 @@ Partial Class Config_Lagrange
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(439, 339)
+        Me.Label1.Location = New System.Drawing.Point(439, 311)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(66, 15)
         Me.Label1.TabIndex = 25
@@ -269,7 +275,7 @@ Partial Class Config_Lagrange
         Me.TabPage2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage2.Size = New System.Drawing.Size(652, 365)
+        Me.TabPage2.Size = New System.Drawing.Size(652, 337)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Dispersal constraints"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -288,7 +294,7 @@ Partial Class Config_Lagrange
         'DataGridView3
         '
         Me.DataGridView3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView3.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView3.Location = New System.Drawing.Point(500, 66)
@@ -357,8 +363,8 @@ Partial Class Config_Lagrange
         'DataGridView2
         '
         Me.DataGridView2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Location = New System.Drawing.Point(0, 0)
@@ -383,7 +389,7 @@ Partial Class Config_Lagrange
         Me.TabPage3.Location = New System.Drawing.Point(4, 24)
         Me.TabPage3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(652, 365)
+        Me.TabPage3.Size = New System.Drawing.Size(652, 337)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Fossil & MRCA"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -400,20 +406,20 @@ Partial Class Config_Lagrange
         'DataGridView5
         '
         Me.DataGridView5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView5.Location = New System.Drawing.Point(357, 0)
         Me.DataGridView5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DataGridView5.Name = "DataGridView5"
         Me.DataGridView5.RowTemplate.Height = 23
-        Me.DataGridView5.Size = New System.Drawing.Size(295, 362)
+        Me.DataGridView5.Size = New System.Drawing.Size(295, 334)
         Me.DataGridView5.TabIndex = 8
         '
         'RichTextBox1
         '
         Me.RichTextBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.RichTextBox1.Location = New System.Drawing.Point(416, 369)
         Me.RichTextBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -445,44 +451,44 @@ Partial Class Config_Lagrange
         'DataGridView4
         '
         Me.DataGridView4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView4.Location = New System.Drawing.Point(249, 50)
         Me.DataGridView4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DataGridView4.Name = "DataGridView4"
         Me.DataGridView4.RowTemplate.Height = 23
-        Me.DataGridView4.Size = New System.Drawing.Size(99, 312)
+        Me.DataGridView4.Size = New System.Drawing.Size(99, 284)
         Me.DataGridView4.TabIndex = 7
         '
         'ListBox4
         '
         Me.ListBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ListBox4.FormattingEnabled = True
         Me.ListBox4.ItemHeight = 15
         Me.ListBox4.Location = New System.Drawing.Point(125, 50)
         Me.ListBox4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ListBox4.Name = "ListBox4"
-        Me.ListBox4.Size = New System.Drawing.Size(116, 304)
+        Me.ListBox4.Size = New System.Drawing.Size(116, 274)
         Me.ListBox4.TabIndex = 6
         '
         'ListBox3
         '
         Me.ListBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ListBox3.FormattingEnabled = True
         Me.ListBox3.ItemHeight = 15
         Me.ListBox3.Location = New System.Drawing.Point(3, 50)
         Me.ListBox3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ListBox3.Name = "ListBox3"
-        Me.ListBox3.Size = New System.Drawing.Size(116, 304)
+        Me.ListBox3.Size = New System.Drawing.Size(116, 274)
         Me.ListBox3.TabIndex = 5
         '
         'CheckBox2
         '
         Me.CheckBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(416, 315)
+        Me.CheckBox2.Location = New System.Drawing.Point(416, 287)
         Me.CheckBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(164, 19)
@@ -536,12 +542,48 @@ Partial Class Config_Lagrange
         Me.CheckBox1.UseVisualStyleBackColor = True
         Me.CheckBox1.Visible = False
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OperationToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(660, 24)
+        Me.MenuStrip1.TabIndex = 40
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'OperationToolStripMenuItem
+        '
+        Me.OperationToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RefreshTheRangeListToolStripMenuItem, Me.SaveSettingsToolStripMenuItem, Me.LoadSettingToolStripMenuItem})
+        Me.OperationToolStripMenuItem.Name = "OperationToolStripMenuItem"
+        Me.OperationToolStripMenuItem.Size = New System.Drawing.Size(73, 20)
+        Me.OperationToolStripMenuItem.Text = "Operation"
+        '
+        'RefreshTheRangeListToolStripMenuItem
+        '
+        Me.RefreshTheRangeListToolStripMenuItem.Name = "RefreshTheRangeListToolStripMenuItem"
+        Me.RefreshTheRangeListToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
+        Me.RefreshTheRangeListToolStripMenuItem.Text = "Refresh the Range List"
+        '
+        'SaveSettingsToolStripMenuItem
+        '
+        Me.SaveSettingsToolStripMenuItem.Name = "SaveSettingsToolStripMenuItem"
+        Me.SaveSettingsToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
+        Me.SaveSettingsToolStripMenuItem.Text = "Save Setting"
+        '
+        'LoadSettingToolStripMenuItem
+        '
+        Me.LoadSettingToolStripMenuItem.Name = "LoadSettingToolStripMenuItem"
+        Me.LoadSettingToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
+        Me.LoadSettingToolStripMenuItem.Text = "Load Setting"
+        '
         'Config_Lagrange
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(660, 432)
         Me.ControlBox = False
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.NumericUpDown1)
@@ -570,6 +612,8 @@ Partial Class Config_Lagrange
         CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -611,4 +655,9 @@ Partial Class Config_Lagrange
     Friend WithEvents NumericUpDown1 As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents OperationToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RefreshTheRangeListToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveSettingsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LoadSettingToolStripMenuItem As ToolStripMenuItem
 End Class

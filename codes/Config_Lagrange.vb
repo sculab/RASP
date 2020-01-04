@@ -865,7 +865,9 @@ Public Class Config_Lagrange
         DataGridView2.AllowUserToOrderColumns = False
         DataGridView2.AllowUserToResizeColumns = False
         DataGridView2.AllowUserToResizeRows = False
-
+        For i As Integer = 1 To DataGridView2.ColumnCount
+            DataGridView2.Columns(i - 1).SortMode = DataGridViewColumnSortMode.NotSortable
+        Next
         DataGridView3.AllowUserToAddRows = True
         DataGridView3.AllowUserToDeleteRows = True
         DataGridView3.AllowUserToOrderColumns = True
@@ -1309,5 +1311,167 @@ Public Class Config_Lagrange
         DataGridView5.AllowUserToResizeColumns = False
         DataGridView5.AllowUserToResizeRows = False
         Read_Poly_Tree(tree_show_with_value)
+    End Sub
+
+    Private Sub SaveSettingsToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub LoadSettingToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub RefreshTheRangeListToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles RefreshTheRangeListToolStripMenuItem.Click
+        ListBox1.Items.Clear()
+        ListBox2.Items.Clear()
+        DataGridView1.EndEdit()
+        rang_num = DataGridView1.Rows.Count
+        Dim Tempchar() As Char = RangeStr.ToUpper
+        area_num = CInt(NumericUpDown2.Value)
+        Array.Sort(Tempchar)
+        For j As Integer = 2 To area_num
+            Dim n() As Integer
+            ReDim n(j + 1)
+            For x As Integer = 1 To j
+                n(x) = x
+            Next
+            n(j + 1) = rang_num + 1
+            Dim isend As Boolean = True
+            Do
+                Dim Tempstr As String = ""
+
+                For x As Integer = 1 To j
+                    Tempstr = Tempstr + Tempchar(n(x) - 1)
+                Next
+                If check_exist(Tempstr) Then
+                    ListBox1.Items.Add(Tempstr)
+                Else
+                    ListBox2.Items.Add(Tempstr)
+                End If
+                isend = pailie(n, j, j)
+            Loop Until isend = False
+        Next
+    End Sub
+
+    Private Sub SaveSettingsToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles SaveSettingsToolStripMenuItem.Click
+        Dim opendialog As New SaveFileDialog
+        opendialog.Filter = "Text File (*.txt)|*.txt;*.TXT|ALL Files(*.*)|*.*"
+        opendialog.FileName = ""
+        opendialog.DefaultExt = ".txt"
+        opendialog.CheckFileExists = False
+        opendialog.CheckPathExists = True
+        Dim resultdialog As DialogResult = opendialog.ShowDialog()
+        If resultdialog = DialogResult.OK Then
+            Dim sw As New StreamWriter(opendialog.FileName)
+            sw.WriteLine("[Range list]")
+            Dim list_num As Integer = DataGridView1.Rows.Count
+            For i As Integer = 0 To list_num - 1
+                For j As Integer = 0 To list_num - 1
+                    If DataGridView1.Rows(i).Cells(j).Value Then
+                        sw.Write("1,")
+                    Else
+                        sw.Write("0,")
+                    End If
+                Next
+            Next
+            sw.Write(vbCrLf)
+            sw.WriteLine("[Optimize]")
+            sw.Write(NumericUpDown2.Value.ToString + ",")
+            If CheckBox3.Checked Then
+                sw.Write("1,")
+            Else
+                sw.Write("0,")
+            End If
+            sw.Write(vbCrLf)
+            sw.WriteLine("[Fossils]")
+            For i As Integer = 0 To DataGridView2.Rows.Count - 1
+                sw.Write(DataGridView2.Rows(i).Cells(2).Value.ToString + ",")
+            Next
+            sw.Write(vbCrLf)
+            sw.WriteLine("[Include]")
+            For i As Integer = 0 To ListBox1.Items.Count - 1
+                sw.Write(ListBox1.Items(i).ToString + ",")
+            Next
+            sw.Write(vbCrLf)
+            sw.WriteLine("[Exclude]")
+            For i As Integer = 0 To ListBox2.Items.Count - 1
+                sw.Write(ListBox2.Items(i).ToString + ",")
+            Next
+            sw.Close()
+        End If
+    End Sub
+
+    Private Sub LoadSettingToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles LoadSettingToolStripMenuItem.Click
+        Try
+            Dim opendialog As New OpenFileDialog
+            opendialog.Filter = "Text File (*.txt)|*.txt;*.TXT|ALL Files(*.*)|*.*"
+            opendialog.FileName = ""
+            opendialog.DefaultExt = ".txt"
+            opendialog.CheckFileExists = True
+            opendialog.CheckPathExists = True
+            Dim resultdialog As DialogResult = opendialog.ShowDialog()
+            If resultdialog = DialogResult.OK Then
+                Dim sr As New StreamReader(opendialog.FileName)
+                Dim line As String = sr.ReadLine
+                Do While line <> ""
+                    If line = "[Range list]" Then
+                        Dim range_list() As String = sr.ReadLine.Split(",")
+                        Dim list_num As Integer = DataGridView1.Rows.Count
+                        For i As Integer = 0 To list_num - 1
+                            For j As Integer = 0 To list_num - 1
+                                If range_list(i * list_num + j) = "1" Then
+                                    DataGridView1.Rows(i).Cells(j).Value = True
+                                Else
+                                    DataGridView1.Rows(i).Cells(j).Value = False
+                                End If
+                            Next
+                        Next
+                    End If
+                    If line = "[Optimize]" Then
+                        Dim range_list() As String = sr.ReadLine.Split(",")
+                        If range_list(0) = 1 Then
+                            CheckBox3.Checked = True
+                        Else
+                            CheckBox3.Checked = False
+                        End If
+                        NumericUpDown2.Value = CInt(range_list(1))
+                    End If
+                    If line = "[Fossils]" Then
+                        Dim range_list() As String = sr.ReadLine.Split(",")
+                        For i As Integer = 0 To DataGridView2.Rows.Count - 1
+                            DataGridView2.Rows(i).Cells(2).Value = range_list(i)
+                        Next
+                    End If
+                    If line = "[Include]" Then
+                        ListBox1.Items.Clear()
+                        line = sr.ReadLine
+                        If line <> "" Then
+                            Dim range_list() As String = line.Split(",")
+                            For Each i As String In range_list
+                                If i <> "" Then
+                                    ListBox1.Items.Add(i)
+                                End If
+                            Next
+                        End If
+                    End If
+                    If line = "[Exclude]" Then
+                        ListBox2.Items.Clear()
+                        line = sr.ReadLine
+                        If line <> "" Then
+                            Dim range_list() As String = line.Split(",")
+                            For Each i As String In range_list
+                                If i <> "" Then
+                                    ListBox2.Items.Add(i)
+                                End If
+                            Next
+                        End If
+                    End If
+                    line = sr.ReadLine
+                Loop
+                sr.Close()
+            End If
+        Catch ex As Exception
+            MsgBox("Could not load setting!")
+        End Try
     End Sub
 End Class

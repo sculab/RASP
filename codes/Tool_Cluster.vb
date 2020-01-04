@@ -790,7 +790,7 @@ Public Class Tool_Cluster
         End If
     End Sub
     Public Sub load_trees()
-        Dim sr As New StreamReader(root_path + "temp" + path_char + "clean_num.trees")
+        Dim sr As New StreamReader(root_path + "temp" + path_char + "clean_num_p.trees")
         Dim line As String = sr.ReadLine
         list_trees.Clear()
         Do
@@ -1203,47 +1203,51 @@ Public Class Tool_Cluster
 
     Private Sub TripleDistanceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TripleDistanceToolStripMenuItem.Click
         If dtView.Count <= 400 Then
-            If File.Exists(root_path + "temp\mpest.end") Then
-                File.Delete(root_path + "temp\mpest.end")
-            End If
-            Dim sr As New StreamReader(root_path + "temp\clean_num.trees")
-            Dim sw_mpsettree As New StreamWriter(root_path + "temp\mpest.trees")
-            Dim line As String = sr.ReadLine()
-            Do
-                sw_mpsettree.WriteLine(line.Replace("(", "(T").Replace(",", ",T").Replace("T(", "("))
-                line = sr.ReadLine()
-            Loop Until line Is Nothing
-            sw_mpsettree.Close()
-            sr.Close()
+            If MainWindow.TreeBox.Text = MainWindow.TreeBox_P.Text Then
+                If File.Exists(root_path + "temp\mpest.end") Then
+                    File.Delete(root_path + "temp\mpest.end")
+                End If
+                Dim sr As New StreamReader(root_path + "temp\clean_num.trees")
+                Dim sw_mpsettree As New StreamWriter(root_path + "temp\mpest.trees")
+                Dim line As String = sr.ReadLine()
+                Do
+                    sw_mpsettree.WriteLine(line.Replace("(", "(T").Replace(",", ",T").Replace("T(", "("))
+                    line = sr.ReadLine()
+                Loop Until line Is Nothing
+                sw_mpsettree.Close()
+                sr.Close()
 
-            Dim sw As New StreamWriter(root_path + "temp\contrl.txt")
-            sw.WriteLine("mpest.trees")
-            sw.WriteLine("1")
-            sw.WriteLine("-1")
-            sw.WriteLine("1")
-            sw.WriteLine(list_trees.Count.ToString + " " + list_trees(0).Taxon_Number.ToString)
-            For i As Integer = 1 To list_trees(0).Taxon_Number
-                sw.WriteLine("T" + i.ToString + " 1 " + "T" + i.ToString)
-            Next
-            sw.WriteLine("0")
-            sw.Close()
-            Dim sw_run As New StreamWriter(root_path + "temp\run_mpest.bat", False, System.Text.Encoding.Default)
-            sw_run.WriteLine("""" + root_path + "Plug-ins\mpest.exe" + """" + " contrl.txt")
-            sw_run.WriteLine("echo end>mpest.end")
-            sw_run.WriteLine("exit")
-            sw_run.Close()
-            timer_id = 7
-            dist_type = "mpest"
-            dist_info = "Using " + TripleDistanceToolStripMenuItem.Text
-            current_dir = Directory.GetCurrentDirectory
-            Directory.SetCurrentDirectory(root_path + "temp\")
-            Dim startInfo As New ProcessStartInfo
-            startInfo.FileName = "run_mpest.bat"
-            startInfo.WorkingDirectory = root_path + "temp"
-            startInfo.UseShellExecute = False
-            startInfo.CreateNoWindow = HideCMDWindowToolStripMenuItem.Checked
-            Process.Start(startInfo)
-            Directory.SetCurrentDirectory(current_dir)
+                Dim sw As New StreamWriter(root_path + "temp\contrl.txt")
+                sw.WriteLine("mpest.trees")
+                sw.WriteLine("1")
+                sw.WriteLine("-1")
+                sw.WriteLine("1")
+                sw.WriteLine(list_trees.Count.ToString + " " + list_trees(0).Taxon_Number.ToString)
+                For i As Integer = 1 To list_trees(0).Taxon_Number
+                    sw.WriteLine("T" + i.ToString + " 1 " + "T" + i.ToString)
+                Next
+                sw.WriteLine("0")
+                sw.Close()
+                Dim sw_run As New StreamWriter(root_path + "temp\run_mpest.bat", False, System.Text.Encoding.Default)
+                sw_run.WriteLine("""" + root_path + "Plug-ins\mpest.exe" + """" + " contrl.txt")
+                sw_run.WriteLine("echo end>mpest.end")
+                sw_run.WriteLine("exit")
+                sw_run.Close()
+                timer_id = 7
+                dist_type = "mpest"
+                dist_info = "Using " + TripleDistanceToolStripMenuItem.Text
+                current_dir = Directory.GetCurrentDirectory
+                Directory.SetCurrentDirectory(root_path + "temp\")
+                Dim startInfo As New ProcessStartInfo
+                startInfo.FileName = "run_mpest.bat"
+                startInfo.WorkingDirectory = root_path + "temp"
+                startInfo.UseShellExecute = False
+                startInfo.CreateNoWindow = HideCMDWindowToolStripMenuItem.Checked
+                Process.Start(startInfo)
+                Directory.SetCurrentDirectory(current_dir)
+            Else
+                MsgBox("The mp-est could only handle binary trees.")
+            End If
         Else
             MsgBox("The mp-est included in RASP could not handle more than 400 species.")
         End If

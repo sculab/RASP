@@ -315,6 +315,7 @@ Public Class Config_BGB
                 Next
                 Dim Tempchar() As Char = RangeStr.ToUpper
                 NumericUpDown2.Maximum = RangeStr.Length
+
                 Array.Sort(Tempchar)
                 DataGridView1.Columns.Clear()
                 DataGridView1.Rows.Clear()
@@ -1237,7 +1238,9 @@ Public Class Config_BGB
         temp_range(0) = ""
         For i As Integer = 0 To ListBox2.Items.Count - 1
             ReDim Preserve temp_range(temp_range.Length)
-            temp_range(UBound(temp_range)) = ListBox2.Items(i)
+            If Array.IndexOf(Distribution, ListBox2.Items(i)) < 0 Then
+                temp_range(UBound(temp_range)) = ListBox2.Items(i)
+            End If
         Next
 
         For i As Integer = 0 To UBound(temp_range)

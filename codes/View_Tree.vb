@@ -2298,9 +2298,9 @@ Public Class View_Tree
     End Sub
     Dim savingpic As Boolean = False
     Private Sub SaveTreeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveTreeToolStripMenuItem.Click
-        Try
+        'Try
 
-            Dim sfd As New SaveFileDialog
+        Dim sfd As New SaveFileDialog
             sfd.Filter = "PNG Files(*.png)|*.png;*.PNG|SVG (Adobe Illustrator)|*.svg;*.SVG|Windows Metafile(*.emf)|*.emf;*.EMF|ALL Files(*.*)|*.*"
             sfd.FileName = ""
             sfd.DefaultExt = ".png"
@@ -2379,9 +2379,9 @@ Public Class View_Tree
 
                 MsgBox("Save Successfully!", MsgBoxStyle.Information)
             End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+        'Catch ex As Exception
+        '    MsgBox(ex.Message)
+        'End Try
     End Sub
 
     Private Sub SaveLegendToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveLegendToolStripMenuItem.Click

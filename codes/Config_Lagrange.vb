@@ -346,23 +346,21 @@ Public Class Config_Lagrange
                     temp_range(UBound(temp_range)) = Distributiton_to_Binary(DataGridView5.Rows(j).Cells(2).Value, RangeStr.Length)
                 End If
             Next
-            'If CheckBox1.Checked Then
-            '    For Each i As String In Distribution
-            '        If i.Length >= 3 Then
-            '            If Array.IndexOf(temp_range, Distributiton_to_Binary(i, RangeStr.Length)) = -1 Then
-            '                ReDim Preserve temp_range(temp_range.Length)
-            '                temp_range(UBound(temp_range)) = Distributiton_to_Binary(i, RangeStr.Length)
-            '            End If
-            '            For Each j As Char In i
-            '                If Array.IndexOf(temp_range, Distributiton_to_Binary(i.Replace(j, ""), RangeStr.Length)) = -1 _
-            '                    And Array.IndexOf(excluded_ranges.Split(" "), Distributiton_to_Binary(i.Replace(j, ""), RangeStr.Length)) = -1 Then
-            '                    ReDim Preserve temp_range(temp_range.Length)
-            '                    temp_range(UBound(temp_range)) = Distributiton_to_Binary(i.Replace(j, ""), RangeStr.Length)
-            '                End If
-            '            Next
-            '        End If
-            '    Next
-            'End If
+            For Each i As String In Distribution
+                'If i.Length >= 3 Then
+                If Array.IndexOf(temp_range, Distributiton_to_Binary(i, RangeStr.Length)) = -1 Then
+                    ReDim Preserve temp_range(temp_range.Length)
+                    temp_range(UBound(temp_range)) = Distributiton_to_Binary(i, RangeStr.Length)
+                End If
+                '    For Each j As Char In i
+                '        If Array.IndexOf(temp_range, Distributiton_to_Binary(i.Replace(j, ""), RangeStr.Length)) = -1 _
+                '            And Array.IndexOf(excluded_ranges.Split(" "), Distributiton_to_Binary(i.Replace(j, ""), RangeStr.Length)) = -1 Then
+                '            ReDim Preserve temp_range(temp_range.Length)
+                '            temp_range(UBound(temp_range)) = Distributiton_to_Binary(i.Replace(j, ""), RangeStr.Length)
+                '        End If
+                '    Next
+                'End If
+            Next
             Array.Sort(temp_range)
             For i As Integer = 0 To UBound(temp_range)
                 include_ranges += temp_range(i) + " "
@@ -464,7 +462,7 @@ Public Class Config_Lagrange
                     ListBox4.Items.Add(TaxonName(i))
                 Next
                 Dim Tempchar() As Char = RangeStr.ToUpper
-                NumericUpDown2.Maximum = RangeStr.Length
+                NumericUpDown2.Maximum = Math.Min(RangeStr.Length, 9)
                 Array.Sort(Tempchar)
                 DataGridView1.Columns.Clear()
                 DataGridView1.Rows.Clear()

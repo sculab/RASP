@@ -185,7 +185,7 @@ Partial Class Config_Lagrange
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(436, 334)
+        Me.DataGridView1.Size = New System.Drawing.Size(436, 337)
         Me.DataGridView1.TabIndex = 24
         '
         'NumericUpDown2
@@ -283,7 +283,7 @@ Partial Class Config_Lagrange
         'Button10
         '
         Me.Button10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button10.Location = New System.Drawing.Point(580, 336)
+        Me.Button10.Location = New System.Drawing.Point(578, 307)
         Me.Button10.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(72, 26)
@@ -302,7 +302,7 @@ Partial Class Config_Lagrange
         Me.DataGridView3.Name = "DataGridView3"
         Me.DataGridView3.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView3.RowTemplate.Height = 23
-        Me.DataGridView3.Size = New System.Drawing.Size(152, 262)
+        Me.DataGridView3.Size = New System.Drawing.Size(152, 235)
         Me.DataGridView3.TabIndex = 1
         '
         'Button6
@@ -319,7 +319,7 @@ Partial Class Config_Lagrange
         'Button9
         '
         Me.Button9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button9.Location = New System.Drawing.Point(500, 336)
+        Me.Button9.Location = New System.Drawing.Point(500, 307)
         Me.Button9.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(72, 26)
@@ -372,7 +372,7 @@ Partial Class Config_Lagrange
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView2.RowTemplate.Height = 23
-        Me.DataGridView2.Size = New System.Drawing.Size(494, 362)
+        Me.DataGridView2.Size = New System.Drawing.Size(494, 337)
         Me.DataGridView2.TabIndex = 1
         '
         'TabPage3

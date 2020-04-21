@@ -66,17 +66,17 @@ Public Class Config_Traits
 
         If MainWindow.CheckBox3.Checked Then
             make_rand_tree()
-            export_omitted(root_path + "temp\trait.trees", root_path + "temp" + path_char + "random_clean_num.trees")
+            export_omitted(root_path + "temp\trait.trees", root_path + "temp" + path_char + "random_clean_num.trees", True)
         Else
-            export_omitted(root_path + "temp\trait.trees", root_path + "temp" + path_char + "clean_num.trees")
+            export_omitted(root_path + "temp\trait.trees", root_path + "temp" + path_char + "clean_num.trees", False)
         End If
         Dim dw As New StreamWriter(root_path + "temp\trait.dat", False)
         For i As Integer = 1 To dtView.Count
-            dtView.Item(i - 1).Item(state_index) = dtView.Item(i - 1).Item(state_index).ToString.Replace(" ", "")
+            dtView.Item(i - 1).Item(state_index) = dtView.Item(i - 1).Item(state_index).ToString.ToUpper.Replace(" ", "")
             If dtView.Item(i - 1).Item(state_index) = "" Or dtView.Item(i - 1).Item(state_index) = "\" Then
                 dw.WriteLine(dtView.Item(i - 1).Item(0).ToString + "	" + "-")
             Else
-                dw.WriteLine(dtView.Item(i - 1).Item(0).ToString + "	" + dtView.Item(i - 1).Item(state_index))
+                dw.WriteLine(dtView.Item(i - 1).Item(0).ToString + "	" + dtView.Item(i - 1).Item(state_index).ToString.ToUpper)
             End If
         Next
         dw.Close()
@@ -146,7 +146,7 @@ Public Class Config_Traits
         ProgressBar1.Value = 0
 
     End Sub
-    Public Sub export_omitted(ByVal export_file_name As String, ByVal source_file_name As String)
+    Public Sub export_omitted(ByVal export_file_name As String, ByVal source_file_name As String, ByVal is_rand As Boolean)
         Dim wt As New StreamWriter(export_file_name, False)
         wt.WriteLine("#NEXUS")
         wt.WriteLine("")
@@ -169,10 +169,13 @@ Public Class Config_Traits
         Dim rt As New StreamReader(source_file_name)
         Dim line As String
         Dim tree_num As Integer = 1
-        For i As Integer = 1 To CInt(MainWindow.BurninBox.Text)
-            line = rt.ReadLine
-            tree_num = tree_num + 1
-        Next
+        If is_rand = False Then
+            For i As Integer = 1 To CInt(MainWindow.BurninBox.Text)
+                line = rt.ReadLine
+                tree_num = tree_num + 1
+            Next
+        End If
+
         line = rt.ReadLine
         Do
             wt.WriteLine("tree TREE_" + tree_num.ToString + " = " + line)

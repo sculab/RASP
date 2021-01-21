@@ -4,12 +4,12 @@ Imports System.Runtime.InteropServices
 Imports System.Globalization.CultureInfo
 Module Module_Var
     Public Version As String = "4.2"
-    Public build As String = "20200401"
+    Public build As String = "20210121"
     Public enableMin As Boolean = True
     Public Global_seed As Integer = "20180127"
     Public isDebug As Boolean = False
     Public ci As System.Globalization.CultureInfo = New System.Globalization.CultureInfo("en-us")
-#Const TargetOS = "win32"
+#Const TargetOS = "macos"
 #If TargetOS = "linux" Then
     Public TargetOS As String = "linux"
 #ElseIf TargetOS = "macos" Then
@@ -37,6 +37,8 @@ Module Module_Var
     Public Lag_con_made As Boolean = False
     Public BGB_con_made As Boolean = False
     Public RangeStr As String = ""
+    Public Tree_Node_Num As Integer
+    Public Select_Node_Num As Integer
     Public BayesForm As New Config_BBM
     Public TracerForm As New View_Tracer
     Public CombineForm As New Tool_Combine

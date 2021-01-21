@@ -22,6 +22,7 @@ Partial Class Config_BBM
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Config_BBM))
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
@@ -63,6 +64,8 @@ Partial Class Config_BBM
         Me.Label12 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.BayesTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -99,7 +102,7 @@ Partial Class Config_BBM
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(290, 310)
+        Me.Button1.Location = New System.Drawing.Point(409, 310)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 24)
         Me.Button1.TabIndex = 48
@@ -280,7 +283,7 @@ Partial Class Config_BBM
         Me.TextBox8.Name = "TextBox8"
         Me.TextBox8.Size = New System.Drawing.Size(52, 21)
         Me.TextBox8.TabIndex = 62
-        Me.TextBox8.Text = "200"
+        Me.TextBox8.Text = "100"
         '
         'GroupBox1
         '
@@ -393,8 +396,8 @@ Partial Class Config_BBM
         'DataGridView2
         '
         Me.DataGridView2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Location = New System.Drawing.Point(6, 20)
         Me.DataGridView2.Name = "DataGridView2"
@@ -476,12 +479,26 @@ Partial Class Config_BBM
         Me.TextBox9.TabIndex = 46
         Me.TextBox9.Visible = False
         '
+        'BayesTimer
+        '
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Location = New System.Drawing.Point(290, 314)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(102, 19)
+        Me.CheckBox2.TabIndex = 76
+        Me.CheckBox2.Text = "Large dataset"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
         'Config_BBM
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(571, 341)
         Me.ControlBox = False
+        Me.Controls.Add(Me.CheckBox2)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -509,6 +526,7 @@ Partial Class Config_BBM
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
@@ -551,4 +569,6 @@ Partial Class Config_BBM
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
     Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
+    Friend WithEvents BayesTimer As Timer
+    Friend WithEvents CheckBox2 As CheckBox
 End Class

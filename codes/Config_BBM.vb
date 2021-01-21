@@ -10,9 +10,8 @@ Public Class Config_BBM
     <DllImport("BAYESDLL.dll")> Public Shared Function runbayes(ByVal nexpath As String, ByRef genno As Integer) As Integer
     End Function
 #End If
-    Dim commandlines(1024) As String
-    Dim Select_Node_Num As Integer
-    Dim Tree_Node_Num As Integer
+    Dim commandlines(5) As String
+    Dim cmd_lines As Integer
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Dim isselectnode As Boolean = False
         For i As Integer = 1 To nodeView.Count
@@ -45,11 +44,11 @@ Public Class Config_BBM
                 End Try
             End If
             k += 1
-        Loop Until k = 512
+        Loop Until File.Exists(root_path + "temp" + path_char + "Clade" + k.ToString + ".r") = False
         Dim usertree As Boolean = False
-        If final_tree.Replace(",", "").Length = final_tree.Replace("(", "").Length Then
-            usertree = True
-        End If
+        'If final_tree.Replace(",", "").Length = final_tree.Replace("(", "").Length Then
+        '    usertree = True
+        'End If
         Dim node_count As Integer = final_tree.Length - final_tree.Replace("(", "").Length
         bayesIsrun = True
         MainWindow.CmdBox.AppendText(vbCrLf + "**************************" + vbCrLf)
@@ -58,24 +57,22 @@ Public Class Config_BBM
         MainWindow.CmdBox.AppendText("Process begin at " + Date.Now.ToString + vbCrLf)
 
         Read_Poly_Node(final_tree.Replace(";", ""))
-        For i As Integer = 0 To 1024
-            commandlines(i) = ""
-        Next
+
         'If node_count < 512 Then
         commandlines(0) = "outgroup " + (taxon_num + 2).ToString
         Select Case ComboBox1.Text
             Case "Fixed (JC)" 'JC model
-                commandlines(100) = "lset nst=1 rates=equal"
+                commandlines(1) = "lset nst=1 rates=equal"
             Case "Estimated (F81)" 'F81 model
-                commandlines(100) = "lset nst=1 rates=equal"
-                commandlines(101) = "prset statefreqpr=dirichlet(" + TextBox5.Text + "," + TextBox6.Text + ")"
+                commandlines(1) = "lset nst=1 rates=equal"
+                commandlines(2) = "prset statefreqpr=dirichlet(" + TextBox5.Text + "," + TextBox6.Text + ")"
         End Select
 
         Select Case ComboBox2.Text
             Case "Equal"
             Case "Gamma (+G)" '+G
-                commandlines(102) = "lset nst=1 rates=gamma"
-                commandlines(103) = "prset Shapepr=Uniform(" + TextBox7.Text + "," + TextBox8.Text + ")"
+                commandlines(3) = "lset nst=1 rates=gamma"
+                commandlines(4) = "prset Shapepr=Uniform(" + TextBox7.Text + "," + TextBox8.Text + ")"
         End Select
         Select Case ComboBox1.Text + ComboBox2.Text
             Case "Fixed (JC)" + "Equal"
@@ -97,39 +94,62 @@ Public Class Config_BBM
                 Select_Node_list(Select_Node_Num) = i
             End If
         Next
-            commandlines(1019) = "prset topologypr=constraints("
-            For i As Integer = 1 To nodeView.Count
-                If DataGridView2.Rows(i - 1).Cells(2).FormattedValue.ToString = "True" Then
-                commandlines(200 + i) = "constraint c" + i.ToString + " -1 = " + Poly_Node(i - 1, 3).Replace(",", " ")
-                    commandlines(1019) = commandlines(1019) + "c" + i.ToString + ","
-                End If
-            Next
-       
+        cmd_lines = 5 + nodeView.Count
+        ReDim Preserve commandlines(cmd_lines + 8)
+        commandlines(cmd_lines) = "prset topologypr=constraints("
+        For i As Integer = 1 To nodeView.Count
+            If DataGridView2.Rows(i - 1).Cells(2).FormattedValue.ToString = "True" Then
+                commandlines(4 + i) = "constraint c" + i.ToString + " -1 = " + Poly_Node(i - 1, 3).Replace(",", " ")
+                commandlines(cmd_lines) += "c" + i.ToString + ","
+            End If
+        Next
 
-        commandlines(1017) = "lset coding=variable"
-        commandlines(1018) = "set autoclose=yes nowarn=yes"
-        commandlines(1019) = (commandlines(1019) + ")").Replace(",)", ")")
-        commandlines(1020) = "report ancstates=yes"
+        commandlines(cmd_lines) = (commandlines(cmd_lines) + ")").Replace(",)", ")")
+
+        commandlines(cmd_lines + 1) = "lset coding=variable"
+        commandlines(cmd_lines + 2) = "set autoclose=yes nowarn=yes"
+        commandlines(cmd_lines + 4) = "report ancstates=yes"
         If usertree Then
-            commandlines(1021) = "usertree = (" + final_tree.Replace(";", "") + "," + (taxon_num + 1).ToString + "," + (taxon_num + 2).ToString + ")"
-            commandlines(1022) = "mcmc" + " startingtree=user Ordertaxa=Yes Samplefreq=" + TextBox1.Text + " ngen=" + TextBox3.Text + " nchains=" + NumericUpDown2.Text + " Temp=" + TextBox2.Text
+            commandlines(cmd_lines + 5) = "usertree = (" + final_tree.Replace(";", "") + "," + (taxon_num + 1).ToString + "," + (taxon_num + 2).ToString + ")"
+            commandlines(cmd_lines + 6) = "mcmc" + " startingtree=user Ordertaxa=Yes printfreq=1000 diagnfreq=1000 Samplefreq=" + TextBox1.Text + " ngen=" + TextBox3.Text + " nchains=" + NumericUpDown2.Text + " Temp=" + TextBox2.Text
         Else
-            commandlines(1021) = ""
-            commandlines(1022) = "mcmc" + " Ordertaxa=Yes Samplefreq=" + TextBox1.Text + " ngen=" + TextBox3.Text + " nchains=" + NumericUpDown2.Text + " Temp=" + TextBox2.Text
+            commandlines(cmd_lines + 5) = ""
+            commandlines(cmd_lines + 6) = "mcmc" + " printfreq=1000 diagnfreq=1000 Ordertaxa=Yes Samplefreq=" + TextBox1.Text + " ngen=" + TextBox3.Text + " nchains=" + NumericUpDown2.Text + " Temp=" + TextBox2.Text
         End If
-        commandlines(1023) = "[burnin=" + TextBox4.Text + ",taxonnum=" + RangeStr.Length.ToString + ",node_num=" + node_count.ToString + "]"
-        If Write_Bayes_nex("clade1.nex", 1024) = 0 Then
+        commandlines(cmd_lines + 7) = "[burnin=" + TextBox4.Text + ",taxonnum=" + RangeStr.Length.ToString + ",node_num=" + node_count.ToString + "]"
+        If Write_Bayes_nex("clade1.nex", cmd_lines + 8) = 0 Then
             show_pie = "bayes"
             current_dir = Directory.GetCurrentDirectory
             Directory.SetCurrentDirectory(root_path)
-            MainWindow.CmdBox.AppendText("Using command: " + commandlines(1022) + vbCrLf)
+            MainWindow.CmdBox.AppendText("Using command: " + commandlines(cmd_lines + 6) + vbCrLf)
             MainWindow.ProgressBar1.Maximum = CInt(TextBox3.Text)
             MainWindow.Bayes_Timer.Enabled = True
             Me.Hide()
             StartTreeView = False
-            Dim lb As New Thread(AddressOf loadbayes)
-            lb.CurrentCulture = ci
-            lb.Start()
+            If CheckBox2.Checked Then
+                If File.Exists(root_path + "temp" + path_char + "clade_b.log") Then
+                    File.Delete(root_path + "temp" + path_char + "clade_b.log")
+                End If
+                File.Create(root_path + "temp" + path_char + "clade_b.log").Close()
+                Dim dw2 As New StreamWriter(root_path + "temp\run_bbm.bat", False)
+                dw2.WriteLine("""" + root_path + "Plug-ins\mb.3.2.7-win32" + """" + " clade1.nex")
+                dw2.WriteLine("cls>endbbm")
+                dw2.Close()
+                bayes_gen = 0
+                current_dir = Directory.GetCurrentDirectory
+                Directory.SetCurrentDirectory(root_path + "temp\")
+                Dim startInfo As New ProcessStartInfo
+                startInfo.FileName = "run_bbm.bat"
+                startInfo.WorkingDirectory = root_path + "temp"
+                startInfo.UseShellExecute = False
+                startInfo.CreateNoWindow = False
+                Process.Start(startInfo)
+                Directory.SetCurrentDirectory(current_dir)
+            Else
+                Dim lb As New Thread(AddressOf loadbayes)
+                lb.CurrentCulture = ci
+                lb.Start()
+            End If
         Else
             MainWindow.CmdBox.AppendText("Process Canceled!")
         End If
@@ -144,128 +164,7 @@ Public Class Config_BBM
         build_result()
         bayes_gen = -1
     End Sub
-    Public Sub build_result()
-        Dim burnin, char_num, node_num As Integer
-        Dim sr As StreamReader
-        Dim line As String = ""
-        sr = New StreamReader(root_path + "temp" + path_char + "clade1.nex")
-        Do
-            line = sr.ReadLine
-        Loop Until line.StartsWith("[")
-        sr.Close()
-        line = line.Replace("[", "").Replace("]", "")
-        burnin = CInt(line.Split(New Char() {","c})(0).Split(New Char() {"="c})(1))
-        char_num = CInt(line.Split(New Char() {","c})(1).Split(New Char() {"="c})(1))
-        Tree_Node_Num = CInt(line.Split(New Char() {","c})(2).Split(New Char() {"="c})(1))
-        node_num = Select_Node_Num
-        read_result("clade1.nex.run1.p", burnin, char_num, node_num)
-        read_result("clade1.nex.run2.p", burnin, char_num, node_num)
-        build_final(char_num, Tree_Node_Num)
-    End Sub
-    Public Sub read_result(ByVal file As String, ByVal burnin As Integer, ByVal char_num As Integer, ByVal node_num As Integer)
-        Dim P_result(,,) As Single
-        Dim withG As Integer = 0
-        ReDim P_result(char_num, 1, node_num)
-        Dim sr As StreamReader
-        Dim line_count(,,) As Integer
-        ReDim line_count(char_num, 1, node_num)
-        sr = New StreamReader(root_path + "temp" + path_char + file)
-        Dim line As String = ""
-        line = sr.ReadLine()
-        line = sr.ReadLine()
-        If line.Split(New Char() {"	"c})(5).ToLower = "alpha" Then
-            withG = 1
-        End If
-        For i As Integer = 1 To burnin + 1
-            sr.ReadLine()
-        Next
-        line = sr.ReadLine()
-        Do
-            Dim P_char() As String = line.Split(New Char() {"	"c})
-            bayes_gen = CInt(P_char(0))
-            For i As Integer = 1 To char_num
-                For j As Integer = 1 To node_num
-                    If IsNumeric(P_char((i - 1) * 2 + 5 + withG + (j - 1) * char_num * 2)) Then
-                        P_result(i, 0, j) += Val(P_char((i - 1) * 2 + 5 + withG + (j - 1) * char_num * 2))
-                        line_count(i, 0, j) += 1
-                    End If
-                    If IsNumeric(P_char((i - 1) * 2 + 6 + withG + (j - 1) * char_num * 2)) Then
-                        P_result(i, 1, j) += Val(P_char((i - 1) * 2 + 6 + withG + (j - 1) * char_num * 2))
-                        line_count(i, 1, j) += 1
-                    End If
-                Next
-            Next
-            line = sr.ReadLine()
 
-        Loop Until line = ""
-        sr.Close()
-        Dim sw As StreamWriter
-        sw = New StreamWriter(root_path + "temp" + path_char + "clade_b.log", True)
-            For j As Integer = 1 To Tree_Node_Num
-                Dim temp_index As Integer = Array.IndexOf(Select_Node_list, j.ToString)
-                If temp_index > 0 Then
-                    sw.Write("clade" + j.ToString + file.Replace("clade1.nex", "") + " =")
-                    For i As Integer = 1 To char_num
-                        sw.Write("	" + (P_result(i, 0, temp_index) / line_count(i, 0, temp_index)).ToString("F6") + "	" + (P_result(i, 1, temp_index) / line_count(i, 1, temp_index)).ToString("F6"))
-                    Next
-                Else
-                    sw.Write("clade" + j.ToString + file.Replace("clade1.nex", "") + " =")
-                    For i As Integer = 1 To char_num
-                        sw.Write("	1	0")
-                    Next
-                End If
-                sw.WriteLine("")
-            Next
-      
-        sw.WriteLine("------------------")
-        sw.Close()
-    End Sub
-    Public Sub build_final(ByVal char_num As Integer, ByVal node_num As Integer)
-        Dim run1(,) As Single
-        Dim run2(,) As Single
-        ReDim run1(node_num, char_num * 2)
-        ReDim run2(node_num, char_num * 2)
-        Dim sr As StreamReader
-        sr = New StreamReader(root_path + "temp" + path_char + "clade_b.log", True)
-        Dim line As String
-        line = sr.ReadLine
-        Dim l As Integer = 1
-        Do
-            Dim plist() As String = line.Split(New Char() {"	"c})
-            For i As Integer = 1 To UBound(plist)
-                run1(l, i) = Val(plist(i))
-            Next
-            l += 1
-            line = sr.ReadLine
-        Loop Until line.StartsWith("-")
-
-        line = sr.ReadLine
-        l = 1
-        Do
-            Dim plist() As String = line.Split(New Char() {"	"c})
-            For i As Integer = 1 To UBound(plist)
-                run2(l, i) = Val(plist(i))
-            Next
-            l += 1
-            line = sr.ReadLine
-        Loop Until line.StartsWith("-")
-        sr.Close()
-
-        Dim sw As StreamWriter
-        sw = New StreamWriter(root_path + "temp" + path_char + "clade_b.log", True)
-
-        For j As Integer = 1 To Tree_Node_Num
-
-            sw.Write("clade" + j.ToString + " =")
-
-            For i As Integer = 1 To char_num * 2
-                sw.Write("	" + ((run1(j, i) + run2(j, i)) / 2).ToString("F6"))
-            Next
-            sw.WriteLine("")
-        Next
-        sw.WriteLine("------------------")
-        sw.Close()
-    End Sub
     Private Sub BAYES_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         e.Cancel = True
         Me.Hide()
@@ -275,12 +174,36 @@ Public Class Config_BBM
         Dim sr As New StreamWriter(root_path + "temp" + path_char + nex_name, False)
         sr.WriteLine("#NEXUS")
         sr.WriteLine("Begin data;")
-        sr.WriteLine("Dimensions ntax=" + (taxon_num + 2).ToString + " nchar=" + RangeStr.Length.ToString + ";")
+        If CheckBox2.Checked Then
+            sr.WriteLine("Dimensions ntax=" + (taxon_num + 3).ToString + " nchar=" + RangeStr.Length.ToString + ";")
+        Else
+            sr.WriteLine("Dimensions ntax=" + (taxon_num + 2).ToString + " nchar=" + RangeStr.Length.ToString + ";")
+        End If
         sr.WriteLine("Format datatype=restriction;")
         sr.WriteLine("Matrix")
         For i As Integer = 1 To dtView.Count
             sr.WriteLine("TID" + dtView.Item(i - 1).Item(0).ToString + "    " + Distributiton_to_Binary(dtView.Item(i - 1).Item(state_index).ToString, RangeStr.Length))
         Next
+        If CheckBox2.Checked Then
+            Select Case ComboBox3.Text
+                Case "Null"
+                    sr.WriteLine("OG0" + "    " + Distributiton_to_Binary("", RangeStr.Length))
+                Case "Wide"
+                    sr.WriteLine("OG0" + "    " + Distributiton_to_Binary(RangeStr, RangeStr.Length))
+                Case Else
+                    If TextBox9.Text <> "" Then
+                        TextBox9.Text = TextBox9.Text.ToUpper
+                        For Each i As Char In TextBox9.Text
+                            If RangeStr.Contains(i.ToString) = False Then
+                                sr.Close()
+                                MsgBox("Error of custom distributiton!")
+                                Return -1
+                            End If
+                        Next
+                    End If
+                    sr.WriteLine("OG0" + "    " + Distributiton_to_Binary(TextBox9.Text, RangeStr.Length))
+            End Select
+        End If
         Select Case ComboBox3.Text
             Case "Null"
                 sr.WriteLine("OG1" + "    " + Distributiton_to_Binary("", RangeStr.Length))
@@ -323,6 +246,9 @@ Public Class Config_BBM
 
     Private Sub BAYES_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         System.Threading.Thread.CurrentThread.CurrentCulture = ci
+        If taxon_num > 256 Then
+            CheckBox2.Checked = True
+        End If
         ComboBox1.SelectedIndex = 0
         ComboBox2.SelectedIndex = 0
         ComboBox3.SelectedIndex = 0
@@ -406,5 +332,9 @@ Public Class Config_BBM
                 DataGridView2.Rows(i - 1).Cells(2).Value = True
             End If
         Next
+    End Sub
+
+    Private Sub BayesTimer_Tick(sender As Object, e As EventArgs) Handles BayesTimer.Tick
+
     End Sub
 End Class

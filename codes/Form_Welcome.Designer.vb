@@ -40,7 +40,7 @@ Partial Class Form_Welcome
         '
         Me.Timer1.Interval = 10
         '
-        'Welcome
+        'Form_Welcome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -49,7 +49,7 @@ Partial Class Form_Welcome
         Me.Controls.Add(Me.ProgressBar1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Welcome"
+        Me.Name = "Form_Welcome"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Welcome"

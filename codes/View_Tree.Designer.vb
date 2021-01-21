@@ -30,6 +30,8 @@ Partial Class View_Tree
         Me.LoadResultToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveCurrentViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DispersalInformationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SupplementInformationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveTreeToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CurrentTreeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TreeWithTimeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -44,6 +46,7 @@ Partial Class View_Tree
         Me.OptionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ShowPieOnTerminalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToplogyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MostLikelyStatesOnlyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DisplayMostMLSInCenterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -104,8 +107,6 @@ Partial Class View_Tree
         Me.TabPage8 = New System.Windows.Forms.TabPage()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
-        Me.DispersalInformationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SupplementInformationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -190,6 +191,18 @@ Partial Class View_Tree
         Me.SaveInfoToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.SaveInfoToolStripMenuItem.Text = "Save Info"
         '
+        'DispersalInformationToolStripMenuItem
+        '
+        Me.DispersalInformationToolStripMenuItem.Name = "DispersalInformationToolStripMenuItem"
+        Me.DispersalInformationToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.DispersalInformationToolStripMenuItem.Text = "Dispersal Information"
+        '
+        'SupplementInformationToolStripMenuItem
+        '
+        Me.SupplementInformationToolStripMenuItem.Name = "SupplementInformationToolStripMenuItem"
+        Me.SupplementInformationToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.SupplementInformationToolStripMenuItem.Text = "Supplement Information"
+        '
         'SaveTreeToolStripMenuItem1
         '
         Me.SaveTreeToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CurrentTreeToolStripMenuItem, Me.TreeWithTimeToolStripMenuItem})
@@ -253,7 +266,7 @@ Partial Class View_Tree
         '
         'ViewToolStripMenuItem
         '
-        Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionToolStripMenuItem, Me.RefreshToolStripMenuItem, Me.ToolStripSeparator1, Me.ToplogyToolStripMenuItem, Me.MostLikelyStatesOnlyToolStripMenuItem, Me.DisplayMostMLSInCenterToolStripMenuItem, Me.KeyStatesOnlyToolStripMenuItem, Me.EventNodesOnlyToolStripMenuItem, Me.ToolStripSeparator2, Me.IncreaseTreeToolStripMenuItem, Me.SwapSubtreeToolStripMenuItem, Me.SwapWholeTreeToolStripMenuItem, Me.ToolStripSeparator4, Me.GoToToolStripMenuItem})
+        Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionToolStripMenuItem, Me.RefreshToolStripMenuItem, Me.ToolStripSeparator1, Me.ShowPieOnTerminalToolStripMenuItem, Me.ToplogyToolStripMenuItem, Me.MostLikelyStatesOnlyToolStripMenuItem, Me.DisplayMostMLSInCenterToolStripMenuItem, Me.KeyStatesOnlyToolStripMenuItem, Me.EventNodesOnlyToolStripMenuItem, Me.ToolStripSeparator2, Me.IncreaseTreeToolStripMenuItem, Me.SwapSubtreeToolStripMenuItem, Me.SwapWholeTreeToolStripMenuItem, Me.ToolStripSeparator4, Me.GoToToolStripMenuItem})
         Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
         Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(47, 21)
         Me.ViewToolStripMenuItem.Text = "View"
@@ -274,6 +287,14 @@ Partial Class View_Tree
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(249, 6)
+        '
+        'ShowPieOnTerminalToolStripMenuItem
+        '
+        Me.ShowPieOnTerminalToolStripMenuItem.CheckOnClick = True
+        Me.ShowPieOnTerminalToolStripMenuItem.DoubleClickEnabled = True
+        Me.ShowPieOnTerminalToolStripMenuItem.Name = "ShowPieOnTerminalToolStripMenuItem"
+        Me.ShowPieOnTerminalToolStripMenuItem.Size = New System.Drawing.Size(252, 22)
+        Me.ShowPieOnTerminalToolStripMenuItem.Text = "Show Pie on Terminal"
         '
         'ToplogyToolStripMenuItem
         '
@@ -385,7 +406,7 @@ Partial Class View_Tree
         Me.Panel2.Controls.Add(Me.PictureBox2)
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(192, 260)
+        Me.Panel2.Size = New System.Drawing.Size(192, 264)
         Me.Panel2.TabIndex = 4
         '
         'PictureBox2
@@ -442,7 +463,7 @@ Partial Class View_Tree
         Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage6.Size = New System.Drawing.Size(192, 242)
         Me.TabPage6.TabIndex = 0
-        Me.TabPage6.Text = "Legned"
+        Me.TabPage6.Text = "Legend"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
         'TabPage7
@@ -468,7 +489,7 @@ Partial Class View_Tree
         Me.ListView1.Location = New System.Drawing.Point(0, 0)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(192, 256)
+        Me.ListView1.Size = New System.Drawing.Size(192, 260)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -894,18 +915,6 @@ Partial Class View_Tree
         Me.RichTextBox1.TabIndex = 0
         Me.RichTextBox1.Text = ""
         '
-        'DispersalInformationToolStripMenuItem
-        '
-        Me.DispersalInformationToolStripMenuItem.Name = "DispersalInformationToolStripMenuItem"
-        Me.DispersalInformationToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
-        Me.DispersalInformationToolStripMenuItem.Text = "Dispersal Information"
-        '
-        'SupplementInformationToolStripMenuItem
-        '
-        Me.SupplementInformationToolStripMenuItem.Name = "SupplementInformationToolStripMenuItem"
-        Me.SupplementInformationToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
-        Me.SupplementInformationToolStripMenuItem.Text = "Supplement Information"
-        '
         'View_Tree
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -1039,4 +1048,5 @@ Partial Class View_Tree
 	Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents DispersalInformationToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SupplementInformationToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ShowPieOnTerminalToolStripMenuItem As ToolStripMenuItem
 End Class

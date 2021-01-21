@@ -3,7 +3,6 @@ Public Class Config_Traits
 
 
     Dim Select_Node_Num As Integer
-    Dim Tree_Node_Num As Integer
     Dim traits_result_path, traits_result_file As String
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Dim isselectnode As Boolean = False
@@ -352,32 +351,7 @@ Public Class Config_Traits
         If File.Exists(traits_result_path + "endtraits") Then
             File.Delete(traits_result_path + "endtraits")
             TimerTraits.Enabled = False
-            'RangeStr = ""
-            'For i As Integer = 1 To dtView.Count
-            '    For Each c As Char In dtView.Item(i - 1).Item(state_index).ToString.ToUpper
-            '        If Asc(c) >= Asc("A") And Asc(c) <= Asc("Z") Then
-            '            If RangeStr.Contains(c) = False Then
-            '                RangeStr = RangeStr + c.ToString
-            '            End If
-            '        ElseIf dtView.Item(i - 1).Item(state_index).ToString <> "-" And dtView.Item(i - 1).Item(state_index).ToString <> "\" Then
-            '            MsgBox("Distributions of Taxon " + dtView.Item(i - 1).Item(0).ToString + " should be letters!")
-            '            Exit Sub
-            '            MsgBox("Only result of Multistate could be load into RASP!")
-            '        End If
-            '    Next
-            'Next
-            'If RangeStr.Length = 1 Then
-            '    MsgBox("There should be two different areas at least!")
-            '    MsgBox("Only result of Multistate could be load into RASP!")
-            '    Exit Sub
-            'End If
-            'For Each c As Char In RangeStr.ToUpper
-            '    If AscW(c) - AscW("A") + 1 > RangeStr.Length Then
-            '        MsgBox("Distributions should be Continuous letters! Please alter area '" + c + "'.")
-            '        MsgBox("Only result of Multistate could be load into RASP!")
-            '        Exit Sub
-            '    End If
-            'Next
+
             If File.Exists(traits_result_file) Then
                 TraitsView.traits_view_file = traits_result_file
                 TraitsView.Show()
@@ -394,7 +368,7 @@ Public Class Config_Traits
 
                     File.Copy(traits_result_file, traits_result_path + "temp_count.txt")
                     Dim sr As New StreamReader(traits_result_path + "temp_count.txt")
-                    Dim line As String = ""
+                    Dim line As String
                     Dim conut_line As Integer = 0
                     Dim start_count As Boolean = False
                     If ComboBox1.SelectedIndex = 0 Then

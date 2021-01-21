@@ -26,6 +26,7 @@ Partial Class View_OptionForm
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.NumericUpDown16 = New System.Windows.Forms.NumericUpDown()
         Me.CheckBox8 = New System.Windows.Forms.CheckBox()
@@ -81,7 +82,6 @@ Partial Class View_OptionForm
         Me.CheckBox10 = New System.Windows.Forms.CheckBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.FontDialog3 = New System.Windows.Forms.FontDialog()
-        Me.Label18 = New System.Windows.Forms.Label()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.NumericUpDown16, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -143,6 +143,15 @@ Partial Class View_OptionForm
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Pies"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(187, 22)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(18, 15)
+        Me.Label18.TabIndex = 26
+        Me.Label18.Text = "%"
         '
         'Label17
         '
@@ -221,7 +230,7 @@ Partial Class View_OptionForm
         'NumericUpDown12
         '
         Me.NumericUpDown12.Location = New System.Drawing.Point(137, 72)
-        Me.NumericUpDown12.Maximum = New Decimal(New Integer() {5, 0, 0, 0})
+        Me.NumericUpDown12.Maximum = New Decimal(New Integer() {32, 0, 0, 0})
         Me.NumericUpDown12.Minimum = New Decimal(New Integer() {2, 0, 0, 0})
         Me.NumericUpDown12.Name = "NumericUpDown12"
         Me.NumericUpDown12.Size = New System.Drawing.Size(44, 21)
@@ -679,15 +688,6 @@ Partial Class View_OptionForm
         '
         Me.FontDialog3.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FontDialog3.ShowColor = True
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(187, 22)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(18, 15)
-        Me.Label18.TabIndex = 26
-        Me.Label18.Text = "%"
         '
         'View_OptionForm
         '

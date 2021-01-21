@@ -43,6 +43,9 @@ Public Class View_Tree
     '色卡
     Dim Color_S() As String
     Dim Color_B() As Brush
+
+    Dim Color_S_node() As String
+    Dim Color_B_node() As Brush
     '圆参数
     Dim pie_step As Single = 0.01
     Dim taxon_array() As String
@@ -577,6 +580,9 @@ Public Class View_Tree
         If StartTreeView Then
             'Try
             If Me.Visible = True And StartTreeView Then
+                If NumofTaxon > 128 Then
+                    File_zoom = 1
+                End If
                 draw_result = File.Exists(root_path + "temp" + path_char + "analysis_result.log")
                 If show_my_tree <> "" Then
                     draw_result = False
@@ -669,6 +675,8 @@ Public Class View_Tree
             ReDim Preserve Color_B(UBound(Color_S))
             Color_S(UBound(Color_S)) = ChrW(65 + i)
         Next
+        Color_S_node = Color_S.Clone
+        Color_B_node = Color_B.Clone
         For Each i As String In Distribution
             If Array.IndexOf(Color_S, sort_area(i)) < 0 Then
                 ReDim Preserve Color_S(UBound(Color_S) + 1)
@@ -707,23 +715,47 @@ Public Class View_Tree
         Next
     End Sub
     Public Sub load_color()
-        If Color_S.Length > 1 Then
-            Array.Sort(Color_S)
-            If data_type = 1 Then
-                SortNum(Color_S)
-            End If
-            ListView1.Items.Clear()
-            For i As Integer = 0 To Color_S.Length - 1
-                Color_B(i) = Int2Brushes(Distributiton_to_Integer(Color_S(i)))
-                ListView1.Items.Add(Color_S(i)).UseItemStyleForSubItems = False
-                With ListView1.Items(i).SubItems
-                    With .Add("Double Click")
-                        .BackColor = New Pen(Color_B(i)).Color
-                        .ForeColor = Color.WhiteSmoke
-                    End With
-                End With
-            Next
+
+        If data_type = 1 Then
+            SortNum(Color_S)
         End If
+        For i As Integer = 0 To Color_S.Length - 1
+            Color_B(i) = Int2Brushes(Distributiton_to_Integer(Color_S(i)))
+        Next
+        If data_type = 1 Then
+            SortNum(Color_S_node)
+        End If
+        For i As Integer = 0 To Color_S_node.Length - 1
+            Color_B_node(i) = Int2Brushes(Distributiton_to_Integer(Color_S_node(i)))
+        Next
+        ListView1.Items.Clear()
+        If ShowPieOnTerminalToolStripMenuItem.Checked Then
+            If Color_S_node.Length > 1 Then
+                For i As Integer = 0 To Color_S_node.Length - 1
+                    ListView1.Items.Add(Color_S_node(i)).UseItemStyleForSubItems = False
+                    With ListView1.Items(i).SubItems
+                        With .Add("Double Click")
+                            .BackColor = New Pen(Color_B_node(i)).Color
+                            .ForeColor = Color.WhiteSmoke
+                        End With
+                    End With
+                Next
+            End If
+        Else
+            If Color_S.Length > 1 Then
+                For i As Integer = 0 To Color_S.Length - 1
+                    ListView1.Items.Add(Color_S(i)).UseItemStyleForSubItems = False
+                    With ListView1.Items(i).SubItems
+                        With .Add("Double Click")
+                            .BackColor = New Pen(Color_B(i)).Color
+                            .ForeColor = Color.WhiteSmoke
+                        End With
+                    End With
+                Next
+            End If
+        End If
+        Array.Sort(Color_S, Color_B)
+        Array.Sort(Color_S_node, Color_B_node)
     End Sub
     Dim PROB_list(,) As Single
     Dim reconstr_path As String
@@ -1105,21 +1137,15 @@ Public Class View_Tree
                 ReDim Preserve Color_B(UBound(Color_S))
                 Color_S(UBound(Color_S)) = ChrW(65 + i)
             Next
-            For Each i As String In Distribution
-                If Array.IndexOf(Color_S, sort_area(i)) < 0 Then
-                    ReDim Preserve Color_S(UBound(Color_S) + 1)
-                    ReDim Preserve Color_B(UBound(Color_S))
-                    Color_S(UBound(Color_S)) = sort_area(i)
-                End If
-            Next
+            'For Each i As String In Distribution
+            '    If Array.IndexOf(Color_S, sort_area(i)) < 0 Then
+            '        ReDim Preserve Color_S(UBound(Color_S) + 1)
+            '        ReDim Preserve Color_B(UBound(Color_S))
+            '        Color_S(UBound(Color_S)) = sort_area(i)
+            '    End If
+            'Next
         End If
-        For Each i As String In Distribution
-            If Array.IndexOf(Color_S, sort_area(i)) < 0 Then
-                ReDim Preserve Color_S(UBound(Color_S) + 1)
-                ReDim Preserve Color_B(UBound(Color_S))
-                Color_S(UBound(Color_S)) = sort_area(i)
-            End If
-        Next
+
         For i As Integer = NumofNode * (result_ID - 1) To NumofNode * result_ID - 1
             Dim Templist() As String = Result_list(i).Split(New Char() {" "c})
             Dim Temp_array As Integer = 0
@@ -1148,7 +1174,17 @@ Public Class View_Tree
             Current_AreaP(i Mod NumofNode, Temp_array) = 100 - Temp_sum
             Current_AreaS(i Mod NumofNode, Temp_array) = "*"
         Next
+        Color_S_node = Color_S.Clone
+        Color_B_node = Color_B.Clone
+        For Each i As String In Distribution
+            If Array.IndexOf(Color_S, sort_area(i)) < 0 Then
+                ReDim Preserve Color_S(UBound(Color_S) + 1)
+                ReDim Preserve Color_B(UBound(Color_S))
+                Color_S(UBound(Color_S)) = sort_area(i)
+            End If
+        Next
         load_color()
+
     End Sub
 
     Private Sub TreeView_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
@@ -1501,10 +1537,10 @@ Public Class View_Tree
             If Display_taxon_pie Then
                 Select Case current_state_mode
                     Case 0
-                        If RadioButton2.Checked Then
+                        If RadioButton2.Checked Or ShowPieOnTerminalToolStripMenuItem.Checked Then
                             TempGrap.FillPie(Brushes.LightGray, startpoint - CInt(Poly_terminal_xy_draw(i, 1)) - taxon_pie_radii, CInt(Poly_terminal_xy_draw(i, 0)) - taxon_pie_radii, taxon_pie_radii * 2, taxon_pie_radii * 2, 0, CSng(359.99))
                             For Each c As Char In Distribution(i)
-                                TempGrap.FillPie(Color_B(Array.IndexOf(Color_S, sort_area(Distribution(i)))), startpoint - CInt(Poly_terminal_xy_draw(i, 1)) - taxon_pie_radii, CInt(Poly_terminal_xy_draw(i, 0)) - taxon_pie_radii, taxon_pie_radii * 2, taxon_pie_radii * 2, CSng(CSng(359.99) * (Asc(c) - 65) / RangeLength), CSng(CSng(359.99) / RangeLength))
+                                TempGrap.FillPie(Color_B(Array.IndexOf(Color_S, sort_area(c))), startpoint - CInt(Poly_terminal_xy_draw(i, 1)) - taxon_pie_radii, CInt(Poly_terminal_xy_draw(i, 0)) - taxon_pie_radii, taxon_pie_radii * 2, taxon_pie_radii * 2, CSng(CSng(359.99) * (Asc(c) - 65) / RangeLength), CSng(CSng(359.99) / RangeLength))
                             Next
                             TempGrap.DrawEllipse(New Pen(Color.Black), startpoint - CInt(Poly_terminal_xy_draw(i, 1)) - taxon_pie_radii, CInt(Poly_terminal_xy_draw(i, 0)) - taxon_pie_radii, taxon_pie_radii * 2, taxon_pie_radii * 2)
                         Else
@@ -1776,7 +1812,13 @@ Public Class View_Tree
             If Na.Length > 1 Or UseSingleAreaModelToolStripMenuItem.Checked = False Then
                 DIVA(0) = DREG(0)
             Else
-                DIVA(0) = NuUNa.Length - C_COUNT * NsANa.Length
+                Dim local_e As Integer = 0 '本地灭绝
+                For j As Integer = 0 To C_COUNT - 1
+                    If C_AREA(0, j).Contains(Na) = False Then
+                        local_e += 1
+                    End If
+                Next
+                DIVA(0) = NuUNa.Length - C_COUNT * NsANa.Length - local_e
             End If
 
             DREG(1) = Nt.Length / 2
@@ -2035,7 +2077,7 @@ Public Class View_Tree
                     Next
                     NuUNa = Nu
 
-                    Dim DREG(3) As Integer
+                    Dim DREG(3) As Integer '0:扩散 1: 2:灭绝 3:
                     Dim DIVA(2) As Integer
 
                     For Each c As Char In Na
@@ -2043,8 +2085,10 @@ Public Class View_Tree
                             DREG(2) += 1
                             NuUNa += c
                         End If
+
+
                     Next
-                    For Each c As Char In Ns
+                            For Each c As Char In Ns
                         If Na.Contains(c) Then
                             NsANa += c
                         End If
@@ -2060,8 +2104,15 @@ Public Class View_Tree
                     If Na.Length > 1 Or UseSingleAreaModelToolStripMenuItem.Checked = False Then
                         DIVA(0) = DREG(0)
                     Else
-                        DIVA(0) = NuUNa.Length - C_COUNT * NsANa.Length
+                        Dim local_e As Integer = 0 '本地灭绝
+                        For j As Integer = 0 To C_COUNT - 1
+                            If C_AREA(0, j).Contains(Na) = False Then
+                                local_e += 1
+                            End If
+                        Next
+                        DIVA(0) = NuUNa.Length - C_COUNT * NsANa.Length - local_e
                     End If
+
 
                     DREG(1) = Nt.Length / 2
 
@@ -2253,15 +2304,28 @@ Public Class View_Tree
                     Next
                     start_Y = Temp_Y + L_border
                 ElseIf i = 0 And selected_nodes.Length = 1 Then
-                    TempGrap.DrawString("LEGEND", title_font, Brushes.Black, 10, start_Y)
-                    'Array.Sort(Color_S, Color_B)
-                    For j As Integer = 0 To UBound(Color_B)
-                        TempGrap.FillRectangle(Color_B(j), font2left, (j + 1) * colborder + col2top, 80, colwidth)
-                        TempGrap.DrawRectangle(Pens.Black, font2left, (j + 1) * colborder + col2top, 80, colwidth)
-                        TempGrap.DrawString(Color_S(j), col_font, Brushes.Black, font2left, (j + 1) * colborder + font2top)
-                    Next
-                    Temp_Y = (UBound(Color_B) + 3) * colborder + col2top
-                    start_Y = Temp_Y + L_border
+                    If ShowPieOnTerminalToolStripMenuItem.Checked Then
+                        TempGrap.DrawString("LEGEND", title_font, Brushes.Black, 10, start_Y)
+                        'Array.Sort(Color_S, Color_B)
+                        For j As Integer = 0 To UBound(Color_B_node)
+                            TempGrap.FillRectangle(Color_B_node(j), font2left, (j + 1) * colborder + col2top, 80, colwidth)
+                            TempGrap.DrawRectangle(Pens.Black, font2left, (j + 1) * colborder + col2top, 80, colwidth)
+                            TempGrap.DrawString(Color_S_node(j), col_font, Brushes.Black, font2left, (j + 1) * colborder + font2top)
+                        Next
+                        Temp_Y = (UBound(Color_B_node) + 3) * colborder + col2top
+                        start_Y = Temp_Y + L_border
+                    Else
+                        TempGrap.DrawString("LEGEND", title_font, Brushes.Black, 10, start_Y)
+                        'Array.Sort(Color_S, Color_B)
+                        For j As Integer = 0 To UBound(Color_B)
+                            TempGrap.FillRectangle(Color_B(j), font2left, (j + 1) * colborder + col2top, 80, colwidth)
+                            TempGrap.DrawRectangle(Pens.Black, font2left, (j + 1) * colborder + col2top, 80, colwidth)
+                            TempGrap.DrawString(Color_S(j), col_font, Brushes.Black, font2left, (j + 1) * colborder + font2top)
+                        Next
+                        Temp_Y = (UBound(Color_B) + 3) * colborder + col2top
+                        start_Y = Temp_Y + L_border
+                    End If
+
                 End If
             Next
         End If
@@ -2298,9 +2362,8 @@ Public Class View_Tree
     End Sub
     Dim savingpic As Boolean = False
     Private Sub SaveTreeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveTreeToolStripMenuItem.Click
-        'Try
-
-        Dim sfd As New SaveFileDialog
+        Try
+            Dim sfd As New SaveFileDialog
             sfd.Filter = "PNG Files(*.png)|*.png;*.PNG|SVG (Adobe Illustrator)|*.svg;*.SVG|Windows Metafile(*.emf)|*.emf;*.EMF|ALL Files(*.*)|*.*"
             sfd.FileName = ""
             sfd.DefaultExt = ".png"
@@ -2339,49 +2402,53 @@ Public Class View_Tree
                     svg_gra.Flush()
                     svg_gra = Nothing
                 ElseIf sfd.FileName.ToLower.EndsWith(".png") Then
-                    Dim bitmap As New Bitmap(CInt(PictureBox1.Width) * File_zoom, CInt(PictureBox1.Height) * File_zoom)
-                    Dim TempGrap As Graphics = Graphics.FromImage(bitmap)
-                    pie_radii = pie_radii * File_zoom
-                    Tree_font = New Font(Tree_font.FontFamily, Tree_font.Size * File_zoom, Tree_font.Style)
-                    Label_font = New Font(Label_font.FontFamily, Label_font.Size * File_zoom, Label_font.Style)
-                    ID_font = New Font(ID_font.FontFamily, ID_font.Size * File_zoom, ID_font.Style)
-                    frequency_h = frequency_h * File_zoom
-                    frequency_v = frequency_v * File_zoom
-                    node_h = node_h * File_zoom
-                    node_v = node_v * File_zoom
-                    Taxon_separation = Taxon_separation * File_zoom
-                    Branch_length = Branch_length * File_zoom
-                    Border_separation = Border_separation * File_zoom
-                    Line_width = Line_width * File_zoom
-                    taxon_pie_radii = taxon_pie_radii * File_zoom
-                    Circle_size = Circle_size * File_zoom
-                    savingpic = True
-                    draw_tree(TempGrap)
-                    savingpic = False
-                    bitmap.Save(sfd.FileName)
-                    pie_radii = pie_radii / File_zoom
-                    Tree_font = New Font(Tree_font.FontFamily, Tree_font.Size / File_zoom, Tree_font.Style)
-                    Label_font = New Font(Label_font.FontFamily, Label_font.Size / File_zoom, Label_font.Style)
-                    ID_font = New Font(ID_font.FontFamily, ID_font.Size / File_zoom, ID_font.Style)
-                    frequency_h = frequency_h / File_zoom
-                    frequency_v = frequency_v / File_zoom
-                    node_h = node_h / File_zoom
-                    node_v = node_v / File_zoom
-                    Taxon_separation = Taxon_separation / File_zoom
-                    Branch_length = Branch_length / File_zoom
-                    Border_separation = Border_separation / File_zoom
-                    Line_width = Line_width / File_zoom
-                    Circle_size = Circle_size / File_zoom
-                    taxon_pie_radii = taxon_pie_radii / File_zoom
-                    bitmap.Dispose()
-                    bitmap = Nothing
-                End If
+                    If CInt(PictureBox1.Width) * File_zoom > 32768 / 4 Or CInt(PictureBox1.Height) * File_zoom > 32768 Then
+                        MsgBox("The picture is very large! Please decrease the value of zoom in option if you meet error.")
+                    End If
 
-                MsgBox("Save Successfully!", MsgBoxStyle.Information)
+                    Dim bitmap As New Bitmap(CInt(PictureBox1.Width) * File_zoom, CInt(PictureBox1.Height) * File_zoom)
+                        Dim TempGrap As Graphics = Graphics.FromImage(bitmap)
+                        pie_radii = pie_radii * File_zoom
+                        Tree_font = New Font(Tree_font.FontFamily, Tree_font.Size * File_zoom, Tree_font.Style)
+                        Label_font = New Font(Label_font.FontFamily, Label_font.Size * File_zoom, Label_font.Style)
+                        ID_font = New Font(ID_font.FontFamily, ID_font.Size * File_zoom, ID_font.Style)
+                        frequency_h = frequency_h * File_zoom
+                        frequency_v = frequency_v * File_zoom
+                        node_h = node_h * File_zoom
+                        node_v = node_v * File_zoom
+                        Taxon_separation = Taxon_separation * File_zoom
+                        Branch_length = Branch_length * File_zoom
+                        Border_separation = Border_separation * File_zoom
+                        Line_width = Line_width * File_zoom
+                        taxon_pie_radii = taxon_pie_radii * File_zoom
+                        Circle_size = Circle_size * File_zoom
+                        savingpic = True
+                        draw_tree(TempGrap)
+                        savingpic = False
+                        bitmap.Save(sfd.FileName)
+                        pie_radii = pie_radii / File_zoom
+                        Tree_font = New Font(Tree_font.FontFamily, Tree_font.Size / File_zoom, Tree_font.Style)
+                        Label_font = New Font(Label_font.FontFamily, Label_font.Size / File_zoom, Label_font.Style)
+                        ID_font = New Font(ID_font.FontFamily, ID_font.Size / File_zoom, ID_font.Style)
+                        frequency_h = frequency_h / File_zoom
+                        frequency_v = frequency_v / File_zoom
+                        node_h = node_h / File_zoom
+                        node_v = node_v / File_zoom
+                        Taxon_separation = Taxon_separation / File_zoom
+                        Branch_length = Branch_length / File_zoom
+                        Border_separation = Border_separation / File_zoom
+                        Line_width = Line_width / File_zoom
+                        Circle_size = Circle_size / File_zoom
+                        taxon_pie_radii = taxon_pie_radii / File_zoom
+                        bitmap.Dispose()
+                        bitmap = Nothing
+                    End If
+
+                    MsgBox("Save Successfully!", MsgBoxStyle.Information)
             End If
-        'Catch ex As Exception
-        '    MsgBox(ex.Message)
-        'End Try
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub SaveLegendToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveLegendToolStripMenuItem.Click
@@ -3759,5 +3826,21 @@ Public Class View_Tree
         Else
             MsgBox("No information to save!", MsgBoxStyle.Information)
         End If
+    End Sub
+
+    Private Sub ShowPieOnTerminalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowPieOnTerminalToolStripMenuItem.Click
+        load_color()
+
+        If Loading = False Then
+            PictureBox1.Width = (max_level + 2) * Branch_length + 2 * Border_separation + (max_taxon_name + RangeStr.Length + 8) * Label_font.SizeInPoints
+            PictureBox1.Height = (NumofTaxon + 5) * Taxon_separation + Border_separation + Label_font.Height + Tree_font.Height 'y
+            Bitmap_Tree = New Bitmap(CInt(PictureBox1.Width), CInt(PictureBox1.Height))
+            draw_tree(Graphics.FromImage(Bitmap_Tree))
+            PictureBox1.Refresh()
+        End If
+        PictureBox2.Height = PicBox2_High()
+        Bitmap_Legend = New Bitmap(CInt(PictureBox2.Width), CInt(PictureBox2.Height))
+        draw_col(Graphics.FromImage(Bitmap_Legend), 1)
+        PictureBox2.Refresh()
     End Sub
 End Class

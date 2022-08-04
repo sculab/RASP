@@ -1361,10 +1361,13 @@ Public Class Config_BGB
             Case 0, 2, 3
                 Dim sr0 As New StreamReader(root_path + "Plug-ins\BGB\header.r")
 				BGB_Header = sr0.ReadToEnd
-				If rscript = root_path + "Plug-ins\R\bin\i386\Rscript.exe" Then
-					BGB_Header = BGB_Header.Replace("#r_lib#", "")
-				End If
-				sr0.Close()
+                If rscript = root_path + "Plug-ins\R\bin\i386\Rscript.exe" Then
+                    BGB_Header = BGB_Header.Replace("#r_lib#", "")
+                End If
+                If rscript = root_path + "Plug-ins\R\bin\x64\Rscript.exe" Then
+                    BGB_Header = BGB_Header.Replace("#r_lib#", "")
+                End If
+                sr0.Close()
                 BGB_Header += "source(" + """" + "BGB.r" + """" + ")" + vbCrLf
                 BGB_Header += "})"
 

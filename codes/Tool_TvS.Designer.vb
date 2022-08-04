@@ -49,6 +49,7 @@ Partial Class Tool_TvS
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.Timer_R = New System.Windows.Forms.Timer(Me.components)
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -91,13 +92,13 @@ Partial Class Tool_TvS
         'StateVsTreesToolStripMenuItem
         '
         Me.StateVsTreesToolStripMenuItem.Name = "StateVsTreesToolStripMenuItem"
-        Me.StateVsTreesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.StateVsTreesToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.StateVsTreesToolStripMenuItem.Text = "State vs. Trees"
         '
         'FindBestFitTreeToolStripMenuItem
         '
         Me.FindBestFitTreeToolStripMenuItem.Name = "FindBestFitTreeToolStripMenuItem"
-        Me.FindBestFitTreeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FindBestFitTreeToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.FindBestFitTreeToolStripMenuItem.Text = "Tree vs. States"
         '
         'OptionToolStripMenuItem
@@ -122,7 +123,7 @@ Partial Class Tool_TvS
         Me.ListView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader12, Me.ColumnHeader11, Me.ColumnHeader6, Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader7, Me.ColumnHeader8, Me.ColumnHeader9, Me.ColumnHeader10})
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader12, Me.ColumnHeader11, Me.ColumnHeader6, Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader7, Me.ColumnHeader8, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader13})
         Me.ListView1.FullRowSelect = True
         Me.ListView1.HideSelection = False
         Me.ListView1.Location = New System.Drawing.Point(0, 27)
@@ -215,6 +216,10 @@ Partial Class Tool_TvS
         Me.Label6.TabIndex = 26
         Me.Label6.Text = "Waiting..."
         '
+        'ColumnHeader13
+        '
+        Me.ColumnHeader13.Text = "D count"
+        '
         'Tool_TvS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -261,4 +266,5 @@ Partial Class Tool_TvS
     Friend WithEvents ColumnHeader12 As ColumnHeader
     Friend WithEvents OptionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ModelTestToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ColumnHeader13 As ColumnHeader
 End Class

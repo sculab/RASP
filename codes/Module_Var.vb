@@ -3,8 +3,8 @@ Imports System.Threading
 Imports System.Runtime.InteropServices
 Imports System.Globalization.CultureInfo
 Module Module_Var
-    Public Version As String = "4.2"
-    Public build As String = "20210121"
+    Public Version As String = "4.3"
+    Public build As String = "20220517"
     Public enableMin As Boolean = True
     Public Global_seed As Integer = "20180127"
     Public isDebug As Boolean = False
@@ -14,8 +14,8 @@ Module Module_Var
     Public TargetOS As String = "linux"
 #ElseIf TargetOS = "macos" Then
     Public TargetOS As String = "macos"
-#ElseIf TargetOS = "win32" Then
-    Public TargetOS As String = "win32"
+#ElseIf TargetOS = "x64" Then
+    Public TargetOS As String = "x64"
 #End If
 
     Public first_open(6) As Boolean
@@ -119,7 +119,7 @@ Module Module_Var
         Select Case TargetOS
             Case "linux"
                 path_char = "/"
-            Case "win32", "macos"
+            Case "x64", "macos"
                 path_char = "\"
             Case Else
                 path_char = "\"

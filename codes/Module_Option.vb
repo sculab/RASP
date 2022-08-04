@@ -27,9 +27,9 @@
     Public Display_node_ID As Boolean = True
     Public node_h As Integer = -8
     Public node_v As Integer = -8
-    Public Taxon_separation As Integer = 32
+    Public Taxon_separation As Integer = 24
     Public Branch_length As Integer = 32
-    Public Border_separation As Integer = 10
+    Public Border_separation As Integer = 1
     Public Line_width As Integer = 1
     Public File_zoom As Integer = 4
     Public taxon_pie_radii As Integer = 5

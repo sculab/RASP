@@ -37,12 +37,17 @@ Public Class Form_Welcome
 
 
             If File.Exists(rscript) = False Then
-				If File.Exists(root_path + "Plug-ins\R\bin\i386\Rscript.exe") Then
-					rscript = root_path + "Plug-ins\R\bin\i386\Rscript.exe"
-					Dim sw As New StreamWriter(root_path + "Plug-ins\R_path.txt")
-					sw.WriteLine(rscript)
-					sw.Close()
-				Else
+                If File.Exists(root_path + "Plug-ins\R\bin\i386\Rscript.exe") Then
+                    rscript = root_path + "Plug-ins\R\bin\i386\Rscript.exe"
+                    Dim sw As New StreamWriter(root_path + "Plug-ins\R_path.txt")
+                    sw.WriteLine(rscript)
+                    sw.Close()
+                ElseIf File.Exists(root_path + "Plug-ins\R\bin\x64\Rscript.exe") Then
+                    rscript = root_path + "Plug-ins\R\bin\x64\Rscript.exe"
+                    Dim sw As New StreamWriter(root_path + "Plug-ins\R_path.txt")
+                    sw.WriteLine(rscript)
+                    sw.Close()
+                Else
 					Dim Key1 As Microsoft.Win32.RegistryKey
                     Key1 = My.Computer.Registry.LocalMachine
                     Dim Key2 As Microsoft.Win32.RegistryKey

@@ -728,6 +728,8 @@ Public Class View_Tree
         For i As Integer = 0 To Color_S_node.Length - 1
             Color_B_node(i) = Int2Brushes(Distributiton_to_Integer(Color_S_node(i)))
         Next
+        Array.Sort(Color_S, Color_B)
+        Array.Sort(Color_S_node, Color_B_node)
         ListView1.Items.Clear()
         If ShowPieOnTerminalToolStripMenuItem.Checked Then
             If Color_S_node.Length > 1 Then
@@ -754,8 +756,7 @@ Public Class View_Tree
                 Next
             End If
         End If
-        Array.Sort(Color_S, Color_B)
-        Array.Sort(Color_S_node, Color_B_node)
+
     End Sub
     Dim PROB_list(,) As Single
     Dim reconstr_path As String

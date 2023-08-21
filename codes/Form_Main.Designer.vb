@@ -138,6 +138,7 @@ Partial Class Form_Main
         'MenuStrip1
         '
         Me.MenuStrip1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.GraphicToolStripMenuItem, Me.ProcessToolStripMenuItem, Me.ComparisonToolStripMenuItem, Me.OtherToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -410,6 +411,7 @@ Partial Class Form_Main
         Me.DispersalExtinctionCladogenesisDECToolStripMenuItem.Name = "DispersalExtinctionCladogenesisDECToolStripMenuItem"
         Me.DispersalExtinctionCladogenesisDECToolStripMenuItem.Size = New System.Drawing.Size(333, 22)
         Me.DispersalExtinctionCladogenesisDECToolStripMenuItem.Text = "Dispersal-Extinction-Cladogenesis (DEC)"
+        Me.DispersalExtinctionCladogenesisDECToolStripMenuItem.Visible = False
         '
         'BayesianInferenceForDiscreteAreasBayAreaToolStripMenuItem
         '
@@ -708,6 +710,7 @@ Partial Class Form_Main
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(0, 36)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 23
         Me.DataGridView1.Size = New System.Drawing.Size(548, 345)
         Me.DataGridView1.TabIndex = 18

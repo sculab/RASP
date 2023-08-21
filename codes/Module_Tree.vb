@@ -287,8 +287,8 @@
 					Chain_Sum_B += Node_Weight_B(i)
 				Next
 			Catch ex As Exception
-				MsgBox(ex.ToString)
-			End Try
+                MsgBox(ex.ToString + vbCrLf + Tree_String)
+            End Try
 
 		End Sub
         Public Sub make_chain(ByVal n As Integer, ByVal node_chain As String)

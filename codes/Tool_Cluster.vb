@@ -785,6 +785,7 @@ Public Class Tool_Cluster
         If Me.Visible = True Then
             timer_count = 0
             timer_id = 3
+            'load_trees()
             Dim th1 As New Threading.Thread(AddressOf load_trees)
             th1.Start()
         End If
@@ -794,7 +795,11 @@ Public Class Tool_Cluster
         Dim line As String = sr.ReadLine
         list_trees.Clear()
         Do
-            list_trees.Add(New Ploy_Tree(line))
+            Try
+                list_trees.Add(New Ploy_Tree(line))
+            Catch ex As Exception
+                MsgBox(line)
+            End Try
             line = sr.ReadLine
             timer_count += 1
         Loop Until line Is Nothing

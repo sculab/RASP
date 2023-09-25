@@ -4,7 +4,8 @@ Imports System.Runtime.InteropServices
 Imports System.Globalization.CultureInfo
 Module Module_Var
     Public Version As String = "4.3"
-    Public build As String = "20230118"
+    Public build As String = "20230911"
+    Public settings As Dictionary(Of String, String)
     Public enableMin As Boolean = True
     Public Global_seed As Integer = "20180127"
     Public isDebug As Boolean = False
@@ -21,6 +22,7 @@ Module Module_Var
     Public first_open(6) As Boolean
     Public error_no As Integer
     Public error_msg As String
+    Public language As String = "EN"
     Public path_char As String
     Public root_path As String
     Public lib_path As String
@@ -104,7 +106,36 @@ Module Module_Var
     Public gene_names(0) As String
     Public state_index As Integer = 2
     Public state_header As String = ""
+    Public Sub SaveSettings(filePath As String, settings As Dictionary(Of String, String))
+        Dim lines(1) As String
+        Dim count As Integer = 0
+        For Each kvp As KeyValuePair(Of String, String) In settings
+            count += 1
+            Dim line As String = $"{kvp.Key}={kvp.Value}"
+            ReDim Preserve lines(count)
+            lines(count - 1) = line
+        Next
 
+        File.WriteAllLines(filePath, lines)
+    End Sub
+    Public Function ReadSettings(filePath As String) As Dictionary(Of String, String)
+        Dim settings As New Dictionary(Of String, String)()
+
+        If File.Exists(filePath) Then
+            Dim lines As String() = File.ReadAllLines(filePath)
+
+            For Each line As String In lines
+                Dim parts As String() = line.Split("="c)
+                If parts.Length = 2 Then
+                    Dim key As String = parts(0).Trim()
+                    Dim value As String = parts(1).Trim()
+                    settings(key) = value
+                End If
+            Next
+        End If
+
+        Return settings
+    End Function
     Public Function ToVal(ByVal str As String) As Single
         Return Val(str.Replace(Dec_Sym, "."))
     End Function

@@ -103,6 +103,7 @@ Partial Class Form_Main
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DebugToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.中文ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TreeBox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -625,7 +626,7 @@ Partial Class Form_Main
         '
         'HelpToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.DebugToolStripMenuItem})
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.DebugToolStripMenuItem, Me.中文ToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(45, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
@@ -641,6 +642,12 @@ Partial Class Form_Main
         Me.DebugToolStripMenuItem.Name = "DebugToolStripMenuItem"
         Me.DebugToolStripMenuItem.Size = New System.Drawing.Size(111, 22)
         Me.DebugToolStripMenuItem.Text = "Debug"
+        '
+        '中文ToolStripMenuItem
+        '
+        Me.中文ToolStripMenuItem.Name = "中文ToolStripMenuItem"
+        Me.中文ToolStripMenuItem.Size = New System.Drawing.Size(111, 22)
+        Me.中文ToolStripMenuItem.Text = "中文"
         '
         'TreeBox
         '
@@ -1019,4 +1026,5 @@ Partial Class Form_Main
     Friend WithEvents ConvertStatesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AddStatesToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents DeleteStatesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents 中文ToolStripMenuItem As ToolStripMenuItem
 End Class

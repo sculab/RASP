@@ -16,13 +16,11 @@ Public Class Form_Welcome
         My.Computer.FileSystem.CreateDirectory(root_path + "temp")
         DeleteTemp(root_path + "temp")
         current_file = total_file
-
         Dim filePath As String = root_path + "Plug-ins\" + "setting.ini"
         settings = ReadSettings(filePath)
         CheckForIllegalCrossThreadCalls = False
         ' ∂¡»° language ∫Õ mode …Ë÷√
         language = settings("language")
-
         If language = "CH" Then
             to_ch()
         Else

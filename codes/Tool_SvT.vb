@@ -159,7 +159,7 @@ Public Class Tool_SvT
 
 
 
-    Private Sub Tool_State_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+    Private Sub Tool_State_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
         If Me.Visible = True Then
             CheckForIllegalCrossThreadCalls = False
             MainWindow.DataGridView1.Enabled = False
@@ -201,7 +201,7 @@ Public Class Tool_SvT
 
     End Sub
 
-    Private Sub Tool_State_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub Tool_State_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         MainWindow.DataGridView1.Enabled = True
         e.Cancel = True
         Me.Hide()

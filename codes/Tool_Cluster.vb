@@ -451,14 +451,20 @@ Public Class Tool_Cluster
     Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView1.SelectedIndexChanged
         If ListView1.SelectedIndices.Count > 0 Then
             Try
-                PictureBox1.Image = Nothing
-                If ListView1.SelectedIndices(0) = 0 Then
-                    File.Copy(root_path + "temp\clust_tree.png", root_path + "temp\clust_temp.png", True)
-                ElseIf ListView1.SelectedIndices(0) = ListView1.Items.Count - 1 Then
-                    File.Copy(root_path + "temp\all_trees.png", root_path + "temp\clust_temp.png", True)
+                ' 先释放PictureBox中现有图片的资源
+                ' 释放PictureBox中现有图片的资源
+                If PictureBox1.Image IsNot Nothing Then
+                    PictureBox1.Image.Dispose()
+                End If
 
+                ' 根据选择的项目确定文件路径
+                Dim imagePath As String = ""
+                If ListView1.SelectedIndices(0) = 0 Then
+                    imagePath = root_path + "temp\clust_tree.png"
+                ElseIf ListView1.SelectedIndices(0) = ListView1.Items.Count - 1 Then
+                    imagePath = root_path + "temp\all_trees.png"
                 Else
-                    File.Copy(root_path + "temp\clust_" + ListView1.SelectedIndices(0).ToString + ".png", root_path + "temp\clust_temp.png", True)
+                    imagePath = root_path + "temp\clust_" + ListView1.SelectedIndices(0).ToString() + ".png"
                     Dim id_sumer As New StreamReader(root_path + "temp\gene_name.txt")
                     Dim gene_name_list(0) As String
                     Dim gene_name_count(0) As Integer
@@ -496,8 +502,13 @@ Public Class Tool_Cluster
                         TextBox1.Text += gene_name_list(i) + vbTab + gene_name_count_cluster(i).ToString + "/" + gene_name_count(i).ToString + vbCrLf
                     Next
                 End If
-                PictureBox1.Load(root_path + "temp\clust_temp.png")
+                If File.Exists(imagePath) Then
+                    Using image As Image = Image.FromFile(imagePath)
+                        PictureBox1.Image = New Bitmap(image)
+                    End Using
+                End If
             Catch ex As Exception
+                MessageBox.Show("发生错误: " & ex.Message)
             End Try
         End If
     End Sub

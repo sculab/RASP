@@ -2,9 +2,11 @@ Imports System.IO
 Imports System.Threading
 Imports System.Runtime.InteropServices
 Imports System.Globalization.CultureInfo
+Imports System.Data
+
 Module Module_Var
     Public Version As String = "4.3"
-    Public build As String = "20230911"
+    Public build As String = "20231207"
     Public settings As Dictionary(Of String, String)
     Public enableMin As Boolean = True
     Public Global_seed As Integer = "20180127"

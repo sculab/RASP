@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿Imports System.Data
+Imports System.IO
 Public Class Config_Lagrange
     Dim range_dataset As New DataSet
     Dim rgView As New DataView
@@ -236,9 +237,9 @@ Public Class Config_Lagrange
                     Next
                     If point_1 > 1 Then
                         Temp_node(point_1 - 2, 2) = point_2.ToString + "," + Temp_node(point_1 - 2, 2)
-						Temp_node(point_1 - 2, 4) = Math.Min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
-						Temp_node(point_1 - 2, 5) = Math.Max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
-					End If
+                        Temp_node(point_1 - 2, 4) = Math.Min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+                        Temp_node(point_1 - 2, 5) = Math.Max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+                    End If
                     point_2 += 1
                     point_1 -= 1
                     Temp_node(point_1, 0) = ""
@@ -270,9 +271,9 @@ Public Class Config_Lagrange
                         taxon_array(tx) = tree_char(i)
                         tx += 1
                         Temp_node(point_1 - 1, 1) += tree_char(i) + ","
-						Temp_node(point_1 - 1, 4) = Math.Min(Val(Temp_node(point_1 - 1, 4)), tx)
-						Temp_node(point_1 - 1, 5) = Math.Max(Val(Temp_node(point_1 - 1, 4)), tx)
-					End If
+                        Temp_node(point_1 - 1, 4) = Math.Min(Val(Temp_node(point_1 - 1, 4)), tx)
+                        Temp_node(point_1 - 1, 5) = Math.Max(Val(Temp_node(point_1 - 1, 4)), tx)
+                    End If
             End Select
         Next
         make_chain(taxon_num - 1 - 1)
@@ -719,9 +720,9 @@ Public Class Config_Lagrange
                     Next
                     If point_1 > 1 Then
                         Temp_node(point_1 - 2, 2) = point_2.ToString + "," + Temp_node(point_1 - 2, 2)
-						Temp_node(point_1 - 2, 4) = Math.Min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
-						Temp_node(point_1 - 2, 5) = Math.Max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
-					End If
+                        Temp_node(point_1 - 2, 4) = Math.Min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+                        Temp_node(point_1 - 2, 5) = Math.Max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+                    End If
                     point_2 += 1
                     point_1 -= 1
                     Temp_node(point_1, 0) = ""
@@ -753,9 +754,9 @@ Public Class Config_Lagrange
                         taxon_array(tx) = tree_char(i)
                         tx += 1
                         Temp_node(point_1 - 1, 1) += tree_char(i) + ","
-						Temp_node(point_1 - 1, 4) = Math.Min(Val(Temp_node(point_1 - 1, 4)), tx)
-						Temp_node(point_1 - 1, 5) = Math.Max(Val(Temp_node(point_1 - 1, 4)), tx)
-					End If
+                        Temp_node(point_1 - 1, 4) = Math.Min(Val(Temp_node(point_1 - 1, 4)), tx)
+                        Temp_node(point_1 - 1, 5) = Math.Max(Val(Temp_node(point_1 - 1, 4)), tx)
+                    End If
             End Select
         Next
         If has_length Then
@@ -955,9 +956,9 @@ Public Class Config_Lagrange
                 If dis_str <> "" Then
                     Dim temp As Boolean = True
                     For i As Integer = 0 To DataGridView5.Rows.Count - 1
-                        If (DataGridView5.Rows(i).Cells(0).Value.ToString = ListBox3.Items(ListBox3.SelectedIndex) Or _
-                            DataGridView5.Rows(i).Cells(0).Value.ToString = ListBox4.Items(ListBox4.SelectedIndex)) And _
-                        (DataGridView5.Rows(i).Cells(1).Value.ToString = ListBox3.Items(ListBox3.SelectedIndex) Or _
+                        If (DataGridView5.Rows(i).Cells(0).Value.ToString = ListBox3.Items(ListBox3.SelectedIndex) Or
+                            DataGridView5.Rows(i).Cells(0).Value.ToString = ListBox4.Items(ListBox4.SelectedIndex)) And
+                        (DataGridView5.Rows(i).Cells(1).Value.ToString = ListBox3.Items(ListBox3.SelectedIndex) Or
                             DataGridView5.Rows(i).Cells(1).Value.ToString = ListBox4.Items(ListBox4.SelectedIndex)) Then
                             temp = False
                         End If
@@ -991,13 +992,13 @@ Public Class Config_Lagrange
     End Sub
 
     Private Sub Button9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button9.Click
-       Dim opendialog As New SaveFileDialog
-            opendialog.Filter = "Text File (*.txt)|*.txt;*.TXT|ALL Files(*.*)|*.*"
-            opendialog.FileName = ""
-            opendialog.DefaultExt = ".txt"
-            opendialog.CheckFileExists = False
-            opendialog.CheckPathExists = True
-            Dim resultdialog As DialogResult = opendialog.ShowDialog()
+        Dim opendialog As New SaveFileDialog
+        opendialog.Filter = "Text File (*.txt)|*.txt;*.TXT|ALL Files(*.*)|*.*"
+        opendialog.FileName = ""
+        opendialog.DefaultExt = ".txt"
+        opendialog.CheckFileExists = False
+        opendialog.CheckPathExists = True
+        Dim resultdialog As DialogResult = opendialog.ShowDialog()
         If resultdialog = DialogResult.OK Then
             area_dispersal = ""
             For k As Integer = 1 To time_period_num

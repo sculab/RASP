@@ -1,30 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{CE55A02B-66FD-40DD-AAFE-E46AC7ED1FF7}</ProjectGuid>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
     <StartupObject>RASP.My.MyApplication</StartupObject>
-    <RootNamespace>RASP</RootNamespace>
-    <AssemblyName>RASP</AssemblyName>
-    <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <ApplicationIcon>Codes\ICO.ico</ApplicationIcon>
     <ManifestKeyFile>S-DIVA_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>false</SignManifests>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
     <PublishUrl>Z:\Develop\RASPDEVELOP\Archive\RASP_Win\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -40,12 +24,11 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>
     </DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
@@ -53,11 +36,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>
     </DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
@@ -65,409 +44,137 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
     <OutputPath>bin\x86\Debug\</OutputPath>
     <DocumentationFile>
     </DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
-    <PlatformTarget>x86</PlatformTarget>
     <AdditionalParameters />
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <DefineTrace>true</DefineTrace>
     <OutputPath>bin\x86\Release\</OutputPath>
     <DocumentationFile>
     </DocumentationFile>
-    <Optimize>true</Optimize>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
     <DefineDebug>false</DefineDebug>
     <AdditionalParameters />
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+    <AssemblyTitle>RASP</AssemblyTitle>
+    <Company>MNH.SCU</Company>
+    <Product>RASP</Product>
+    <Copyright>Copyright © MNH.SCU 2009</Copyright>
+    <AssemblyVersion>1.1.%2a</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <DebugSymbols>true</DebugSymbols>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
     <OutputPath>bin\x64\Debug\</OutputPath>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
-    <PlatformTarget>x64</PlatformTarget>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <DefineTrace>true</DefineTrace>
     <OutputPath>bin\x64\Release\</OutputPath>
-    <Optimize>true</Optimize>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SVG">
-      <HintPath>.\SVG.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.DirectoryServices" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Import Include="Microsoft.VisualBasic" />
-    <Import Include="System" />
-    <Import Include="System.Collections" />
-    <Import Include="System.Collections.Generic" />
-    <Import Include="System.Data" />
     <Import Include="System.Drawing" />
-    <Import Include="System.Diagnostics" />
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Codes\Batch Tools.Designer.vb">
+    <Compile Update="Codes\Batch Tools.Designer.vb">
       <DependentUpon>Batch Tools.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Batch Tools.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Config_Chrom.Designer.vb">
+    <Compile Update="Codes\Config_Chrom.Designer.vb">
       <DependentUpon>Config_Chrom.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Config_Chrom.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Config_Traits.Designer.vb">
+    <Compile Update="Codes\Config_Traits.Designer.vb">
       <DependentUpon>Config_Traits.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Config_Traits.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Config_BGB.Designer.vb">
+    <Compile Update="Codes\Config_BGB.Designer.vb">
       <DependentUpon>Config_BGB.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Config_BGB.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Form_AboutBox.Designer.vb">
+    <Compile Update="Codes\Form_AboutBox.Designer.vb">
       <DependentUpon>Form_AboutBox.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Form_AboutBox.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Config_BayArea.Designer.vb">
+    <Compile Update="Codes\Config_BayArea.Designer.vb">
       <DependentUpon>Config_BayArea.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Config_BayArea.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Config_BBM.Designer.vb">
+    <Compile Update="Codes\Config_BBM.Designer.vb">
       <DependentUpon>Config_BBM.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Config_BBM.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Form_Preference.Designer.vb">
+    <Compile Update="Codes\Form_Preference.Designer.vb">
       <DependentUpon>Form_Preference.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Form_Preference.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Module_Functions.vb" />
-    <Compile Include="Codes\Module_lang.vb" />
-    <Compile Include="Codes\Module_Stat.vb" />
-    <Compile Include="Codes\Module_Tree.vb" />
-    <Compile Include="Codes\Tool_Convert.Designer.vb">
+    <Compile Update="Codes\Tool_Convert.Designer.vb">
       <DependentUpon>Tool_Convert.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Tool_Convert.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Tool_Combine.Designer.vb">
+    <Compile Update="Codes\Tool_Combine.Designer.vb">
       <DependentUpon>Tool_Combine.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Tool_Combine.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Tool_DPP.Designer.vb">
+    <Compile Update="Codes\Tool_DPP.Designer.vb">
       <DependentUpon>Tool_DPP.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Tool_DPP.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Config_Lagrange.Designer.vb">
+    <Compile Update="Codes\Config_Lagrange.Designer.vb">
       <DependentUpon>Config_Lagrange.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Config_Lagrange.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Module_Brushes.vb" />
-    <Compile Include="Codes\Module_Option.vb" />
-    <Compile Include="Codes\Tool_SvT.Designer.vb">
+    <Compile Update="Codes\Tool_SvT.Designer.vb">
       <DependentUpon>Tool_SvT.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Tool_SvT.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Tool_Cluster.Designer.vb">
+    <Compile Update="Codes\Tool_Cluster.Designer.vb">
       <DependentUpon>Tool_Cluster.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Tool_Cluster.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Tool_TvS.Designer.vb">
+    <Compile Update="Codes\Tool_TvS.Designer.vb">
       <DependentUpon>Tool_TvS.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Tool_TvS.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\View_OptionForm.Designer.vb">
+    <Compile Update="Codes\View_OptionForm.Designer.vb">
       <DependentUpon>View_OptionForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\View_OptionForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Module_PerCom.vb" />
-    <Compile Include="Codes\Form_Main.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Form_Main.Designer.vb">
-      <DependentUpon>Form_Main.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Module_Var.vb" />
-    <Compile Include="Codes\Module_BBM.vb" />
-    <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="My Project\Application.Designer.vb">
+    <Compile Update="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
+    <Compile Update="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="My Project\Settings.Designer.vb">
+    <Compile Update="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Codes\Tool_Omitted.Designer.vb">
+    <Compile Update="Codes\Tool_Omitted.Designer.vb">
       <DependentUpon>Tool_Omitted.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Tool_Omitted.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\View_Pie.Designer.vb">
+    <Compile Update="Codes\View_Pie.Designer.vb">
       <DependentUpon>View_Pie.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\View_Pie.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Config_SDIVA.Designer.vb">
+    <Compile Update="Codes\Config_SDIVA.Designer.vb">
       <DependentUpon>Config_SDIVA.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Config_SDIVA.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\View_BBM.Designer.vb">
+    <Compile Update="Codes\View_BBM.Designer.vb">
       <DependentUpon>View_BBM.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\View_BBM.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\View_Tracer.Designer.vb">
+    <Compile Update="Codes\View_Tracer.Designer.vb">
       <DependentUpon>View_Tracer.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\View_Tracer.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\View_Dis.Designer.vb">
+    <Compile Update="Codes\View_Dis.Designer.vb">
       <DependentUpon>View_Dis.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\View_Dis.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\View_Tree.Designer.vb">
+    <Compile Update="Codes\View_Tree.Designer.vb">
       <DependentUpon>View_Tree.vb</DependentUpon>
     </Compile>
-    <Compile Include="Codes\View_Tree.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Codes\Form_Welcome.Designer.vb">
+    <Compile Update="Codes\Form_Welcome.Designer.vb">
       <DependentUpon>Form_Welcome.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Codes\Form_Welcome.vb">
-      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Codes\Batch Tools.resx">
-      <DependentUpon>Batch Tools.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Config_Chrom.resx">
-      <DependentUpon>Config_Chrom.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Config_Traits.resx">
-      <DependentUpon>Config_Traits.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Config_BGB.resx">
-      <DependentUpon>Config_BGB.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Form_AboutBox.resx">
-      <DependentUpon>Form_AboutBox.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Config_BayArea.resx">
-      <DependentUpon>Config_BayArea.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Config_BBM.resx">
-      <DependentUpon>Config_BBM.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Form_Preference.resx">
-      <DependentUpon>Form_Preference.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Tool_Combine.resx">
-      <DependentUpon>Tool_Combine.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Tool_Convert.resx">
-      <DependentUpon>Tool_Convert.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Tool_DPP.resx">
-      <DependentUpon>Tool_DPP.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Config_Lagrange.resx">
-      <DependentUpon>Config_Lagrange.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Form_Main.resx">
-      <DependentUpon>Form_Main.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="My Project\Resources.resx">
-      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Resources1.Designer.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Tool_Omitted.resx">
-      <DependentUpon>Tool_Omitted.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Tool_SvT.resx">
-      <DependentUpon>Tool_SvT.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Tool_Cluster.resx">
-      <DependentUpon>Tool_Cluster.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Tool_TvS.resx">
-      <DependentUpon>Tool_TvS.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\View_OptionForm.resx">
-      <DependentUpon>View_OptionForm.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\View_Pie.resx">
-      <DependentUpon>View_Pie.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Config_SDIVA.resx">
-      <DependentUpon>Config_SDIVA.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\View_BBM.resx">
-      <DependentUpon>View_BBM.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\View_Tracer.resx">
-      <DependentUpon>View_Tracer.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\View_Dis.resx">
-      <DependentUpon>View_Dis.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\View_Tree.resx">
-      <DependentUpon>View_Tree.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Codes\Form_Welcome.resx">
-      <DependentUpon>Form_Welcome.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Codes\app.config" />
-    <None Include="My Project\app.manifest" />
-    <None Include="My Project\Application.myapp">
+    <None Update="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
-    <None Include="My Project\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <CustomToolNamespace>My</CustomToolNamespace>
-      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="README.md" />
-    <None Include="Tutorials\examples\Ebola\Alignments\ALL.fasta" />
-    <None Include="Tutorials\examples\Ebola\Alignments\GP.fasta" />
-    <None Include="Tutorials\examples\Ebola\Alignments\L.fasta" />
-    <None Include="Tutorials\examples\Ebola\Alignments\NP.fasta" />
-    <None Include="Tutorials\examples\Ebola\Alignments\VP24.fasta" />
-    <None Include="Tutorials\examples\Ebola\Alignments\VP30.fasta" />
-    <None Include="Tutorials\examples\Ebola\Alignments\VP35.fasta" />
-    <None Include="Tutorials\examples\Ebola\Alignments\VP40.fasta" />
-    <None Include="Tutorials\examples\Ebola\Results\group1.trees" />
-    <None Include="Tutorials\examples\Ebola\Results\group1_con.tre" />
-    <None Include="Tutorials\examples\Ebola\Results\group2.trees" />
-    <None Include="Tutorials\examples\Ebola\Results\group2_con.tre" />
-    <None Include="Tutorials\examples\Ebola\Trees_States\All.trees" />
-    <None Include="Tutorials\examples\Ebola\Trees_States\GP.trees" />
-    <None Include="Tutorials\examples\Ebola\Trees_States\L.trees" />
-    <None Include="Tutorials\examples\Ebola\Trees_States\NP.trees" />
-    <None Include="Tutorials\examples\Ebola\Trees_States\States.csv" />
-    <None Include="Tutorials\examples\Ebola\Trees_States\VP24.trees" />
-    <None Include="Tutorials\examples\Ebola\Trees_States\VP30.trees" />
-    <None Include="Tutorials\examples\Ebola\Trees_States\VP35.trees" />
-    <None Include="Tutorials\examples\Ebola\Trees_States\VP40.trees" />
-    <None Include="Tutorials\examples\Primate\Alignments\12s.fasta" />
-    <None Include="Tutorials\examples\Primate\Alignments\16s.fasta" />
-    <None Include="Tutorials\examples\Primate\Alignments\cox1.fasta" />
-    <None Include="Tutorials\examples\Primate\Alignments\cox2.fasta" />
-    <None Include="Tutorials\examples\Primate\Alignments\cytb.fasta" />
-    <None Include="Tutorials\examples\Primate\Alignments\nd3.fasta" />
-    <None Include="Tutorials\examples\Primate\Alignments\nd4.fasta" />
-    <None Include="Tutorials\examples\Primate\Results\results.csv" />
-    <None Include="Tutorials\examples\Primate\Trees_States\100Trees.trees" />
-    <None Include="Tutorials\examples\Primate\Trees_States\characters.csv" />
-    <None Include="Tutorials\examples\Primate\Trees_States\consensusTree_withCladeCredibilityValues.nex" />
-    <None Include="Tutorials\examples\Primate\Trees_States\gene_trees\12s.tree" />
-    <None Include="Tutorials\examples\Primate\Trees_States\gene_trees\16s.tree" />
-    <None Include="Tutorials\examples\Primate\Trees_States\gene_trees\cox1.tree" />
-    <None Include="Tutorials\examples\Primate\Trees_States\gene_trees\cox2.tree" />
-    <None Include="Tutorials\examples\Primate\Trees_States\gene_trees\cytb.tree" />
-    <None Include="Tutorials\examples\Primate\Trees_States\gene_trees\nd3.tree" />
-    <None Include="Tutorials\examples\Primate\Trees_States\gene_trees\nd4.tree" />
-    <None Include="Tutorials\examples\Primate\Trees_States\Primates.tree" />
-    <None Include="Tutorials\examples\Psychotria\Alignments\ETS.fasta" />
-    <None Include="Tutorials\examples\Psychotria\Alignments\ITS.fasta" />
-    <None Include="Tutorials\examples\Psychotria\Results\model_test.xls" />
-    <None Include="Tutorials\examples\Psychotria\Trees_States\dataset.trees" />
-    <None Include="Tutorials\examples\Psychotria\Trees_States\distribution.csv" />
-    <None Include="Tutorials\examples\Psychotria\Trees_States\Psychotria.tree" />
-    <None Include="Tutorials\Tutorial 1.docx" />
-    <None Include="Tutorials\Tutorial 2.docx" />
-    <None Include="Tutorials\Tutorial 3.docx" />
-    <None Include="Tutorials\Tutorial 4.docx" />
-    <None Include="Tutorials\Tutorial 5.docx" />
-    <None Include="Tutorials\Tutorial 6.docx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Codes\ICO.ico" />
@@ -507,12 +214,19 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <PackageReference Include="System.DirectoryServices" Version="8.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Application.Designer.vb" />
+    <Compile Remove="AssemblyInfo.vb" />
+    <Compile Remove="My Project\Resources1.Designer.vb" />
+    <Compile Remove="Resources.Designer.vb" />
+    <Compile Remove="Settings.Designer.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="SVG">
+      <HintPath>..\Archive\RASP_Win\SVG.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

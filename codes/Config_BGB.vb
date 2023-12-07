@@ -1,4 +1,5 @@
 ﻿
+Imports System.Data
 Imports System.IO
 Public Class Config_BGB
     Dim range_dataset As New DataSet
@@ -235,9 +236,9 @@ Public Class Config_BGB
                     Next
                     If point_1 > 1 Then
                         Temp_node(point_1 - 2, 2) = point_2.ToString + "," + Temp_node(point_1 - 2, 2)
-						Temp_node(point_1 - 2, 4) = Math.Min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
-						Temp_node(point_1 - 2, 5) = Math.Max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
-					End If
+                        Temp_node(point_1 - 2, 4) = Math.Min(Val(Temp_node(point_1 - 2, 4)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+                        Temp_node(point_1 - 2, 5) = Math.Max(Val(Temp_node(point_1 - 2, 5)), (Val(Poly_Node(point_2, 5)) + Val(Poly_Node(point_2, 4))) / 2)
+                    End If
                     point_2 += 1
                     point_1 -= 1
                     Temp_node(point_1, 0) = ""
@@ -269,9 +270,9 @@ Public Class Config_BGB
                         taxon_array(tx) = tree_char(i)
                         tx += 1
                         Temp_node(point_1 - 1, 1) += tree_char(i) + ","
-						Temp_node(point_1 - 1, 4) = Math.Min(Val(Temp_node(point_1 - 1, 4)), tx)
-						Temp_node(point_1 - 1, 5) = Math.Max(Val(Temp_node(point_1 - 1, 4)), tx)
-					End If
+                        Temp_node(point_1 - 1, 4) = Math.Min(Val(Temp_node(point_1 - 1, 4)), tx)
+                        Temp_node(point_1 - 1, 5) = Math.Max(Val(Temp_node(point_1 - 1, 4)), tx)
+                    End If
             End Select
         Next
         make_chain(taxon_num - 1 - 1)
@@ -1326,7 +1327,7 @@ Public Class Config_BGB
                 BGB_Body = BGB_Body.Replace("#max_range_size#", NumericUpDown2.Value)
                 '每个线程单核心以提高稳定性
                 BGB_Body = BGB_Body.Replace("#cores_to_use#", 1)
-				BGB_Body = BGB_Body.Replace("#timeperiod#", lib_path + "temp/final.timeperiod")
+                BGB_Body = BGB_Body.Replace("#timeperiod#", lib_path + "temp/final.timeperiod")
                 If ComboBox3.SelectedIndex = 0 Then
                     BGB_Body = BGB_Body.Replace("#optimx#", "TRUE")
                 Else
@@ -1334,8 +1335,8 @@ Public Class Config_BGB
                 End If
                 For i As Integer = 0 To 3
                     If File.Exists(root_path + "temp\" + i.ToString + ".tp") Then
-						BGB_Body = BGB_Body.Replace("#ratematrix" + i.ToString + "#", lib_path + "temp/" + i.ToString + ".rm")
-						Select Case i
+                        BGB_Body = BGB_Body.Replace("#ratematrix" + i.ToString + "#", lib_path + "temp/" + i.ToString + ".rm")
+                        Select Case i
                             Case 0
                                 BGB_Body = BGB_Body.Replace("#dispersal_multipliers_fn#", "dispersal_multipliers_fn")
                                 BGB_Body = BGB_Body.Replace("#" + i.ToString + "#", "")
@@ -1360,7 +1361,7 @@ Public Class Config_BGB
                 wr.Close()
             Case 0, 2, 3
                 Dim sr0 As New StreamReader(root_path + "Plug-ins\BGB\header.r")
-				BGB_Header = sr0.ReadToEnd
+                BGB_Header = sr0.ReadToEnd
                 If rscript = root_path + "Plug-ins\R\bin\i386\Rscript.exe" Then
                     BGB_Header = BGB_Header.Replace("#r_lib#", "")
                 End If
@@ -1411,8 +1412,8 @@ Public Class Config_BGB
 
                 For i As Integer = 0 To 3
                     If File.Exists(root_path + "temp\" + i.ToString + ".tp") Then
-						BGB_Body = BGB_Body.Replace("#ratematrix" + i.ToString + "#", lib_path + "temp/" + i.ToString + ".rm")
-						Select Case i
+                        BGB_Body = BGB_Body.Replace("#ratematrix" + i.ToString + "#", lib_path + "temp/" + i.ToString + ".rm")
+                        Select Case i
                             Case 0
                                 BGB_Body = BGB_Body.Replace("#dispersal_multipliers_fn#", "dispersal_multipliers_fn")
                                 BGB_Body = BGB_Body.Replace("#" + i.ToString + "#", "")
@@ -1429,9 +1430,9 @@ Public Class Config_BGB
                     End If
                 Next
 
-				BGB_Body = BGB_Body.Replace("#treefile#", lib_path + "temp/final.tre")
-				BGB_Body = BGB_Body.Replace("#datafile#", lib_path + "temp/final.data")
-				If time_period_num > 1 Then
+                BGB_Body = BGB_Body.Replace("#treefile#", lib_path + "temp/final.tre")
+                BGB_Body = BGB_Body.Replace("#datafile#", lib_path + "temp/final.data")
+                If time_period_num > 1 Then
                     BGB_Body = BGB_Body.Replace("#time_period#", "")
                 End If
                 Dim sw_header As New StreamWriter(root_path + "temp\LOAD_BGB.r", False)
@@ -1453,7 +1454,7 @@ Public Class Config_BGB
 
         End Select
         If ComboBox1.Visible Then
-            
+
         Else
 
         End If

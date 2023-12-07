@@ -1,3 +1,4 @@
+Imports System.Data
 Imports System.IO
 Public Class Config_SDIVA
     Dim range_dataset As New DataSet
@@ -192,8 +193,8 @@ Public Class Config_SDIVA
         If Me.Visible = True Then
             If RangeStr.Length <> DataGridView1.Columns.Count Then
                 If taxon_num > 10 Then
-					NumericUpDown1.Value = Math.Max(2, CInt(2 ^ (taxon_num / 60)))
-				End If
+                    NumericUpDown1.Value = Math.Max(2, CInt(2 ^ (taxon_num / 60)))
+                End If
                 Dim Tempchar() As Char = RangeStr.ToUpper
                 NumericUpDown2.Maximum = RangeStr.Length
                 Array.Sort(Tempchar)
@@ -509,6 +510,6 @@ Public Class Config_SDIVA
         Catch ex As Exception
             MsgBox("Could not load setting!")
         End Try
-       
+
     End Sub
 End Class

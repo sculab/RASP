@@ -1461,9 +1461,13 @@ Public Class Tool_Cluster
 
 
     Private Sub ShowHeatmapToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowHeatmapToolStripMenuItem.Click
-        If File.Exists(root_path + "temp\heatmap.png") Then
-            File.Copy(root_path + "temp\heatmap.png", root_path + "temp\clust_temp.png", True)
-            PictureBox1.Load(root_path + "temp\clust_temp.png")
+        Dim imagePath As String = root_path + "temp\heatmap.png"
+        If File.Exists(imagePath) Then
+            If File.Exists(imagePath) Then
+                Using image As Image = Image.FromFile(imagePath)
+                    PictureBox1.Image = New Bitmap(image)
+                End Using
+            End If
         Else
             MsgBox("Could not find heatmap! Please make a heatmap first!")
         End If

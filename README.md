@@ -4,16 +4,16 @@ With the continual progress of sequencing techniques, genome-scale data are incr
 
 ## Install
 You could compile RASP from source code or download the compiled RASP achive from:  
-- http://mnh.scu.edu.cn/soft/blog/RASP/index.html  
+- https://bbpt.scu.edu.cn/yuyan/blog/RASP/index.html  
 - https://sourceforge.net/projects/rasp2/   
 
 ## Tutorials:
-- [Tutorial 1. Getting started with RASP](http://mnh.scu.edu.cn/soft/blog/RASP/Tutorial%201.html)  
-- [Tutorial 2. Selecting the biogeographic model](http://mnh.scu.edu.cn/soft/blog/RASP/Tutorial%202.html)  
-- [Tutorial 3. Test phylogenetic signal](http://mnh.scu.edu.cn/soft/blog/RASP/Tutorial%203.html)  
-- [Tutorial 4. Trait evolution](http://mnh.scu.edu.cn/soft/blog/RASP/Tutorial%204.html)  
-- [Tutorial 5. Compare trees derived from different genes](http://mnh.scu.edu.cn/soft/blog/RASP/Tutorial%205.html)  
-- [Tutorial 6. Modify trees and states](http://mnh.scu.edu.cn/soft/blog/RASP/Tutorial%206.html)  
+- [Tutorial 1. Getting started with RASP](https://bbpt.scu.edu.cn/yuyan/blog/RASP/Tutorial%201.html)  
+- [Tutorial 2. Selecting the biogeographic model](https://bbpt.scu.edu.cn/yuyan/blog/RASP/Tutorial%202.html)  
+- [Tutorial 3. Test phylogenetic signal](https://bbpt.scu.edu.cn/yuyan/blog/RASP/Tutorial%203.html)  
+- [Tutorial 4. Trait evolution](https://bbpt.scu.edu.cn/yuyan/blog/RASP/Tutorial%204.html)  
+- [Tutorial 5. Compare trees derived from different genes](https://bbpt.scu.edu.cn/yuyan/blog/RASP/Tutorial%205.html)  
+- [Tutorial 6. Modify trees and states](https://bbpt.scu.edu.cn/yuyan/blog/RASP/Tutorial%206.html)  
 
 ## Cites
 **To maintain RASP, support users and secure fundings, it is important for us that you cite our paper:**  

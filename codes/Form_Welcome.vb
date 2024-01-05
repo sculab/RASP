@@ -21,6 +21,7 @@ Public Class Form_Welcome
         CheckForIllegalCrossThreadCalls = False
         ' ∂¡»° language ∫Õ mode …Ë÷√
         language = settings("language")
+        TargetOS = settings("os")
         If language = "CH" Then
             to_ch()
         Else

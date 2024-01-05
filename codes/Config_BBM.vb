@@ -2,14 +2,9 @@ Imports System.IO
 Imports System.Threading
 Imports System.Runtime.InteropServices
 Public Class Config_BBM
-#Const TargetOS = "x64"
-#If TargetOS = "linux" Then
-    <DllImport("./libmrBayes.so")> Public Function runbayes(ByVal nexpath As String, ByRef genno As Integer) As Integer
-    End Function
-#ElseIf TargetOS = "x64" Or TargetOS = "macos" Then
+
     <DllImport("BAYESDLL.dll")> Public Shared Function runbayes(ByVal nexpath As String, ByRef genno As Integer) As Integer
     End Function
-#End If
     Dim commandlines(5) As String
     Dim cmd_lines As Integer
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click

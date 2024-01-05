@@ -5,22 +5,14 @@ Imports System.Globalization.CultureInfo
 Imports System.Data
 
 Module Module_Var
-    Public Version As String = "4.3"
-    Public build As String = "20231207"
+    Public TargetOS As String = "win64"
+    Public Version As String = "4.4"
+    Public build As String = "20240104"
     Public settings As Dictionary(Of String, String)
     Public enableMin As Boolean = True
     Public Global_seed As Integer = "20180127"
     Public isDebug As Boolean = False
     Public ci As System.Globalization.CultureInfo = New System.Globalization.CultureInfo("en-us")
-#Const TargetOS = "x64"
-#If TargetOS = "linux" Then
-    Public TargetOS As String = "linux"
-#ElseIf TargetOS = "macos" Then
-    Public TargetOS As String = "macos"
-#ElseIf TargetOS = "x64" Then
-    Public TargetOS As String = "x64"
-#End If
-
     Public first_open(6) As Boolean
     Public error_no As Integer
     Public error_msg As String
@@ -152,7 +144,7 @@ Module Module_Var
         Select Case TargetOS
             Case "linux"
                 path_char = "/"
-            Case "x64", "macos"
+            Case "win64", "macos"
                 path_char = "\"
             Case Else
                 path_char = "\"

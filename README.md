@@ -3,9 +3,9 @@
 With the continual progress of sequencing techniques, genome-scale data are increasingly used in phylogenetic studies. With more data from throughout the genome, the relationship between genes and different kinds of characters is receiving more attention. Here, we present version 4 of RASP, a software to reconstruct ancestral states through phylogenetic trees. RASP can apply generalized statistical ancestral reconstruction methods to phylogenies, explore the phylogenetic signal of characters to particular trees, calculate distances between trees, and cluster trees into groups.
 
 ## Install
-You could compile RASP from source code or download the compiled RASP achive from:  
-- https://bbpt.scu.edu.cn/yuyan/blog/RASP/index.html  
-- https://sourceforge.net/projects/rasp2/   
+You could download the compiled RASP achive from: 
+- https://sourceforge.net/projects/rasp2/
+- http://life-bioinfo.tpddns.cn:8445/database/app/RASP/
 
 ## Tutorials:
 - [Tutorial 1. Getting started with RASP](https://bbpt.scu.edu.cn/yuyan/blog/RASP/Tutorial%201.html)  

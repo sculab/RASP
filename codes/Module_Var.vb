@@ -5,9 +5,9 @@ Imports System.Globalization.CultureInfo
 Imports System.Data
 
 Module Module_Var
-    Public TargetOS As String = "win64"
+    Public TargetOS As String = "macos"
     Public Version As String = "4.4"
-    Public build As String = "20240104"
+    Public build As String = "20240116"
     Public settings As Dictionary(Of String, String)
     Public enableMin As Boolean = True
     Public Global_seed As Integer = "20180127"

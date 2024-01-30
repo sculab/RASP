@@ -8,13 +8,14 @@ You could download the compiled RASP achive from:
 - http://life-bioinfo.tpddns.cn:8445/database/app/RASP/
 
 ## Tutorials:
-[Download](./Tutorials.zip)
 - [Tutorial 1. Getting started with RASP](https://bbpt.scu.edu.cn/yuyan/blog/RASP/Tutorial%201.html)  
 - [Tutorial 2. Selecting the biogeographic model](https://bbpt.scu.edu.cn/yuyan/blog/RASP/Tutorial%202.html)  
 - [Tutorial 3. Test phylogenetic signal](https://bbpt.scu.edu.cn/yuyan/blog/RASP/Tutorial%203.html)  
 - [Tutorial 4. Trait evolution](https://bbpt.scu.edu.cn/yuyan/blog/RASP/Tutorial%204.html)  
 - [Tutorial 5. Compare trees derived from different genes](https://bbpt.scu.edu.cn/yuyan/blog/RASP/Tutorial%205.html)  
 - [Tutorial 6. Modify trees and states](https://bbpt.scu.edu.cn/yuyan/blog/RASP/Tutorial%206.html)  
+
+[Download All Tutorials](./Tutorials.zip)
 
 ## Cites
 **To maintain RASP, support users and secure fundings, it is important for us that you cite our paper:**  

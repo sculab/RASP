@@ -42,8 +42,8 @@
         Me.Close()
     End Sub
 
-    Private Sub OptionForm_VisibleChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.VisibleChanged
-        If Me.Visible = True Then
+    Private Sub OptionForm_VisibleChanged(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.VisibleChanged
+        If Visible = True Then
             NumericUpDown12.Value = taxon_pie_radii
             CheckBox8.Checked = Display_taxon_pie
             CheckBox9.Checked = Display_lines

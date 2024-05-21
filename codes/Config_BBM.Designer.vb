@@ -22,511 +22,510 @@ Partial Class Config_BBM
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
+        components = New ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Config_BBM))
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.NumericUpDown2 = New System.Windows.Forms.NumericUpDown()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.NumericUpDown3 = New System.Windows.Forms.NumericUpDown()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.BayesTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox3.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
-        Me.SuspendLayout()
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(175, 102)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(89, 21)
-        Me.TextBox4.TabIndex = 41
-        Me.TextBox4.Text = "100"
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(175, 25)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(89, 21)
-        Me.TextBox3.TabIndex = 52
-        Me.TextBox3.Text = "50000"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(175, 77)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(89, 21)
-        Me.TextBox1.TabIndex = 50
-        Me.TextBox1.Text = "100"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(409, 310)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 24)
-        Me.Button1.TabIndex = 48
-        Me.Button1.Text = "OK"
-        '
-        'Label1
-        '
-        Me.Label1.Location = New System.Drawing.Point(7, 20)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(164, 30)
-        Me.Label1.TabIndex = 46
-        Me.Label1.Text = "Number of cycles"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(176, 128)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(89, 21)
-        Me.TextBox2.TabIndex = 40
-        Me.TextBox2.Text = "0.1"
-        '
-        'NumericUpDown2
-        '
-        Me.NumericUpDown2.Location = New System.Drawing.Point(175, 50)
-        Me.NumericUpDown2.Maximum = New Decimal(New Integer() {100000000, 0, 0, 0})
-        Me.NumericUpDown2.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.NumericUpDown2.Name = "NumericUpDown2"
-        Me.NumericUpDown2.Size = New System.Drawing.Size(89, 21)
-        Me.NumericUpDown2.TabIndex = 39
-        Me.NumericUpDown2.Value = New Decimal(New Integer() {10, 0, 0, 0})
-        '
-        'Label2
-        '
-        Me.Label2.Location = New System.Drawing.Point(7, 44)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(164, 30)
-        Me.Label2.TabIndex = 47
-        Me.Label2.Text = "Number of chains"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label3
-        '
-        Me.Label3.Location = New System.Drawing.Point(8, 124)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(166, 30)
-        Me.Label3.TabIndex = 43
-        Me.Label3.Text = "Temperature"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label4
-        '
-        Me.Label4.Location = New System.Drawing.Point(7, 70)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(164, 30)
-        Me.Label4.TabIndex = 44
-        Me.Label4.Text = "Frequent of samples"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label6
-        '
-        Me.Label6.Location = New System.Drawing.Point(7, 97)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(164, 30)
-        Me.Label6.TabIndex = 42
-        Me.Label6.Text = "Discard samples"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'NumericUpDown1
-        '
-        Me.NumericUpDown1.Location = New System.Drawing.Point(205, 25)
-        Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.Size = New System.Drawing.Size(59, 21)
-        Me.NumericUpDown1.TabIndex = 39
-        Me.NumericUpDown1.Value = New Decimal(New Integer() {4, 0, 0, 0})
-        '
-        'Label5
-        '
-        Me.Label5.Location = New System.Drawing.Point(6, 20)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(166, 30)
-        Me.Label5.TabIndex = 43
-        Me.Label5.Text = "Maximum number of areas"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(490, 310)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 24)
-        Me.Button2.TabIndex = 48
-        Me.Button2.Text = "Cancel"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Fixed (JC)", "Estimated (F81)"})
-        Me.ComboBox1.Location = New System.Drawing.Point(158, 23)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(108, 23)
-        Me.ComboBox1.TabIndex = 54
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(7, 25)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(103, 15)
-        Me.Label7.TabIndex = 55
-        Me.Label7.Text = "State frequencies"
-        '
-        'TextBox5
-        '
-        Me.TextBox5.Location = New System.Drawing.Point(158, 49)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(53, 21)
-        Me.TextBox5.TabIndex = 56
-        Me.TextBox5.Text = "0.5"
-        '
-        'TextBox6
-        '
-        Me.TextBox6.Location = New System.Drawing.Point(213, 49)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(53, 21)
-        Me.TextBox6.TabIndex = 57
-        Me.TextBox6.Text = "0.5"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(22, 52)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(126, 15)
-        Me.Label8.TabIndex = 58
-        Me.Label8.Text = "|-Dirichlet distribution "
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(7, 77)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(144, 15)
-        Me.Label9.TabIndex = 59
-        Me.Label9.Text = "Among-Site rate variation"
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Equal", "Gamma (+G)"})
-        Me.ComboBox2.Location = New System.Drawing.Point(158, 75)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(108, 23)
-        Me.ComboBox2.TabIndex = 60
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(23, 105)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(123, 15)
-        Me.Label10.TabIndex = 61
-        Me.Label10.Text = "|-Gamma distribution"
-        '
-        'TextBox7
-        '
-        Me.TextBox7.Location = New System.Drawing.Point(158, 102)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(55, 21)
-        Me.TextBox7.TabIndex = 62
-        Me.TextBox7.Text = "0.001"
-        '
-        'TextBox8
-        '
-        Me.TextBox8.Location = New System.Drawing.Point(213, 102)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(52, 21)
-        Me.TextBox8.TabIndex = 62
-        Me.TextBox8.Text = "100"
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.TextBox3)
-        Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.NumericUpDown2)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Controls.Add(Me.TextBox4)
-        Me.GroupBox1.Location = New System.Drawing.Point(290, 3)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(276, 158)
-        Me.GroupBox1.TabIndex = 63
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Markov Chain Monte Carlo analysis"
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.ComboBox1)
-        Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.TextBox8)
-        Me.GroupBox2.Controls.Add(Me.TextBox5)
-        Me.GroupBox2.Controls.Add(Me.TextBox7)
-        Me.GroupBox2.Controls.Add(Me.TextBox6)
-        Me.GroupBox2.Controls.Add(Me.Label10)
-        Me.GroupBox2.Controls.Add(Me.Label8)
-        Me.GroupBox2.Controls.Add(Me.ComboBox2)
-        Me.GroupBox2.Controls.Add(Me.Label9)
-        Me.GroupBox2.Location = New System.Drawing.Point(290, 167)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(276, 132)
-        Me.GroupBox2.TabIndex = 64
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Model"
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(9, 50)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(204, 19)
-        Me.CheckBox1.TabIndex = 65
-        Me.CheckBox1.Text = "Allow null distribution in analysis"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'NumericUpDown3
-        '
-        Me.NumericUpDown3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.NumericUpDown3.Location = New System.Drawing.Point(205, 220)
-        Me.NumericUpDown3.Name = "NumericUpDown3"
-        Me.NumericUpDown3.Size = New System.Drawing.Size(46, 21)
-        Me.NumericUpDown3.TabIndex = 71
-        Me.NumericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NumericUpDown3.Value = New Decimal(New Integer() {90, 0, 0, 0})
-        '
-        'Label13
-        '
-        Me.Label13.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(185, 222)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(21, 15)
-        Me.Label13.TabIndex = 73
-        Me.Label13.Text = ">="
-        '
-        'Label14
-        '
-        Me.Label14.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(252, 222)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(18, 15)
-        Me.Label14.TabIndex = 72
-        Me.Label14.Text = "%"
-        '
-        'Button3
-        '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button3.Location = New System.Drawing.Point(133, 218)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(51, 23)
-        Me.Button3.TabIndex = 70
-        Me.Button3.Text = "Select "
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button4.Location = New System.Drawing.Point(59, 218)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(51, 23)
-        Me.Button4.TabIndex = 69
-        Me.Button4.Text = "Clear"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button5.Location = New System.Drawing.Point(8, 218)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(51, 23)
-        Me.Button5.TabIndex = 68
-        Me.Button5.Text = "All"
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'DataGridView2
-        '
-        Me.DataGridView2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(6, 20)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.DataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.DataGridView2.RowTemplate.Height = 23
-        Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView2.Size = New System.Drawing.Size(258, 192)
-        Me.DataGridView2.TabIndex = 66
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.DataGridView2)
-        Me.GroupBox3.Controls.Add(Me.NumericUpDown3)
-        Me.GroupBox3.Controls.Add(Me.Button5)
-        Me.GroupBox3.Controls.Add(Me.Label13)
-        Me.GroupBox3.Controls.Add(Me.Button4)
-        Me.GroupBox3.Controls.Add(Me.Label14)
-        Me.GroupBox3.Controls.Add(Me.Button3)
-        Me.GroupBox3.Location = New System.Drawing.Point(8, 87)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(276, 247)
-        Me.GroupBox3.TabIndex = 74
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Node list"
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.Controls.Add(Me.Label5)
-        Me.GroupBox4.Controls.Add(Me.NumericUpDown1)
-        Me.GroupBox4.Controls.Add(Me.CheckBox1)
-        Me.GroupBox4.Controls.Add(Me.Label11)
-        Me.GroupBox4.Controls.Add(Me.Label12)
-        Me.GroupBox4.Controls.Add(Me.ComboBox3)
-        Me.GroupBox4.Controls.Add(Me.TextBox9)
-        Me.GroupBox4.Location = New System.Drawing.Point(8, 3)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(276, 78)
-        Me.GroupBox4.TabIndex = 75
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Area"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(6, 84)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(100, 15)
-        Me.Label11.TabIndex = 44
-        Me.Label11.Text = "Root distribution "
-        Me.Label11.Visible = False
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(28, 110)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(122, 15)
-        Me.Label12.TabIndex = 47
-        Me.Label12.Text = "|-Custom distribution"
-        Me.Label12.Visible = False
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"Null", "Wide", "Custom"})
-        Me.ComboBox3.Location = New System.Drawing.Point(178, 79)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(89, 23)
-        Me.ComboBox3.TabIndex = 45
-        Me.ComboBox3.Visible = False
-        '
-        'TextBox9
-        '
-        Me.TextBox9.Location = New System.Drawing.Point(178, 106)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(89, 21)
-        Me.TextBox9.TabIndex = 46
-        Me.TextBox9.Visible = False
-        '
-        'BayesTimer
-        '
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(290, 314)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(102, 19)
-        Me.CheckBox2.TabIndex = 76
-        Me.CheckBox2.Text = "Large dataset"
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'Config_BBM
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(571, 341)
-        Me.ControlBox = False
-        Me.Controls.Add(Me.CheckBox2)
-        Me.Controls.Add(Me.GroupBox4)
-        Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
-        Me.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
-        Me.Name = "Config_BBM"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Bayesian Analysis"
-        Me.TopMost = True
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
-        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        TextBox4 = New TextBox()
+        TextBox3 = New TextBox()
+        TextBox1 = New TextBox()
+        Button1 = New Button()
+        Label1 = New Label()
+        TextBox2 = New TextBox()
+        NumericUpDown2 = New NumericUpDown()
+        Label2 = New Label()
+        Label3 = New Label()
+        Label4 = New Label()
+        Label6 = New Label()
+        NumericUpDown1 = New NumericUpDown()
+        Label5 = New Label()
+        Button2 = New Button()
+        ComboBox1 = New ComboBox()
+        Label7 = New Label()
+        TextBox5 = New TextBox()
+        TextBox6 = New TextBox()
+        Label8 = New Label()
+        Label9 = New Label()
+        ComboBox2 = New ComboBox()
+        Label10 = New Label()
+        TextBox7 = New TextBox()
+        TextBox8 = New TextBox()
+        GroupBox1 = New GroupBox()
+        GroupBox2 = New GroupBox()
+        CheckBox1 = New CheckBox()
+        NumericUpDown3 = New NumericUpDown()
+        Label13 = New Label()
+        Label14 = New Label()
+        Button3 = New Button()
+        Button4 = New Button()
+        Button5 = New Button()
+        DataGridView2 = New DataGridView()
+        GroupBox3 = New GroupBox()
+        GroupBox4 = New GroupBox()
+        Label11 = New Label()
+        Label12 = New Label()
+        ComboBox3 = New ComboBox()
+        TextBox9 = New TextBox()
+        BayesTimer = New Timer(components)
+        CheckBox2 = New CheckBox()
+        CType(NumericUpDown2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(NumericUpDown1, ComponentModel.ISupportInitialize).BeginInit()
+        GroupBox1.SuspendLayout()
+        GroupBox2.SuspendLayout()
+        CType(NumericUpDown3, ComponentModel.ISupportInitialize).BeginInit()
+        CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
+        GroupBox3.SuspendLayout()
+        GroupBox4.SuspendLayout()
+        SuspendLayout()
+        ' 
+        ' TextBox4
+        ' 
+        TextBox4.Location = New Point(175, 102)
+        TextBox4.Name = "TextBox4"
+        TextBox4.Size = New Size(89, 21)
+        TextBox4.TabIndex = 41
+        TextBox4.Text = "100"
+        ' 
+        ' TextBox3
+        ' 
+        TextBox3.Location = New Point(175, 25)
+        TextBox3.Name = "TextBox3"
+        TextBox3.Size = New Size(89, 21)
+        TextBox3.TabIndex = 52
+        TextBox3.Text = "50000"
+        ' 
+        ' TextBox1
+        ' 
+        TextBox1.Location = New Point(175, 77)
+        TextBox1.Name = "TextBox1"
+        TextBox1.Size = New Size(89, 21)
+        TextBox1.TabIndex = 50
+        TextBox1.Text = "100"
+        ' 
+        ' Button1
+        ' 
+        Button1.Location = New Point(409, 310)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(75, 24)
+        Button1.TabIndex = 48
+        Button1.Text = "OK"
+        ' 
+        ' Label1
+        ' 
+        Label1.Location = New Point(7, 20)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(164, 30)
+        Label1.TabIndex = 46
+        Label1.Text = "Number of cycles"
+        Label1.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' TextBox2
+        ' 
+        TextBox2.Location = New Point(176, 128)
+        TextBox2.Name = "TextBox2"
+        TextBox2.Size = New Size(89, 21)
+        TextBox2.TabIndex = 40
+        TextBox2.Text = "0.1"
+        ' 
+        ' NumericUpDown2
+        ' 
+        NumericUpDown2.Location = New Point(175, 50)
+        NumericUpDown2.Maximum = New Decimal(New Integer() {100000000, 0, 0, 0})
+        NumericUpDown2.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        NumericUpDown2.Name = "NumericUpDown2"
+        NumericUpDown2.Size = New Size(89, 21)
+        NumericUpDown2.TabIndex = 39
+        NumericUpDown2.Value = New Decimal(New Integer() {10, 0, 0, 0})
+        ' 
+        ' Label2
+        ' 
+        Label2.Location = New Point(7, 44)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(164, 30)
+        Label2.TabIndex = 47
+        Label2.Text = "Number of chains"
+        Label2.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Label3
+        ' 
+        Label3.Location = New Point(8, 124)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(166, 30)
+        Label3.TabIndex = 43
+        Label3.Text = "Temperature"
+        Label3.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Label4
+        ' 
+        Label4.Location = New Point(7, 70)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(164, 30)
+        Label4.TabIndex = 44
+        Label4.Text = "Frequent of samples"
+        Label4.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Label6
+        ' 
+        Label6.Location = New Point(7, 97)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(164, 30)
+        Label6.TabIndex = 42
+        Label6.Text = "Discard samples"
+        Label6.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' NumericUpDown1
+        ' 
+        NumericUpDown1.Location = New Point(205, 25)
+        NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        NumericUpDown1.Name = "NumericUpDown1"
+        NumericUpDown1.Size = New Size(59, 21)
+        NumericUpDown1.TabIndex = 39
+        NumericUpDown1.Value = New Decimal(New Integer() {4, 0, 0, 0})
+        ' 
+        ' Label5
+        ' 
+        Label5.Location = New Point(6, 20)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(166, 30)
+        Label5.TabIndex = 43
+        Label5.Text = "Maximum number of areas"
+        Label5.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Button2
+        ' 
+        Button2.Location = New Point(490, 310)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(75, 24)
+        Button2.TabIndex = 48
+        Button2.Text = "Cancel"
+        ' 
+        ' ComboBox1
+        ' 
+        ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox1.FormattingEnabled = True
+        ComboBox1.Items.AddRange(New Object() {"Fixed (JC)", "Estimated (F81)"})
+        ComboBox1.Location = New Point(158, 23)
+        ComboBox1.Name = "ComboBox1"
+        ComboBox1.Size = New Size(108, 23)
+        ComboBox1.TabIndex = 54
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Location = New Point(7, 25)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(103, 15)
+        Label7.TabIndex = 55
+        Label7.Text = "State frequencies"
+        ' 
+        ' TextBox5
+        ' 
+        TextBox5.Location = New Point(158, 49)
+        TextBox5.Name = "TextBox5"
+        TextBox5.Size = New Size(53, 21)
+        TextBox5.TabIndex = 56
+        TextBox5.Text = "0.5"
+        ' 
+        ' TextBox6
+        ' 
+        TextBox6.Location = New Point(213, 49)
+        TextBox6.Name = "TextBox6"
+        TextBox6.Size = New Size(53, 21)
+        TextBox6.TabIndex = 57
+        TextBox6.Text = "0.5"
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Location = New Point(22, 52)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(126, 15)
+        Label8.TabIndex = 58
+        Label8.Text = "|-Dirichlet distribution "
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Location = New Point(7, 77)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(144, 15)
+        Label9.TabIndex = 59
+        Label9.Text = "Among-Site rate variation"
+        ' 
+        ' ComboBox2
+        ' 
+        ComboBox2.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox2.FormattingEnabled = True
+        ComboBox2.Items.AddRange(New Object() {"Equal", "Gamma (+G)"})
+        ComboBox2.Location = New Point(158, 75)
+        ComboBox2.Name = "ComboBox2"
+        ComboBox2.Size = New Size(108, 23)
+        ComboBox2.TabIndex = 60
+        ' 
+        ' Label10
+        ' 
+        Label10.AutoSize = True
+        Label10.Location = New Point(23, 105)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(123, 15)
+        Label10.TabIndex = 61
+        Label10.Text = "|-Gamma distribution"
+        ' 
+        ' TextBox7
+        ' 
+        TextBox7.Location = New Point(158, 102)
+        TextBox7.Name = "TextBox7"
+        TextBox7.Size = New Size(55, 21)
+        TextBox7.TabIndex = 62
+        TextBox7.Text = "0.001"
+        ' 
+        ' TextBox8
+        ' 
+        TextBox8.Location = New Point(213, 102)
+        TextBox8.Name = "TextBox8"
+        TextBox8.Size = New Size(52, 21)
+        TextBox8.TabIndex = 62
+        TextBox8.Text = "100"
+        ' 
+        ' GroupBox1
+        ' 
+        GroupBox1.Controls.Add(TextBox3)
+        GroupBox1.Controls.Add(Label6)
+        GroupBox1.Controls.Add(Label4)
+        GroupBox1.Controls.Add(Label3)
+        GroupBox1.Controls.Add(Label2)
+        GroupBox1.Controls.Add(NumericUpDown2)
+        GroupBox1.Controls.Add(TextBox2)
+        GroupBox1.Controls.Add(Label1)
+        GroupBox1.Controls.Add(TextBox1)
+        GroupBox1.Controls.Add(TextBox4)
+        GroupBox1.Location = New Point(290, 3)
+        GroupBox1.Name = "GroupBox1"
+        GroupBox1.Size = New Size(276, 158)
+        GroupBox1.TabIndex = 63
+        GroupBox1.TabStop = False
+        GroupBox1.Text = "Markov Chain Monte Carlo analysis"
+        ' 
+        ' GroupBox2
+        ' 
+        GroupBox2.Controls.Add(ComboBox1)
+        GroupBox2.Controls.Add(Label7)
+        GroupBox2.Controls.Add(TextBox8)
+        GroupBox2.Controls.Add(TextBox5)
+        GroupBox2.Controls.Add(TextBox7)
+        GroupBox2.Controls.Add(TextBox6)
+        GroupBox2.Controls.Add(Label10)
+        GroupBox2.Controls.Add(Label8)
+        GroupBox2.Controls.Add(ComboBox2)
+        GroupBox2.Controls.Add(Label9)
+        GroupBox2.Location = New Point(290, 167)
+        GroupBox2.Name = "GroupBox2"
+        GroupBox2.Size = New Size(276, 132)
+        GroupBox2.TabIndex = 64
+        GroupBox2.TabStop = False
+        GroupBox2.Text = "Model"
+        ' 
+        ' CheckBox1
+        ' 
+        CheckBox1.AutoSize = True
+        CheckBox1.Location = New Point(9, 50)
+        CheckBox1.Name = "CheckBox1"
+        CheckBox1.Size = New Size(204, 19)
+        CheckBox1.TabIndex = 65
+        CheckBox1.Text = "Allow null distribution in analysis"
+        CheckBox1.UseVisualStyleBackColor = True
+        ' 
+        ' NumericUpDown3
+        ' 
+        NumericUpDown3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        NumericUpDown3.Location = New Point(205, 220)
+        NumericUpDown3.Name = "NumericUpDown3"
+        NumericUpDown3.Size = New Size(46, 21)
+        NumericUpDown3.TabIndex = 71
+        NumericUpDown3.TextAlign = HorizontalAlignment.Right
+        NumericUpDown3.Value = New Decimal(New Integer() {90, 0, 0, 0})
+        ' 
+        ' Label13
+        ' 
+        Label13.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        Label13.AutoSize = True
+        Label13.Location = New Point(185, 222)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(21, 15)
+        Label13.TabIndex = 73
+        Label13.Text = ">="
+        ' 
+        ' Label14
+        ' 
+        Label14.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        Label14.AutoSize = True
+        Label14.Location = New Point(252, 222)
+        Label14.Name = "Label14"
+        Label14.Size = New Size(18, 15)
+        Label14.TabIndex = 72
+        Label14.Text = "%"
+        ' 
+        ' Button3
+        ' 
+        Button3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        Button3.Location = New Point(133, 218)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(51, 23)
+        Button3.TabIndex = 70
+        Button3.Text = "Select "
+        Button3.UseVisualStyleBackColor = True
+        ' 
+        ' Button4
+        ' 
+        Button4.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        Button4.Location = New Point(59, 218)
+        Button4.Name = "Button4"
+        Button4.Size = New Size(51, 23)
+        Button4.TabIndex = 69
+        Button4.Text = "Clear"
+        Button4.UseVisualStyleBackColor = True
+        ' 
+        ' Button5
+        ' 
+        Button5.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        Button5.Location = New Point(8, 218)
+        Button5.Name = "Button5"
+        Button5.Size = New Size(51, 23)
+        Button5.TabIndex = 68
+        Button5.Text = "All"
+        Button5.UseVisualStyleBackColor = True
+        ' 
+        ' DataGridView2
+        ' 
+        DataGridView2.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView2.Location = New Point(6, 20)
+        DataGridView2.Name = "DataGridView2"
+        DataGridView2.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        DataGridView2.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridView2.RowTemplate.Height = 23
+        DataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        DataGridView2.Size = New Size(258, 192)
+        DataGridView2.TabIndex = 66
+        ' 
+        ' GroupBox3
+        ' 
+        GroupBox3.Controls.Add(DataGridView2)
+        GroupBox3.Controls.Add(NumericUpDown3)
+        GroupBox3.Controls.Add(Button5)
+        GroupBox3.Controls.Add(Label13)
+        GroupBox3.Controls.Add(Button4)
+        GroupBox3.Controls.Add(Label14)
+        GroupBox3.Controls.Add(Button3)
+        GroupBox3.Location = New Point(8, 87)
+        GroupBox3.Name = "GroupBox3"
+        GroupBox3.Size = New Size(276, 247)
+        GroupBox3.TabIndex = 74
+        GroupBox3.TabStop = False
+        GroupBox3.Text = "Node list"
+        ' 
+        ' GroupBox4
+        ' 
+        GroupBox4.Controls.Add(Label5)
+        GroupBox4.Controls.Add(NumericUpDown1)
+        GroupBox4.Controls.Add(CheckBox1)
+        GroupBox4.Controls.Add(Label11)
+        GroupBox4.Controls.Add(Label12)
+        GroupBox4.Controls.Add(ComboBox3)
+        GroupBox4.Controls.Add(TextBox9)
+        GroupBox4.Location = New Point(8, 3)
+        GroupBox4.Name = "GroupBox4"
+        GroupBox4.Size = New Size(276, 78)
+        GroupBox4.TabIndex = 75
+        GroupBox4.TabStop = False
+        GroupBox4.Text = "Area"
+        ' 
+        ' Label11
+        ' 
+        Label11.AutoSize = True
+        Label11.Location = New Point(6, 84)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(100, 15)
+        Label11.TabIndex = 44
+        Label11.Text = "Root distribution "
+        Label11.Visible = False
+        ' 
+        ' Label12
+        ' 
+        Label12.AutoSize = True
+        Label12.Location = New Point(28, 110)
+        Label12.Name = "Label12"
+        Label12.Size = New Size(122, 15)
+        Label12.TabIndex = 47
+        Label12.Text = "|-Custom distribution"
+        Label12.Visible = False
+        ' 
+        ' ComboBox3
+        ' 
+        ComboBox3.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox3.FormattingEnabled = True
+        ComboBox3.Items.AddRange(New Object() {"Null", "Wide", "Custom"})
+        ComboBox3.Location = New Point(178, 79)
+        ComboBox3.Name = "ComboBox3"
+        ComboBox3.Size = New Size(89, 23)
+        ComboBox3.TabIndex = 45
+        ComboBox3.Visible = False
+        ' 
+        ' TextBox9
+        ' 
+        TextBox9.Location = New Point(178, 106)
+        TextBox9.Name = "TextBox9"
+        TextBox9.Size = New Size(89, 21)
+        TextBox9.TabIndex = 46
+        TextBox9.Visible = False
+        ' 
+        ' BayesTimer
+        ' 
+        ' 
+        ' CheckBox2
+        ' 
+        CheckBox2.AutoSize = True
+        CheckBox2.Location = New Point(290, 314)
+        CheckBox2.Name = "CheckBox2"
+        CheckBox2.Size = New Size(102, 19)
+        CheckBox2.TabIndex = 76
+        CheckBox2.Text = "Large dataset"
+        CheckBox2.UseVisualStyleBackColor = True
+        ' 
+        ' Config_BBM
+        ' 
+        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleMode = AutoScaleMode.Font
+        ClientSize = New Size(571, 341)
+        ControlBox = False
+        Controls.Add(CheckBox2)
+        Controls.Add(GroupBox4)
+        Controls.Add(GroupBox3)
+        Controls.Add(GroupBox2)
+        Controls.Add(GroupBox1)
+        Controls.Add(Button2)
+        Controls.Add(Button1)
+        Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        FormBorderStyle = FormBorderStyle.FixedToolWindow
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        MaximizeBox = False
+        MinimizeBox = False
+        Name = "Config_BBM"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "Bayesian Analysis"
+        TopMost = True
+        CType(NumericUpDown2, ComponentModel.ISupportInitialize).EndInit()
+        CType(NumericUpDown1, ComponentModel.ISupportInitialize).EndInit()
+        GroupBox1.ResumeLayout(False)
+        GroupBox1.PerformLayout()
+        GroupBox2.ResumeLayout(False)
+        GroupBox2.PerformLayout()
+        CType(NumericUpDown3, ComponentModel.ISupportInitialize).EndInit()
+        CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
+        GroupBox3.ResumeLayout(False)
+        GroupBox3.PerformLayout()
+        GroupBox4.ResumeLayout(False)
+        GroupBox4.PerformLayout()
+        ResumeLayout(False)
+        PerformLayout()
 
     End Sub
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox

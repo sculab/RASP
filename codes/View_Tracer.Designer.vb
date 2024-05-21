@@ -22,76 +22,75 @@ Partial Class View_Tracer
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox1.BackColor = System.Drawing.Color.White
-        Me.PictureBox1.Location = New System.Drawing.Point(4, 6)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(661, 337)
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.Location = New System.Drawing.Point(464, 353)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(106, 21)
-        Me.TextBox1.TabIndex = 2
-        Me.TextBox1.Text = "0"
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(576, 350)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(87, 26)
-        Me.Button1.TabIndex = 3
-        Me.Button1.Text = "Calculate"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(395, 357)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(50, 15)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Burn-in:"
-        '
-        'View_Tracer
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(671, 382)
-        Me.ControlBox = False
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Name = "View_Tracer"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Tracer View"
-        Me.TopMost = True
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        PictureBox1 = New PictureBox()
+        TextBox1 = New TextBox()
+        Button1 = New Button()
+        Label1 = New Label()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        SuspendLayout()
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        PictureBox1.BackColor = Color.White
+        PictureBox1.Location = New Point(4, 6)
+        PictureBox1.Margin = New Padding(3, 4, 3, 4)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(661, 337)
+        PictureBox1.TabIndex = 1
+        PictureBox1.TabStop = False
+        ' 
+        ' TextBox1
+        ' 
+        TextBox1.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        TextBox1.Location = New Point(464, 353)
+        TextBox1.Margin = New Padding(3, 4, 3, 4)
+        TextBox1.Name = "TextBox1"
+        TextBox1.Size = New Size(106, 21)
+        TextBox1.TabIndex = 2
+        TextBox1.Text = "0"
+        ' 
+        ' Button1
+        ' 
+        Button1.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        Button1.Location = New Point(576, 350)
+        Button1.Margin = New Padding(3, 4, 3, 4)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(87, 26)
+        Button1.TabIndex = 3
+        Button1.Text = "Calculate"
+        Button1.UseVisualStyleBackColor = True
+        ' 
+        ' Label1
+        ' 
+        Label1.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        Label1.AutoSize = True
+        Label1.Location = New Point(395, 357)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(50, 15)
+        Label1.TabIndex = 4
+        Label1.Text = "Burn-in:"
+        ' 
+        ' View_Tracer
+        ' 
+        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleMode = AutoScaleMode.Font
+        ClientSize = New Size(671, 382)
+        ControlBox = False
+        Controls.Add(Label1)
+        Controls.Add(Button1)
+        Controls.Add(TextBox1)
+        Controls.Add(PictureBox1)
+        Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        FormBorderStyle = FormBorderStyle.FixedToolWindow
+        Margin = New Padding(3, 4, 3, 4)
+        Name = "View_Tracer"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "Tracer View"
+        TopMost = True
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        ResumeLayout(False)
+        PerformLayout()
 
     End Sub
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox

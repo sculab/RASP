@@ -27,10 +27,10 @@ Public Class Config_BGB
     Dim BGB_Header As String
     Dim time_period_num As Integer = 1
 
-    Private Sub Config_BGB_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub Config_BGB_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles MyBase.FormClosing
         'RangeMade = True
         e.Cancel = True
-        Me.Hide()
+        Hide
     End Sub
     Private Function check_exist(ByVal checkstr As String) As Boolean
         Dim Tempchar() As Char = RangeStr.ToUpper
@@ -300,15 +300,15 @@ Public Class Config_BGB
             ListBox2.Items.RemoveAt(ListBox2.SelectedIndex)
         End If
     End Sub
-    Private Sub Config_BGB_VisibleChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.VisibleChanged
-        If Me.Visible = True Then
+    Private Sub Config_BGB_VisibleChanged(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.VisibleChanged
+        If Visible = True Then
             If RangeStr.Length <> DataGridView1.Rows.Count Then
                 time_period_num = 1
-                ListBox3.Items.Clear()
-                ListBox4.Items.Clear()
+                ListBox3.Items.Clear
+                ListBox4.Items.Clear
                 ReDim TaxonName(taxon_num - 1)
                 ReDim Distribution(taxon_num - 1)
-                For i As Integer = 0 To taxon_num - 1
+                For i = 0 To taxon_num - 1
                     TaxonName(i) = dtView.Item(i).Item(1).ToString
                     Distribution(i) = dtView.Item(i).Item(state_index).ToString
                     ListBox3.Items.Add(TaxonName(i))
@@ -318,23 +318,23 @@ Public Class Config_BGB
                 NumericUpDown2.Maximum = RangeStr.Length
 
                 Array.Sort(Tempchar)
-                DataGridView1.Columns.Clear()
-                DataGridView1.Rows.Clear()
+                DataGridView1.Columns.Clear
+                DataGridView1.Rows.Clear
                 DataGridView1.AllowUserToAddRows = True
                 DataGridView1.AllowUserToDeleteRows = True
                 DataGridView1.AllowUserToOrderColumns = True
                 DataGridView1.AllowUserToResizeColumns = True
                 DataGridView1.AllowUserToResizeRows = True
-                Dim r As Integer = 0
-                For Each i As Char In Tempchar
+                Dim r = 0
+                For Each i In Tempchar
                     Dim Column As New DataGridViewCheckBoxColumn
                     Column.HeaderText = i.ToString
                     Column.Width = 32
                     Column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
                     DataGridView1.Columns.Add(Column)
-                    DataGridView1.Rows.Add()
+                    DataGridView1.Rows.Add
                     DataGridView1.Rows(r).HeaderCell.Value = i.ToString
-                    For j As Integer = 0 To r
+                    For j = 0 To r
                         DataGridView1.Rows(r).Cells(j).ReadOnly = True
                         DataGridView1.Rows(r).Cells(j).Style.SelectionBackColor = Color.Gray
                         DataGridView1.Rows(r).Cells(j).Style.SelectionForeColor = Color.Gray
@@ -343,8 +343,8 @@ Public Class Config_BGB
                     Next
                     r = r + 1
                 Next
-                For i As Integer = 0 To Tempchar.Length - 1
-                    For j As Integer = i To Tempchar.Length - 2
+                For i = 0 To Tempchar.Length - 1
+                    For j = i To Tempchar.Length - 2
                         DataGridView1.Rows(i).Cells(j + 1).Value = True
                     Next
                 Next
@@ -356,27 +356,27 @@ Public Class Config_BGB
                 DataGridView1.AllowUserToResizeRows = False
                 RefreshTheRangeListToolStripMenuItem_Click(sender, e)
 
-                DataGridView2.Columns.Clear()
-                DataGridView2.Rows.Clear()
+                DataGridView2.Columns.Clear
+                DataGridView2.Rows.Clear
                 DataGridView2.AllowUserToAddRows = True
                 DataGridView2.AllowUserToDeleteRows = True
                 DataGridView2.AllowUserToOrderColumns = True
                 DataGridView2.AllowUserToResizeColumns = True
                 DataGridView2.AllowUserToResizeRows = True
                 r = 0
-                For Each i As Char In Tempchar
+                For Each i In Tempchar
                     Dim Column2 As New DataGridViewTextBoxColumn
                     Column2.HeaderText = i.ToString
                     Column2.Width = 32
                     Column2.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
                     DataGridView2.Columns.Add(Column2)
-                    DataGridView2.Rows.Add()
+                    DataGridView2.Rows.Add
                     DataGridView2.Rows(r).HeaderCell.Value = "0-1 " + i.ToString
                     r = r + 1
                 Next
                 DataGridView2.RowHeadersWidth = 70
-                For i As Integer = 0 To Tempchar.Length - 1
-                    For j As Integer = 0 To Tempchar.Length - 1
+                For i = 0 To Tempchar.Length - 1
+                    For j = 0 To Tempchar.Length - 1
                         DataGridView2.Rows(i).Cells(j).Value = "1"
                     Next
                 Next
@@ -388,14 +388,14 @@ Public Class Config_BGB
                 DataGridView2.AllowUserToResizeRows = False
                 RefreshTheRangeListToolStripMenuItem_Click(sender, e)
 
-                DataGridView3.Columns.Clear()
-                DataGridView3.Rows.Clear()
+                DataGridView3.Columns.Clear
+                DataGridView3.Rows.Clear
                 Dim Column3 As New DataGridViewTextBoxColumn
                 Column3.HeaderText = "Time"
                 Column3.Width = 80
                 Column3.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
                 DataGridView3.Columns.Add(Column3)
-                DataGridView3.Rows.Add()
+                DataGridView3.Rows.Add
                 DataGridView3.Rows(0).HeaderCell.Value = "0"
                 DataGridView3.Rows(0).Cells(0).Value = "0.0"
                 DataGridView3.Rows(0).Cells(0).ReadOnly = True
@@ -408,15 +408,15 @@ Public Class Config_BGB
                 DataGridView3.AllowUserToResizeColumns = False
                 DataGridView3.AllowUserToResizeRows = False
 
-                DataGridView4.Columns.Clear()
-                DataGridView4.Rows.Clear()
+                DataGridView4.Columns.Clear
+                DataGridView4.Rows.Clear
                 Dim Column4 As New DataGridViewCheckBoxColumn
                 Column4.HeaderText = ""
                 Column4.Width = 30
                 Column4.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
                 DataGridView4.Columns.Add(Column4)
-                For i As Integer = 0 To Tempchar.Length - 1
-                    DataGridView4.Rows.Add()
+                For i = 0 To Tempchar.Length - 1
+                    DataGridView4.Rows.Add
                     DataGridView4.Rows(i).HeaderCell.Value = Tempchar(i).ToString
                 Next
                 DataGridView4.AllowUserToAddRows = False
@@ -425,8 +425,8 @@ Public Class Config_BGB
                 DataGridView4.AllowUserToResizeColumns = False
                 DataGridView4.AllowUserToResizeRows = False
 
-                DataGridView5.Columns.Clear()
-                DataGridView5.Rows.Clear()
+                DataGridView5.Columns.Clear
+                DataGridView5.Rows.Clear
                 Dim Column_Taxon1 As New DataGridViewTextBoxColumn
                 Dim Column_Taxon2 As New DataGridViewTextBoxColumn
                 Dim Column_Dis As New DataGridViewTextBoxColumn
@@ -455,13 +455,13 @@ Public Class Config_BGB
                 DataGridView5.AllowUserToResizeRows = False
                 Read_Poly_Tree(tree_show_with_value)
                 NumericUpDown2.Minimum = 0
-                For Each i As String In Distribution
+                For Each i In Distribution
                     If NumericUpDown2.Minimum < i.Length Then
                         NumericUpDown2.Minimum = i.Length
                     End If
                 Next
                 If has_length = False Then
-                    Me.Visible = False
+                    Visible = False
                 End If
             End If
         End If

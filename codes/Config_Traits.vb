@@ -195,8 +195,8 @@ Public Class Config_Traits
         ComboBox6.SelectedIndex = 0
     End Sub
 
-    Private Sub Config_Traits_VisibleChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.VisibleChanged
-        If Me.Visible Then
+    Private Sub Config_Traits_VisibleChanged(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.VisibleChanged
+        If Visible Then
             If TimerTraits.Enabled = True Then
                 Dim msg_reslut As DialogResult = MsgBox("BayesTraits is still running, stop it?", MsgBoxStyle.YesNo)
                 If msg_reslut = Windows.Forms.DialogResult.Yes Then
@@ -228,7 +228,7 @@ Public Class Config_Traits
 
 
             End If
-            For i As Integer = 1 To DataGridView2.Rows.Count
+            For i = 1 To DataGridView2.Rows.Count
                 DataGridView2.Rows(i - 1).Cells(2).Value = True
             Next
         End If
@@ -460,8 +460,8 @@ Public Class Config_Traits
         End If
     End Sub
 
-    Private Sub Config_Traits_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub Config_Traits_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         e.Cancel = True
-        Me.Hide()
+        Hide
     End Sub
 End Class

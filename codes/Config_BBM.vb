@@ -160,9 +160,9 @@ Public Class Config_BBM
         bayes_gen = -1
     End Sub
 
-    Private Sub BAYES_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub BAYES_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles MyBase.FormClosing
         e.Cancel = True
-        Me.Hide()
+        Hide
     End Sub
 
     Public Function Write_Bayes_nex(ByVal nex_name As String, ByVal command_num As Integer) As Integer
@@ -281,11 +281,11 @@ Public Class Config_BBM
         End If
     End Sub
 
-    Private Sub Bayesian_VisibleChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.VisibleChanged
-        If Me.Visible Then
+    Private Sub Bayesian_VisibleChanged(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.VisibleChanged
+        If Visible Then
             NumericUpDown1.Maximum = RangeStr.Length
-			NumericUpDown1.Value = Math.Min(4, RangeStr.Length)
-			If DataGridView2.ColumnCount = 0 Then
+            NumericUpDown1.Value = Math.Min(4, RangeStr.Length)
+            If DataGridView2.ColumnCount = 0 Then
                 DataGridView2.DataSource = nodeView
                 DataGridView2.Columns(0).SortMode = DataGridViewColumnSortMode.NotSortable
                 DataGridView2.Columns(1).SortMode = DataGridViewColumnSortMode.NotSortable
@@ -300,7 +300,7 @@ Public Class Config_BBM
                 DataGridView2.Columns(0).Width = 75
                 DataGridView2.Columns(1).Width = 75
                 DataGridView2.Columns(2).Width = 50
-                For i As Integer = 1 To DataGridView2.Rows.Count
+                For i = 1 To DataGridView2.Rows.Count
                     DataGridView2.Rows(i - 1).Cells(2).Value = True
                 Next
             End If

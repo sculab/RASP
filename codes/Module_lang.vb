@@ -135,6 +135,7 @@
         MainWindow.HelpToolStripMenuItem.Text = "Help"
         MainWindow.AboutToolStripMenuItem.Text = "About"
         MainWindow.DebugToolStripMenuItem.Text = "Debug"
+        MainWindow.GroupBox1.Text = "Tree Option"
         MainWindow.Label1.Text = "Amount of trees:"
         MainWindow.Label2.Text = "Discard Before Load:"
         MainWindow.Label5.Text = "Discard After Load:"

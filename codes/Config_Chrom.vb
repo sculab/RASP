@@ -451,7 +451,7 @@ Public Class Config_Chrom
         End If
     End Sub
 
-    Private Sub Config_Chrom_VisibleChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.VisibleChanged
+    Private Sub Config_Chrom_VisibleChanged(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.VisibleChanged
         If TimerChromEvol.Enabled = True Then
             Dim msg_reslut As DialogResult = MsgBox("ChromEvol is still running, stop it?", MsgBoxStyle.YesNo)
             If msg_reslut = Windows.Forms.DialogResult.Yes Then

@@ -15,13 +15,13 @@ Public Class Config_BayArea
         ComboBox2.SelectedIndex = 1
     End Sub
 
-    Private Sub BayArea_VisibleChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.VisibleChanged
-        If Me.Visible = True Then
+    Private Sub BayArea_VisibleChanged(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.VisibleChanged
+        If Visible = True Then
             If DataGridView1.RowCount <> RangeStr.Length Then
                 Dim Tempchar() As Char = RangeStr.ToUpper
                 Array.Sort(Tempchar)
-                DataGridView1.Columns.Clear()
-                DataGridView1.Rows.Clear()
+                DataGridView1.Columns.Clear
+                DataGridView1.Rows.Clear
                 DataGridView1.AllowUserToAddRows = True
                 DataGridView1.AllowUserToDeleteRows = True
                 DataGridView1.AllowUserToOrderColumns = True
@@ -43,10 +43,10 @@ Public Class Config_BayArea
                 Column2.Width = 80
                 Column2.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
                 DataGridView1.Columns.Add(Column2)
-                For i As Integer = 0 To Tempchar.Length - 1
-                    DataGridView1.Rows.Add()
+                For i = 0 To Tempchar.Length - 1
+                    DataGridView1.Rows.Add
                     DataGridView1.Rows(i).Cells(0).Value = Tempchar(i)
-                    For j As Integer = 1 To 2
+                    For j = 1 To 2
                         DataGridView1.Rows(i).Cells(j).Value = "0.0"
                     Next
                 Next

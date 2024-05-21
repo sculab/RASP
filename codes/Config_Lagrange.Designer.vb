@@ -23,599 +23,585 @@ Partial Class Config_Lagrange
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Config_Lagrange))
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.ListBox2 = New System.Windows.Forms.ListBox()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.NumericUpDown2 = New System.Windows.Forms.NumericUpDown()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.DataGridView5 = New System.Windows.Forms.DataGridView()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
-        Me.ListBox4 = New System.Windows.Forms.ListBox()
-        Me.ListBox3 = New System.Windows.Forms.ListBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.Button11 = New System.Windows.Forms.Button()
-        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.OperationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RefreshTheRangeListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveSettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LoadSettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabControl1.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage3.SuspendLayout()
-        CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.MenuStrip1.SuspendLayout()
-        Me.SuspendLayout()
-        '
-        'Button4
-        '
-        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button4.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(588, 396)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(68, 28)
-        Me.Button4.TabIndex = 31
-        Me.Button4.Text = "Cancel"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(517, 396)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(68, 28)
-        Me.Button3.TabIndex = 30
-        Me.Button3.Text = "OK"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Label3
-        '
-        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(602, 8)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(50, 15)
-        Me.Label3.TabIndex = 33
-        Me.Label3.Text = "Exclude"
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(442, 8)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(47, 15)
-        Me.Label2.TabIndex = 32
-        Me.Label2.Text = "Include"
-        '
-        'Button2
-        '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.Location = New System.Drawing.Point(549, 4)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(44, 23)
-        Me.Button2.TabIndex = 28
-        Me.Button2.Text = "<<"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(498, 4)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(44, 23)
-        Me.Button1.TabIndex = 27
-        Me.Button1.Text = ">>"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'ListBox2
-        '
-        Me.ListBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ListBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ListBox2.FormattingEnabled = True
-        Me.ListBox2.ItemHeight = 15
-        Me.ListBox2.Location = New System.Drawing.Point(549, 30)
-        Me.ListBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(100, 272)
-        Me.ListBox2.Sorted = True
-        Me.ListBox2.TabIndex = 26
-        '
-        'ListBox1
-        '
-        Me.ListBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ListBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.ItemHeight = 15
-        Me.ListBox1.Location = New System.Drawing.Point(442, 30)
-        Me.ListBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(100, 272)
-        Me.ListBox1.Sorted = True
-        Me.ListBox1.TabIndex = 25
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.DataGridView1.RowTemplate.Height = 23
-        Me.DataGridView1.Size = New System.Drawing.Size(436, 337)
-        Me.DataGridView1.TabIndex = 24
-        '
-        'NumericUpDown2
-        '
-        Me.NumericUpDown2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NumericUpDown2.BackColor = System.Drawing.Color.White
-        Me.NumericUpDown2.Location = New System.Drawing.Point(504, 309)
-        Me.NumericUpDown2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.NumericUpDown2.Maximum = New Decimal(New Integer() {15, 0, 0, 0})
-        Me.NumericUpDown2.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.NumericUpDown2.Name = "NumericUpDown2"
-        Me.NumericUpDown2.ReadOnly = True
-        Me.NumericUpDown2.Size = New System.Drawing.Size(38, 21)
-        Me.NumericUpDown2.TabIndex = 24
-        Me.NumericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NumericUpDown2.Value = New Decimal(New Integer() {2, 0, 0, 0})
-        '
-        'TabControl1
-        '
-        Me.TabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabControl1.Location = New System.Drawing.Point(0, 28)
-        Me.TabControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(660, 365)
-        Me.TabControl1.TabIndex = 35
-        '
-        'TabPage1
-        '
-        Me.TabPage1.Controls.Add(Me.NumericUpDown2)
-        Me.TabPage1.Controls.Add(Me.CheckBox3)
-        Me.TabPage1.Controls.Add(Me.Label1)
-        Me.TabPage1.Controls.Add(Me.DataGridView1)
-        Me.TabPage1.Controls.Add(Me.Label2)
-        Me.TabPage1.Controls.Add(Me.ListBox1)
-        Me.TabPage1.Controls.Add(Me.ListBox2)
-        Me.TabPage1.Controls.Add(Me.Label3)
-        Me.TabPage1.Controls.Add(Me.Button1)
-        Me.TabPage1.Controls.Add(Me.Button2)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 24)
-        Me.TabPage1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage1.Size = New System.Drawing.Size(652, 337)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Range constraints"
-        Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'CheckBox3
-        '
-        Me.CheckBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(576, 311)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(68, 19)
-        Me.CheckBox3.TabIndex = 37
-        Me.CheckBox3.Text = "Use list"
-        Me.CheckBox3.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(439, 311)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(66, 15)
-        Me.Label1.TabIndex = 25
-        Me.Label1.Text = "Max areas:"
-        '
-        'TabPage2
-        '
-        Me.TabPage2.Controls.Add(Me.Button10)
-        Me.TabPage2.Controls.Add(Me.DataGridView3)
-        Me.TabPage2.Controls.Add(Me.Button6)
-        Me.TabPage2.Controls.Add(Me.Button9)
-        Me.TabPage2.Controls.Add(Me.Button5)
-        Me.TabPage2.Controls.Add(Me.TextBox1)
-        Me.TabPage2.Controls.Add(Me.Label4)
-        Me.TabPage2.Controls.Add(Me.DataGridView2)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 24)
-        Me.TabPage2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage2.Size = New System.Drawing.Size(652, 337)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Dispersal constraints"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'Button10
-        '
-        Me.Button10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button10.Location = New System.Drawing.Point(578, 307)
-        Me.Button10.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(72, 26)
-        Me.Button10.TabIndex = 14
-        Me.Button10.Text = "Import"
-        Me.Button10.UseVisualStyleBackColor = True
-        '
-        'DataGridView3
-        '
-        Me.DataGridView3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView3.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(500, 66)
-        Me.DataGridView3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.DataGridView3.RowTemplate.Height = 23
-        Me.DataGridView3.Size = New System.Drawing.Size(152, 235)
-        Me.DataGridView3.TabIndex = 1
-        '
-        'Button6
-        '
-        Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button6.Location = New System.Drawing.Point(580, 32)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(72, 26)
-        Me.Button6.TabIndex = 12
-        Me.Button6.Text = "Remove"
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'Button9
-        '
-        Me.Button9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button9.Location = New System.Drawing.Point(500, 307)
-        Me.Button9.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(72, 26)
-        Me.Button9.TabIndex = 13
-        Me.Button9.Text = "Export"
-        Me.Button9.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button5.Location = New System.Drawing.Point(500, 32)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(72, 26)
-        Me.Button5.TabIndex = 11
-        Me.Button5.Text = "Add"
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.BackColor = System.Drawing.Color.White
-        Me.TextBox1.Location = New System.Drawing.Point(580, 3)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(68, 21)
-        Me.TextBox1.TabIndex = 7
-        Me.TextBox1.Text = "100"
-        '
-        'Label4
-        '
-        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(504, 7)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(60, 15)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Root age:"
-        '
-        'DataGridView2
-        '
-        Me.DataGridView2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        Me.DataGridView2.RowTemplate.Height = 23
-        Me.DataGridView2.Size = New System.Drawing.Size(494, 337)
-        Me.DataGridView2.TabIndex = 1
-        '
-        'TabPage3
-        '
-        Me.TabPage3.Controls.Add(Me.Label7)
-        Me.TabPage3.Controls.Add(Me.DataGridView5)
-        Me.TabPage3.Controls.Add(Me.RichTextBox1)
-        Me.TabPage3.Controls.Add(Me.Button8)
-        Me.TabPage3.Controls.Add(Me.Button7)
-        Me.TabPage3.Controls.Add(Me.DataGridView4)
-        Me.TabPage3.Controls.Add(Me.ListBox4)
-        Me.TabPage3.Controls.Add(Me.ListBox3)
-        Me.TabPage3.Controls.Add(Me.CheckBox2)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 24)
-        Me.TabPage3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(652, 337)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Fossil & MRCA"
-        Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(3, 20)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(209, 15)
-        Me.Label7.TabIndex = 12
-        Me.Label7.Text = "Select two taxon to define their MRCA"
-        '
-        'DataGridView5
-        '
-        Me.DataGridView5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView5.Location = New System.Drawing.Point(357, 0)
-        Me.DataGridView5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.DataGridView5.Name = "DataGridView5"
-        Me.DataGridView5.RowTemplate.Height = 23
-        Me.DataGridView5.Size = New System.Drawing.Size(295, 334)
-        Me.DataGridView5.TabIndex = 8
-        '
-        'RichTextBox1
-        '
-        Me.RichTextBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.RichTextBox1.Location = New System.Drawing.Point(416, 369)
-        Me.RichTextBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(216, 0)
-        Me.RichTextBox1.TabIndex = 4
-        Me.RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
-        '
-        'Button8
-        '
-        Me.Button8.Location = New System.Drawing.Point(218, 16)
-        Me.Button8.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(62, 26)
-        Me.Button8.TabIndex = 10
-        Me.Button8.Text = "Remove"
-        Me.Button8.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.Location = New System.Drawing.Point(286, 16)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(62, 26)
-        Me.Button7.TabIndex = 9
-        Me.Button7.Text = "Add"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
-        'DataGridView4
-        '
-        Me.DataGridView4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView4.Location = New System.Drawing.Point(249, 50)
-        Me.DataGridView4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.DataGridView4.Name = "DataGridView4"
-        Me.DataGridView4.RowTemplate.Height = 23
-        Me.DataGridView4.Size = New System.Drawing.Size(99, 284)
-        Me.DataGridView4.TabIndex = 7
-        '
-        'ListBox4
-        '
-        Me.ListBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.ListBox4.FormattingEnabled = True
-        Me.ListBox4.ItemHeight = 15
-        Me.ListBox4.Location = New System.Drawing.Point(125, 50)
-        Me.ListBox4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ListBox4.Name = "ListBox4"
-        Me.ListBox4.Size = New System.Drawing.Size(116, 274)
-        Me.ListBox4.TabIndex = 6
-        '
-        'ListBox3
-        '
-        Me.ListBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.ListBox3.FormattingEnabled = True
-        Me.ListBox3.ItemHeight = 15
-        Me.ListBox3.Location = New System.Drawing.Point(3, 50)
-        Me.ListBox3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ListBox3.Name = "ListBox3"
-        Me.ListBox3.Size = New System.Drawing.Size(116, 274)
-        Me.ListBox3.TabIndex = 5
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(416, 287)
-        Me.CheckBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(164, 19)
-        Me.CheckBox2.TabIndex = 9
-        Me.CheckBox2.Text = "Estimate dispersal mask"
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'Button11
-        '
-        Me.Button11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Button11.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button11.Location = New System.Drawing.Point(446, 396)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(68, 28)
-        Me.Button11.TabIndex = 36
-        Me.Button11.Text = "Reset"
-        Me.Button11.UseVisualStyleBackColor = True
-        '
-        'NumericUpDown1
-        '
-        Me.NumericUpDown1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.NumericUpDown1.BackColor = System.Drawing.Color.White
-        Me.NumericUpDown1.Location = New System.Drawing.Point(383, 401)
-        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {1024, 0, 0, 0})
-        Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.Size = New System.Drawing.Size(57, 21)
-        Me.NumericUpDown1.TabIndex = 37
-        Me.NumericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NumericUpDown1.Value = New Decimal(New Integer() {1, 0, 0, 0})
-        '
-        'Label5
-        '
-        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(324, 403)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(56, 15)
-        Me.Label5.TabIndex = 38
-        Me.Label5.Text = "Threads:"
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(189, 402)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(129, 19)
-        Me.CheckBox1.TabIndex = 39
-        Me.CheckBox1.Text = "Hide CMD Window"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        Me.CheckBox1.Visible = False
-        '
-        'MenuStrip1
-        '
-        Me.MenuStrip1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OperationToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(660, 24)
-        Me.MenuStrip1.TabIndex = 40
-        Me.MenuStrip1.Text = "MenuStrip1"
-        '
-        'OperationToolStripMenuItem
-        '
-        Me.OperationToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RefreshTheRangeListToolStripMenuItem, Me.SaveSettingsToolStripMenuItem, Me.LoadSettingToolStripMenuItem})
-        Me.OperationToolStripMenuItem.Name = "OperationToolStripMenuItem"
-        Me.OperationToolStripMenuItem.Size = New System.Drawing.Size(73, 20)
-        Me.OperationToolStripMenuItem.Text = "Operation"
-        '
-        'RefreshTheRangeListToolStripMenuItem
-        '
-        Me.RefreshTheRangeListToolStripMenuItem.Name = "RefreshTheRangeListToolStripMenuItem"
-        Me.RefreshTheRangeListToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
-        Me.RefreshTheRangeListToolStripMenuItem.Text = "Refresh the Range List"
-        '
-        'SaveSettingsToolStripMenuItem
-        '
-        Me.SaveSettingsToolStripMenuItem.Name = "SaveSettingsToolStripMenuItem"
-        Me.SaveSettingsToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
-        Me.SaveSettingsToolStripMenuItem.Text = "Save Setting"
-        '
-        'LoadSettingToolStripMenuItem
-        '
-        Me.LoadSettingToolStripMenuItem.Name = "LoadSettingToolStripMenuItem"
-        Me.LoadSettingToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
-        Me.LoadSettingToolStripMenuItem.Text = "Load Setting"
-        '
-        'Config_Lagrange
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(660, 432)
-        Me.ControlBox = False
-        Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.CheckBox1)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.NumericUpDown1)
-        Me.Controls.Add(Me.Button11)
-        Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button3)
-        Me.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
-        Me.Name = "Config_Lagrange"
-        Me.Text = "DEC"
-        Me.TopMost = True
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabControl1.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
-        Me.TabPage1.PerformLayout()
-        Me.TabPage2.ResumeLayout(False)
-        Me.TabPage2.PerformLayout()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabPage3.ResumeLayout(False)
-        Me.TabPage3.PerformLayout()
-        CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        Button4 = New Button()
+        Button3 = New Button()
+        Label3 = New Label()
+        Label2 = New Label()
+        Button2 = New Button()
+        Button1 = New Button()
+        ListBox2 = New ListBox()
+        ListBox1 = New ListBox()
+        DataGridView1 = New DataGridView()
+        NumericUpDown2 = New NumericUpDown()
+        TabControl1 = New TabControl()
+        TabPage1 = New TabPage()
+        CheckBox3 = New CheckBox()
+        Label1 = New Label()
+        TabPage2 = New TabPage()
+        Button10 = New Button()
+        DataGridView3 = New DataGridView()
+        Button6 = New Button()
+        Button9 = New Button()
+        Button5 = New Button()
+        TextBox1 = New TextBox()
+        Label4 = New Label()
+        DataGridView2 = New DataGridView()
+        TabPage3 = New TabPage()
+        Label7 = New Label()
+        DataGridView5 = New DataGridView()
+        RichTextBox1 = New RichTextBox()
+        Button8 = New Button()
+        Button7 = New Button()
+        DataGridView4 = New DataGridView()
+        ListBox4 = New ListBox()
+        ListBox3 = New ListBox()
+        CheckBox2 = New CheckBox()
+        Button11 = New Button()
+        NumericUpDown1 = New NumericUpDown()
+        Label5 = New Label()
+        CheckBox1 = New CheckBox()
+        MenuStrip1 = New MenuStrip()
+        OperationToolStripMenuItem = New ToolStripMenuItem()
+        RefreshTheRangeListToolStripMenuItem = New ToolStripMenuItem()
+        SaveSettingsToolStripMenuItem = New ToolStripMenuItem()
+        LoadSettingToolStripMenuItem = New ToolStripMenuItem()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(NumericUpDown2, ComponentModel.ISupportInitialize).BeginInit()
+        TabControl1.SuspendLayout()
+        TabPage1.SuspendLayout()
+        TabPage2.SuspendLayout()
+        CType(DataGridView3, ComponentModel.ISupportInitialize).BeginInit()
+        CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
+        TabPage3.SuspendLayout()
+        CType(DataGridView5, ComponentModel.ISupportInitialize).BeginInit()
+        CType(DataGridView4, ComponentModel.ISupportInitialize).BeginInit()
+        CType(NumericUpDown1, ComponentModel.ISupportInitialize).BeginInit()
+        MenuStrip1.SuspendLayout()
+        SuspendLayout()
+        ' 
+        ' Button4
+        ' 
+        Button4.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        Button4.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        Button4.Location = New Point(588, 396)
+        Button4.Margin = New Padding(3, 4, 3, 4)
+        Button4.Name = "Button4"
+        Button4.Size = New Size(68, 28)
+        Button4.TabIndex = 31
+        Button4.Text = "Cancel"
+        Button4.UseVisualStyleBackColor = True
+        ' 
+        ' Button3
+        ' 
+        Button3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        Button3.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        Button3.Location = New Point(517, 396)
+        Button3.Margin = New Padding(3, 4, 3, 4)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(68, 28)
+        Button3.TabIndex = 30
+        Button3.Text = "OK"
+        Button3.UseVisualStyleBackColor = True
+        ' 
+        ' Label3
+        ' 
+        Label3.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Label3.AutoSize = True
+        Label3.Location = New Point(602, 8)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(50, 15)
+        Label3.TabIndex = 33
+        Label3.Text = "Exclude"
+        ' 
+        ' Label2
+        ' 
+        Label2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Label2.AutoSize = True
+        Label2.Location = New Point(442, 8)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(47, 15)
+        Label2.TabIndex = 32
+        Label2.Text = "Include"
+        ' 
+        ' Button2
+        ' 
+        Button2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Button2.Location = New Point(549, 4)
+        Button2.Margin = New Padding(3, 4, 3, 4)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(44, 23)
+        Button2.TabIndex = 28
+        Button2.Text = "<<"
+        Button2.UseVisualStyleBackColor = True
+        ' 
+        ' Button1
+        ' 
+        Button1.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Button1.Location = New Point(498, 4)
+        Button1.Margin = New Padding(3, 4, 3, 4)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(44, 23)
+        Button1.TabIndex = 27
+        Button1.Text = ">>"
+        Button1.UseVisualStyleBackColor = True
+        ' 
+        ' ListBox2
+        ' 
+        ListBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Right
+        ListBox2.BorderStyle = BorderStyle.FixedSingle
+        ListBox2.FormattingEnabled = True
+        ListBox2.ItemHeight = 15
+        ListBox2.Location = New Point(549, 30)
+        ListBox2.Margin = New Padding(3, 4, 3, 4)
+        ListBox2.Name = "ListBox2"
+        ListBox2.Size = New Size(100, 272)
+        ListBox2.Sorted = True
+        ListBox2.TabIndex = 26
+        ' 
+        ' ListBox1
+        ' 
+        ListBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Right
+        ListBox1.BorderStyle = BorderStyle.FixedSingle
+        ListBox1.FormattingEnabled = True
+        ListBox1.ItemHeight = 15
+        ListBox1.Location = New Point(442, 30)
+        ListBox1.Margin = New Padding(3, 4, 3, 4)
+        ListBox1.Name = "ListBox1"
+        ListBox1.Size = New Size(100, 272)
+        ListBox1.Sorted = True
+        ListBox1.TabIndex = 25
+        ' 
+        ' DataGridView1
+        ' 
+        DataGridView1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
+        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView1.Location = New Point(0, 0)
+        DataGridView1.Margin = New Padding(3, 4, 3, 4)
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
+        DataGridView1.RowTemplate.Height = 23
+        DataGridView1.Size = New Size(436, 337)
+        DataGridView1.TabIndex = 24
+        ' 
+        ' NumericUpDown2
+        ' 
+        NumericUpDown2.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        NumericUpDown2.BackColor = Color.White
+        NumericUpDown2.Location = New Point(504, 309)
+        NumericUpDown2.Margin = New Padding(3, 4, 3, 4)
+        NumericUpDown2.Maximum = New Decimal(New Integer() {15, 0, 0, 0})
+        NumericUpDown2.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        NumericUpDown2.Name = "NumericUpDown2"
+        NumericUpDown2.ReadOnly = True
+        NumericUpDown2.Size = New Size(38, 21)
+        NumericUpDown2.TabIndex = 24
+        NumericUpDown2.TextAlign = HorizontalAlignment.Right
+        NumericUpDown2.Value = New Decimal(New Integer() {2, 0, 0, 0})
+        ' 
+        ' TabControl1
+        ' 
+        TabControl1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        TabControl1.Controls.Add(TabPage1)
+        TabControl1.Controls.Add(TabPage2)
+        TabControl1.Controls.Add(TabPage3)
+        TabControl1.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        TabControl1.Location = New Point(0, 28)
+        TabControl1.Margin = New Padding(3, 4, 3, 4)
+        TabControl1.Name = "TabControl1"
+        TabControl1.SelectedIndex = 0
+        TabControl1.Size = New Size(660, 365)
+        TabControl1.TabIndex = 35
+        ' 
+        ' TabPage1
+        ' 
+        TabPage1.Controls.Add(NumericUpDown2)
+        TabPage1.Controls.Add(CheckBox3)
+        TabPage1.Controls.Add(Label1)
+        TabPage1.Controls.Add(DataGridView1)
+        TabPage1.Controls.Add(Label2)
+        TabPage1.Controls.Add(ListBox1)
+        TabPage1.Controls.Add(ListBox2)
+        TabPage1.Controls.Add(Label3)
+        TabPage1.Controls.Add(Button1)
+        TabPage1.Controls.Add(Button2)
+        TabPage1.Location = New Point(4, 24)
+        TabPage1.Margin = New Padding(3, 4, 3, 4)
+        TabPage1.Name = "TabPage1"
+        TabPage1.Padding = New Padding(3, 4, 3, 4)
+        TabPage1.Size = New Size(652, 337)
+        TabPage1.TabIndex = 0
+        TabPage1.Text = "Range constraints"
+        TabPage1.UseVisualStyleBackColor = True
+        ' 
+        ' CheckBox3
+        ' 
+        CheckBox3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        CheckBox3.AutoSize = True
+        CheckBox3.Location = New Point(576, 311)
+        CheckBox3.Name = "CheckBox3"
+        CheckBox3.Size = New Size(68, 19)
+        CheckBox3.TabIndex = 37
+        CheckBox3.Text = "Use list"
+        CheckBox3.UseVisualStyleBackColor = True
+        ' 
+        ' Label1
+        ' 
+        Label1.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        Label1.AutoSize = True
+        Label1.Location = New Point(439, 311)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(66, 15)
+        Label1.TabIndex = 25
+        Label1.Text = "Max areas:"
+        ' 
+        ' TabPage2
+        ' 
+        TabPage2.Controls.Add(Button10)
+        TabPage2.Controls.Add(DataGridView3)
+        TabPage2.Controls.Add(Button6)
+        TabPage2.Controls.Add(Button9)
+        TabPage2.Controls.Add(Button5)
+        TabPage2.Controls.Add(TextBox1)
+        TabPage2.Controls.Add(Label4)
+        TabPage2.Controls.Add(DataGridView2)
+        TabPage2.Location = New Point(4, 24)
+        TabPage2.Margin = New Padding(3, 4, 3, 4)
+        TabPage2.Name = "TabPage2"
+        TabPage2.Padding = New Padding(3, 4, 3, 4)
+        TabPage2.Size = New Size(652, 337)
+        TabPage2.TabIndex = 1
+        TabPage2.Text = "Dispersal constraints"
+        TabPage2.UseVisualStyleBackColor = True
+        ' 
+        ' Button10
+        ' 
+        Button10.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        Button10.Location = New Point(578, 307)
+        Button10.Margin = New Padding(3, 4, 3, 4)
+        Button10.Name = "Button10"
+        Button10.Size = New Size(72, 26)
+        Button10.TabIndex = 14
+        Button10.Text = "Import"
+        Button10.UseVisualStyleBackColor = True
+        ' 
+        ' DataGridView3
+        ' 
+        DataGridView3.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Right
+        DataGridView3.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
+        DataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView3.Location = New Point(500, 66)
+        DataGridView3.Margin = New Padding(3, 4, 3, 4)
+        DataGridView3.Name = "DataGridView3"
+        DataGridView3.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
+        DataGridView3.RowTemplate.Height = 23
+        DataGridView3.Size = New Size(152, 235)
+        DataGridView3.TabIndex = 1
+        ' 
+        ' Button6
+        ' 
+        Button6.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Button6.Location = New Point(580, 32)
+        Button6.Margin = New Padding(3, 4, 3, 4)
+        Button6.Name = "Button6"
+        Button6.Size = New Size(72, 26)
+        Button6.TabIndex = 12
+        Button6.Text = "Remove"
+        Button6.UseVisualStyleBackColor = True
+        ' 
+        ' Button9
+        ' 
+        Button9.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        Button9.Location = New Point(500, 307)
+        Button9.Margin = New Padding(3, 4, 3, 4)
+        Button9.Name = "Button9"
+        Button9.Size = New Size(72, 26)
+        Button9.TabIndex = 13
+        Button9.Text = "Export"
+        Button9.UseVisualStyleBackColor = True
+        ' 
+        ' Button5
+        ' 
+        Button5.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Button5.Location = New Point(500, 32)
+        Button5.Margin = New Padding(3, 4, 3, 4)
+        Button5.Name = "Button5"
+        Button5.Size = New Size(72, 26)
+        Button5.TabIndex = 11
+        Button5.Text = "Add"
+        Button5.UseVisualStyleBackColor = True
+        ' 
+        ' TextBox1
+        ' 
+        TextBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        TextBox1.BackColor = Color.White
+        TextBox1.Location = New Point(580, 3)
+        TextBox1.Margin = New Padding(3, 4, 3, 4)
+        TextBox1.Name = "TextBox1"
+        TextBox1.ReadOnly = True
+        TextBox1.Size = New Size(68, 21)
+        TextBox1.TabIndex = 7
+        TextBox1.Text = "100"
+        ' 
+        ' Label4
+        ' 
+        Label4.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Label4.AutoSize = True
+        Label4.Location = New Point(504, 7)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(60, 15)
+        Label4.TabIndex = 6
+        Label4.Text = "Root age:"
+        ' 
+        ' DataGridView2
+        ' 
+        DataGridView2.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        DataGridView2.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
+        DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView2.Location = New Point(0, 0)
+        DataGridView2.Margin = New Padding(3, 4, 3, 4)
+        DataGridView2.Name = "DataGridView2"
+        DataGridView2.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
+        DataGridView2.RowTemplate.Height = 23
+        DataGridView2.Size = New Size(494, 337)
+        DataGridView2.TabIndex = 1
+        ' 
+        ' TabPage3
+        ' 
+        TabPage3.Controls.Add(Label7)
+        TabPage3.Controls.Add(DataGridView5)
+        TabPage3.Controls.Add(RichTextBox1)
+        TabPage3.Controls.Add(Button8)
+        TabPage3.Controls.Add(Button7)
+        TabPage3.Controls.Add(DataGridView4)
+        TabPage3.Controls.Add(ListBox4)
+        TabPage3.Controls.Add(ListBox3)
+        TabPage3.Controls.Add(CheckBox2)
+        TabPage3.Location = New Point(4, 24)
+        TabPage3.Margin = New Padding(3, 4, 3, 4)
+        TabPage3.Name = "TabPage3"
+        TabPage3.Size = New Size(652, 337)
+        TabPage3.TabIndex = 2
+        TabPage3.Text = "Fossil & MRCA"
+        TabPage3.UseVisualStyleBackColor = True
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Location = New Point(3, 20)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(209, 15)
+        Label7.TabIndex = 12
+        Label7.Text = "Select two taxon to define their MRCA"
+        ' 
+        ' DataGridView5
+        ' 
+        DataGridView5.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Right
+        DataGridView5.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView5.Location = New Point(357, 0)
+        DataGridView5.Margin = New Padding(3, 4, 3, 4)
+        DataGridView5.Name = "DataGridView5"
+        DataGridView5.RowTemplate.Height = 23
+        DataGridView5.Size = New Size(295, 334)
+        DataGridView5.TabIndex = 8
+        ' 
+        ' RichTextBox1
+        ' 
+        RichTextBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        RichTextBox1.BorderStyle = BorderStyle.FixedSingle
+        RichTextBox1.Location = New Point(416, 369)
+        RichTextBox1.Margin = New Padding(3, 4, 3, 4)
+        RichTextBox1.Name = "RichTextBox1"
+        RichTextBox1.Size = New Size(216, 0)
+        RichTextBox1.TabIndex = 4
+        RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
+        ' 
+        ' Button8
+        ' 
+        Button8.Location = New Point(218, 16)
+        Button8.Margin = New Padding(3, 4, 3, 4)
+        Button8.Name = "Button8"
+        Button8.Size = New Size(62, 26)
+        Button8.TabIndex = 10
+        Button8.Text = "Remove"
+        Button8.UseVisualStyleBackColor = True
+        ' 
+        ' Button7
+        ' 
+        Button7.Location = New Point(286, 16)
+        Button7.Margin = New Padding(3, 4, 3, 4)
+        Button7.Name = "Button7"
+        Button7.Size = New Size(62, 26)
+        Button7.TabIndex = 9
+        Button7.Text = "Add"
+        Button7.UseVisualStyleBackColor = True
+        ' 
+        ' DataGridView4
+        ' 
+        DataGridView4.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
+        DataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView4.Location = New Point(249, 50)
+        DataGridView4.Margin = New Padding(3, 4, 3, 4)
+        DataGridView4.Name = "DataGridView4"
+        DataGridView4.RowTemplate.Height = 23
+        DataGridView4.Size = New Size(99, 284)
+        DataGridView4.TabIndex = 7
+        ' 
+        ' ListBox4
+        ' 
+        ListBox4.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
+        ListBox4.FormattingEnabled = True
+        ListBox4.ItemHeight = 15
+        ListBox4.Location = New Point(125, 50)
+        ListBox4.Margin = New Padding(3, 4, 3, 4)
+        ListBox4.Name = "ListBox4"
+        ListBox4.Size = New Size(116, 274)
+        ListBox4.TabIndex = 6
+        ' 
+        ' ListBox3
+        ' 
+        ListBox3.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
+        ListBox3.FormattingEnabled = True
+        ListBox3.ItemHeight = 15
+        ListBox3.Location = New Point(3, 50)
+        ListBox3.Margin = New Padding(3, 4, 3, 4)
+        ListBox3.Name = "ListBox3"
+        ListBox3.Size = New Size(116, 274)
+        ListBox3.TabIndex = 5
+        ' 
+        ' CheckBox2
+        ' 
+        CheckBox2.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        CheckBox2.AutoSize = True
+        CheckBox2.Location = New Point(416, 287)
+        CheckBox2.Margin = New Padding(3, 4, 3, 4)
+        CheckBox2.Name = "CheckBox2"
+        CheckBox2.Size = New Size(164, 19)
+        CheckBox2.TabIndex = 9
+        CheckBox2.Text = "Estimate dispersal mask"
+        CheckBox2.UseVisualStyleBackColor = True
+        ' 
+        ' Button11
+        ' 
+        Button11.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        Button11.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        Button11.Location = New Point(446, 396)
+        Button11.Name = "Button11"
+        Button11.Size = New Size(68, 28)
+        Button11.TabIndex = 36
+        Button11.Text = "Reset"
+        Button11.UseVisualStyleBackColor = True
+        ' 
+        ' NumericUpDown1
+        ' 
+        NumericUpDown1.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        NumericUpDown1.BackColor = Color.White
+        NumericUpDown1.Location = New Point(383, 401)
+        NumericUpDown1.Maximum = New Decimal(New Integer() {1024, 0, 0, 0})
+        NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        NumericUpDown1.Name = "NumericUpDown1"
+        NumericUpDown1.Size = New Size(57, 21)
+        NumericUpDown1.TabIndex = 37
+        NumericUpDown1.TextAlign = HorizontalAlignment.Right
+        NumericUpDown1.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        ' 
+        ' Label5
+        ' 
+        Label5.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        Label5.AutoSize = True
+        Label5.Location = New Point(324, 403)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(56, 15)
+        Label5.TabIndex = 38
+        Label5.Text = "Threads:"
+        ' 
+        ' CheckBox1
+        ' 
+        CheckBox1.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        CheckBox1.AutoSize = True
+        CheckBox1.Location = New Point(189, 402)
+        CheckBox1.Name = "CheckBox1"
+        CheckBox1.Size = New Size(129, 19)
+        CheckBox1.TabIndex = 39
+        CheckBox1.Text = "Hide CMD Window"
+        CheckBox1.UseVisualStyleBackColor = True
+        CheckBox1.Visible = False
+        ' 
+        ' MenuStrip1
+        ' 
+        MenuStrip1.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        MenuStrip1.Items.AddRange(New ToolStripItem() {OperationToolStripMenuItem})
+        MenuStrip1.Location = New Point(0, 0)
+        MenuStrip1.Name = "MenuStrip1"
+        MenuStrip1.Size = New Size(660, 24)
+        MenuStrip1.TabIndex = 40
+        MenuStrip1.Text = "MenuStrip1"
+        ' 
+        ' OperationToolStripMenuItem
+        ' 
+        OperationToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {RefreshTheRangeListToolStripMenuItem, SaveSettingsToolStripMenuItem, LoadSettingToolStripMenuItem})
+        OperationToolStripMenuItem.Name = "OperationToolStripMenuItem"
+        OperationToolStripMenuItem.Size = New Size(73, 20)
+        OperationToolStripMenuItem.Text = "Operation"
+        ' 
+        ' RefreshTheRangeListToolStripMenuItem
+        ' 
+        RefreshTheRangeListToolStripMenuItem.Name = "RefreshTheRangeListToolStripMenuItem"
+        RefreshTheRangeListToolStripMenuItem.Size = New Size(201, 22)
+        RefreshTheRangeListToolStripMenuItem.Text = "Refresh the Range List"
+        ' 
+        ' SaveSettingsToolStripMenuItem
+        ' 
+        SaveSettingsToolStripMenuItem.Name = "SaveSettingsToolStripMenuItem"
+        SaveSettingsToolStripMenuItem.Size = New Size(201, 22)
+        SaveSettingsToolStripMenuItem.Text = "Save Setting"
+        ' 
+        ' LoadSettingToolStripMenuItem
+        ' 
+        LoadSettingToolStripMenuItem.Name = "LoadSettingToolStripMenuItem"
+        LoadSettingToolStripMenuItem.Size = New Size(201, 22)
+        LoadSettingToolStripMenuItem.Text = "Load Setting"
+        ' 
+        ' Config_Lagrange
+        ' 
+        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleMode = AutoScaleMode.Font
+        ClientSize = New Size(660, 432)
+        ControlBox = False
+        Controls.Add(MenuStrip1)
+        Controls.Add(CheckBox1)
+        Controls.Add(Label5)
+        Controls.Add(NumericUpDown1)
+        Controls.Add(Button11)
+        Controls.Add(TabControl1)
+        Controls.Add(Button4)
+        Controls.Add(Button3)
+        Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        FormBorderStyle = FormBorderStyle.FixedToolWindow
+        Margin = New Padding(3, 4, 3, 4)
+        MaximizeBox = False
+        MinimizeBox = False
+        Name = "Config_Lagrange"
+        Text = "DEC"
+        TopMost = True
+        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(NumericUpDown2, ComponentModel.ISupportInitialize).EndInit()
+        TabControl1.ResumeLayout(False)
+        TabPage1.ResumeLayout(False)
+        TabPage1.PerformLayout()
+        TabPage2.ResumeLayout(False)
+        TabPage2.PerformLayout()
+        CType(DataGridView3, ComponentModel.ISupportInitialize).EndInit()
+        CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
+        TabPage3.ResumeLayout(False)
+        TabPage3.PerformLayout()
+        CType(DataGridView5, ComponentModel.ISupportInitialize).EndInit()
+        CType(DataGridView4, ComponentModel.ISupportInitialize).EndInit()
+        CType(NumericUpDown1, ComponentModel.ISupportInitialize).EndInit()
+        MenuStrip1.ResumeLayout(False)
+        MenuStrip1.PerformLayout()
+        ResumeLayout(False)
+        PerformLayout()
 
     End Sub
     Friend WithEvents Button4 As System.Windows.Forms.Button

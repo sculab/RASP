@@ -3,22 +3,22 @@ Imports System.Drawing
 Imports System.Drawing.Drawing2D
 Public Class View_Tracer
 
-    Private Sub View_Tracer_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub View_Tracer_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles MyBase.FormClosing
         e.Cancel = True
-        Me.Hide()
+        Hide
     End Sub
     Dim sample_parameters() As Integer
     Dim sample_number() As String
     Dim max_p, min_p, cyc_count As Integer
 
-    Private Sub View_Tracer_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
-        PictureBox1.Refresh()
+    Private Sub View_Tracer_Resize(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Resize
+        PictureBox1.Refresh
     End Sub
-    Private Sub View_Tracer_VisibleChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.VisibleChanged
-        If Me.Visible Then
+    Private Sub View_Tracer_VisibleChanged(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.VisibleChanged
+        If Visible Then
             If File.Exists(root_path + "temp" + path_char + "bayarea.areas.txt.parameters.txt") Then
                 Dim sr As New StreamReader(root_path + "temp" + path_char + "bayarea.areas.txt.parameters.txt")
-                Dim line As String = sr.ReadLine
+                Dim line = sr.ReadLine
                 line = sr.ReadLine
                 cyc_count = 0
                 Do
@@ -32,7 +32,7 @@ Public Class View_Tracer
                 cyc_count -= 1
                 max_p = sample_parameters(0)
                 min_p = sample_parameters(0)
-                For i As Integer = 0 To cyc_count
+                For i = 0 To cyc_count
                     If sample_parameters(i) < min_p Then
                         min_p = sample_parameters(i)
                     End If
@@ -40,7 +40,7 @@ Public Class View_Tracer
                         max_p = sample_parameters(i)
                     End If
                 Next
-                sr.Close()
+                sr.Close
                 cyc_count += 1
             Else
                 MsgBox("Could not find Bayarea parameters!")

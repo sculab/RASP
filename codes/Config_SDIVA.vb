@@ -5,10 +5,10 @@ Public Class Config_SDIVA
     Dim rgView As New DataView
 
 
-    Private Sub Range_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub Range_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles MyBase.FormClosing
         'RangeMade = True
         e.Cancel = True
-        Me.Hide()
+        Hide
 
     End Sub
 
@@ -189,8 +189,8 @@ Public Class Config_SDIVA
         Me.Hide()
     End Sub
 
-    Private Sub RangeForm_VisibleChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.VisibleChanged
-        If Me.Visible = True Then
+    Private Sub RangeForm_VisibleChanged(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.VisibleChanged
+        If Visible = True Then
             If RangeStr.Length <> DataGridView1.Columns.Count Then
                 If taxon_num > 10 Then
                     NumericUpDown1.Value = Math.Max(2, CInt(2 ^ (taxon_num / 60)))
@@ -198,23 +198,23 @@ Public Class Config_SDIVA
                 Dim Tempchar() As Char = RangeStr.ToUpper
                 NumericUpDown2.Maximum = RangeStr.Length
                 Array.Sort(Tempchar)
-                DataGridView1.Columns.Clear()
-                DataGridView1.Rows.Clear()
+                DataGridView1.Columns.Clear
+                DataGridView1.Rows.Clear
                 DataGridView1.AllowUserToAddRows = True
                 DataGridView1.AllowUserToDeleteRows = True
                 DataGridView1.AllowUserToOrderColumns = True
                 DataGridView1.AllowUserToResizeColumns = True
                 DataGridView1.AllowUserToResizeRows = True
-                Dim r As Integer = 0
-                For Each i As Char In Tempchar
+                Dim r = 0
+                For Each i In Tempchar
                     Dim Column As New DataGridViewCheckBoxColumn
                     Column.HeaderText = i.ToString
                     Column.Width = 32
                     Column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
                     DataGridView1.Columns.Add(Column)
-                    DataGridView1.Rows.Add()
+                    DataGridView1.Rows.Add
                     DataGridView1.Rows(r).HeaderCell.Value = i.ToString
-                    For j As Integer = 0 To r
+                    For j = 0 To r
                         DataGridView1.Rows(r).Cells(j).ReadOnly = True
                         DataGridView1.Rows(r).Cells(j).Style.SelectionBackColor = Color.Gray
                         DataGridView1.Rows(r).Cells(j).Style.SelectionForeColor = Color.Gray
@@ -223,8 +223,8 @@ Public Class Config_SDIVA
                     Next
                     r = r + 1
                 Next
-                For i As Integer = 0 To Tempchar.Length - 1
-                    For j As Integer = i To Tempchar.Length - 2
+                For i = 0 To Tempchar.Length - 1
+                    For j = i To Tempchar.Length - 2
                         DataGridView1.Rows(i).Cells(j + 1).Value = True
                     Next
                 Next
@@ -256,10 +256,10 @@ Public Class Config_SDIVA
                 DataGridView2.Columns(2).SortMode = DataGridViewColumnSortMode.NotSortable
                 DataGridView2.Columns(0).ReadOnly = True
                 DataGridView2.Columns(1).ReadOnly = True
-                For i As Integer = 1 To nodeView.Count
+                For i = 1 To nodeView.Count
                     Dim temp_row(2) As String
-                    temp_row(0) = nodeView.Item(i - 1).Item(0).ToString()
-                    temp_row(1) = nodeView.Item(i - 1).Item(1).ToString()
+                    temp_row(0) = nodeView.Item(i - 1).Item(0).ToString
+                    temp_row(1) = nodeView.Item(i - 1).Item(1).ToString
                     temp_row(2) = ""
                     DataGridView2.Rows.Add(temp_row)
                 Next

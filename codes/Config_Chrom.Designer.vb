@@ -22,301 +22,300 @@ Partial Class Config_Chrom
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
+        components = New ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Config_Chrom))
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TranslateResultToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FormatTreeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.TimerChromEvol = New System.Windows.Forms.Timer(Me.components)
-        Me.GroupBox1.SuspendLayout()
-        Me.MenuStrip1.SuspendLayout()
-        Me.SuspendLayout()
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(378, 308)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Build Files"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(4, 16)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(93, 15)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Model selection"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"All_Models", "Optimize_Model"})
-        Me.ComboBox1.Location = New System.Drawing.Point(115, 11)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(140, 23)
-        Me.ComboBox1.TabIndex = 2
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(4, 42)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(175, 15)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Maximal chromosome number"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(187, 39)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(68, 21)
-        Me.TextBox1.TabIndex = 4
-        Me.TextBox1.Text = "-10"
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(187, 64)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(68, 21)
-        Me.TextBox2.TabIndex = 5
-        Me.TextBox2.Text = "1"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(4, 68)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(173, 15)
-        Me.Label3.TabIndex = 6
-        Me.Label3.Text = "Minimal chromosome number"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(4, 93)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(133, 15)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "Number of simulations"
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(187, 89)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(68, 21)
-        Me.TextBox3.TabIndex = 8
-        Me.TextBox3.Text = "10000"
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(6, 213)
-        Me.TextBox4.Multiline = True
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.ReadOnly = True
-        Me.TextBox4.Size = New System.Drawing.Size(248, 86)
-        Me.TextBox4.TabIndex = 9
-        Me.TextBox4.Text = "_branchMul 999" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_simulationsNum 0" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_logValue 6" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_maxOptimizationIterations 5" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_ep" &
-    "silonLLimprovement 0.01" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_optimizePointsNum 10,3,1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_optimizeIterNum 0,2,5" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_gai" &
-    "nConstR 1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_lossConstR 1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "_duplConstR 1"
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(459, 308)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 11
-        Me.Button2.Text = "Close"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'TextBox5
-        '
-        Me.TextBox5.Location = New System.Drawing.Point(271, 33)
-        Me.TextBox5.Multiline = True
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.ReadOnly = True
-        Me.TextBox5.Size = New System.Drawing.Size(263, 269)
-        Me.TextBox5.TabIndex = 12
-        Me.TextBox5.Text = resources.GetString("TextBox5.Text")
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.CheckBox1)
-        Me.GroupBox1.Controls.Add(Me.TextBox8)
-        Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.TextBox6)
-        Me.GroupBox1.Controls.Add(Me.TextBox7)
-        Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.TextBox4)
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Controls.Add(Me.TextBox3)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Location = New System.Drawing.Point(2, 26)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(263, 305)
-        Me.GroupBox1.TabIndex = 13
-        Me.GroupBox1.TabStop = False
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(9, 192)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(115, 19)
-        Me.CheckBox1.TabIndex = 17
-        Me.CheckBox1.Text = "More command:"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'TextBox8
-        '
-        Me.TextBox8.Location = New System.Drawing.Point(187, 164)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(68, 21)
-        Me.TextBox8.TabIndex = 16
-        Me.TextBox8.Text = "0"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(4, 168)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(132, 15)
-        Me.Label8.TabIndex = 15
-        Me.Label8.Text = "Optimize base number"
-        '
-        'TextBox6
-        '
-        Me.TextBox6.Location = New System.Drawing.Point(187, 139)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(68, 21)
-        Me.TextBox6.TabIndex = 14
-        Me.TextBox6.Text = "0.5"
-        '
-        'TextBox7
-        '
-        Me.TextBox7.Location = New System.Drawing.Point(187, 114)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(68, 21)
-        Me.TextBox7.TabIndex = 11
-        Me.TextBox7.Text = "9"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(4, 143)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(127, 15)
-        Me.Label6.TabIndex = 13
-        Me.Label6.Text = "Rate for base number"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(4, 118)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(82, 15)
-        Me.Label7.TabIndex = 12
-        Me.Label7.Text = "Base number"
-        '
-        'MenuStrip1
-        '
-        Me.MenuStrip1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(536, 24)
-        Me.MenuStrip1.TabIndex = 14
-        Me.MenuStrip1.Text = "MenuStrip1"
-        '
-        'FileToolStripMenuItem
-        '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TranslateResultToolStripMenuItem, Me.FormatTreeToolStripMenuItem})
-        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(39, 20)
-        Me.FileToolStripMenuItem.Text = "File"
-        '
-        'TranslateResultToolStripMenuItem
-        '
-        Me.TranslateResultToolStripMenuItem.Name = "TranslateResultToolStripMenuItem"
-        Me.TranslateResultToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
-        Me.TranslateResultToolStripMenuItem.Text = "Translate Result"
-        '
-        'FormatTreeToolStripMenuItem
-        '
-        Me.FormatTreeToolStripMenuItem.Name = "FormatTreeToolStripMenuItem"
-        Me.FormatTreeToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
-        Me.FormatTreeToolStripMenuItem.Text = "Translate Tree"
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(271, 308)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 15
-        Me.Button3.Text = "Auto Run"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'TimerChromEvol
-        '
-        Me.TimerChromEvol.Interval = 1000
-        '
-        'Config_Chrom
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(536, 332)
-        Me.ControlBox = False
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.TextBox5)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.MenuStrip1)
-        Me.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MainMenuStrip = Me.MenuStrip1
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
-        Me.Name = "Config_Chrom"
-        Me.Text = "ChromEvol"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        Button1 = New Button()
+        Label1 = New Label()
+        ComboBox1 = New ComboBox()
+        Label2 = New Label()
+        TextBox1 = New TextBox()
+        TextBox2 = New TextBox()
+        Label3 = New Label()
+        Label4 = New Label()
+        TextBox3 = New TextBox()
+        TextBox4 = New TextBox()
+        Button2 = New Button()
+        TextBox5 = New TextBox()
+        GroupBox1 = New GroupBox()
+        CheckBox1 = New CheckBox()
+        TextBox8 = New TextBox()
+        Label8 = New Label()
+        TextBox6 = New TextBox()
+        TextBox7 = New TextBox()
+        Label6 = New Label()
+        Label7 = New Label()
+        MenuStrip1 = New MenuStrip()
+        FileToolStripMenuItem = New ToolStripMenuItem()
+        TranslateResultToolStripMenuItem = New ToolStripMenuItem()
+        FormatTreeToolStripMenuItem = New ToolStripMenuItem()
+        Button3 = New Button()
+        TimerChromEvol = New Timer(components)
+        GroupBox1.SuspendLayout()
+        MenuStrip1.SuspendLayout()
+        SuspendLayout()
+        ' 
+        ' Button1
+        ' 
+        Button1.Location = New Point(378, 308)
+        Button1.Margin = New Padding(3, 4, 3, 4)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(75, 23)
+        Button1.TabIndex = 0
+        Button1.Text = "Build Files"
+        Button1.UseVisualStyleBackColor = True
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(4, 16)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(93, 15)
+        Label1.TabIndex = 1
+        Label1.Text = "Model selection"
+        ' 
+        ' ComboBox1
+        ' 
+        ComboBox1.FormattingEnabled = True
+        ComboBox1.Items.AddRange(New Object() {"All_Models", "Optimize_Model"})
+        ComboBox1.Location = New Point(115, 11)
+        ComboBox1.Margin = New Padding(3, 4, 3, 4)
+        ComboBox1.Name = "ComboBox1"
+        ComboBox1.Size = New Size(140, 23)
+        ComboBox1.TabIndex = 2
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Location = New Point(4, 42)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(175, 15)
+        Label2.TabIndex = 3
+        Label2.Text = "Maximal chromosome number"
+        ' 
+        ' TextBox1
+        ' 
+        TextBox1.Location = New Point(187, 39)
+        TextBox1.Name = "TextBox1"
+        TextBox1.Size = New Size(68, 21)
+        TextBox1.TabIndex = 4
+        TextBox1.Text = "-10"
+        ' 
+        ' TextBox2
+        ' 
+        TextBox2.Location = New Point(187, 64)
+        TextBox2.Name = "TextBox2"
+        TextBox2.Size = New Size(68, 21)
+        TextBox2.TabIndex = 5
+        TextBox2.Text = "1"
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Location = New Point(4, 68)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(173, 15)
+        Label3.TabIndex = 6
+        Label3.Text = "Minimal chromosome number"
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Location = New Point(4, 93)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(133, 15)
+        Label4.TabIndex = 7
+        Label4.Text = "Number of simulations"
+        ' 
+        ' TextBox3
+        ' 
+        TextBox3.Location = New Point(187, 89)
+        TextBox3.Name = "TextBox3"
+        TextBox3.Size = New Size(68, 21)
+        TextBox3.TabIndex = 8
+        TextBox3.Text = "10000"
+        ' 
+        ' TextBox4
+        ' 
+        TextBox4.Location = New Point(6, 213)
+        TextBox4.Multiline = True
+        TextBox4.Name = "TextBox4"
+        TextBox4.ReadOnly = True
+        TextBox4.Size = New Size(248, 86)
+        TextBox4.TabIndex = 9
+        TextBox4.Text = "_branchMul 999" & vbCrLf & "_simulationsNum 0" & vbCrLf & "_logValue 6" & vbCrLf & "_maxOptimizationIterations 5" & vbCrLf & "_epsilonLLimprovement 0.01" & vbCrLf & "_optimizePointsNum 10,3,1" & vbCrLf & "_optimizeIterNum 0,2,5" & vbCrLf & "_gainConstR 1" & vbCrLf & "_lossConstR 1" & vbCrLf & "_duplConstR 1"
+        ' 
+        ' Button2
+        ' 
+        Button2.Location = New Point(459, 308)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(75, 23)
+        Button2.TabIndex = 11
+        Button2.Text = "Close"
+        Button2.UseVisualStyleBackColor = True
+        ' 
+        ' TextBox5
+        ' 
+        TextBox5.Location = New Point(271, 33)
+        TextBox5.Multiline = True
+        TextBox5.Name = "TextBox5"
+        TextBox5.ReadOnly = True
+        TextBox5.Size = New Size(263, 269)
+        TextBox5.TabIndex = 12
+        TextBox5.Text = resources.GetString("TextBox5.Text")
+        ' 
+        ' GroupBox1
+        ' 
+        GroupBox1.Controls.Add(CheckBox1)
+        GroupBox1.Controls.Add(TextBox8)
+        GroupBox1.Controls.Add(Label8)
+        GroupBox1.Controls.Add(TextBox6)
+        GroupBox1.Controls.Add(TextBox7)
+        GroupBox1.Controls.Add(Label6)
+        GroupBox1.Controls.Add(Label7)
+        GroupBox1.Controls.Add(TextBox4)
+        GroupBox1.Controls.Add(Label1)
+        GroupBox1.Controls.Add(ComboBox1)
+        GroupBox1.Controls.Add(Label2)
+        GroupBox1.Controls.Add(TextBox1)
+        GroupBox1.Controls.Add(TextBox3)
+        GroupBox1.Controls.Add(TextBox2)
+        GroupBox1.Controls.Add(Label4)
+        GroupBox1.Controls.Add(Label3)
+        GroupBox1.Location = New Point(2, 26)
+        GroupBox1.Name = "GroupBox1"
+        GroupBox1.Size = New Size(263, 305)
+        GroupBox1.TabIndex = 13
+        GroupBox1.TabStop = False
+        ' 
+        ' CheckBox1
+        ' 
+        CheckBox1.AutoSize = True
+        CheckBox1.Location = New Point(9, 192)
+        CheckBox1.Name = "CheckBox1"
+        CheckBox1.Size = New Size(115, 19)
+        CheckBox1.TabIndex = 17
+        CheckBox1.Text = "More command:"
+        CheckBox1.UseVisualStyleBackColor = True
+        ' 
+        ' TextBox8
+        ' 
+        TextBox8.Location = New Point(187, 164)
+        TextBox8.Name = "TextBox8"
+        TextBox8.Size = New Size(68, 21)
+        TextBox8.TabIndex = 16
+        TextBox8.Text = "0"
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Location = New Point(4, 168)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(132, 15)
+        Label8.TabIndex = 15
+        Label8.Text = "Optimize base number"
+        ' 
+        ' TextBox6
+        ' 
+        TextBox6.Location = New Point(187, 139)
+        TextBox6.Name = "TextBox6"
+        TextBox6.Size = New Size(68, 21)
+        TextBox6.TabIndex = 14
+        TextBox6.Text = "0.5"
+        ' 
+        ' TextBox7
+        ' 
+        TextBox7.Location = New Point(187, 114)
+        TextBox7.Name = "TextBox7"
+        TextBox7.Size = New Size(68, 21)
+        TextBox7.TabIndex = 11
+        TextBox7.Text = "9"
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Location = New Point(4, 143)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(127, 15)
+        Label6.TabIndex = 13
+        Label6.Text = "Rate for base number"
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Location = New Point(4, 118)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(82, 15)
+        Label7.TabIndex = 12
+        Label7.Text = "Base number"
+        ' 
+        ' MenuStrip1
+        ' 
+        MenuStrip1.Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        MenuStrip1.Items.AddRange(New ToolStripItem() {FileToolStripMenuItem})
+        MenuStrip1.Location = New Point(0, 0)
+        MenuStrip1.Name = "MenuStrip1"
+        MenuStrip1.Size = New Size(536, 24)
+        MenuStrip1.TabIndex = 14
+        MenuStrip1.Text = "MenuStrip1"
+        ' 
+        ' FileToolStripMenuItem
+        ' 
+        FileToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {TranslateResultToolStripMenuItem, FormatTreeToolStripMenuItem})
+        FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        FileToolStripMenuItem.Size = New Size(39, 20)
+        FileToolStripMenuItem.Text = "File"
+        ' 
+        ' TranslateResultToolStripMenuItem
+        ' 
+        TranslateResultToolStripMenuItem.Name = "TranslateResultToolStripMenuItem"
+        TranslateResultToolStripMenuItem.Size = New Size(165, 22)
+        TranslateResultToolStripMenuItem.Text = "Translate Result"
+        ' 
+        ' FormatTreeToolStripMenuItem
+        ' 
+        FormatTreeToolStripMenuItem.Name = "FormatTreeToolStripMenuItem"
+        FormatTreeToolStripMenuItem.Size = New Size(165, 22)
+        FormatTreeToolStripMenuItem.Text = "Translate Tree"
+        ' 
+        ' Button3
+        ' 
+        Button3.Location = New Point(271, 308)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(75, 23)
+        Button3.TabIndex = 15
+        Button3.Text = "Auto Run"
+        Button3.UseVisualStyleBackColor = True
+        ' 
+        ' TimerChromEvol
+        ' 
+        TimerChromEvol.Interval = 1000
+        ' 
+        ' Config_Chrom
+        ' 
+        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleMode = AutoScaleMode.Font
+        ClientSize = New Size(536, 332)
+        ControlBox = False
+        Controls.Add(Button3)
+        Controls.Add(GroupBox1)
+        Controls.Add(TextBox5)
+        Controls.Add(Button2)
+        Controls.Add(Button1)
+        Controls.Add(MenuStrip1)
+        Font = New Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        FormBorderStyle = FormBorderStyle.FixedToolWindow
+        MainMenuStrip = MenuStrip1
+        Margin = New Padding(3, 4, 3, 4)
+        MaximizeBox = False
+        MinimizeBox = False
+        Name = "Config_Chrom"
+        Text = "ChromEvol"
+        GroupBox1.ResumeLayout(False)
+        GroupBox1.PerformLayout()
+        MenuStrip1.ResumeLayout(False)
+        MenuStrip1.PerformLayout()
+        ResumeLayout(False)
+        PerformLayout()
 
     End Sub
     Friend WithEvents Button1 As System.Windows.Forms.Button
